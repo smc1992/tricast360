@@ -99,7 +99,7 @@ export default function ProblemSolutionSection() {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto px-4">
             Klassischer Baumschutz war schwer, sperrig und oft nicht regelkonform. 
-            <span className="text-[#39F2AE] font-medium"> Treecast360 macht es leicht, wiederverwendbar und effizient.</span>
+            <span className="text-[#39F2AE] font-medium"> Tricast360 macht es leicht, wiederverwendbar und effizient.</span>
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export default function ProblemSolutionSection() {
                 </div>
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-light text-[#2b3138]">Die Lösung</h3>
-                  <p className="text-[#39F2AE] text-xs sm:text-sm">Treecast360 Innovation</p>
+                  <p className="text-[#39F2AE] text-xs sm:text-sm">Tricast360 Innovation</p>
                 </div>
               </div>
               

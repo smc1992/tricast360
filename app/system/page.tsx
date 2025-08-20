@@ -23,7 +23,7 @@ export default function SystemPage() {
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="text-center mb-16">
             <h1 className="text-5xl lg:text-6xl font-light mb-6 text-gray-800">
-              Das Treecast360
+              Das Tricast360
               <span className="block text-[#39F2AE]">System im Detail</span>
             </h1>
             <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">

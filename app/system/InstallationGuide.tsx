@@ -104,7 +104,7 @@ export default function InstallationGuide() {
           <span className="block text-[#39F2AE]">5 einfachen Schritten</span>
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Die werkzeuglose Installation des Treecast360-Systems dauert nur wenige Minuten 
+          Die werkzeuglose Installation des Tricast360-Systems dauert nur wenige Minuten 
           und kann ohne spezielle Schulung durchgeführt werden.
         </p>
       </div>

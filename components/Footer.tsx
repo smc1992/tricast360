@@ -22,7 +22,7 @@ export default function Footer() {
                 <i className="ri-tree-line text-white text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-semibold text-white">Treecast360</span>
+                <span className="text-2xl font-semibold text-white">Tricast360</span>
                 <span className="text-xs text-emerald-400 font-medium">Nachhaltige Innovation</span>
               </div>
             </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-emerald-800/40 rounded-xl flex items-center justify-center hover:bg-emerald-700/50 transition-colors duration-200 cursor-pointer border border-emerald-700/30 hover:border-emerald-600/50">
                 <i className="ri-linkedin-line text-emerald-300 text-lg"></i>
               </div>
-              <a href="mailto:info@treecast360.de" className="w-10 h-10 bg-teal-800/40 rounded-xl flex items-center justify-center hover:bg-teal-700/50 transition-colors duration-200 cursor-pointer border border-teal-700/30 hover:border-teal-600/50">
+              <a href="mailto:info@tricast360.de" className="w-10 h-10 bg-teal-800/40 rounded-xl flex items-center justify-center hover:bg-teal-700/50 transition-colors duration-200 cursor-pointer border border-teal-700/30 hover:border-teal-600/50">
                 <i className="ri-mail-line text-teal-300 text-lg"></i>
               </a>
               <div className="w-10 h-10 bg-green-800/40 rounded-xl flex items-center justify-center hover:bg-green-700/50 transition-colors duration-200 cursor-pointer border border-green-700/30 hover:border-green-600/50">
@@ -101,7 +101,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white font-medium">E-Mail</p>
-                  <p className="text-gray-300 text-sm hover:text-emerald-400 transition-colors duration-200 cursor-pointer">info@treecast360.de</p>
+                  <p className="text-gray-300 text-sm hover:text-emerald-400 transition-colors duration-200 cursor-pointer">info@tricast360.de</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 group">
@@ -132,7 +132,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-gray-700/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col md:flex-row gap-6 text-sm text-gray-400">
-              <span> {currentYear} Treecast360. Alle Rechte vorbehalten.</span>
+              <span> {currentYear} Tricast360. Alle Rechte vorbehalten.</span>
               <div className="flex gap-6">
                 <Link href="/datenschutz" className="hover:text-emerald-400 transition-colors duration-200 cursor-pointer">
                   Datenschutz

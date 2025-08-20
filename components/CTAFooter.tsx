@@ -26,7 +26,7 @@ export default function CTAFooter() {
                 <span className="block gradient-text font-medium shimmer">neu denken</span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto px-4">
-                Starten Sie Ihr nächstes Projekt mit Treecast360 und erleben Sie 
+                Starten Sie Ihr nächstes Projekt mit Tricast360 und erleben Sie 
                 die Zukunft des nachhaltigen Baumschutzes.
               </p>
             </div>
@@ -58,7 +58,7 @@ export default function CTAFooter() {
                 </div>
                 <div>
                   <h4 className="text-sm sm:text-base text-[#2b3138] font-medium mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">E-Mail</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">info@treecast360.de</p>
+                  <p className="text-xs sm:text-sm text-gray-600">info@tricast360.de</p>
                 </div>
               </Link>
               

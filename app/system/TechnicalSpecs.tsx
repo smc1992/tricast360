@@ -144,7 +144,7 @@ export default function TechnicalSpecs() {
             Zertifizierungen & Standards
           </h3>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Treecast360 erfüllt alle relevanten europäischen und deutschen Normen 
+            Tricast360 erfüllt alle relevanten europäischen und deutschen Normen 
             für Baumschutz und Baustellensicherheit.
           </p>
         </div>
@@ -173,7 +173,7 @@ export default function TechnicalSpecs() {
           </h3>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Umfassende Testserien bestätigen die Leistungsfähigkeit und Sicherheit 
-            des Treecast360-Systems unter allen Einsatzbedingungen.
+            des Tricast360-Systems unter allen Einsatzbedingungen.
           </p>
         </div>
 
@@ -211,7 +211,7 @@ export default function TechnicalSpecs() {
             Umwelt & Nachhaltigkeit
           </h3>
           <p className="text-gray-600 leading-relaxed">
-            Treecast360 wurde von Grund auf für maximale Nachhaltigkeit entwickelt. 
+            Tricast360 wurde von Grund auf für maximale Nachhaltigkeit entwickelt. 
             Durch die Wiederverwendbarkeit und den hohen Recycling-Anteil leisten 
             Sie einen aktiven Beitrag zum Umweltschutz.
           </p>
@@ -253,7 +253,7 @@ export default function TechnicalSpecs() {
           <div className="relative w-full max-w-md">
             <img 
               src="https://readdy.ai/api/search-image?query=Sustainable%20green%20tree%20protection%20system%20made%20from%20recycled%20materials%2C%20environmental%20certification%20symbols%2C%20eco-friendly%20industrial%20design%2C%20clean%20modern%20aesthetic%2C%20sustainability%20concept%20with%20natural%20elements%2C%20professional%20product%20photography%20with%20environmental%20focus&width=500&height=600&seq=sustainability&orientation=portrait"
-              alt="Nachhaltigkeit Treecast360"
+              alt="Nachhaltigkeit Tricast360"
               className="w-full h-auto rounded-2xl shadow-xl object-top"
             />
             <div className="absolute -bottom-4 -right-4 bg-[#39F2AE] rounded-2xl p-4 shadow-xl">

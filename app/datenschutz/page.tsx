@@ -41,13 +41,13 @@ export default function Datenschutz() {
               <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
                 <p className="text-gray-600 mb-4">Verantwortlicher für die Datenverarbeitung auf dieser Website ist:</p>
                 <div className="text-[#2b3138]">
-                  <p className="font-medium">Treecast360</p>
+                  <p className="font-medium">Tricast360</p>
                   <p>Galip Alkan</p>
                   <p>Lüneburger Str. 90</p>
                   <p>D-21423 Winsen (Luhe)</p>
                   <p className="mt-3">
                     Telefon: +49 (0) 123 456 789<br/>
-                    E-Mail: info@treecast360.de
+                    E-Mail: info@tricast360.de
                   </p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function Datenschutz() {
                   <div className="bg-[#39F2AE]/5 rounded-xl p-4 border border-[#39F2AE]/20">
                     <p className="text-[#2b3138] text-sm">
                       <strong>Kontakt:</strong> Bei Fragen zum Datenschutz wenden Sie sich gerne an uns unter 
-                      info@treecast360.de
+                      info@tricast360.de
                     </p>
                   </div>
                 </div>
@@ -304,7 +304,7 @@ export default function Datenschutz() {
                     <i className="ri-mail-line"></i>
                     Kontakt aufnehmen
                   </Link>
-                  <a href="mailto:info@treecast360.de" className="inline-flex items-center gap-2 border border-[#39F2AE] text-[#39F2AE] px-6 py-3 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200">
+                  <a href="mailto:info@tricast360.de" className="inline-flex items-center gap-2 border border-[#39F2AE] text-[#39F2AE] px-6 py-3 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200">
                     <i className="ri-mail-line"></i>
                     Direkte E-Mail
                   </a>

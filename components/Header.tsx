@@ -33,7 +33,7 @@ export default function Header() {
                 <i className="ri-tree-line text-white text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300"></i>
               </div>
               <span className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors duration-300">
-                Treecast360
+                Tricast360
               </span>
               {/* Umwelt-Badge */}
               <div className="hidden sm:flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium border border-emerald-200/60">

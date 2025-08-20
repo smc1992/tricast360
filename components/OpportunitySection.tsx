@@ -37,11 +37,11 @@ export default function OpportunitySection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#2b3138] mb-4 sm:mb-6">
-            Warum Treecast360?
+            Warum Tricast360?
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
             Die Zukunft des Baumschutzes liegt in intelligenten, nachhaltigen Lösungen. 
-            Treecast360 revolutioniert den Markt mit durchdachter Innovation.
+            Tricast360 revolutioniert den Markt mit durchdachter Innovation.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function OpportunitySection() {
               </h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 Von kommunalen Projekten bis hin zu großen Infrastrukturmaßnahmen – 
-                Treecast360 passt sich flexibel an verschiedenste Anforderungen an.
+                Tricast360 passt sich flexibel an verschiedenste Anforderungen an.
               </p>
             </div>
 

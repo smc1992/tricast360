@@ -29,12 +29,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Treecast360 – Baumschutz neu definiert",
+  title: "Tricast360 – Baumschutz neu definiert",
   description: "Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkonform. Innovative Lösung für nachhaltigen Baumschutz auf Baustellen.",
   keywords: "Baumschutz, Baustelle, modulares System, 360°, nachhaltig, wiederverwendbar, normkonform, Baustellenschutz, Umweltschutz",
-  authors: [{ name: "Treecast360" }],
-  creator: "Treecast360",
-  publisher: "Treecast360",
+  authors: [{ name: "Tricast360" }],
+  creator: "Tricast360",
+  publisher: "Tricast360",
   robots: {
     index: true,
     follow: true,
@@ -50,24 +50,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
     url: 'https://tricast360.de',
-    siteName: 'Treecast360',
-    title: 'Treecast360 – Baumschutz neu definiert',
+    siteName: 'Tricast360',
+    title: 'Tricast360 – Baumschutz neu definiert',
     description: 'Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkonform. Innovative Lösung für nachhaltigen Baumschutz auf Baustellen.',
     images: [
       {
         url: 'https://tricast360.de/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Treecast360 Baumschutzsystem',
+        alt: 'Tricast360 Baumschutzsystem',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Treecast360 – Baumschutz neu definiert',
+    title: 'Tricast360 – Baumschutz neu definiert',
     description: 'Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkonform.',
     images: ['https://tricast360.de/og-image.jpg'],
-    creator: '@treecast360',
+    creator: '@tricast360',
   },
   alternates: {
     canonical: 'https://tricast360.de',

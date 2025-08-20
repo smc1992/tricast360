@@ -28,7 +28,7 @@ export default function UeberUns() {
                 </h1>
                 
                 <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
-                  Das Treecast360 Team vereint sich in der Leidenschaft um Nachhaltigkeit, 
+                  Das Tricast360 Team vereint sich in der Leidenschaft um Nachhaltigkeit, 
                   Innovation und Sparsamkeit von Ressourcen rund um den Schutz der Bäume auf Baustellen.
                 </p>
               </div>
@@ -52,7 +52,7 @@ export default function UeberUns() {
                   
                   <div className="space-y-4">
                     <p className="text-gray-600 leading-relaxed">
-                      Als Gründer und Geschäftsführer von Treecast360 bringe ich meine Vision einer 
+                      Als Gründer und Geschäftsführer von Tricast360 bringe ich meine Vision einer 
                       nachhaltigen Zukunft in die Baubranche ein. Mit innovativen Lösungen möchten 
                       wir den Baumschutz revolutionieren.
                     </p>

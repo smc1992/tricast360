@@ -24,7 +24,7 @@ export default function HeroSection() {
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left opacity-0">
               <div className="space-y-4 sm:space-y-6">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-light leading-[1.1] tracking-tight text-[#2b3138]">
-                  <span className="block">Treecast360</span>
+                  <span className="block">Tricast360</span>
                   <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-gray-600 font-extralight mt-2">
                     Der neue Standard
                   </span>
@@ -114,7 +114,7 @@ export default function HeroSection() {
 
                   <div className="space-y-4 sm:space-y-6">
                     <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-light leading-[1.1] tracking-tight text-[#2b3138]">
-                      <span className="block">Treecast360</span>
+                      <span className="block">Tricast360</span>
                       <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-gray-600 font-extralight mt-2">
                         Der neue Standard
                       </span>

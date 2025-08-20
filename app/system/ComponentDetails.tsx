@@ -60,7 +60,7 @@ export default function ComponentDetails() {
           <span className="block text-[#39F2AE]">Systemkomponenten</span>
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Jede Komponente des Treecast360-Systems wurde für maximale Funktionalität, 
+          Jede Komponente des Tricast360-Systems wurde für maximale Funktionalität, 
           Langlebigkeit und Benutzerfreundlichkeit entwickelt.
         </p>
       </div>

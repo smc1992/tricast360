@@ -1,4 +1,4 @@
-# Treecast360 - Modulares 360° Baumschutzsystem
+# Tricast360 - Modulares 360° Baumschutzsystem
 
 Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkonform. Innovative Lösung für nachhaltigen Baumschutz auf Baustellen.
 
@@ -145,4 +145,4 @@ npm run lint         # ESLint
 
 ## 📄 Lizenz
 
-© 2024 Treecast360. Alle Rechte vorbehalten.
+© 2024 Tricast360. Alle Rechte vorbehalten.

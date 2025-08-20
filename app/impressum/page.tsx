@@ -38,7 +38,7 @@ export default function Impressum() {
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-lg font-medium text-[#2b3138] mb-2">Unternehmen</h3>
-                    <p className="text-gray-600">Treecast360</p>
+                    <p className="text-gray-600">Tricast360</p>
                     <p className="text-gray-600 text-sm italic">(Brand)</p>
                   </div>
                   
@@ -83,7 +83,7 @@ export default function Impressum() {
                     <i className="ri-mail-line text-[#39F2AE] w-5"></i>
                     <div>
                       <p className="text-[#2b3138] font-medium">E-Mail</p>
-                      <p className="text-gray-600">info@treecast360.de</p>
+                      <p className="text-gray-600">info@tricast360.de</p>
                     </div>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ export default function Impressum() {
                     <i className="ri-global-line text-[#39F2AE] w-5"></i>
                     <div>
                       <p className="text-[#2b3138] font-medium">Internet</p>
-                      <p className="text-gray-600">www.treecast360.de</p>
+                      <p className="text-gray-600">www.tricast360.de</p>
                     </div>
                   </div>
                 </div>

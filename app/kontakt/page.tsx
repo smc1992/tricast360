@@ -268,7 +268,7 @@ export default function KontaktPage() {
                     </div>
                     <div>
                       <p className="text-[#2b3138] font-medium">E-Mail</p>
-                      <p className="text-gray-600 text-sm">info@treecast360.de</p>
+                      <p className="text-gray-600 text-sm">info@tricast360.de</p>
                     </div>
                   </div>
 

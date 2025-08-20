@@ -4,7 +4,7 @@ export default function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Treecast360",
+    "name": "Tricast360",
     "url": "https://tricast360.de",
     "logo": "https://tricast360.de/logo.png",
     "description": "Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkonform. Innovative Lösung für nachhaltigen Baumschutz auf Baustellen.",
@@ -18,23 +18,23 @@ export default function StructuredData() {
       "availableLanguage": "German"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/treecast360",
-      "https://twitter.com/treecast360"
+      "https://www.linkedin.com/company/tricast360",
+      "https://twitter.com/tricast360"
     ]
   };
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Treecast360 Baumschutzsystem",
+    "name": "Tricast360 Baumschutzsystem",
     "description": "Modulares 360°-Baumschutzsystem für nachhaltigen Baumschutz auf Baustellen. Schnell installiert, wiederverwendbar und normkonform.",
     "brand": {
       "@type": "Brand",
-      "name": "Treecast360"
+      "name": "Tricast360"
     },
     "manufacturer": {
       "@type": "Organization",
-      "name": "Treecast360"
+      "name": "Tricast360"
     },
     "category": "Baustellenschutz",
     "offers": {
@@ -47,12 +47,12 @@ export default function StructuredData() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Treecast360",
+    "name": "Tricast360",
     "url": "https://tricast360.de",
     "description": "Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkonform.",
     "publisher": {
       "@type": "Organization",
-      "name": "Treecast360"
+      "name": "Tricast360"
     },
     "potentialAction": {
       "@type": "SearchAction",
