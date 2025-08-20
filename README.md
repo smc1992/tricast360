@@ -73,26 +73,7 @@ Das Projekt ist für automatisches Deployment über **Coolify** mit **Nixpacks**
    - **Custom Domain:** tricast360.de
    - **SSL/TLS:** Automatisch (Let's Encrypt)
 
-4. **Webhook URL kopieren:**
-   - Gehe zu Application → Webhooks
-   - Kopiere die Webhook URL
-
-#### 2. GitHub Secrets konfigurieren
-
-Gehe zu Repository Settings → Secrets and variables → Actions:
-
-```
-COOLIFY_WEBHOOK_URL=https://your-coolify-instance.com/api/v1/webhooks/your-webhook-id
-```
-
-### Manuelles Deployment
-
-```bash
-# Coolify Webhook triggern
-curl -X POST "$COOLIFY_WEBHOOK_URL" \
-  -H "Content-Type: application/json" \
-  -d '{"branch": "main", "commit": "latest"}'
-```
+Das war's! Coolify erkennt automatisch Änderungen im Repository und deployed bei jedem Push zum main Branch.
 
 ## 📁 Projekt-Struktur
 
