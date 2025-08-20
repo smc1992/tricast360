@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico, Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "../components/StructuredData";
+import CookieBanner from "../components/CookieBanner";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -98,6 +99,7 @@ export default function RootLayout({
       >
         <StructuredData />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
