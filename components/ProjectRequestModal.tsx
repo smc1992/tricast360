@@ -21,6 +21,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<string[]>([]);
 
   const projectTypes = [
     'Straßenbau',
@@ -42,40 +43,57 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Formular-Validierung
-    if (!formData.company || !formData.name || !formData.email || !formData.phone) {
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-      return;
-    }
+    setErrors([]);
+    setSubmitStatus('idle');
 
     try {
-      // Simulation einer API-Anfrage
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      
-      // Nach 3 Sekunden Modal schließen
-      setTimeout(() => {
-        onClose();
-        setFormData({
-          company: '',
-          name: '',
-          email: '',
-          phone: '',
-          projectType: '',
-          treeCount: '',
-          location: '',
-          startDate: '',
-          message: ''
-        });
-        setSubmitStatus('idle');
-      }, 3000);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'project',
+          ...formData
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        
+        // Nach 3 Sekunden Modal schließen und Form zurücksetzen
+        setTimeout(() => {
+          onClose();
+          resetForm();
+        }, 3000);
+      } else {
+        setSubmitStatus('error');
+        setErrors(result.errors || ['Ein Fehler ist aufgetreten']);
+      }
     } catch (error) {
       setSubmitStatus('error');
+      setErrors(['Netzwerkfehler. Bitte versuchen Sie es später erneut.']);
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      company: '',
+      name: '',
+      email: '',
+      phone: '',
+      projectType: '',
+      treeCount: '',
+      location: '',
+      startDate: '',
+      message: ''
+    });
+    setSubmitStatus('idle');
+    setErrors([]);
   };
 
   if (!isOpen) return null;
@@ -122,7 +140,15 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 <i className="ri-error-warning-line text-red-400 text-xl"></i>
                 <div>
                   <p className="text-red-400 font-medium">Fehler beim Senden</p>
-                  <p className="text-[#B6BCCA] text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
+                  {errors.length > 0 ? (
+                    <ul className="text-[#B6BCCA] text-sm mt-1">
+                      {errors.map((error, index) => (
+                        <li key={index}>• {error}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-[#B6BCCA] text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
+                  )}
                 </div>
               </div>
             </div>

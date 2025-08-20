@@ -16,6 +16,7 @@ export default function KontaktPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<string[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -28,18 +29,25 @@ export default function KontaktPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    if (!formData.name || !formData.email || !formData.message) {
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-      return;
-    }
+    setErrors([]);
+    setSubmitStatus('idle');
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'contact',
+          ...formData
+        }),
+      });
 
-      setTimeout(() => {
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
         setFormData({
           company: '',
           name: '',
@@ -48,13 +56,29 @@ export default function KontaktPage() {
           subject: '',
           message: ''
         });
-        setSubmitStatus('idle');
-      }, 4000);
+      } else {
+        setSubmitStatus('error');
+        setErrors(result.errors || ['Ein Fehler ist aufgetreten']);
+      }
     } catch (error) {
       setSubmitStatus('error');
+      setErrors(['Netzwerkfehler. Bitte versuchen Sie es später erneut.']);
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      company: '',
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
+    setSubmitStatus('idle');
+    setErrors([]);
   };
 
   return (
@@ -110,7 +134,15 @@ export default function KontaktPage() {
                       <i className="ri-error-warning-line text-red-400 text-xl"></i>
                       <div>
                         <p className="text-red-400 font-medium">Fehler beim Senden</p>
-                        <p className="text-gray-600 text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
+                        {errors.length > 0 ? (
+                          <ul className="text-gray-600 text-sm mt-1">
+                            {errors.map((error, index) => (
+                              <li key={index}>• {error}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-gray-600 text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
+                        )}
                       </div>
                     </div>
                   </div>
