@@ -10,15 +10,14 @@ Modulares 360°-Baumschutzsystem: schnell installiert, wiederverwendbar, normkon
 
 - **Framework:** Next.js 15 (App Router)
 - **Styling:** Tailwind CSS
-- **Deployment:** Coolify + Docker
+- **Deployment:** Coolify + Nixpacks
 - **CI/CD:** GitHub Actions
-- **Hosting:** Nginx (containerisiert)
+- **Hosting:** Statischer Export
 
 ## 📋 Voraussetzungen
 
 - Node.js 18+
 - npm oder yarn
-- Docker (für lokale Container-Tests)
 - Git
 
 ## 🏃‍♂️ Lokale Entwicklung
@@ -51,53 +50,18 @@ npm run build
 npx serve@latest out -p 3000
 ```
 
-## 🐳 Docker Entwicklung
-
-### Lokaler Docker Build
-```bash
-# Image bauen
-docker build -t treecast360 .
-
-# Container starten
-docker run -p 3000:80 treecast360
-```
-
-### Docker Compose (Entwicklung)
-```bash
-# Entwicklungsumgebung
-docker-compose up treecast-dev
-
-# Produktions-Test
-docker-compose --profile production up treecast-prod
-```
-
 ## 🚀 Deployment mit Coolify
 
-### Automatisches Deployment
+### Automatisches Deployment mit Nixpacks
 
-Das Projekt ist für automatisches Deployment über **Coolify** und **GitHub Actions** konfiguriert.
+Das Projekt ist für automatisches Deployment über **Coolify** mit **Nixpacks** konfiguriert.
 
-#### 1. GitHub Repository Setup
-
-1. **Repository auf GitHub pushen:**
-   ```bash
-   git add .
-   git commit -m "Initial commit: Treecast360 website"
-   git branch -M main
-   git remote add origin https://github.com/smc1992/tricast360.git
-   git push -u origin main
-   ```
-
-2. **GitHub Container Registry aktivieren:**
-   - Gehe zu Repository Settings → Packages
-   - Aktiviere "Improved container support"
-
-#### 2. Coolify Setup
+#### 1. Coolify Setup
 
 1. **Neue Anwendung in Coolify erstellen:**
-   - Source: GitHub Repository
-   - Build Pack: Docker
-   - Dockerfile: `./Dockerfile`
+   - **Source:** GitHub Repository (https://github.com/smc1992/tricast360)
+   - **Build Pack:** Nixpacks (automatisch erkannt)
+   - **Branch:** main
 
 2. **Umgebungsvariablen in Coolify setzen:**
    ```env
@@ -106,14 +70,14 @@ Das Projekt ist für automatisches Deployment über **Coolify** und **GitHub Act
    ```
 
 3. **Domain konfigurieren:**
-   - Custom Domain: `tricast360.de`
-   - SSL/TLS: Automatisch (Let's Encrypt)
+   - **Custom Domain:** tricast360.de
+   - **SSL/TLS:** Automatisch (Let's Encrypt)
 
 4. **Webhook URL kopieren:**
    - Gehe zu Application → Webhooks
    - Kopiere die Webhook URL
 
-#### 3. GitHub Secrets konfigurieren
+#### 2. GitHub Secrets konfigurieren
 
 Gehe zu Repository Settings → Secrets and variables → Actions:
 
@@ -124,20 +88,16 @@ COOLIFY_WEBHOOK_URL=https://your-coolify-instance.com/api/v1/webhooks/your-webho
 ### Manuelles Deployment
 
 ```bash
-# Build und Push zum GitHub Container Registry
-docker build -t ghcr.io/smc1992/tricast360:latest .
-docker push ghcr.io/smc1992/tricast360:latest
-
 # Coolify Webhook triggern
 curl -X POST "$COOLIFY_WEBHOOK_URL" \
   -H "Content-Type: application/json" \
-  -d '{"image": "ghcr.io/your-username/treecast360:latest"}'
+  -d '{"branch": "main", "commit": "latest"}'
 ```
 
 ## 📁 Projekt-Struktur
 
 ```
-treecast360/
+tricast360/
 ├── app/                    # Next.js App Router
 │   ├── globals.css        # Globale Styles
 │   ├── layout.tsx         # Root Layout mit SEO
@@ -155,11 +115,9 @@ treecast360/
 │   ├── sitemap.xml       # SEO Sitemap
 │   └── robots.txt        # Robots.txt
 ├── .github/workflows/    # GitHub Actions
-├── Dockerfile           # Docker Konfiguration
-├── docker-compose.yml   # Docker Compose
-├── nginx.conf          # Nginx Konfiguration
-├── .dockerignore       # Docker Ignore
 ├── .env.example        # Umgebungsvariablen Beispiel
+├── next.config.ts      # Next.js Konfiguration
+├── package.json        # Dependencies
 └── README.md           # Diese Datei
 ```
 
@@ -193,10 +151,10 @@ npm run lint         # ESLint
 
 ## 🔒 Sicherheit
 
-- **Security Headers** - Nginx Konfiguration
 - **HTTPS** - Automatisch via Coolify/Let's Encrypt
-- **Content Security Policy** - Implementiert
-- **XSS Protection** - Aktiviert
+- **Content Security Policy** - Next.js Headers
+- **XSS Protection** - Next.js Security Features
+- **Statischer Export** - Minimale Angriffsfläche
 
 ## 📞 Support & Kontakt
 
