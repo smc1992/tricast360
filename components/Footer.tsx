@@ -72,7 +72,7 @@ export default function Footer() {
               </Link>
               <a href="#funktionsweise" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
                 <i className="ri-settings-line text-sm opacity-60 group-hover:opacity-100"></i>
-                Öko-Funktionsweise
+                Funktionsweise
               </a>
               <a href="#vorteile" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
                 <i className="ri-leaf-line text-sm opacity-60 group-hover:opacity-100"></i>
@@ -82,10 +82,6 @@ export default function Footer() {
                 <i className="ri-eco-line text-sm opacity-60 group-hover:opacity-100"></i>
                 Nachhaltiges System
               </Link>
-              <a href="#" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
-                <i className="ri-download-line text-sm opacity-60 group-hover:opacity-100"></i>
-                Öko-Downloads
-              </a>
             </nav>
           </div>
 
