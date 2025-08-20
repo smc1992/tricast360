@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Coolify via Webhook
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && secrets.COOLIFY_WEBHOOK_URL != ''
         run: |
           curl -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
@@ -38,6 +38,12 @@ jobs:
               "branch": "main",
               "commit": "${{ github.sha }}"
             }'
+
+      - name: Skip webhook (no URL configured)
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && secrets.COOLIFY_WEBHOOK_URL == ''
+        run: |
+          echo "⚠️ COOLIFY_WEBHOOK_URL secret not configured. Skipping automatic deployment."
+          echo "💡 To enable automatic deployment, add COOLIFY_WEBHOOK_URL to repository secrets."
 
       - name: Notify deployment status
         if: always()
