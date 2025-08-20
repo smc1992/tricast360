@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#22c55e" rx="64"/>
+  <g transform="translate(256,256)">
+    <!-- Tree trunk -->
+    <rect x="-20" y="80" width="40" height="120" fill="#8b4513" rx="8"/>
+    
+    <!-- Tree crown layers -->
+    <circle cx="0" cy="-40" r="80" fill="#16a34a"/>
+    <circle cx="0" cy="-20" r="70" fill="#15803d"/>
+    <circle cx="0" cy="0" r="60" fill="#166534"/>
+    
+    <!-- Protection ring -->
+    <circle cx="0" cy="20" r="140" fill="none" stroke="white" stroke-width="8" stroke-dasharray="20,10"/>
+    
+    <!-- 360° indicators -->
+    <text x="120" y="25" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">360°</text>
+  </g>
+</svg>
