@@ -88,6 +88,42 @@ export default function HeroSection() {
             className="absolute bottom-20 right-10 sm:right-20 w-2.5 h-2.5 bg-teal-300/35 rounded-full float shadow-md"
             style={{ animationDelay: '1s' }}
           ></div>
+          
+          {/* Additional particles for large screens */}
+          <div className="hidden xl:block">
+            <div
+              className="absolute top-16 left-1/3 w-2 h-2 bg-emerald-500/20 rounded-full float shadow-sm"
+              style={{ animationDelay: '3s' }}
+            ></div>
+            <div
+              className="absolute top-1/3 right-1/4 w-3 h-3 bg-teal-400/25 rounded-full float shadow-md"
+              style={{ animationDelay: '5s' }}
+            ></div>
+            <div
+              className="absolute bottom-1/3 left-1/4 w-2.5 h-2.5 bg-emerald-400/20 rounded-full float shadow-lg"
+              style={{ animationDelay: '6s' }}
+            ></div>
+            <div
+              className="absolute bottom-16 right-1/3 w-1.5 h-1.5 bg-teal-500/30 rounded-full float shadow-sm"
+              style={{ animationDelay: '7s' }}
+            ></div>
+          </div>
+          
+          {/* Extra particles for very large screens */}
+          <div className="hidden 2xl:block">
+            <div
+              className="absolute top-24 left-1/5 w-3.5 h-3.5 bg-emerald-300/15 rounded-full float shadow-lg"
+              style={{ animationDelay: '8s' }}
+            ></div>
+            <div
+              className="absolute top-2/3 right-1/5 w-2 h-2 bg-teal-300/25 rounded-full float shadow-md"
+              style={{ animationDelay: '9s' }}
+            ></div>
+            <div
+              className="absolute bottom-24 left-2/3 w-2.5 h-2.5 bg-emerald-500/18 rounded-full float shadow-lg"
+              style={{ animationDelay: '10s' }}
+            ></div>
+          </div>
         </div>
 
         {/* Enhanced Main Content */}
@@ -180,7 +216,7 @@ export default function HeroSection() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem] flex items-center justify-center">
                 <div
                   className="relative z-10 transition-all duration-500 transform"
                   style={{
@@ -191,7 +227,7 @@ export default function HeroSection() {
                   }}
                 >
                   {/* Realistic Tree Protection System */}
-                  <svg width="280" height="280" viewBox="0 0 320 320" className="drop-shadow-2xl sm:w-[320px] sm:h-[320px]">
+                  <svg width="280" height="280" viewBox="0 0 320 320" className="drop-shadow-2xl sm:w-[320px] sm:h-[320px] xl:w-[400px] xl:h-[400px] 2xl:w-[480px] 2xl:h-[480px]">
                     <defs>
                       <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#8B4513" />
@@ -397,10 +433,35 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Enhanced Bottom scroll indicator */}
-        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="flex flex-col items-center gap-2 text-emerald-800">
-            <span className="text-xs sm:text-sm font-medium">Mehr über Treecast</span>
+        {/* Additional decorative elements for large screens */}
+        <div className="hidden xl:block absolute inset-0 z-5">
+          {/* Large decorative circles */}
+          <div className="absolute top-1/4 left-8 w-32 h-32 bg-gradient-to-br from-emerald-100/20 to-teal-100/10 rounded-full blur-xl"></div>
+          <div className="absolute bottom-1/4 right-8 w-40 h-40 bg-gradient-to-tl from-teal-100/15 to-emerald-100/10 rounded-full blur-2xl"></div>
+          
+          {/* Geometric patterns */}
+          <div className="absolute top-16 right-1/4 w-24 h-24 border border-emerald-200/30 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-16 left-1/4 w-20 h-20 border border-teal-200/25 rounded-full animate-pulse" style={{ animationDelay: '4s' }}></div>
+        </div>
+        
+        {/* Extra large screen elements */}
+        <div className="hidden 2xl:block absolute inset-0 z-5">
+          <div className="absolute top-1/3 left-16 w-48 h-48 bg-gradient-to-br from-emerald-50/30 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/3 right-16 w-56 h-56 bg-gradient-to-tl from-teal-50/25 to-transparent rounded-full blur-3xl"></div>
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="w-full h-full" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(57, 242, 174, 0.3) 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-xs sm:text-sm text-gray-500 font-medium">Mehr über Tricast</span>
             <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-emerald-600/60 rounded-full flex items-center justify-center animate-bounce">
               <i className="ri-arrow-down-line text-xs sm:text-sm text-emerald-600"></i>
             </div>
