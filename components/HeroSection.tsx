@@ -241,48 +241,46 @@ export default function HeroSection() {
                      {/* Tree Trunk - Full height visible */}
                       <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
                       
-                      {/* Foam Protection with Clip Closure - Only critical middle section */}
-                      <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
-                        {/* Main Protection Cylinder - Only middle section of trunk */}
-                        <rect 
-                          x="138" 
-                          y="210" 
-                          width="44" 
-                          height="50" 
-                          rx="22" 
-                          fill="url(#protectionGradient)" 
-                          stroke="#dee2e6" 
-                          strokeWidth="2" 
-                          filter="url(#softShadow)"
-                          opacity="0.9"
-                        />
-                        
-                        {/* Foam texture pattern */}
-                        <rect 
-                          x="142" 
-                          y="214" 
-                          width="36" 
-                          height="42" 
-                          rx="18" 
-                          fill="url(#meshPattern)" 
-                          opacity="0.4"
-                        />
-                        
-                        {/* Clip closure line - vertical seam */}
-                        <line x1="160" y1="210" x2="160" y2="260" stroke="#adb5bd" strokeWidth="1.5" opacity="0.8" strokeDasharray="2 2" />
-                        
-                        {/* Horizontal bands for foam structure */}
-                        <rect x="138" y="225" width="44" height="2" fill="#ced4da" opacity="0.6" />
-                        <rect x="138" y="240" width="44" height="2" fill="#ced4da" opacity="0.6" />
-                        
-                        {/* Top and Bottom edges */}
-                        <ellipse cx="160" cy="210" rx="22" ry="4" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="1.5" />
-                        <ellipse cx="160" cy="260" rx="22" ry="4" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="1.5" />
-                        
-                        {/* Small clip indicators */}
-                        <circle cx="148" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
-                        <circle cx="172" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
-                      </g>
+                      {/* Foam Protection with Clip Closure - Cylindrical like real product */}
+                       <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
+                         {/* Main Protection Cylinder - Straight cylindrical form */}
+                         <rect 
+                           x="138" 
+                           y="210" 
+                           width="44" 
+                           height="50" 
+                           fill="url(#protectionGradient)" 
+                           stroke="#dee2e6" 
+                           strokeWidth="2" 
+                           filter="url(#softShadow)"
+                           opacity="0.9"
+                         />
+                         
+                         {/* Foam texture pattern - straight edges */}
+                         <rect 
+                           x="142" 
+                           y="214" 
+                           width="36" 
+                           height="42" 
+                           fill="url(#meshPattern)" 
+                           opacity="0.4"
+                         />
+                         
+                         {/* Clip closure line - vertical seam */}
+                         <line x1="160" y1="210" x2="160" y2="260" stroke="#adb5bd" strokeWidth="1.5" opacity="0.8" strokeDasharray="2 2" />
+                         
+                         {/* Horizontal bands for foam structure */}
+                         <rect x="138" y="225" width="44" height="2" fill="#ced4da" opacity="0.6" />
+                         <rect x="138" y="240" width="44" height="2" fill="#ced4da" opacity="0.6" />
+                         
+                         {/* Straight top and bottom edges - no rounded caps */}
+                         <rect x="138" y="210" width="44" height="2" fill="#dee2e6" opacity="0.8" />
+                         <rect x="138" y="258" width="44" height="2" fill="#dee2e6" opacity="0.8" />
+                         
+                         {/* Small clip indicators */}
+                         <circle cx="148" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
+                         <circle cx="172" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
+                       </g>
 
                     {/* Rotating 360° Protection Indicators */}
                     <circle
