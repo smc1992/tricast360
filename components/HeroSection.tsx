@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import ProjectRequestModal from './ProjectRequestModal';
 import Link from 'next/link';
+import { HeroGradient } from './GradientBackgrounds';
+import { HeroNaturalBackground } from './NaturalBackground';
 
 export default function HeroSection() {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,7 +20,9 @@ export default function HeroSection() {
 
   if (!isMounted) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 overflow-hidden bg-gradient-to-b from-emerald-50/50 to-white">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 overflow-hidden">
+        <HeroGradient className="absolute inset-0" />
+        <HeroNaturalBackground />
         <div className="max-w-7xl w-full mx-auto relative z-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left opacity-0">
@@ -45,20 +49,17 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 overflow-hidden bg-gradient-to-br from-emerald-50/70 via-teal-50/50 to-cyan-50/60">
-        {/* Enhanced Background mit natürlichen Elementen */}
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 overflow-hidden">
+        {/* Natural Background Components */}
+        <HeroGradient className="absolute inset-0" />
+        <HeroNaturalBackground />
+        
+        {/* Interactive overlay effect */}
         <div
           className="absolute inset-0 transition-all duration-700 transform"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=lush%20green%20forest%20canopy%20with%20dappled%20sunlight%20filtering%20through%20leaves%20sustainable%20urban%20tree%20protection%20environment%20nature%20conservation%20clean%20bright%20natural%20lighting%20aerial%20view%20healthy%20ecosystem&width=1200&height=800&seq=hero-eco-bg&orientation=landscape')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            opacity: isHovered ? 0.25 : 0.20,
-            filter: isHovered
-              ? 'brightness(1.1) contrast(1.1) saturate(1.2)'
-              : 'brightness(1.0) contrast(1.0) saturate(1.1)',
-            transform: isHovered ? 'scale(1.02)' : 'scale(1)',
+            opacity: isHovered ? 0.15 : 0.10,
+            transform: isHovered ? 'scale(1.01)' : 'scale(1)',
           }}
         >
           {/* Natürliche Overlays */}

@@ -2,6 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SectionGradient } from './GradientBackgrounds';
+import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function ProblemSolutionSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -85,7 +87,9 @@ export default function ProblemSolutionSection() {
   ];
 
   return (
-    <section id="problem-solution" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden bg-gray-50">
+    <section id="problem-solution" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
+      <SectionGradient className="absolute inset-0" />
+      <SectionNaturalBackground variant="leaves" />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold mb-6 sm:mb-8 shadow-lg">

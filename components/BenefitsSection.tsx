@@ -1,5 +1,8 @@
 'use client';
 
+import { SectionGradient } from './GradientBackgrounds';
+import { SectionNaturalBackground } from './NaturalBackground';
+
 export default function BenefitsSection() {
   const benefits = [
     {
@@ -69,13 +72,9 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-b from-white via-emerald-50/30 to-teal-50/40 relative overflow-hidden">
-      {/* Natürliche Background-Dekoration */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-emerald-300/40 to-teal-300/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-br from-teal-300/30 to-cyan-300/40 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-gradient-to-br from-green-300/20 to-emerald-300/30 rounded-full blur-2xl"></div>
-      </div>
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
+      <SectionGradient className="absolute inset-0" reverse={true} />
+      <SectionNaturalBackground variant="trees" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Enhanced Header */}
