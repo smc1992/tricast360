@@ -116,12 +116,12 @@ export default function Header() {
         <div className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
           {/* Backdrop */}
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60"
             onClick={() => setIsMenuOpen(false)}
           ></div>
           
           {/* Menu Panel */}
-            <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl border-l border-gray-300 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl border-l-2 border-gray-400 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="p-6 pt-20">
               {/* Mobile Navigation Links */}
               <nav className="space-y-6">
