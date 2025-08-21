@@ -116,6 +116,58 @@ export default function CTAFooter() {
                       <i className="ri-recycle-line text-lg"></i>
                       <span className="text-sm font-medium">100% wiederverwendbar</span>
                     </div>
+                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
+                      <i className="ri-award-line text-lg"></i>
+                      <span className="text-sm font-medium">Praxiserprobt seit 2020</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Extra Content for Very Large Screens (27+ inch) */}
+                <div className="hidden 2xl:block mt-8 pt-6 border-t border-gray-200/50">
+                  <div className="space-y-6">
+                    <div className="text-center">
+                      <h4 className="text-lg font-medium text-[#2b3138] mb-4">Warum Tricast360?</h4>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
+                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">50x</div>
+                          <div className="text-gray-600">Wiederverwendbar</div>
+                        </div>
+                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
+                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">5min</div>
+                          <div className="text-gray-600">Installation</div>
+                        </div>
+                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
+                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">360°</div>
+                          <div className="text-gray-600">Rundumschutz</div>
+                        </div>
+                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
+                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">100%</div>
+                          <div className="text-gray-600">Nachhaltig</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 px-4 py-2 rounded-full border border-[#39F2AE]/20">
+                        <i className="ri-star-line text-[#39F2AE]"></i>
+                        <span className="text-[#39F2AE] text-sm font-medium">Innovatives Startup 2024</span>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center space-y-3">
+                      <h5 className="text-base font-medium text-[#2b3138]">Schnelle Antwort garantiert</h5>
+                      <div className="flex items-center justify-center gap-4 text-xs text-gray-600">
+                        <div className="flex items-center gap-1">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Online</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <i className="ri-time-line text-[#39F2AE]"></i>
+                          <span>Ø 2h Antwortzeit</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
