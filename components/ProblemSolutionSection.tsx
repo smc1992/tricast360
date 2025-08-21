@@ -91,7 +91,8 @@ export default function ProblemSolutionSection() {
       <SectionGradient className="absolute inset-0" />
       <SectionNaturalBackground variant="leaves" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        {/* Header for smaller screens */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20 xl:hidden">
           <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold mb-6 sm:mb-8 shadow-lg">
             <i className="ri-lightbulb-line mr-2"></i>
             2020 aus der Praxis geboren
@@ -107,9 +108,30 @@ export default function ProblemSolutionSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        {/* 3-Column Layout for XL+ screens, 2-Column for smaller */}
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 xl:gap-8 items-start">
+          
+          {/* Header Section for XL+ screens */}
+          <div className="hidden xl:block xl:col-span-1 xl:order-2">
+            <div className="text-left mb-8">
+              <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-4 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
+                <i className="ri-lightbulb-line mr-2"></i>
+                2020 aus der Praxis geboren
+              </div>
+              <h2 className="text-4xl 2xl:text-5xl font-light mb-6 text-[#2b3138] leading-tight">
+                Von der <span className="text-red-500 font-medium">Herausforderung</span>
+                <br />
+                zur <span className="text-[#39F2AE] font-medium">Innovation</span>
+              </h2>
+              <p className="text-lg text-gray-600 font-light leading-relaxed">
+                Klassischer Baumschutz war schwer, sperrig und oft nicht regelkonform. 
+                <span className="text-[#39F2AE] font-medium"> Tricast360 macht es leicht, wiederverwendbar und effizient.</span>
+              </p>
+            </div>
+          </div>
+          
           {/* Problem Section */}
-          <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <div className={`xl:order-1 space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-6 sm:space-y-8">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 mb-6 sm:mb-8 text-center sm:text-left">
                 <div className="relative">
@@ -159,8 +181,8 @@ export default function ProblemSolutionSection() {
             </div>
           </div>
 
-          {/* VS Divider */}
-          <div className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          {/* VS Divider - only for lg screens, hidden on xl+ */}
+          <div className="hidden lg:block xl:hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
             <div className="relative">
               <div className="w-16 lg:w-20 h-16 lg:h-20 bg-gradient-to-r from-red-500 to-[#39F2AE] rounded-full flex items-center justify-center shadow-2xl animate-pulse">
                 <span className="text-white font-bold text-base lg:text-lg">VS</span>
@@ -180,7 +202,7 @@ export default function ProblemSolutionSection() {
           </div>
 
           {/* Solution Section */}
-          <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          <div className={`xl:order-3 space-y-6 sm:space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="space-y-6 sm:space-y-8">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 mb-6 sm:mb-8 text-center sm:text-left">
                 <div className="relative">
