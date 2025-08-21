@@ -189,141 +189,165 @@ export default function HeroSection() {
                       : 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1))',
                   }}
                 >
-                  {/* SVG graphic (unchanged) */}
+                  {/* Realistic Tree Protection System */}
                   <svg width="280" height="280" viewBox="0 0 320 320" className="drop-shadow-2xl sm:w-[320px] sm:h-[320px]">
                     <defs>
-                      <linearGradient id="treeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#8B4513" />
                         <stop offset="50%" stopColor="#A0522D" />
                         <stop offset="100%" stopColor="#654321" />
                       </linearGradient>
-                      <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <linearGradient id="leavesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#228B22" />
                         <stop offset="50%" stopColor="#32CD32" />
                         <stop offset="100%" stopColor="#006400" />
                       </linearGradient>
                       <linearGradient id="protectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#f8f9fa" />
+                        <stop offset="50%" stopColor="#ffffff" />
+                        <stop offset="100%" stopColor="#e9ecef" />
+                      </linearGradient>
+                      <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#39F2AE" />
                         <stop offset="50%" stopColor="#2dd89a" />
                         <stop offset="100%" stopColor="#25c785" />
                       </linearGradient>
+                      <filter id="softShadow">
+                        <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000000" floodOpacity="0.1" />
+                      </filter>
                       <filter id="glow">
-                        <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
                         <feMerge>
                           <feMergeNode in="coloredBlur" />
                           <feMergeNode in="SourceGraphic" />
                         </feMerge>
                       </filter>
-                      <filter id="strongGlow">
-                        <feGaussianBlur stdDeviation="8" result="coloredBlur" />
-                        <feMerge>
-                          <feMergeNode in="coloredBlur" />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
+                      <pattern id="meshPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                        <rect width="8" height="8" fill="#ffffff" />
+                        <rect x="0" y="0" width="1" height="8" fill="#e9ecef" />
+                        <rect x="0" y="0" width="8" height="1" fill="#e9ecef" />
+                      </pattern>
                     </defs>
 
-                    {/* Rotating protection rings */}
+                    {/* Ground/Base */}
+                    <ellipse cx="160" cy="280" rx="60" ry="12" fill="#8B7355" opacity="0.3" />
+
+                    {/* Tree Trunk */}
+                    <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
+                    
+                    {/* Tree Leaves/Crown */}
+                    <circle cx="160" cy="170" r="35" fill="url(#leavesGradient)" filter="url(#softShadow)" opacity="0.9" />
+                    <circle cx="145" cy="165" r="25" fill="url(#leavesGradient)" opacity="0.7" />
+                    <circle cx="175" cy="175" r="20" fill="url(#leavesGradient)" opacity="0.7" />
+
+                    {/* White Cylindrical Protection System */}
+                    <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
+                      {/* Main Protection Cylinder */}
+                      <rect 
+                        x="130" 
+                        y="120" 
+                        width="60" 
+                        height="140" 
+                        rx="30" 
+                        fill="url(#protectionGradient)" 
+                        stroke="#dee2e6" 
+                        strokeWidth="2" 
+                        filter="url(#softShadow)"
+                        opacity="0.85"
+                      />
+                      
+                      {/* Mesh/Grid Pattern on Protection */}
+                      <rect 
+                        x="135" 
+                        y="125" 
+                        width="50" 
+                        height="130" 
+                        rx="25" 
+                        fill="url(#meshPattern)" 
+                        opacity="0.6"
+                      />
+                      
+                      {/* Vertical Support Strips */}
+                      <rect x="140" y="120" width="3" height="140" fill="#ced4da" opacity="0.8" />
+                      <rect x="160" y="120" width="3" height="140" fill="#ced4da" opacity="0.8" />
+                      <rect x="177" y="120" width="3" height="140" fill="#ced4da" opacity="0.8" />
+                      
+                      {/* Horizontal Support Bands */}
+                      <rect x="130" y="140" width="60" height="4" fill="#ced4da" opacity="0.7" />
+                      <rect x="130" y="180" width="60" height="4" fill="#ced4da" opacity="0.7" />
+                      <rect x="130" y="220" width="60" height="4" fill="#ced4da" opacity="0.7" />
+                      
+                      {/* Top and Bottom Caps */}
+                      <ellipse cx="160" cy="120" rx="30" ry="8" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
+                      <ellipse cx="160" cy="260" rx="30" ry="8" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
+                    </g>
+
+                    {/* Rotating 360° Protection Indicators */}
                     <circle
                       cx="160"
-                      cy="160"
-                      r="145"
+                      cy="190"
+                      r="80"
                       fill="none"
-                      stroke="url(#protectionGradient)"
-                      strokeWidth="6"
-                      strokeDasharray="15 5"
-                      filter="url(#strongGlow)"
-                      className="transition-all duration-1000 opacity-60"
+                      stroke="url(#brandGradient)"
+                      strokeWidth="3"
+                      strokeDasharray="12 8"
+                      filter="url(#glow)"
+                      className="transition-all duration-1000 opacity-40"
                       style={{
-                        transformOrigin: '160px 160px',
+                        transformOrigin: '160px 190px',
                         transform: isHovered ? 'rotate(180deg)' : 'rotate(0deg)',
                       }}
                     />
+                    
                     <circle
                       cx="160"
-                      cy="160"
-                      r="125"
+                      cy="190"
+                      r="100"
                       fill="none"
-                      stroke="url(#protectionGradient)"
-                      strokeWidth="4"
-                      strokeDasharray="10 8"
+                      stroke="url(#brandGradient)"
+                      strokeWidth="2"
+                      strokeDasharray="8 12"
                       filter="url(#glow)"
-                      className="transition-all duration-1000 opacity-80"
+                      className="transition-all duration-1000 opacity-30"
                       style={{
-                        transformOrigin: '160px 160px',
-                        transform: isHovered ? 'rotate(-90deg)' : 'rotate(0deg)',
+                        transformOrigin: '160px 190px',
+                        transform: isHovered ? 'rotate(-120deg)' : 'rotate(0deg)',
                       }}
                     />
 
-                    {/* Tree trunk */}
-                    <rect x="140" y="120" width="40" height="120" rx="20" fill="url(#treeGradient)" filter="url(#glow)" className="opacity-90" />
-                    {/* Bark texture */}
-                    <rect x="142" y="130" width="2" height="15" fill="#654321" className="opacity-60" />
-                    <rect x="176" y="145" width="2" height="12" fill="#654321" className="opacity-60" />
-                    <rect x="145" y="180" width="2" height="18" fill="#654321" className="opacity-60" />
-                    <rect x="172" y="195" width="2" height="14" fill="#654321" className="opacity-60" />
-
-                    {/* Tree crown */}
-                    <circle cx="160" cy="110" r="50" fill="url(#crownGradient)" filter="url(#glow)" className="opacity-90" />
-                    <circle cx="145" cy="105" r="35" fill="url(#crownGradient)" className="opacity-70" />
-                    <circle cx="175" cy="115" r="30" fill="url(#crownGradient)" className="opacity-70" />
-
-                    {/* Central protection ring */}
-                    <circle
-                      cx="160"
-                      cy="160"
-                      r="80"
-                      fill="none"
-                      stroke="url(#protectionGradient)"
-                      strokeWidth="8"
-                      strokeDasharray="25 5"
-                      filter="url(#strongGlow)"
-                      className="opacity-40"
-                    />
-
-                    {/* Roots */}
-                    <ellipse cx="160" cy="240" rx="35" ry="8" fill="url(#treeGradient)" className="opacity-40" />
-
-                    {/* 360° protection label */}
+                    {/* 360° Label */}
                     <text
                       x="160"
-                      y="295"
+                      y="305"
                       textAnchor="middle"
                       fill="#2b3138"
                       fontSize="16"
                       fontWeight="700"
-                      filter="url(#glow)"
-                      className="font-[`Inter`] tracking-wider sm:text-[18px]"
+                      className="font-[Inter] tracking-wider sm:text-[18px]"
                     >
                       360° BAUMSCHUTZ
                     </text>
 
-                    {/* Degree markings */}
-                    <g fill="#2b3138" className="opacity-80">
-                      <text x="160" y="20" textAnchor="middle" fontSize="10" fontWeight="600" className="sm:text-[12px]">
-                        0°
-                      </text>
-                      <text x="300" y="165" textAnchor="middle" fontSize="10" fontWeight="600" className="sm:text-[12px]">
-                        90°
-                      </text>
-                      <text x="160" y="310" textAnchor="middle" fontSize="10" fontWeight="600" className="sm:text-[12px]">
-                        180°
-                      </text>
-                      <text x="20" y="165" textAnchor="middle" fontSize="10" fontWeight="600" className="sm:text-[12px]">
-                        270°
-                      </text>
+                    {/* Degree Markings */}
+                    <g fill="#39F2AE" className="opacity-70 font-semibold">
+                      <text x="160" y="25" textAnchor="middle" fontSize="11" className="sm:text-[13px]">0°</text>
+                      <text x="285" y="195" textAnchor="middle" fontSize="11" className="sm:text-[13px]">90°</text>
+                      <text x="160" y="315" textAnchor="middle" fontSize="11" className="sm:text-[13px]">180°</text>
+                      <text x="35" y="195" textAnchor="middle" fontSize="11" className="sm:text-[13px]">270°</text>
                     </g>
 
-                    {/* Connection lines */}
-                    <g stroke="url(#protectionGradient)" strokeWidth="2" opacity="0.3" strokeDasharray="3 3">
-                      <line x1="160" y1="160" x2="160" y2="33" />
-                      <line x1="160" y1="160" x2="255" y2="74" />
-                      <line x1="160" y1="160" x2="295" y2="154" />
-                      <line x1="160" y1="160" x2="255" y2="234" />
-                      <line x1="160" y1="160" x2="160" y2="293" />
-                      <line x1="160" y1="160" x2="65" y2="234" />
-                      <line x1="160" y1="160" x2="25" y2="154" />
-                      <line x1="160" y1="160" x2="65" y2="74" />
+                    {/* Protection Effectiveness Indicators */}
+                    <g className={`transition-all duration-500 ${isHovered ? 'opacity-100' : 'opacity-60'}`}>
+                      {/* Top Protection */}
+                      <circle cx="160" cy="60" r="4" fill="#39F2AE" filter="url(#glow)" />
+                      <line x1="160" y1="65" x2="160" y2="115" stroke="#39F2AE" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
+                      
+                      {/* Side Protection Points */}
+                      <circle cx="240" cy="190" r="4" fill="#39F2AE" filter="url(#glow)" />
+                      <line x1="235" y1="190" x2="190" y2="190" stroke="#39F2AE" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
+                      
+                      <circle cx="80" cy="190" r="4" fill="#39F2AE" filter="url(#glow)" />
+                      <line x1="85" y1="190" x2="130" y2="190" stroke="#39F2AE" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
                     </g>
                   </svg>
                 </div>
