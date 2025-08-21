@@ -161,27 +161,47 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
       
       // Show navigation after scrolling past hero
-      setIsVisible(window.scrollY > window.innerHeight * 0.3);
+      setIsVisible(window.scrollY > window.innerHeight * 0.2);
       
-      // Find active section
+      // Find active section with better detection
+      let newActiveSection = 0;
+      
       sections.forEach((section, index) => {
         const element = document.getElementById(section.id);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(index);
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = elementTop + rect.height;
+          
+          // Check if section is in viewport center
+          if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+            newActiveSection = index;
           }
         }
       });
+      
+      setActiveSection(newActiveSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll);
     handleScroll();
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, []);
 
   const scrollToSection = (sectionId: string, index: number) => {
