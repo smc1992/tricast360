@@ -58,67 +58,67 @@ export default function CTAFooter() {
             
             {/* Right Column - Contact Info (only on XL+ screens) */}
             <div className="hidden xl:block">
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-10 2xl:p-12 border border-gray-200/50 shadow-xl h-full">
-                <div className="space-y-8">
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 2xl:p-8 border border-gray-200/50 shadow-xl h-full">
+                <div className="space-y-6">
                   <div className="text-center">
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 px-4 py-2 rounded-full border border-[#39F2AE]/20 mb-4">
-                      <i className="ri-customer-service-2-line text-[#39F2AE]"></i>
-                      <span className="text-[#39F2AE] text-sm font-medium">Persönliche Beratung</span>
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 px-3 py-1.5 rounded-full border border-[#39F2AE]/20 mb-3">
+                      <i className="ri-customer-service-2-line text-[#39F2AE] text-sm"></i>
+                      <span className="text-[#39F2AE] text-xs font-medium">Persönliche Beratung</span>
                     </div>
-                    <h3 className="text-2xl 2xl:text-3xl font-light text-[#2b3138] mb-3">Direkter Kontakt</h3>
-                    <p className="text-gray-600 text-sm 2xl:text-base">Sprechen Sie direkt mit unseren Experten</p>
+                    <h3 className="text-xl 2xl:text-2xl font-light text-[#2b3138] mb-2">Direkter Kontakt</h3>
+                    <p className="text-gray-600 text-xs 2xl:text-sm">Sprechen Sie direkt mit unseren Experten</p>
                   </div>
                   
-                <div className="space-y-6">
-                  <Link href="/kontakt" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
-                    <div className="w-14 h-14 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <i className="ri-mail-line text-[#39F2AE] text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                <div className="space-y-4">
+                  <Link href="/kontakt" className="flex items-center gap-3 group cursor-pointer p-3 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
+                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <i className="ri-mail-line text-[#39F2AE] text-lg group-hover:rotate-12 transition-transform duration-300"></i>
                     </div>
                     <div className="text-left">
-                      <h4 className="text-lg font-medium text-[#2b3138] mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">E-Mail</h4>
-                      <p className="text-gray-600">info@tricast360.de</p>
+                      <h4 className="text-base font-medium text-[#2b3138] mb-0.5 group-hover:text-[#39F2AE] transition-colors duration-300">E-Mail</h4>
+                      <p className="text-gray-600 text-sm">info@tricast360.de</p>
                     </div>
                   </Link>
                   
-                  <Link href="/kontakt" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
-                    <div className="w-14 h-14 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <i className="ri-phone-line text-[#39F2AE] text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                  <Link href="/kontakt" className="flex items-center gap-3 group cursor-pointer p-3 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
+                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <i className="ri-phone-line text-[#39F2AE] text-lg group-hover:rotate-12 transition-transform duration-300"></i>
                     </div>
                     <div className="text-left">
-                      <h4 className="text-lg font-medium text-[#2b3138] mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">Telefon</h4>
-                      <p className="text-gray-600">+49 170 1002912</p>
+                      <h4 className="text-base font-medium text-[#2b3138] mb-0.5 group-hover:text-[#39F2AE] transition-colors duration-300">Telefon</h4>
+                      <p className="text-gray-600 text-sm">+49 170 1002912</p>
                     </div>
                   </Link>
                   
-                  <div className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
-                    <div className="w-14 h-14 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <i className="ri-time-line text-[#39F2AE] text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                  <div className="flex items-center gap-3 group cursor-pointer p-3 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
+                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <i className="ri-time-line text-[#39F2AE] text-lg group-hover:rotate-12 transition-transform duration-300"></i>
                     </div>
                     <div className="text-left">
-                      <h4 className="text-lg font-medium text-[#2b3138] mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">Verfügbarkeit</h4>
-                      <p className="text-gray-600">Mo-Fr 8:00-18:00 Uhr</p>
+                      <h4 className="text-base font-medium text-[#2b3138] mb-0.5 group-hover:text-[#39F2AE] transition-colors duration-300">Verfügbarkeit</h4>
+                      <p className="text-gray-600 text-sm">Mo-Fr 8:00-18:00 Uhr</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* Additional Info Section */}
-                <div className="mt-8 pt-6 border-t border-gray-200/50">
-                  <div className="text-center space-y-4">
+                <div className="mt-6 pt-4 border-t border-gray-200/50">
+                  <div className="text-center space-y-3">
                     <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-shield-check-line text-lg"></i>
-                      <span className="text-sm font-medium">Kostenlose Erstberatung</span>
+                      <i className="ri-shield-check-line text-sm"></i>
+                      <span className="text-xs font-medium">Kostenlose Erstberatung</span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-truck-line text-lg"></i>
-                      <span className="text-sm font-medium">Deutschlandweite Lieferung</span>
+                      <i className="ri-truck-line text-sm"></i>
+                      <span className="text-xs font-medium">Deutschlandweite Lieferung</span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-recycle-line text-lg"></i>
-                      <span className="text-sm font-medium">100% wiederverwendbar</span>
+                      <i className="ri-recycle-line text-sm"></i>
+                      <span className="text-xs font-medium">100% wiederverwendbar</span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-award-line text-lg"></i>
-                      <span className="text-sm font-medium">Praxiserprobt seit 2020</span>
+                      <i className="ri-award-line text-sm"></i>
+                      <span className="text-xs font-medium">Praxiserprobt seit 2020</span>
                     </div>
                   </div>
                 </div>
