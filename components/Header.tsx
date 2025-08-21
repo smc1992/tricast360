@@ -121,13 +121,13 @@ export default function Header() {
           ></div>
           
           {/* Menu Panel */}
-            <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl border-l border-gray-200 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white/98 backdrop-blur-sm shadow-2xl border-l border-gray-300 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="p-6 pt-20">
               {/* Mobile Navigation Links */}
               <nav className="space-y-6">
                 <Link 
                   href="/#problem" 
-                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  className="block text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-alert-line mr-3 text-emerald-600"></i>
@@ -135,7 +135,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/#funktionsweise" 
-                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  className="block text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-settings-3-line mr-3 text-emerald-600"></i>
@@ -143,7 +143,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/#vorteile" 
-                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  className="block text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-leaf-line mr-3 text-emerald-600"></i>
@@ -151,7 +151,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/system" 
-                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  className="block text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-eco-line mr-3 text-emerald-600"></i>
@@ -159,7 +159,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/ueber-uns" 
-                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  className="block text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-team-line mr-3 text-emerald-600"></i>
@@ -167,7 +167,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/kontakt" 
-                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  className="block text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-mail-line mr-3 text-emerald-600"></i>
@@ -193,14 +193,14 @@ export default function Header() {
               <div className="mt-6 space-y-3">
                 <a 
                   href="tel:+491701002912" 
-                  className="flex items-center gap-3 text-gray-600 hover:text-emerald-600 transition-colors duration-200"
+                  className="flex items-center gap-3 text-gray-700 hover:text-emerald-600 transition-colors duration-200"
                 >
                   <i className="ri-phone-line text-lg"></i>
                   <span>+49 170 1002912</span>
                 </a>
                 <a 
                   href="mailto:info@tricast360.de" 
-                  className="flex items-center gap-3 text-gray-600 hover:text-emerald-600 transition-colors duration-200"
+                  className="flex items-center gap-3 text-gray-700 hover:text-emerald-600 transition-colors duration-200"
                 >
                   <i className="ri-mail-line text-lg"></i>
                   <span>info@tricast360.de</span>
