@@ -329,7 +329,7 @@ export default function Datenschutz() {
               
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <p className="text-[#2b3138] text-sm">
-                  <strong>Stand dieser Datenschutzerklärung:</strong> Januar 2024
+                  <strong>Stand dieser Datenschutzerklärung:</strong> August 2025
                 </p>
               </div>
             </section>
