@@ -58,8 +58,17 @@ export default function CTAFooter() {
             
             {/* Right Column - Contact Info (only on XL+ screens) */}
             <div className="hidden xl:block">
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 2xl:p-10 border border-gray-200/50 shadow-xl">
-                <h3 className="text-2xl 2xl:text-3xl font-light text-[#2b3138] mb-8 text-center">Direkter Kontakt</h3>
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-10 2xl:p-12 border border-gray-200/50 shadow-xl h-full">
+                <div className="space-y-8">
+                  <div className="text-center">
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 px-4 py-2 rounded-full border border-[#39F2AE]/20 mb-4">
+                      <i className="ri-customer-service-2-line text-[#39F2AE]"></i>
+                      <span className="text-[#39F2AE] text-sm font-medium">Persönliche Beratung</span>
+                    </div>
+                    <h3 className="text-2xl 2xl:text-3xl font-light text-[#2b3138] mb-3">Direkter Kontakt</h3>
+                    <p className="text-gray-600 text-sm 2xl:text-base">Sprechen Sie direkt mit unseren Experten</p>
+                  </div>
+                  
                 <div className="space-y-6">
                   <Link href="/kontakt" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
                     <div className="w-14 h-14 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
@@ -91,6 +100,25 @@ export default function CTAFooter() {
                     </div>
                   </div>
                 </div>
+                
+                {/* Additional Info Section */}
+                <div className="mt-8 pt-6 border-t border-gray-200/50">
+                  <div className="text-center space-y-4">
+                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
+                      <i className="ri-shield-check-line text-lg"></i>
+                      <span className="text-sm font-medium">Kostenlose Erstberatung</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
+                      <i className="ri-truck-line text-lg"></i>
+                      <span className="text-sm font-medium">Deutschlandweite Lieferung</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
+                      <i className="ri-recycle-line text-lg"></i>
+                      <span className="text-sm font-medium">100% wiederverwendbar</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>

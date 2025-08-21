@@ -127,8 +127,8 @@ export default function HeroSection() {
         </div>
 
         {/* Enhanced Main Content */}
-        <div className="max-w-7xl w-full mx-auto relative z-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-8 sm:py-12 lg:py-16 xl:py-12 2xl:py-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-12 2xl:gap-16 items-center">
+        <div className="max-w-7xl w-full mx-auto relative z-20 px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-8 py-8 sm:py-12 lg:py-16 xl:py-6 2xl:py-4">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-8 2xl:gap-12 items-center">
             {/* Left column mit verbessertem Design */}
             <div
               className={`transition-all duration-1000 text-center lg:text-left ${
