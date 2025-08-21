@@ -238,51 +238,51 @@ export default function HeroSection() {
                      <circle cx="180" cy="145" r="25" fill="url(#leavesGradient)" opacity="0.7" />
                      <circle cx="160" cy="120" r="22" fill="url(#leavesGradient)" opacity="0.8" />
 
-                     {/* Tree Trunk */}
-                     <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
-                     
-                     {/* White Cylindrical Protection System - Only Around Trunk */}
-                     <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
-                       {/* Main Protection Cylinder - Smaller, around trunk only */}
-                       <rect 
-                         x="135" 
-                         y="175" 
-                         width="50" 
-                         height="110" 
-                         rx="25" 
-                         fill="url(#protectionGradient)" 
-                         stroke="#dee2e6" 
-                         strokeWidth="2" 
-                         filter="url(#softShadow)"
-                         opacity="0.85"
-                       />
-                       
-                       {/* Mesh/Grid Pattern on Protection */}
-                       <rect 
-                         x="140" 
-                         y="180" 
-                         width="40" 
-                         height="100" 
-                         rx="20" 
-                         fill="url(#meshPattern)" 
-                         opacity="0.6"
-                       />
-                       
-                       {/* Vertical Support Strips */}
-                       <rect x="145" y="175" width="2" height="110" fill="#ced4da" opacity="0.8" />
-                       <rect x="160" y="175" width="2" height="110" fill="#ced4da" opacity="0.8" />
-                       <rect x="173" y="175" width="2" height="110" fill="#ced4da" opacity="0.8" />
-                       
-                       {/* Horizontal Support Bands */}
-                       <rect x="135" y="195" width="50" height="3" fill="#ced4da" opacity="0.7" />
-                       <rect x="135" y="220" width="50" height="3" fill="#ced4da" opacity="0.7" />
-                       <rect x="135" y="245" width="50" height="3" fill="#ced4da" opacity="0.7" />
-                       <rect x="135" y="270" width="50" height="3" fill="#ced4da" opacity="0.7" />
-                       
-                       {/* Top and Bottom Caps */}
-                       <ellipse cx="160" cy="175" rx="25" ry="6" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
-                       <ellipse cx="160" cy="285" rx="25" ry="6" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
-                     </g>
+                     {/* Tree Trunk - Full height visible */}
+                      <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
+                      
+                      {/* Foam Protection with Clip Closure - Only critical middle section */}
+                      <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
+                        {/* Main Protection Cylinder - Only middle section of trunk */}
+                        <rect 
+                          x="138" 
+                          y="210" 
+                          width="44" 
+                          height="50" 
+                          rx="22" 
+                          fill="url(#protectionGradient)" 
+                          stroke="#dee2e6" 
+                          strokeWidth="2" 
+                          filter="url(#softShadow)"
+                          opacity="0.9"
+                        />
+                        
+                        {/* Foam texture pattern */}
+                        <rect 
+                          x="142" 
+                          y="214" 
+                          width="36" 
+                          height="42" 
+                          rx="18" 
+                          fill="url(#meshPattern)" 
+                          opacity="0.4"
+                        />
+                        
+                        {/* Clip closure line - vertical seam */}
+                        <line x1="160" y1="210" x2="160" y2="260" stroke="#adb5bd" strokeWidth="1.5" opacity="0.8" strokeDasharray="2 2" />
+                        
+                        {/* Horizontal bands for foam structure */}
+                        <rect x="138" y="225" width="44" height="2" fill="#ced4da" opacity="0.6" />
+                        <rect x="138" y="240" width="44" height="2" fill="#ced4da" opacity="0.6" />
+                        
+                        {/* Top and Bottom edges */}
+                        <ellipse cx="160" cy="210" rx="22" ry="4" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="1.5" />
+                        <ellipse cx="160" cy="260" rx="22" ry="4" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="1.5" />
+                        
+                        {/* Small clip indicators */}
+                        <circle cx="148" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
+                        <circle cx="172" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
+                      </g>
 
                     {/* Rotating 360° Protection Indicators */}
                     <circle
