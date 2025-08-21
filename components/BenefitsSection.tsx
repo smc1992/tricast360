@@ -78,22 +78,22 @@ export default function BenefitsSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Enhanced Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-12 sm:mb-16 content-spacing">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-100/90 to-teal-100/80 px-6 py-3 rounded-full border border-emerald-200/60 mb-6">
             <i className="ri-leaf-line text-emerald-600"></i>
             <span className="text-emerald-700 font-medium">Nachhaltigkeit im Fokus</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-6 text-gray-800">
+          <h2 className="text-section-title font-light mb-4 sm:mb-6 text-gray-800">
             Umwelt<span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-semibold">vorteile</span> für morgen
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
+          <p className="text-large text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
             Jeder geschützte Baum ist ein Beitrag zum Klimaschutz. Unser System macht 
             <span className="text-emerald-600 font-semibold"> nachhaltigen Baumschutz wirtschaftlich und ökologisch sinnvoll</span>
           </p>
         </div>
 
         {/* Enhanced Benefits Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-benefits-lg gap-4 sm:gap-6 mb-16">
           {benefits.map((benefit, index) => (
             <div 
               key={index} 

@@ -158,3 +158,107 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Large Screen Optimizations */
+@layer utilities {
+  /* Container Extensions for Large Screens */
+  @media (min-width: 1920px) {
+    .max-w-7xl {
+      max-width: 90rem; /* 1440px */
+    }
+    
+    .container-xl {
+      max-width: 90rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  @media (min-width: 2560px) {
+    .max-w-7xl {
+      max-width: 100rem; /* 1600px */
+    }
+    
+    .container-xl {
+      max-width: 100rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+  
+  @media (min-width: 3840px) {
+    .max-w-7xl {
+      max-width: 120rem; /* 1920px */
+    }
+    
+    .container-xl {
+      max-width: 120rem;
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+  
+  /* Typography Scaling for Large Screens */
+  @media (min-width: 1920px) {
+    .text-hero {
+      font-size: clamp(4rem, 5vw, 7rem);
+      line-height: 1.1;
+    }
+    
+    .text-section-title {
+      font-size: clamp(2.5rem, 3.5vw, 5rem);
+    }
+    
+    .text-large {
+      font-size: clamp(1.125rem, 1.25vw, 1.5rem);
+    }
+  }
+  
+  /* Section Spacing for Large Screens */
+  @media (min-width: 1920px) {
+    .section-spacing {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+    
+    .content-spacing {
+      margin-bottom: 4rem;
+    }
+  }
+  
+  @media (min-width: 2560px) {
+    .section-spacing {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+    
+    .content-spacing {
+      margin-bottom: 5rem;
+    }
+  }
+  
+  /* Grid Optimizations for Large Screens */
+  @media (min-width: 1920px) {
+    .grid-benefits-lg {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+    
+    .grid-features-lg {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2rem;
+    }
+  }
+  
+  @media (min-width: 2560px) {
+    .grid-benefits-lg {
+      gap: 4rem;
+    }
+    
+    .grid-features-lg {
+      gap: 3rem;
+    }
+  }
+}

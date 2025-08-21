@@ -91,8 +91,8 @@ export default function HeroSection() {
         </div>
 
         {/* Enhanced Main Content */}
-        <div className="max-w-7xl w-full mx-auto relative z-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="max-w-7xl w-full mx-auto relative z-20 section-spacing">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 2xl:gap-24 items-center">
             {/* Left column mit verbessertem Design */}
             <div
               className={`transition-all duration-1000 text-center lg:text-left ${
@@ -113,10 +113,10 @@ export default function HeroSection() {
                     <i className="ri-leaf-line text-emerald-600 text-sm"></i>
                   </div>
 
-                  <div className="space-y-4 sm:space-y-6">
-                    <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-light leading-[1.1] tracking-tight text-[#2b3138]">
+                  <div className="space-y-4 sm:space-y-6 content-spacing">
+                    <h1 className="text-hero font-light leading-[1.1] tracking-tight text-[#2b3138]">
                       <span className="block">Tricast360</span>
-                      <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-gray-600 font-extralight mt-2">
+                      <span className="block text-section-title text-gray-600 font-extralight mt-2">
                         Der neue Standard
                       </span>
                       <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#39F2AE] font-extralight">

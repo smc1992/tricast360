@@ -78,7 +78,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
   if (!isVisible) return null;
 
   return (
-    <div className={`fixed right-4 top-1/2 transform -translate-y-1/2 z-40 ${className}`}>
+    <div className={`fixed right-4 xl:right-8 2xl:right-12 top-1/2 transform -translate-y-1/2 z-40 ${className}`}>
       <div className="flex flex-col space-y-3">
         {sections.map((section, index) => {
           const isActive = activeSection === index;
