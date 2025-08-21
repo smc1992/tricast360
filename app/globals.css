@@ -164,11 +164,11 @@ html {
   /* Container Extensions for Large Screens */
   @media (min-width: 1920px) {
     .max-w-7xl {
-      max-width: 90rem; /* 1440px */
+      max-width: 110rem; /* 1760px */
     }
     
     .container-xl {
-      max-width: 90rem;
+      max-width: 110rem;
       margin-left: auto;
       margin-right: auto;
       padding-left: 2rem;
@@ -178,13 +178,13 @@ html {
   
   @media (min-width: 2560px) {
     .max-w-7xl {
-      max-width: 100rem; /* 1600px */
+      max-width: 140rem; /* 2240px */
     }
     
     .container-xl {
-      max-width: 100rem;
-      padding-left: 4rem;
-      padding-right: 4rem;
+      max-width: 140rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
     }
   }
   
@@ -219,23 +219,23 @@ html {
   /* Section Spacing for Large Screens */
   @media (min-width: 1920px) {
     .section-spacing {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
     
     .content-spacing {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
     }
   }
   
   @media (min-width: 2560px) {
     .section-spacing {
-      padding-top: 10rem;
-      padding-bottom: 10rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
     
     .content-spacing {
-      margin-bottom: 5rem;
+      margin-bottom: 1.5rem;
     }
   }
   

@@ -127,8 +127,8 @@ export default function HeroSection() {
         </div>
 
         {/* Enhanced Main Content */}
-        <div className="max-w-7xl w-full mx-auto relative z-20 section-spacing">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 2xl:gap-24 items-center">
+        <div className="max-w-7xl w-full mx-auto relative z-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-8 sm:py-12 lg:py-16 xl:py-12 2xl:py-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-12 2xl:gap-16 items-center">
             {/* Left column mit verbessertem Design */}
             <div
               className={`transition-all duration-1000 text-center lg:text-left ${
@@ -216,7 +216,7 @@ export default function HeroSection() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem] flex items-center justify-center">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[36rem] xl:h-[36rem] 2xl:w-[42rem] 2xl:h-[42rem] flex items-center justify-center">
                 <div
                   className="relative z-10 transition-all duration-500 transform"
                   style={{
@@ -227,7 +227,7 @@ export default function HeroSection() {
                   }}
                 >
                   {/* Realistic Tree Protection System */}
-                  <svg width="280" height="280" viewBox="0 0 320 320" className="drop-shadow-2xl sm:w-[320px] sm:h-[320px] xl:w-[400px] xl:h-[400px] 2xl:w-[480px] 2xl:h-[480px]">
+                  <svg width="280" height="280" viewBox="0 0 320 320" className="drop-shadow-2xl sm:w-[320px] sm:h-[320px] xl:w-[520px] xl:h-[520px] 2xl:w-[620px] 2xl:h-[620px]">
                     <defs>
                       <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#8B4513" />
