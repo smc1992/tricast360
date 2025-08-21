@@ -65,7 +65,7 @@ export default function Home() {
        <Footer />
        
        {/* Section Navigation */}
-       <SectionNavigation />
+       <SectionNavigation className="hidden lg:block" />
        <MobileSectionNavigation />
      </SwipeNavigation>
   );

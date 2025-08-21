@@ -21,27 +21,47 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
       
       // Show navigation after scrolling past hero
-      setIsVisible(window.scrollY > window.innerHeight * 0.3);
+      setIsVisible(window.scrollY > window.innerHeight * 0.2);
       
-      // Find active section
+      // Find active section with better detection
+      let newActiveSection = 0;
+      
       sections.forEach((section, index) => {
         const element = document.getElementById(section.id);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(index);
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = elementTop + rect.height;
+          
+          // Check if section is in viewport center
+          if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+            newActiveSection = index;
           }
         }
       });
+      
+      setActiveSection(newActiveSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll);
     handleScroll(); // Initial check
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, []);
 
   const scrollToSection = (sectionId: string, index: number) => {
@@ -179,6 +199,7 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
 
   return (
     <div className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40 lg:hidden ${className}`}>
+      {/* Only show if not in header navigation area */}
       <div className="bg-white/95 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-gray-200/50">
         <div className="flex space-x-1">
           {sections.map((section, index) => {
