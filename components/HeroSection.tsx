@@ -56,9 +56,11 @@ export default function HeroSection() {
             src="/hintergrundbild-tricast360.webp" 
             alt="Tricast360 Hintergrund" 
             className="w-full h-full object-cover"
+            onLoad={() => console.log('Background image loaded successfully')}
+            onError={(e) => console.error('Background image failed to load:', e)}
           />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]"></div>
+          {/* Overlay for better text readability - reduced opacity */}
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-[0.5px]"></div>
         </div>
         
         {/* Natural Background Components (reduced opacity) */}
