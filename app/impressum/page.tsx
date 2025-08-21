@@ -75,7 +75,7 @@ export default function Impressum() {
                     <i className="ri-phone-line text-[#39F2AE] w-5"></i>
                     <div>
                       <p className="text-[#2b3138] font-medium">Telefon</p>
-                      <p className="text-gray-600">+49 (0) 123 456 789</p>
+                      <p className="text-gray-600">+49 170 1002912</p>
                     </div>
                   </div>
                   

@@ -205,7 +205,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
-                  placeholder="+49 (0) 123 456 789"
+                  placeholder="+49 170 1002912"
                 />
               </div>
             </div>

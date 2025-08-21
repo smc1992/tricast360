@@ -106,7 +106,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white font-medium">Telefon</p>
-                  <p className="text-gray-300 text-sm hover:text-teal-400 transition-colors duration-200 cursor-pointer">+49 (0) 123 456 789</p>
+                  <p className="text-gray-300 text-sm hover:text-teal-400 transition-colors duration-200 cursor-pointer">+49 170 1002912</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 group">

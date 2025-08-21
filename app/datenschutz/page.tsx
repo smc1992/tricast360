@@ -46,7 +46,7 @@ export default function Datenschutz() {
                   <p>Lüneburger Str. 90</p>
                   <p>D-21423 Winsen (Luhe)</p>
                   <p className="mt-3">
-                    Telefon: +49 (0) 123 456 789<br/>
+                    Telefon: +49 170 1002912<br/>
                     E-Mail: info@tricast360.de
                   </p>
                 </div>

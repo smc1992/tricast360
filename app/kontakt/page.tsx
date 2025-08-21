@@ -196,7 +196,7 @@ export default function KontaktPage() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-[#2b3138] placeholder-gray-500 focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
-                        placeholder="+49 (0) 123 456 789"
+                        placeholder="+49 170 1002912"
                       />
                     </div>
                   </div>
@@ -310,7 +310,7 @@ export default function KontaktPage() {
                     </div>
                     <div>
                       <p className="text-[#2b3138] font-medium">Telefon</p>
-                      <p className="text-gray-600 text-sm">+49 (0) 123 456 789</p>
+                      <p className="text-gray-600 text-sm">+49 170 1002912</p>
                     </div>
                   </div>
 

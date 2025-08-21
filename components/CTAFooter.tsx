@@ -68,7 +68,7 @@ export default function CTAFooter() {
                 </div>
                 <div>
                   <h4 className="text-sm sm:text-base text-[#2b3138] font-medium mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">Telefon</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">+49 (0) 123 456 789</p>
+                  <p className="text-xs sm:text-sm text-gray-600">+49 170 1002912</p>
                 </div>
               </Link>
               
