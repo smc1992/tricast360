@@ -121,8 +121,8 @@ export default function Header() {
           ></div>
           
           {/* Menu Panel */}
-            <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl border-l-2 border-gray-400 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-            <div className="p-6 pt-20 bg-white h-full">
+            <div className={`absolute top-0 right-0 h-screen w-80 max-w-[85vw] bg-white shadow-2xl border-l-2 border-gray-400 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className="p-6 pt-20 bg-white h-screen min-h-screen">
               {/* Mobile Navigation Links */}
               <nav className="space-y-6">
                 <Link 
