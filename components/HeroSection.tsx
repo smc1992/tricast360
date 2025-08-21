@@ -53,7 +53,7 @@ export default function HeroSection() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/hintergrundbild tricast360.webp" 
+            src="/hintergrundbild-tricast360.webp" 
             alt="Tricast360 Hintergrund" 
             className="w-full h-full object-cover"
           />
