@@ -9,10 +9,17 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Calculate scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(Math.min(progress, 100));
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -114,7 +121,7 @@ export default function Header() {
           ></div>
           
           {/* Menu Panel */}
-          <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+           <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white/95 backdrop-blur-md shadow-2xl border-l border-gray-200/50 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="p-6 pt-20">
               {/* Mobile Navigation Links */}
               <nav className="space-y-6">
@@ -202,7 +209,15 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </header>
+        
+        {/* Scroll Progress Bar */}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-200/30">
+          <div 
+            className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-300 ease-out"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
+        </div>
+       </header>
 
       <ProjectRequestModal 
         isOpen={isModalOpen} 
