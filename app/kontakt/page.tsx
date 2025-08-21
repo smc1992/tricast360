@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
+import LoadingButton from '../../components/LoadingButton';
 
 export default function KontaktPage() {
   const [formData, setFormData] = useState({
@@ -239,28 +240,26 @@ export default function KontaktPage() {
                     </div>
                   </div>
 
-                  <button
+                  <LoadingButton
                     type="submit"
-                    disabled={isSubmitting || submitStatus === 'success'}
-                    className="w-full bg-[#39F2AE] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    isLoading={isSubmitting}
+                    loadingText="Wird gesendet..."
+                    disabled={submitStatus === 'success'}
+                    className="w-full"
+                    size="lg"
                   >
-                    {isSubmitting ? (
+                    {submitStatus === 'success' ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Wird gesendet...
-                      </>
-                    ) : submitStatus === 'success' ? (
-                      <>
-                        <i className="ri-check-line text-lg"></i>
+                        <i className="ri-check-line text-lg mr-2"></i>
                         Gesendet!
                       </>
                     ) : (
                       <>
-                        <i className="ri-send-plane-line"></i>
+                        <i className="ri-send-plane-line mr-2"></i>
                         Nachricht senden
                       </>
                     )}
-                  </button>
+                  </LoadingButton>
                 </form>
               </div>
             </div>

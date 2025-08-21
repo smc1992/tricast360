@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import LoadingButton from './LoadingButton';
 
 interface ProjectRequestModalProps {
   isOpen: boolean;
@@ -304,28 +305,26 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
               >
                 Abbrechen
               </button>
-              <button
+              <LoadingButton
                 type="submit"
-                disabled={isSubmitting || submitStatus === 'success'}
-                className="flex-1 bg-[#39F2AE] text-[#2b3138] px-8 py-4 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                isLoading={isSubmitting}
+                loadingText="Wird gesendet..."
+                disabled={submitStatus === 'success'}
+                className="flex-1 bg-[#39F2AE] text-[#2b3138] hover:bg-[#2dd89a]"
+                size="lg"
               >
-                {isSubmitting ? (
+                {submitStatus === 'success' ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-[#2b3138]/30 border-t-[#2b3138] rounded-full animate-spin"></div>
-                    Wird gesendet...
-                  </>
-                ) : submitStatus === 'success' ? (
-                  <>
-                    <i className="ri-check-line text-lg"></i>
+                    <i className="ri-check-line text-lg mr-2"></i>
                     Gesendet!
                   </>
                 ) : (
                   <>
-                    <i className="ri-send-plane-line text-lg"></i>
+                    <i className="ri-send-plane-line text-lg mr-2"></i>
                     Anfrage senden
                   </>
                 )}
-              </button>
+              </LoadingButton>
             </div>
           </form>
         </div>
