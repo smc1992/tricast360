@@ -13,6 +13,7 @@ import OpportunitySection from '../components/OpportunitySection';
 import CTAFooter from '../components/CTAFooter';
 import AnimatedCard from '../components/AnimatedCard';
 import SwipeNavigation, { useSectionNavigation } from '../components/SwipeNavigation';
+import SectionNavigation, { MobileSectionNavigation } from '../components/SectionNavigation';
 
 export default function Home() {
   const { nextSection, prevSection } = useSectionNavigation();
@@ -60,8 +61,12 @@ export default function Home() {
         </AnimatedCard>
         
         <CTAFooter />
-      </main>
-      <Footer />
-    </SwipeNavigation>
+       </main>
+       <Footer />
+       
+       {/* Section Navigation */}
+       <SectionNavigation />
+       <MobileSectionNavigation />
+     </SwipeNavigation>
   );
 }
