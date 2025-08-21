@@ -232,55 +232,57 @@ export default function HeroSection() {
                     {/* Ground/Base */}
                     <ellipse cx="160" cy="280" rx="60" ry="12" fill="#8B7355" opacity="0.3" />
 
-                    {/* Tree Trunk */}
-                    <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
-                    
-                    {/* Tree Leaves/Crown */}
-                    <circle cx="160" cy="170" r="35" fill="url(#leavesGradient)" filter="url(#softShadow)" opacity="0.9" />
-                    <circle cx="145" cy="165" r="25" fill="url(#leavesGradient)" opacity="0.7" />
-                    <circle cx="175" cy="175" r="20" fill="url(#leavesGradient)" opacity="0.7" />
+                    {/* Tree Leaves/Crown - Above Protection */}
+                     <circle cx="160" cy="140" r="40" fill="url(#leavesGradient)" filter="url(#softShadow)" opacity="0.9" />
+                     <circle cx="140" cy="135" r="28" fill="url(#leavesGradient)" opacity="0.7" />
+                     <circle cx="180" cy="145" r="25" fill="url(#leavesGradient)" opacity="0.7" />
+                     <circle cx="160" cy="120" r="22" fill="url(#leavesGradient)" opacity="0.8" />
 
-                    {/* White Cylindrical Protection System */}
-                    <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
-                      {/* Main Protection Cylinder */}
-                      <rect 
-                        x="130" 
-                        y="120" 
-                        width="60" 
-                        height="140" 
-                        rx="30" 
-                        fill="url(#protectionGradient)" 
-                        stroke="#dee2e6" 
-                        strokeWidth="2" 
-                        filter="url(#softShadow)"
-                        opacity="0.85"
-                      />
-                      
-                      {/* Mesh/Grid Pattern on Protection */}
-                      <rect 
-                        x="135" 
-                        y="125" 
-                        width="50" 
-                        height="130" 
-                        rx="25" 
-                        fill="url(#meshPattern)" 
-                        opacity="0.6"
-                      />
-                      
-                      {/* Vertical Support Strips */}
-                      <rect x="140" y="120" width="3" height="140" fill="#ced4da" opacity="0.8" />
-                      <rect x="160" y="120" width="3" height="140" fill="#ced4da" opacity="0.8" />
-                      <rect x="177" y="120" width="3" height="140" fill="#ced4da" opacity="0.8" />
-                      
-                      {/* Horizontal Support Bands */}
-                      <rect x="130" y="140" width="60" height="4" fill="#ced4da" opacity="0.7" />
-                      <rect x="130" y="180" width="60" height="4" fill="#ced4da" opacity="0.7" />
-                      <rect x="130" y="220" width="60" height="4" fill="#ced4da" opacity="0.7" />
-                      
-                      {/* Top and Bottom Caps */}
-                      <ellipse cx="160" cy="120" rx="30" ry="8" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
-                      <ellipse cx="160" cy="260" rx="30" ry="8" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
-                    </g>
+                     {/* Tree Trunk */}
+                     <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
+                     
+                     {/* White Cylindrical Protection System - Only Around Trunk */}
+                     <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
+                       {/* Main Protection Cylinder - Smaller, around trunk only */}
+                       <rect 
+                         x="135" 
+                         y="175" 
+                         width="50" 
+                         height="110" 
+                         rx="25" 
+                         fill="url(#protectionGradient)" 
+                         stroke="#dee2e6" 
+                         strokeWidth="2" 
+                         filter="url(#softShadow)"
+                         opacity="0.85"
+                       />
+                       
+                       {/* Mesh/Grid Pattern on Protection */}
+                       <rect 
+                         x="140" 
+                         y="180" 
+                         width="40" 
+                         height="100" 
+                         rx="20" 
+                         fill="url(#meshPattern)" 
+                         opacity="0.6"
+                       />
+                       
+                       {/* Vertical Support Strips */}
+                       <rect x="145" y="175" width="2" height="110" fill="#ced4da" opacity="0.8" />
+                       <rect x="160" y="175" width="2" height="110" fill="#ced4da" opacity="0.8" />
+                       <rect x="173" y="175" width="2" height="110" fill="#ced4da" opacity="0.8" />
+                       
+                       {/* Horizontal Support Bands */}
+                       <rect x="135" y="195" width="50" height="3" fill="#ced4da" opacity="0.7" />
+                       <rect x="135" y="220" width="50" height="3" fill="#ced4da" opacity="0.7" />
+                       <rect x="135" y="245" width="50" height="3" fill="#ced4da" opacity="0.7" />
+                       <rect x="135" y="270" width="50" height="3" fill="#ced4da" opacity="0.7" />
+                       
+                       {/* Top and Bottom Caps */}
+                       <ellipse cx="160" cy="175" rx="25" ry="6" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
+                       <ellipse cx="160" cy="285" rx="25" ry="6" fill="url(#protectionGradient)" stroke="#dee2e6" strokeWidth="2" />
+                     </g>
 
                     {/* Rotating 360° Protection Indicators */}
                     <circle
