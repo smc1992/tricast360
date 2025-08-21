@@ -26,10 +26,10 @@ export default function CTAFooter() {
             <div className="text-center xl:text-left">
               <div className="space-y-6 sm:space-y-8">
                 <div className="space-y-4 sm:space-y-6">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-[#2b3138] leading-tight px-4 xl:px-0">
-                    Gemeinsam Baumschutz
-                    <span className="block gradient-text font-medium shimmer">neu denken</span>
-                  </h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl 4xl:text-9xl font-light text-[#2b3138] leading-tight px-4 xl:px-0">
+                Gemeinsam Baumschutz
+                <span className="block gradient-text font-medium shimmer">neu denken</span>
+              </h2>
                   <p className="text-lg sm:text-xl xl:text-2xl text-gray-600 font-light leading-relaxed max-w-2xl xl:max-w-none mx-auto xl:mx-0 px-4 xl:px-0">
                     Starten Sie Ihr nächstes Projekt mit Tricast360 und erleben Sie 
                     die Zukunft des nachhaltigen Baumschutzes.

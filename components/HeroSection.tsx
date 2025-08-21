@@ -163,12 +163,12 @@ export default function HeroSection() {
                   </div>
 
                   <div className="space-y-4 sm:space-y-6 content-spacing">
-                    <h1 className="text-hero font-light leading-[1.1] tracking-tight text-[#2b3138]">
+                    <h1 className="text-hero 3xl:text-8xl 4xl:text-9xl 5xl:text-10xl font-light leading-[1.1] tracking-tight text-[#2b3138]">
                       <span className="block">Tricast360</span>
-                      <span className="block text-section-title text-gray-600 font-extralight mt-2">
+                      <span className="block text-section-title 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl text-gray-600 font-extralight mt-2">
                         Der neue Standard
                       </span>
-                      <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#39F2AE] font-extralight">
+                      <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl text-[#39F2AE] font-extralight">
                         im Baumschutz
                       </span>
                     </h1>
