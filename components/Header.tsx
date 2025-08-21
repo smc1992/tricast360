@@ -65,6 +65,7 @@ export default function Header() {
               </Link>
             </nav>
 
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-3 xl:gap-4">
               <Link href="/system" className="text-gray-600 hover:text-emerald-600 transition-colors duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 text-sm xl:text-base">
                 <i className="ri-eco-line"></i>
@@ -78,55 +79,128 @@ export default function Header() {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <i className="ri-phone-line relative z-10"></i>
                 <span className="hidden sm:inline relative z-10">Projekt anfragen</span>
-                <span className="sm:hidden relative z-10">Anfrage</span>
               </button>
             </div>
 
-            <button 
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-[#2b3138] hover:bg-[#39F2AE]/10 rounded-xl transition-colors duration-200 cursor-pointer"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <i className={`text-xl transition-transform duration-300 ${isMenuOpen ? 'ri-close-line rotate-180' : 'ri-menu-line'}`}></i>
-            </button>
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center gap-3">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-2.5 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
+              >
+                <i className="ri-phone-line text-lg"></i>
+              </button>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 text-gray-600 hover:text-emerald-600 transition-colors duration-200 relative z-50"
+                aria-label="Menu öffnen"
+              >
+                <div className="w-6 h-6 flex flex-col justify-center items-center">
+                  <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                  <span className={`block w-6 h-0.5 bg-current transition-all duration-300 mt-1 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                  <span className={`block w-6 h-0.5 bg-current transition-all duration-300 mt-1 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+                </div>
+              </button>
+            </div>
           </div>
+        </div>
 
-          {isMenuOpen && (
-            <div className="lg:hidden mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200 animate-fade-in">
-              <nav className="flex flex-col gap-3 sm:gap-4">
-                <Link href="/#problem" className="text-gray-600 hover:text-emerald-600 transition-colors duration-200 cursor-pointer py-2" onClick={() => setIsMenuOpen(false)}>
+        {/* Mobile Menu Overlay */}
+        <div className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+          
+          {/* Menu Panel */}
+          <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className="p-6 pt-20">
+              {/* Mobile Navigation Links */}
+              <nav className="space-y-6">
+                <Link 
+                  href="/#problem" 
+                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-alert-line mr-3 text-emerald-600"></i>
                   Das Problem
                 </Link>
-                <Link href="/#funktionsweise" className="text-gray-600 hover:text-emerald-600 transition-colors duration-200 cursor-pointer py-2" onClick={() => setIsMenuOpen(false)}>
+                <Link 
+                  href="/#funktionsweise" 
+                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-settings-3-line mr-3 text-emerald-600"></i>
                   Funktionsweise
                 </Link>
-                <Link href="/#vorteile" className="text-gray-600 hover:text-emerald-600 transition-colors duration-200 cursor-pointer py-2" onClick={() => setIsMenuOpen(false)}>
+                <Link 
+                  href="/#vorteile" 
+                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-leaf-line mr-3 text-emerald-600"></i>
                   Umweltvorteile
                 </Link>
-                <Link href="/ueber-uns" className="text-gray-600 hover:text-emerald-600 transition-colors duration-200 cursor-pointer py-2" onClick={() => setIsMenuOpen(false)}>
+                <Link 
+                  href="/system" 
+                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-eco-line mr-3 text-emerald-600"></i>
+                  System entdecken
+                </Link>
+                <Link 
+                  href="/ueber-uns" 
+                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-team-line mr-3 text-emerald-600"></i>
                   Unser Team
                 </Link>
-                <Link href="/kontakt" className="text-gray-600 hover:text-emerald-600 transition-colors duration-200 cursor-pointer py-2" onClick={() => setIsMenuOpen(false)}>
+                <Link 
+                  href="/kontakt" 
+                  className="block text-lg text-gray-700 hover:text-emerald-600 transition-colors duration-200 py-2 border-b border-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-mail-line mr-3 text-emerald-600"></i>
                   Kontakt
                 </Link>
-                <div className="flex flex-col gap-3 pt-3 sm:pt-4 border-t border-gray-200">
-                  <Link href="/system" className="text-[#2b3138] hover:text-emerald-600 transition-colors duration-200 text-left whitespace-nowrap cursor-pointer flex items-center gap-2 py-2" onClick={() => setIsMenuOpen(false)}>
-                    <i className="ri-eco-line"></i>
-                    Nachhaltige Infos
-                  </Link>
-                  <button 
-                    onClick={() => {
-                      setIsModalOpen(true);
-                      setIsMenuOpen(false);
-                    }}
-                    className="btn-primary bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-3 rounded-2xl font-medium transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center gap-2 justify-center"
-                  >
-                    <i className="ri-phone-line"></i>
-                    Projekt anfragen
-                  </button>
-                </div>
               </nav>
+
+              {/* Mobile CTA */}
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <button 
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <i className="ri-phone-line text-lg"></i>
+                  Projekt anfragen
+                </button>
+              </div>
+
+              {/* Quick Contact */}
+              <div className="mt-6 space-y-3">
+                <a 
+                  href="tel:+491701002912" 
+                  className="flex items-center gap-3 text-gray-600 hover:text-emerald-600 transition-colors duration-200"
+                >
+                  <i className="ri-phone-line text-lg"></i>
+                  <span>+49 170 1002912</span>
+                </a>
+                <a 
+                  href="mailto:info@tricast360.de" 
+                  className="flex items-center gap-3 text-gray-600 hover:text-emerald-600 transition-colors duration-200"
+                >
+                  <i className="ri-mail-line text-lg"></i>
+                  <span>info@tricast360.de</span>
+                </a>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </header>
 
