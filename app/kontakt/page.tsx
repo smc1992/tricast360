@@ -108,9 +108,9 @@ export default function KontaktPage() {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-12 items-start">
             {/* Kontaktformular */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 xl:order-1 xl:col-span-1">
               <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg">
                 <div className="mb-8">
                   <h2 className="text-2xl font-medium text-[#2b3138] mb-2">Nachricht senden</h2>
@@ -264,10 +264,9 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            {/* Kontakt-Informationen */}
-            <div className="order-1 lg:order-2 space-y-8">
-              {/* Startup Story */}
-              <div className="bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/5 rounded-3xl p-8 border border-[#39F2AE]/20">
+            {/* Startup Story - Second Column on XL+ */}
+            <div className="order-1 lg:order-2 xl:order-2 xl:col-span-1 lg:col-span-1">
+              <div className="bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/5 rounded-3xl p-8 border border-[#39F2AE]/20 h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-[#39F2AE]/20 rounded-xl flex items-center justify-center">
                     <i className="ri-rocket-line text-[#39F2AE] text-xl"></i>
@@ -282,15 +281,40 @@ export default function KontaktPage() {
                   nachhaltigen Lösungen. Unser Team bringt frische Ideen und modernste 
                   Technologien in eine traditionelle Branche.
                 </p>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mb-6">
                   <div className="w-2 h-2 bg-[#39F2AE] rounded-full animate-pulse"></div>
                   <span className="text-[#39F2AE] text-sm font-medium">Gegründet 2024</span>
                 </div>
+                
+                {/* Additional Benefits for XL screens */}
+                <div className="hidden xl:block space-y-4 pt-6 border-t border-[#39F2AE]/20">
+                  <h4 className="text-lg font-medium text-[#2b3138] mb-4">Warum Tricast360?</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <i className="ri-shield-check-line text-[#39F2AE]"></i>
+                      <span className="text-gray-600 text-sm">Kostenlose Erstberatung</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <i className="ri-truck-line text-[#39F2AE]"></i>
+                      <span className="text-gray-600 text-sm">Deutschlandweite Lieferung</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <i className="ri-recycle-line text-[#39F2AE]"></i>
+                      <span className="text-gray-600 text-sm">100% wiederverwendbar</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <i className="ri-time-line text-[#39F2AE]"></i>
+                      <span className="text-gray-600 text-sm">Schnelle Projektabwicklung</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              {/* Kontakt-Details */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-medium text-[#2b3138] mb-6">Kontakt-Details</h3>
+            </div>
+            
+            {/* Kontakt-Details - Third Column on XL+ */}
+            <div className="order-3 xl:order-3 xl:col-span-1 lg:col-span-1 xl:block">
+              <div className="space-y-6">
+                <h3 className="text-xl font-medium text-[#2b3138]">Kontakt-Details</h3>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-[#39F2AE]/30 transition-all duration-200 group shadow-sm">

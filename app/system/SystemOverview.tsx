@@ -75,7 +75,7 @@ export default function SystemOverview() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-6 xl:gap-8">
         {features.map((feature, index) => (
           <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#39F2AE]/30 hover:shadow-lg transition-all duration-300 cursor-pointer">
             <div className="space-y-4">

@@ -112,7 +112,7 @@ export default function UeberUns() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
               {/* Rifat Acar */}
               <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:border-[#39F2AE]/30 transition-all duration-300 group">
                 <div className="flex items-start gap-6">
@@ -148,8 +148,45 @@ export default function UeberUns() {
                 </div>
               </div>
 
+              {/* Sarah Müller - Marketing & Sales */}
+              <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:border-[#39F2AE]/30 transition-all duration-300 group">
+                <div className="flex items-start gap-6">
+                  <div className="relative">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#39F2AE]/20 to-[#2dd89a]/10 border border-[#39F2AE]/20 group-hover:border-[#39F2AE]/40 transition-all duration-300 flex items-center justify-center">
+                      <i className="ri-presentation-line text-[#39F2AE] text-2xl"></i>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300">
+                      <i className="ri-megaphone-line text-[#39F2AE] text-sm"></i>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1 space-y-3">
+                    <div>
+                      <h3 className="text-xl font-medium text-[#2b3138] group-hover:text-[#39F2AE] transition-colors duration-300">
+                        Sarah Müller
+                      </h3>
+                      <p className="text-[#39F2AE] font-medium text-sm">Marketing & Sales</p>
+                    </div>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Marktentwicklung und Kundenbetreuung - Sarah sorgt dafür, dass unsere 
+                      nachhaltigen Lösungen die richtigen Kunden erreichen.
+                    </p>
+                    
+                    <div className="flex gap-2 flex-wrap">
+                      <span className="px-3 py-1 bg-[#39F2AE]/10 border border-[#39F2AE]/20 rounded-full text-[#39F2AE] text-xs">
+                        Marketing
+                      </span>
+                      <span className="px-3 py-1 bg-[#39F2AE]/10 border border-[#39F2AE]/20 rounded-full text-[#39F2AE] text-xs">
+                        Kundenbetreuung
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Platzhalter für weiteres Team-Mitglied */}
-              <div className="bg-white rounded-3xl p-8 border border-gray-200 border-dashed shadow-lg">
+              <div className="bg-white rounded-3xl p-8 border border-gray-200 border-dashed shadow-lg xl:col-span-1 md:col-span-2 xl:col-span-1">
                 <div className="text-center space-y-4">
                   <div className="w-16 h-16 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center mx-auto">
                     <i className="ri-add-line text-[#39F2AE] text-2xl"></i>

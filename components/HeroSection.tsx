@@ -50,8 +50,19 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 overflow-hidden">
-        {/* Natural Background Components */}
-        <HeroGradient className="absolute inset-0" />
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/hintergrundbild tricast360.webp" 
+            alt="Tricast360 Hintergrund" 
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]"></div>
+        </div>
+        
+        {/* Natural Background Components (reduced opacity) */}
+        <HeroGradient className="absolute inset-0 opacity-30" />
         <HeroNaturalBackground />
         
         {/* Interactive overlay effect */}
