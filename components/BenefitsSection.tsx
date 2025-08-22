@@ -93,38 +93,38 @@ export default function BenefitsSection() {
         </div>
 
         {/* Enhanced Benefits Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-benefits-lg gap-4 sm:gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-16">
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className={`group ${benefit.bgColor} rounded-2xl sm:rounded-3xl p-6 sm:p-8 border ${benefit.borderColor} hover:border-emerald-300/60 transition-all duration-500 hover:transform hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl relative overflow-hidden`}
+              className={`group ${benefit.bgColor} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border ${benefit.borderColor} hover:border-emerald-300/60 transition-all duration-500 hover:transform hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl relative overflow-hidden`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="space-y-4 sm:space-y-6 relative z-10">
+              <div className="space-y-3 sm:space-y-4 lg:space-y-6 relative z-10">
                 <div className="flex items-center justify-between">
                   <div className="relative">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 ${benefit.bgColor} rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 border ${benefit.borderColor}`}>
-                      <i className={`${benefit.icon} text-xl sm:text-2xl ${benefit.textColor} group-hover:scale-110 transition-transform duration-300`}></i>
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 ${benefit.bgColor} rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 border ${benefit.borderColor}`}>
+                      <i className={`${benefit.icon} text-lg sm:text-xl lg:text-2xl ${benefit.textColor} group-hover:scale-110 transition-transform duration-300`}></i>
                     </div>
-                    <div className="absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <i className="ri-check-line text-xs text-white font-bold"></i>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className={`text-lg sm:text-xl font-bold ${benefit.textColor} group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`text-base sm:text-lg lg:text-xl font-bold ${benefit.textColor} group-hover:scale-110 transition-transform duration-300`}>
                       {benefit.highlight}
                     </div>
                   </div>
                 </div>
                 
                 <div className="space-y-2 sm:space-y-3">
-                  <h3 className={`text-lg sm:text-xl font-semibold text-gray-800 group-hover:${benefit.textColor} transition-colors duration-300`}>
+                  <h3 className={`text-base sm:text-lg lg:text-xl font-semibold text-gray-800 group-hover:${benefit.textColor} transition-colors duration-300`}>
                     {benefit.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {benefit.description}
                   </p>
                 </div>
