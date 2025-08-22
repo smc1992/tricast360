@@ -44,41 +44,30 @@ export default function ProblemSolutionSection() {
       text: 'Hohe Kosten',
       icon: 'ri-money-euro-circle-line',
       detail: 'Beschaffung, Transport und Entsorgung'
-    },
-    {
-      text: 'Risiko von Verzögerungen',
-      icon: 'ri-alarm-warning-line',
-      detail: 'Komplizierte Montage führt zu Projektverzug'
     }
   ];
 
   const solutions = [
     {
-      text: 'Werkzeuglose Montage in Minuten',
-      icon: 'ri-flashlight-line',
+      text: 'Werkzeuglose Installation',
+      icon: 'ri-tools-line',
       detail: 'Einfaches Klicksystem ohne Werkzeug',
       highlight: '< 5 Min'
     },
     {
-      text: 'Leicht & kompakt – geschlossenes System', 
-      icon: 'ri-box-3-line',
-      detail: 'Platzsparend und einfach zu handhaben',
-      highlight: '80% leichter'
-    },
-    {
-      text: 'Recyceltes Material, mehrfach einsetzbar',
+      text: 'Nachhaltig & wiederverwendbar',
       icon: 'ri-recycle-line',
-      detail: 'Nachhaltig und wiederverwendbar',
+      detail: 'Bis zu 10x wiederverwendbar',
       highlight: '10x nutzbar'
     },
     {
-      text: 'Erfüllt strenge Auflagen',
-      icon: 'ri-shield-check-line',
-      detail: 'Zertifiziert nach allen Standards',
-      highlight: '100% konform'
+      text: 'Leicht & kompakt',
+      icon: 'ri-flight-takeoff-line',
+      detail: 'Einfacher Transport und Lagerung',
+      highlight: '80% leichter'
     },
     {
-      text: 'Senkt Beschaffungs- und Folgekosten',
+      text: 'Kosteneffizient',
       icon: 'ri-line-chart-line',
       detail: 'Langfristige Kostenersparnis',
       highlight: '60% weniger'
@@ -90,179 +79,134 @@ export default function ProblemSolutionSection() {
       <SectionGradient className="absolute inset-0" />
       <SectionNaturalBackground variant="leaves" />
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header for smaller screens */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 xl:hidden">
-          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold mb-6 sm:mb-8 shadow-lg">
+        {/* Simplified Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-lightbulb-line mr-2"></i>
             2020 aus der Praxis geboren
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-light mb-6 sm:mb-8 text-[#2b3138] leading-tight px-2">
+          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
             Von der <span className="text-red-500 font-medium">Herausforderung</span>
             <br />
             zur <span className="text-[#39F2AE] font-medium">Innovation</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto px-4">
+          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
             Klassischer Baumschutz war schwer, sperrig und oft nicht regelkonform. 
             <span className="text-[#39F2AE] font-medium"> Tricast360 macht es leicht, wiederverwendbar und effizient.</span>
           </p>
         </div>
 
-        {/* 3-Column Layout for XL+ screens, 2-Column for smaller */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 xl:gap-8 items-start">
-          
-          {/* Header Section for XL+ screens */}
-          <div className="hidden xl:block xl:col-span-1 xl:order-2">
-            <div className="text-left mb-8">
-              <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-4 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
-                <i className="ri-lightbulb-line mr-2"></i>
-                2020 aus der Praxis geboren
-              </div>
-              <h2 className="text-4xl 2xl:text-5xl font-light mb-6 text-[#2b3138] leading-tight">
-                Von der <span className="text-red-500 font-medium">Herausforderung</span>
-                <br />
-                zur <span className="text-[#39F2AE] font-medium">Innovation</span>
-              </h2>
-              <p className="text-lg text-gray-600 font-light leading-relaxed">
-                Klassischer Baumschutz war schwer, sperrig und oft nicht regelkonform. 
-                <span className="text-[#39F2AE] font-medium"> Tricast360 macht es leicht, wiederverwendbar und effizient.</span>
-              </p>
-            </div>
-          </div>
+        {/* Clean Two-Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           
           {/* Problem Section */}
-          <div className={`xl:order-1 space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="space-y-6 sm:space-y-8">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 mb-6 sm:mb-8 text-center sm:text-left">
-                <div className="relative">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-50 rounded-xl sm:rounded-2xl flex items-center justify-center border border-red-200">
-                    <i className="ri-close-circle-line text-2xl sm:text-3xl text-red-500"></i>
-                  </div>
-                  <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-red-500 rounded-full animate-pulse"></div>
+          <div className="space-y-8">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center border border-red-200">
+                  <i className="ri-close-circle-line text-2xl text-red-500"></i>
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-light text-[#2b3138]">Das Problem</h3>
-                  <p className="text-red-500 text-xs sm:text-sm">Herkömmliche Lösungen</p>
+                  <h3 className="text-2xl font-medium text-[#2b3138]">Das Problem</h3>
+                  <p className="text-red-500 text-sm">Herkömmliche Lösungen</p>
                 </div>
               </div>
-              
-              <div className="space-y-4">
-                {problems.map((problem, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className={`${problem.icon} text-red-500 text-xl`}></i>
-                      </div>
-                      <div className="flex-1 space-y-2">
-                        <h4 className="text-lg font-medium text-[#2b3138]">
-                          {problem.text}
-                        </h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {problem.detail}
-                        </p>
-                      </div>
+            </div>
+               
+            <div className="space-y-4">
+              {problems.map((problem, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i className={`${problem.icon} text-red-500 text-xl`}></i>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <h4 className="text-lg font-medium text-[#2b3138]">
+                        {problem.text}
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {problem.detail}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* VS Divider - only for lg screens, hidden on xl+ */}
-          <div className="hidden lg:block xl:hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className="relative">
-              <div className="w-16 lg:w-20 h-16 lg:h-20 bg-gradient-to-r from-red-500 to-[#39F2AE] rounded-full flex items-center justify-center shadow-2xl animate-pulse">
-                <span className="text-white font-bold text-base lg:text-lg">VS</span>
-              </div>
-              <div className="absolute inset-0 border-2 lg:border-4 border-white rounded-full"></div>
-            </div>
-          </div>
-
-          {/* Mobile VS Divider */}
-          <div className="lg:hidden flex justify-center py-6">
-            <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-[#39F2AE] rounded-full flex items-center justify-center shadow-2xl animate-pulse">
-                <span className="text-white font-bold text-base">VS</span>
-              </div>
-              <div className="absolute inset-0 border-2 border-white rounded-full"></div>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Solution Section */}
-          <div className={`xl:order-3 space-y-6 sm:space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="space-y-6 sm:space-y-8">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 mb-6 sm:mb-8 text-center sm:text-left">
-                <div className="relative">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl flex items-center justify-center border border-[#39F2AE]/30">
-                    <i className="ri-check-double-line text-2xl sm:text-3xl text-[#39F2AE]"></i>
-                  </div>
-                  <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-[#39F2AE] rounded-full animate-pulse"></div>
+          <div className="space-y-8">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center border border-[#39F2AE]/30">
+                  <i className="ri-check-double-line text-2xl text-[#39F2AE]"></i>
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-light text-[#2b3138]">Die Lösung</h3>
-                  <p className="text-[#39F2AE] text-xs sm:text-sm">Tricast360 Innovation</p>
+                  <h3 className="text-2xl font-medium text-[#2b3138]">Die Lösung</h3>
+                  <p className="text-[#39F2AE] text-sm">Tricast360 Innovation</p>
                 </div>
               </div>
-              
-              <div className="space-y-4">
-                {solutions.map((solution, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className={`${solution.icon} text-[#39F2AE] text-xl`}></i>
-                      </div>
-                      <div className="flex-1 space-y-2">
-                        <div className="flex items-center gap-3">
-                          <h4 className="text-lg font-medium text-[#2b3138] flex-1">
-                            {solution.text}
-                          </h4>
-                          <div className="px-3 py-1 bg-[#39F2AE]/10 rounded-full border border-[#39F2AE]/30">
-                            <span className="text-[#39F2AE] text-xs font-bold">{solution.highlight}</span>
-                          </div>
+            </div>
+               
+            <div className="space-y-4">
+              {solutions.map((solution, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i className={`${solution.icon} text-[#39F2AE] text-xl`}></i>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <h4 className="text-lg font-medium text-[#2b3138] flex-1">
+                          {solution.text}
+                        </h4>
+                        <div className="px-3 py-1 bg-[#39F2AE]/10 rounded-full border border-[#39F2AE]/30">
+                          <span className="text-[#39F2AE] text-xs font-bold">{solution.highlight}</span>
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {solution.detail}
-                        </p>
                       </div>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {solution.detail}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom comparison stats */}
-        <div className={`mt-12 sm:mt-16 lg:mt-20 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-lg">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
-              <div className="space-y-2 sm:space-y-3 group cursor-pointer">
-                <div className="text-3xl sm:text-4xl font-bold text-[#39F2AE] group-hover:scale-110 transition-transform duration-300">
+        <div className="mt-16">
+          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+              <div className="space-y-3">
+                <div className="text-4xl font-bold text-[#39F2AE]">
                   60%
                 </div>
-                <p className="text-[#2b3138] font-medium text-sm sm:text-base">Kostenersparnis</p>
-                <p className="text-gray-600 text-xs sm:text-sm">gegenüber herkömmlichen Lösungen</p>
+                <p className="text-[#2b3138] font-medium">Kostenersparnis</p>
+                <p className="text-gray-600 text-sm">gegenüber herkömmlichen Lösungen</p>
               </div>
               
-              <div className="space-y-2 sm:space-y-3 group cursor-pointer">
-                <div className="text-3xl sm:text-4xl font-bold text-[#39F2AE] group-hover:scale-110 transition-transform duration-300">
+              <div className="space-y-3">
+                <div className="text-4xl font-bold text-[#39F2AE]">
                   10x
                 </div>
-                <p className="text-[#2b3138] font-medium text-sm sm:text-base">Wiederverwendbar</p>
-                <p className="text-gray-600 text-xs sm:text-sm">für maximale Nachhaltigkeit</p>
+                <p className="text-[#2b3138] font-medium">Wiederverwendbar</p>
+                <p className="text-gray-600 text-sm">für maximale Nachhaltigkeit</p>
               </div>
               
-              <div className="space-y-2 sm:space-y-3 group cursor-pointer">
-                <div className="text-3xl sm:text-4xl font-bold text-[#39F2AE] group-hover:scale-110 transition-transform duration-300">
+              <div className="space-y-3">
+                <div className="text-4xl font-bold text-[#39F2AE]">
                   &lt; 5 Min
                 </div>
-                <p className="text-[#2b3138] font-medium text-sm sm:text-base">Montagezeit</p>
-                <p className="text-gray-600 text-xs sm:text-sm">werkzeuglose Installation</p>
+                <p className="text-[#2b3138] font-medium">Montagezeit</p>
+                <p className="text-gray-600 text-sm">werkzeuglose Installation</p>
               </div>
             </div>
           </div>
