@@ -84,12 +84,12 @@ export default function HeroSection() {
           <div className="flex justify-center items-center">
             {/* Zentrierter Content */}
             <div
-              className={`transition-all duration-1000 text-center max-w-4xl ${
+              className={`transition-all duration-1000 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
               {/* Premium Glassmorphism Container */}
-              <div className="backdrop-blur-xl bg-white/85 border border-emerald-200/50 rounded-3xl p-8 sm:p-10 shadow-2xl shadow-emerald-900/10 relative overflow-hidden">
+              <div className="backdrop-blur-xl bg-white/85 border border-emerald-200/50 rounded-3xl p-8 sm:p-10 xl:p-12 2xl:p-16 shadow-2xl shadow-emerald-900/10 relative overflow-hidden">
                 {/* Subtile Umwelt-Akzente */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-emerald-100/60 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-teal-100/50 to-transparent rounded-full blur-xl"></div>
@@ -102,15 +102,15 @@ export default function HeroSection() {
                     <i className="ri-leaf-line text-emerald-600 text-sm"></i>
                   </div>
 
-                  <div className="space-y-4 sm:space-y-6 content-spacing">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-[#2b3138]">
+                  <div className="space-y-4 sm:space-y-6 xl:space-y-8 2xl:space-y-10 content-spacing">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-[1.1] tracking-tight text-[#2b3138]">
                       <span className="block">Baumschutz in &lt;5 Min</span>
-                      <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#39F2AE] font-bold mt-2">
+                      <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-[#39F2AE] font-bold mt-2">
                         60% günstiger über Lebenszyklus
                       </span>
                     </h1>
 
-                    <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-gray-700 font-medium leading-relaxed max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
                       Tricast360 – der werkzeuglose Rundumschutz für Bäume. 
                       <span className="text-[#39F2AE] font-semibold">
                         Wiederverwendbar, konform, zukunftssicher.
@@ -119,10 +119,10 @@ export default function HeroSection() {
                   </div>
 
                   {/* Call-to-Action */}
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 xl:gap-6 2xl:gap-8 justify-center">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="group bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
+                      className="group bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-6 sm:px-8 xl:px-10 2xl:px-12 py-3 sm:py-4 xl:py-5 2xl:py-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg xl:text-xl 2xl:text-2xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <span className="flex items-center gap-2 justify-center relative z-10">

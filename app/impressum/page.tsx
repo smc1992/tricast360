@@ -25,13 +25,13 @@ export default function Impressum() {
           </div>
 
           <div className="bg-white rounded-3xl p-8 lg:p-12 border border-gray-200 shadow-lg space-y-10">
-            {/* Angaben gemäß § 5 TMG */}
+            {/* Unternehmensangaben */}
             <section className="space-y-6">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
                 <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
                   <i className="ri-building-line text-[#39F2AE]"></i>
                 </div>
-                Angaben gemäß § 5 TMG
+                Unternehmensangaben
               </h2>
               
               <div className="grid md:grid-cols-2 gap-8">
@@ -110,7 +110,7 @@ export default function Impressum() {
               </h2>
               
               <p className="text-gray-600">
-                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+                Umsatzsteuer-Identifikationsnummer:<br />
                 <span className="text-[#2b3138] font-mono">DE [wird bei Bedarf ergänzt]</span>
               </p>
             </section>
@@ -125,7 +125,7 @@ export default function Impressum() {
               </h2>
               
               <p className="text-gray-600">
-                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br />
+                Verantwortlich für den Inhalt:<br />
                 <span className="text-[#2b3138]">Galip Alkan</span><br />
                 Lüneburger Str. 90<br />
                 D-21423 Winsen (Luhe)
@@ -145,8 +145,8 @@ export default function Impressum() {
                 <div>
                   <h3 className="text-lg font-medium text-[#2b3138] mb-3">Haftung für Inhalte</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den 
-                    allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht 
+                    Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den 
+                    allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht 
                     unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach 
                     Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
                   </p>
