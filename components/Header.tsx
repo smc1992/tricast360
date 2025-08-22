@@ -84,7 +84,7 @@ export default function Header() {
                 className="btn-primary bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-xl xl:rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center gap-2 text-sm xl:text-base relative overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <i className="ri-phone-line relative z-10"></i>
+                <i className="ri-file-text-line relative z-10"></i>
                 <span className="hidden sm:inline relative z-10">Projekt anfragen</span>
               </button>
             </div>
@@ -95,7 +95,7 @@ export default function Header() {
                 onClick={() => setIsModalOpen(true)}
                 className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-2.5 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
               >
-                <i className="ri-phone-line text-lg"></i>
+                <i className="ri-file-text-line text-lg"></i>
               </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -184,7 +184,7 @@ export default function Header() {
                   }}
                   className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <i className="ri-phone-line text-lg"></i>
+                  <i className="ri-file-text-line text-lg"></i>
                   Projekt anfragen
                 </button>
               </div>
