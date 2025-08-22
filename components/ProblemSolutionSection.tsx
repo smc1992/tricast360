@@ -6,7 +6,6 @@ import { SectionGradient } from './GradientBackgrounds';
 import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function ProblemSolutionSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -146,33 +145,23 @@ export default function ProblemSolutionSection() {
                 </div>
               </div>
               
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-4">
                 {problems.map((problem, index) => (
                   <div 
                     key={index} 
-                    className={`group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 hover:border-red-300 hover:shadow-lg transition-all duration-500 cursor-pointer ${hoveredIndex === index ? 'scale-105 shadow-xl' : ''}`}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
                   >
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-50 rounded-lg sm:rounded-xl flex items-center justify-center mt-1 group-hover:bg-red-100 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                        <i className={`${problem.icon} text-red-500 text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300`}></i>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className={`${problem.icon} text-red-500 text-xl`}></i>
                       </div>
-                      <div className="flex-1 space-y-2 min-w-0">
-                        <h4 className="text-base sm:text-lg font-medium text-[#2b3138] group-hover:text-red-500 transition-colors duration-300 leading-tight">
+                      <div className="flex-1 space-y-2">
+                        <h4 className="text-lg font-medium text-[#2b3138]">
                           {problem.text}
                         </h4>
-                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+                        <p className="text-gray-600 text-sm leading-relaxed">
                           {problem.detail}
                         </p>
-                        {/* Progress bar */}
-                        <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-red-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
-                        </div>
-                      </div>
-                      <div className="text-red-400 group-hover:text-red-500 transition-colors duration-300 flex-shrink-0">
-                        <i className="ri-arrow-right-line text-base sm:text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
                       </div>
                     </div>
                   </div>
@@ -217,38 +206,28 @@ export default function ProblemSolutionSection() {
                 </div>
               </div>
               
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-4">
                 {solutions.map((solution, index) => (
                   <div 
                     key={index} 
-                    className={`group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 hover:border-[#39F2AE]/50 hover:shadow-lg transition-all duration-500 cursor-pointer ${hoveredIndex === index + 10 ? 'scale-105 shadow-xl' : ''}`}
-                    onMouseEnter={() => setHoveredIndex(index + 10)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    style={{ animationDelay: `${(index + 5) * 0.1}s` }}
+                    className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
                   >
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#39F2AE]/10 rounded-lg sm:rounded-xl flex items-center justify-center mt-1 group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                        <i className={`${solution.icon} text-[#39F2AE] text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300`}></i>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className={`${solution.icon} text-[#39F2AE] text-xl`}></i>
                       </div>
-                      <div className="flex-1 space-y-2 min-w-0">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                          <h4 className="text-base sm:text-lg font-medium text-[#2b3138] group-hover:text-[#39F2AE] transition-colors duration-300 leading-tight flex-1">
+                      <div className="flex-1 space-y-2">
+                        <div className="flex items-center gap-3">
+                          <h4 className="text-lg font-medium text-[#2b3138] flex-1">
                             {solution.text}
                           </h4>
-                          <div className="px-2 sm:px-3 py-1 bg-[#39F2AE]/10 rounded-full border border-[#39F2AE]/30 flex-shrink-0 self-start sm:self-auto">
+                          <div className="px-3 py-1 bg-[#39F2AE]/10 rounded-full border border-[#39F2AE]/30">
                             <span className="text-[#39F2AE] text-xs font-bold">{solution.highlight}</span>
                           </div>
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+                        <p className="text-gray-600 text-sm leading-relaxed">
                           {solution.detail}
                         </p>
-                        {/* Progress bar */}
-                        <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
-                        </div>
-                      </div>
-                      <div className="text-[#39F2AE]/60 group-hover:text-[#39F2AE] transition-colors duration-300 flex-shrink-0">
-                        <i className="ri-check-line text-base sm:text-lg group-hover:scale-125 transition-transform duration-300"></i>
                       </div>
                     </div>
                   </div>

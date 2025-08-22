@@ -67,76 +67,16 @@ export default function HeroSection() {
         <HeroGradient className="absolute inset-0 opacity-30" />
         <HeroNaturalBackground />
         
-        {/* Interactive overlay effect */}
-        <div
-          className="absolute inset-0 transition-all duration-700 transform"
-          style={{
-            opacity: isHovered ? 0.15 : 0.10,
-            transform: isHovered ? 'scale(1.01)' : 'scale(1)',
-          }}
-        >
-          {/* Natürliche Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-50/80 via-white/60 to-teal-50/70 transition-all duration-700"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-emerald-50/40 transition-all duration-700"></div>
-          {/* Umwelt-Akzent Effekte */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-tr from-emerald-400/8 via-transparent to-teal-300/6 transition-all duration-1000 ${
-              isHovered ? 'opacity-60' : 'opacity-30'
-            }`}
-          ></div>
-        </div>
+        {/* Simplified overlay effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-emerald-50/20 transition-all duration-500"></div>
 
-        {/* Floating Umwelt-Partikel */}
+        {/* Simplified floating elements - reduced for cleaner design */}
         <div className="absolute inset-0 overflow-hidden z-10">
-          <div className="absolute top-20 left-10 sm:left-20 w-3 h-3 bg-emerald-400/30 rounded-full float shadow-lg"></div>
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400/20 rounded-full float"></div>
           <div
-            className="absolute top-40 right-16 sm:right-32 w-2 h-2 bg-teal-400/40 rounded-full float shadow-md"
-            style={{ animationDelay: '2s' }}
+            className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-teal-400/20 rounded-full float"
+            style={{ animationDelay: '3s' }}
           ></div>
-          <div
-            className="absolute bottom-32 left-20 sm:left-40 w-4 h-4 bg-emerald-300/25 rounded-full float shadow-lg"
-            style={{ animationDelay: '4s' }}
-          ></div>
-          <div
-            className="absolute bottom-20 right-10 sm:right-20 w-2.5 h-2.5 bg-teal-300/35 rounded-full float shadow-md"
-            style={{ animationDelay: '1s' }}
-          ></div>
-          
-          {/* Additional particles for large screens */}
-          <div className="hidden xl:block">
-            <div
-              className="absolute top-16 left-1/3 w-2 h-2 bg-emerald-500/20 rounded-full float shadow-sm"
-              style={{ animationDelay: '3s' }}
-            ></div>
-            <div
-              className="absolute top-1/3 right-1/4 w-3 h-3 bg-teal-400/25 rounded-full float shadow-md"
-              style={{ animationDelay: '5s' }}
-            ></div>
-            <div
-              className="absolute bottom-1/3 left-1/4 w-2.5 h-2.5 bg-emerald-400/20 rounded-full float shadow-lg"
-              style={{ animationDelay: '6s' }}
-            ></div>
-            <div
-              className="absolute bottom-16 right-1/3 w-1.5 h-1.5 bg-teal-500/30 rounded-full float shadow-sm"
-              style={{ animationDelay: '7s' }}
-            ></div>
-          </div>
-          
-          {/* Extra particles for very large screens */}
-          <div className="hidden 2xl:block">
-            <div
-              className="absolute top-24 left-1/5 w-3.5 h-3.5 bg-emerald-300/15 rounded-full float shadow-lg"
-              style={{ animationDelay: '8s' }}
-            ></div>
-            <div
-              className="absolute top-2/3 right-1/5 w-2 h-2 bg-teal-300/25 rounded-full float shadow-md"
-              style={{ animationDelay: '9s' }}
-            ></div>
-            <div
-              className="absolute bottom-24 left-2/3 w-2.5 h-2.5 bg-emerald-500/18 rounded-full float shadow-lg"
-              style={{ animationDelay: '10s' }}
-            ></div>
-          </div>
         </div>
 
         {/* Enhanced Main Content */}

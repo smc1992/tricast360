@@ -97,41 +97,25 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className={`group ${benefit.bgColor} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border ${benefit.borderColor} hover:border-emerald-300/60 transition-all duration-500 hover:transform hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl relative overflow-hidden`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`${benefit.bgColor} rounded-2xl p-6 lg:p-8 border ${benefit.borderColor} shadow-sm`}
             >
-              {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <div className="space-y-3 sm:space-y-4 lg:space-y-6 relative z-10">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="relative">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 ${benefit.bgColor} rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 border ${benefit.borderColor}`}>
-                      <i className={`${benefit.icon} text-lg sm:text-xl lg:text-2xl ${benefit.textColor} group-hover:scale-110 transition-transform duration-300`}></i>
-                    </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <i className="ri-check-line text-xs text-white font-bold"></i>
-                    </div>
+                  <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center border ${benefit.borderColor}`}>
+                    <i className={`${benefit.icon} text-xl lg:text-2xl ${benefit.textColor}`}></i>
                   </div>
-                  <div className="text-right">
-                    <div className={`text-base sm:text-lg lg:text-xl font-bold ${benefit.textColor} group-hover:scale-110 transition-transform duration-300`}>
-                      {benefit.highlight}
-                    </div>
+                  <div className={`text-lg lg:text-xl font-bold ${benefit.textColor}`}>
+                    {benefit.highlight}
                   </div>
                 </div>
                 
-                <div className="space-y-2 sm:space-y-3">
-                  <h3 className={`text-base sm:text-lg lg:text-xl font-semibold text-gray-800 group-hover:${benefit.textColor} transition-colors duration-300`}>
+                <div className="space-y-3">
+                  <h3 className="text-lg lg:text-xl font-semibold text-gray-800">
                     {benefit.title}
                   </h3>
-                  <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
                     {benefit.description}
                   </p>
-                </div>
-
-                {/* Enhanced progress bar */}
-                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                  <div className={`h-full bg-gradient-to-r ${benefit.color} rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out`}></div>
                 </div>
               </div>
             </div>
