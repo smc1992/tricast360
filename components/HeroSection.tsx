@@ -81,10 +81,10 @@ export default function HeroSection() {
 
         {/* Enhanced Main Content */}
         <div className="max-w-7xl w-full mx-auto relative z-20 px-4 sm:px-6 lg:px-8 xl:px-6 2xl:px-8 py-8 sm:py-12 lg:py-16 xl:py-6 2xl:py-4">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-8 2xl:gap-12 items-center">
-            {/* Left column mit verbessertem Design */}
+          <div className="flex justify-center items-center">
+            {/* Zentrierter Content */}
             <div
-              className={`transition-all duration-1000 text-center lg:text-left ${
+              className={`transition-all duration-1000 text-center max-w-4xl ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
@@ -103,26 +103,23 @@ export default function HeroSection() {
                   </div>
 
                   <div className="space-y-4 sm:space-y-6 content-spacing">
-                    <h1 className="text-hero 3xl:text-8xl 4xl:text-9xl 5xl:text-10xl font-light leading-[1.1] tracking-tight text-[#2b3138]">
-                      <span className="block">Tricast360</span>
-                      <span className="block text-section-title 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl text-gray-600 font-extralight mt-2">
-                        Der neue Standard
-                      </span>
-                      <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl text-[#39F2AE] font-extralight">
-                        im Baumschutz
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-[#2b3138]">
+                      <span className="block">Baumschutz in &lt;5 Min</span>
+                      <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#39F2AE] font-bold mt-2">
+                        60% günstiger über Lebenszyklus
                       </span>
                     </h1>
 
-                    <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
-                      Revolutionärer Schutz für jeden Baum - {` `}
+                    <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 font-medium leading-relaxed max-w-2xl mx-auto">
+                      Tricast360 – der werkzeuglose Rundumschutz für Bäume. 
                       <span className="text-[#39F2AE] font-semibold">
-                        nachhaltig, flexibel und zukunftsweisend.
+                        Wiederverwendbar, konform, zukunftssicher.
                       </span>
                     </p>
                   </div>
 
                   {/* Call-to-Action */}
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                     <button
                       onClick={() => setIsModalOpen(true)}
                       className="group bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
@@ -142,247 +139,26 @@ export default function HeroSection() {
                     </Link>
                   </div>
 
-                  {/* Nachhaltigkeits-Indikatoren */}
-                  <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-                    <div className="flex items-center gap-2 bg-emerald-50/80 px-3 py-2 rounded-full border border-emerald-200/60">
-                      <i className="ri-recycle-line text-emerald-600 text-sm"></i>
-                      <span className="text-emerald-700 text-xs font-medium">100% wiederverwendbar</span>
+                  {/* Trust-Badges */}
+                  <div className="flex flex-wrap justify-center gap-3 pt-4">
+                    <div className="flex items-center gap-2 bg-emerald-50/80 px-4 py-2 rounded-full border border-emerald-200/60">
+                      <i className="ri-tools-line text-emerald-600 text-sm"></i>
+                      <span className="text-emerald-700 text-sm font-medium">Werkzeuglos</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-teal-50/80 px-3 py-2 rounded-full border border-teal-200/60">
-                      <i className="ri-leaf-line text-teal-600 text-sm"></i>
-                      <span className="text-teal-700 text-xs font-medium">Umweltschonend</span>
+                    <div className="flex items-center gap-2 bg-teal-50/80 px-4 py-2 rounded-full border border-teal-200/60">
+                      <i className="ri-recycle-line text-teal-600 text-sm"></i>
+                      <span className="text-teal-700 text-sm font-medium">Wiederverwendbar</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-emerald-50/80 px-3 py-2 rounded-full border border-emerald-200/60">
-                      <i className="ri-plant-line text-emerald-600 text-sm"></i>
-                      <span className="text-emerald-700 text-xs font-medium">Baumfreundlich</span>
+                    <div className="flex items-center gap-2 bg-blue-50/80 px-4 py-2 rounded-full border border-blue-200/60">
+                      <i className="ri-shield-check-line text-blue-600 text-sm"></i>
+                      <span className="text-blue-700 text-sm font-medium">Konform</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right column – SVG illustration */}
-            <div
-              className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[36rem] xl:h-[36rem] 2xl:w-[42rem] 2xl:h-[42rem] flex items-center justify-center">
-                <div
-                  className="relative z-10 transition-all duration-500 transform"
-                  style={{
-                    transform: isHovered ? 'scale(1.1) rotate(6deg)' : 'scale(1) rotate(0deg)',
-                    filter: isHovered
-                      ? 'drop-shadow(0 20px 40px rgba(57, 242, 174, 0.3)) brightness(1.1)'
-                      : 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1))',
-                  }}
-                >
-                  {/* Realistic Tree Protection System */}
-                  <svg width="280" height="280" viewBox="0 0 320 320" className="drop-shadow-2xl sm:w-[320px] sm:h-[320px] xl:w-[520px] xl:h-[520px] 2xl:w-[620px] 2xl:h-[620px]">
-                    <defs>
-                      <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8B4513" />
-                        <stop offset="50%" stopColor="#A0522D" />
-                        <stop offset="100%" stopColor="#654321" />
-                      </linearGradient>
-                      <linearGradient id="leavesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#228B22" />
-                        <stop offset="50%" stopColor="#32CD32" />
-                        <stop offset="100%" stopColor="#006400" />
-                      </linearGradient>
-                      <linearGradient id="protectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#f8f9fa" />
-                        <stop offset="50%" stopColor="#ffffff" />
-                        <stop offset="100%" stopColor="#e9ecef" />
-                      </linearGradient>
-                      <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#39F2AE" />
-                        <stop offset="50%" stopColor="#2dd89a" />
-                        <stop offset="100%" stopColor="#25c785" />
-                      </linearGradient>
-                      <filter id="softShadow">
-                        <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000000" floodOpacity="0.1" />
-                      </filter>
-                      <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                        <feMerge>
-                          <feMergeNode in="coloredBlur" />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
-                      <pattern id="meshPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-                        <rect width="8" height="8" fill="#ffffff" />
-                        <rect x="0" y="0" width="1" height="8" fill="#e9ecef" />
-                        <rect x="0" y="0" width="8" height="1" fill="#e9ecef" />
-                      </pattern>
-                    </defs>
 
-                    {/* Ground/Base */}
-                    <ellipse cx="160" cy="280" rx="60" ry="12" fill="#8B7355" opacity="0.3" />
-
-                    {/* Tree Leaves/Crown - Above Protection */}
-                     <circle cx="160" cy="140" r="40" fill="url(#leavesGradient)" filter="url(#softShadow)" opacity="0.9" />
-                     <circle cx="140" cy="135" r="28" fill="url(#leavesGradient)" opacity="0.7" />
-                     <circle cx="180" cy="145" r="25" fill="url(#leavesGradient)" opacity="0.7" />
-                     <circle cx="160" cy="120" r="22" fill="url(#leavesGradient)" opacity="0.8" />
-
-                     {/* Tree Trunk - Full height visible */}
-                      <rect x="150" y="180" width="20" height="100" rx="10" fill="url(#trunkGradient)" filter="url(#softShadow)" />
-                      
-                      {/* Foam Protection with Clip Closure - Cylindrical like real product */}
-                       <g className={`transition-all duration-700 ${isHovered ? 'opacity-100' : 'opacity-90'}`}>
-                         {/* Main Protection Cylinder - Straight cylindrical form */}
-                         <rect 
-                           x="138" 
-                           y="210" 
-                           width="44" 
-                           height="50" 
-                           fill="url(#protectionGradient)" 
-                           stroke="#dee2e6" 
-                           strokeWidth="2" 
-                           filter="url(#softShadow)"
-                           opacity="0.9"
-                         />
-                         
-                         {/* Foam texture pattern - straight edges */}
-                         <rect 
-                           x="142" 
-                           y="214" 
-                           width="36" 
-                           height="42" 
-                           fill="url(#meshPattern)" 
-                           opacity="0.4"
-                         />
-                         
-                         {/* Clip closure line - vertical seam */}
-                         <line x1="160" y1="210" x2="160" y2="260" stroke="#adb5bd" strokeWidth="1.5" opacity="0.8" strokeDasharray="2 2" />
-                         
-                         {/* Horizontal bands for foam structure */}
-                         <rect x="138" y="225" width="44" height="2" fill="#ced4da" opacity="0.6" />
-                         <rect x="138" y="240" width="44" height="2" fill="#ced4da" opacity="0.6" />
-                         
-                         {/* Straight top and bottom edges - no rounded caps */}
-                         <rect x="138" y="210" width="44" height="2" fill="#dee2e6" opacity="0.8" />
-                         <rect x="138" y="258" width="44" height="2" fill="#dee2e6" opacity="0.8" />
-                         
-                         {/* Small clip indicators */}
-                         <circle cx="148" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
-                         <circle cx="172" cy="235" r="1.5" fill="#6c757d" opacity="0.7" />
-                       </g>
-
-                    {/* Rotating 360° Protection Indicators */}
-                    <circle
-                      cx="160"
-                      cy="190"
-                      r="80"
-                      fill="none"
-                      stroke="url(#brandGradient)"
-                      strokeWidth="3"
-                      strokeDasharray="12 8"
-                      filter="url(#glow)"
-                      className="transition-all duration-1000 opacity-40"
-                      style={{
-                        transformOrigin: '160px 190px',
-                        transform: isHovered ? 'rotate(180deg)' : 'rotate(0deg)',
-                      }}
-                    />
-                    
-                    <circle
-                      cx="160"
-                      cy="190"
-                      r="100"
-                      fill="none"
-                      stroke="url(#brandGradient)"
-                      strokeWidth="2"
-                      strokeDasharray="8 12"
-                      filter="url(#glow)"
-                      className="transition-all duration-1000 opacity-30"
-                      style={{
-                        transformOrigin: '160px 190px',
-                        transform: isHovered ? 'rotate(-120deg)' : 'rotate(0deg)',
-                      }}
-                    />
-
-                    {/* 360° Label */}
-                    <text
-                      x="160"
-                      y="305"
-                      textAnchor="middle"
-                      fill="#2b3138"
-                      fontSize="16"
-                      fontWeight="700"
-                      className="font-[Inter] tracking-wider sm:text-[18px]"
-                    >
-                      360° BAUMSCHUTZ
-                    </text>
-
-                    {/* Degree Markings */}
-                    <g fill="#39F2AE" className="opacity-70 font-semibold">
-                      <text x="160" y="25" textAnchor="middle" fontSize="11" className="sm:text-[13px]">0°</text>
-                      <text x="285" y="195" textAnchor="middle" fontSize="11" className="sm:text-[13px]">90°</text>
-                      <text x="160" y="315" textAnchor="middle" fontSize="11" className="sm:text-[13px]">180°</text>
-                      <text x="35" y="195" textAnchor="middle" fontSize="11" className="sm:text-[13px]">270°</text>
-                    </g>
-
-                    {/* Protection Effectiveness Indicators */}
-                    <g className={`transition-all duration-500 ${isHovered ? 'opacity-100' : 'opacity-60'}`}>
-                      {/* Top Protection */}
-                      <circle cx="160" cy="60" r="4" fill="#39F2AE" filter="url(#glow)" />
-                      <line x1="160" y1="65" x2="160" y2="115" stroke="#39F2AE" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
-                      
-                      {/* Side Protection Points */}
-                      <circle cx="240" cy="190" r="4" fill="#39F2AE" filter="url(#glow)" />
-                      <line x1="235" y1="190" x2="190" y2="190" stroke="#39F2AE" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
-                      
-                      <circle cx="80" cy="190" r="4" fill="#39F2AE" filter="url(#glow)" />
-                      <line x1="85" y1="190" x2="130" y2="190" stroke="#39F2AE" strokeWidth="2" strokeDasharray="3 3" opacity="0.5" />
-                    </g>
-                  </svg>
-                </div>
-
-                {/* Decorative rings */}
-                <div
-                  className={`absolute inset-0 border-2 rounded-full animate-pulse shadow-lg transition-all duration-700 ${
-                    isHovered ? 'border-[#39F2AE]/60 shadow-[#39F2AE]/40' : 'border-[#39F2AE]/40 shadow-[#39F2AE]/30'
-                  }`}
-                  style={{
-                    boxShadow: isHovered
-                      ? '0 0 60px rgba(57, 242, 174, 0.4), inset 0 0 30px rgba(57, 242, 174, 0.1)'
-                      : '0 0 30px rgba(57, 242, 174, 0.3)',
-                  }}
-                ></div>
-                <div
-                  className={`absolute inset-2 border rounded-full shadow-inner animate-pulse transition-all duration-700 delay-200 ${
-                    isHovered ? 'border-[#39F2AE]/40 shadow-[#39F2AE]/20' : 'border-[#39F2AE]/30'
-                  }`}
-                  style={{ animationDelay: '0.5s' }}
-                ></div>
-                <div
-                  className={`absolute inset-6 border rounded-full animate-pulse transition-all duration-700 delay-400 ${
-                    isHovered ? 'border-[#39F2AE]/30' : 'border-[#39F2AE]/20'
-                  }`}
-                  style={{ animationDelay: '1s' }}
-                ></div>
-                <div
-                  className={`absolute inset-10 border rounded-full animate-pulse transition-all duration-700 delay-600 ${
-                    isHovered ? 'border-[#39F2AE]/20' : 'border-[#39F2AE]/10'
-                  }`}
-                  style={{ animationDelay: '1.5s' }}
-                ></div>
-
-                {/* Hover glow */}
-                <div
-                  className={`absolute inset-0 rounded-full transition-all duration-1000 ${
-                    isHovered ? 'bg-[#39F2AE]/5 scale-110' : 'bg-transparent scale-100'
-                  }`}
-                  style={{
-                    filter: isHovered ? 'blur(20px)' : 'blur(0px)',
-                  }}
-                ></div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -413,9 +189,9 @@ export default function HeroSection() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="flex flex-col items-center gap-2 animate-bounce">
+          <div className="flex flex-col items-center gap-2 animate-pulse hover:animate-bounce transition-all duration-300">
             <span className="text-xs sm:text-sm text-gray-500 font-medium">Mehr über Tricast</span>
-            <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-emerald-600/60 rounded-full flex items-center justify-center animate-bounce">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-emerald-600/60 rounded-full flex items-center justify-center">
               <i className="ri-arrow-down-line text-xs sm:text-sm text-emerald-600"></i>
             </div>
           </div>

@@ -25,7 +25,7 @@ export default function SystemOverview() {
       title: "Wiederverwendbar",
       description: "Nachhaltig durch mehrfache Nutzung auf verschiedenen Baustellen",
       icon: "ri-recycle-line",
-      details: ["Bis zu 50x verwendbar", "Einfache Reinigung", "Langlebige Materialien"]
+      details: ["Bis zu 10x verwendbar", "Einfache Reinigung", "Langlebige Materialien"]
     }
   ];
 
@@ -116,7 +116,7 @@ export default function SystemOverview() {
               <div className="text-sm text-gray-600">Weniger Installationszeit</div>
             </div>
             <div className="space-y-3">
-              <div className="text-3xl font-light text-[#39F2AE]">50x</div>
+              <div className="text-3xl font-light text-[#39F2AE]">10x</div>
               <div className="text-sm text-gray-600">Wiederverwendbar</div>
             </div>
             <div className="space-y-3">

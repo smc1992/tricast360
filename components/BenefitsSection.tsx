@@ -26,10 +26,10 @@ export default function BenefitsSection() {
       textColor: "text-teal-700"
     },
     {
-      title: "Ökologisch zertifiziert", 
-      description: "Erfüllt höchste Umweltstandards und Nachhaltigkeitskriterien",
+      title: "Umweltfreundlich",
+      description: "Nachhaltige Materialien und umweltfreundliche Produktion",
       icon: "ri-award-line",
-      highlight: "Öko+",
+      highlight: "Nachhaltig",
       color: "from-green-500 to-emerald-400",
       bgColor: "bg-green-50/80",
       borderColor: "border-green-200/60",

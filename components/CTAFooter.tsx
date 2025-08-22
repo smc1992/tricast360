@@ -2,7 +2,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import ProjectRequestModal from './ProjectRequestModal';
 
 export default function CTAFooter() {
@@ -10,208 +9,59 @@ export default function CTAFooter() {
 
   return (
     <>
-      <section id="kontakt" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/5">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#39F2AE]/5 to-[#2dd89a]/5 opacity-50"></div>
-        
-        {/* Floating elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-[#39F2AE]/10 rounded-full blur-xl float"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-[#39F2AE]/5 rounded-full blur-2xl float" style={{animationDelay: '2s'}}></div>
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#39F2AE] to-[#2dd89a] relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-white rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* 2-Column Layout for very large screens */}
-          <div className="grid xl:grid-cols-2 gap-12 xl:gap-16 2xl:gap-20 items-center">
-            
-            {/* Left Column - Main Content */}
-            <div className="text-center xl:text-left">
-              <div className="space-y-6 sm:space-y-8">
-                <div className="space-y-4 sm:space-y-6">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl 4xl:text-9xl font-light text-[#2b3138] leading-tight px-4 xl:px-0">
-                Gemeinsam Baumschutz
-                <span className="block gradient-text font-medium shimmer">neu denken</span>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          {/* Starker CTA-Block */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                Bereit für nachhaltigen Baumschutz?
               </h2>
-                  <p className="text-lg sm:text-xl xl:text-2xl text-gray-600 font-light leading-relaxed max-w-2xl xl:max-w-none mx-auto xl:mx-0 px-4 xl:px-0">
-                    Starten Sie Ihr nächstes Projekt mit Tricast360 und erleben Sie 
-                    die Zukunft des nachhaltigen Baumschutzes.
-                  </p>
-                </div>
+              <p className="text-xl lg:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+                Starten Sie Ihr nächstes Projekt mit Tricast360 und erleben Sie die Zukunft des umweltfreundlichen Baumschutzes.
+              </p>
+            </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center xl:justify-start px-4 xl:px-0">
-                  <button 
-                    onClick={() => setIsModalOpen(true)}
-                    className="btn-primary bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer pulse-glow"
-                  >
-                    <span className="flex items-center gap-2 sm:gap-3 justify-center">
-                      <i className="ri-phone-line text-lg sm:text-xl"></i>
-                      Projekt anfragen
-                    </span>
-                  </button>
-                  <Link href="/kontakt" className="border border-gray-300 bg-white/80 backdrop-blur-sm text-[#2b3138] px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:border-[#39F2AE] hover:text-[#39F2AE] hover:bg-white transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer">
-                    <span className="flex items-center gap-2 sm:gap-3 justify-center">
-                      <i className="ri-message-line text-lg sm:text-xl"></i>
-                      Kontakt aufnehmen
-                    </span>
-                  </Link>
-                </div>
-              </div>
+            {/* Single Strong CTA Button */}
+            <div className="pt-4">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-white text-[#39F2AE] px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group"
+              >
+                <i className="ri-phone-line text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                Projekt jetzt anfragen
+                <i className="ri-arrow-right-line text-xl group-hover:translate-x-1 transition-transform duration-300"></i>
+              </button>
             </div>
-            
-            {/* Right Column - Contact Info (only on XL+ screens) */}
-            <div className="hidden xl:block">
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 2xl:p-8 border border-gray-200/50 shadow-xl h-full">
-                <div className="space-y-6">
-                  <div className="text-center">
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 px-3 py-1.5 rounded-full border border-[#39F2AE]/20 mb-3">
-                      <i className="ri-customer-service-2-line text-[#39F2AE] text-sm"></i>
-                      <span className="text-[#39F2AE] text-xs font-medium">Persönliche Beratung</span>
-                    </div>
-                    <h3 className="text-xl 2xl:text-2xl font-light text-[#2b3138] mb-2">Direkter Kontakt</h3>
-                    <p className="text-gray-600 text-xs 2xl:text-sm">Sprechen Sie direkt mit unseren Experten</p>
-                  </div>
-                  
-                <div className="space-y-4">
-                  <Link href="/kontakt" className="flex items-center gap-3 group cursor-pointer p-3 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
-                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <i className="ri-mail-line text-[#39F2AE] text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                    </div>
-                    <div className="text-left">
-                      <h4 className="text-base font-medium text-[#2b3138] mb-0.5 group-hover:text-[#39F2AE] transition-colors duration-300">E-Mail</h4>
-                      <p className="text-gray-600 text-sm">info@tricast360.de</p>
-                    </div>
-                  </Link>
-                  
-                  <Link href="/kontakt" className="flex items-center gap-3 group cursor-pointer p-3 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
-                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <i className="ri-phone-line text-[#39F2AE] text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                    </div>
-                    <div className="text-left">
-                      <h4 className="text-base font-medium text-[#2b3138] mb-0.5 group-hover:text-[#39F2AE] transition-colors duration-300">Telefon</h4>
-                      <p className="text-gray-600 text-sm">+49 170 1002912</p>
-                    </div>
-                  </Link>
-                  
-                  <div className="flex items-center gap-3 group cursor-pointer p-3 rounded-2xl hover:bg-[#39F2AE]/5 transition-all duration-300">
-                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110 flex-shrink-0">
-                      <i className="ri-time-line text-[#39F2AE] text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                    </div>
-                    <div className="text-left">
-                      <h4 className="text-base font-medium text-[#2b3138] mb-0.5 group-hover:text-[#39F2AE] transition-colors duration-300">Verfügbarkeit</h4>
-                      <p className="text-gray-600 text-sm">Mo-Fr 8:00-18:00 Uhr</p>
-                    </div>
-                  </div>
+
+            {/* Vertrauens-Elemente */}
+            <div className="pt-8 border-t border-white/20">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80">
+                <div className="flex items-center gap-2">
+                  <i className="ri-time-line text-lg"></i>
+                  <span className="text-sm font-medium">Antwort binnen 2h</span>
                 </div>
-                
-                {/* Additional Info Section */}
-                <div className="mt-6 pt-4 border-t border-gray-200/50">
-                  <div className="text-center space-y-3">
-                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-shield-check-line text-sm"></i>
-                      <span className="text-xs font-medium">Kostenlose Erstberatung</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-truck-line text-sm"></i>
-                      <span className="text-xs font-medium">Deutschlandweite Lieferung</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-recycle-line text-sm"></i>
-                      <span className="text-xs font-medium">100% wiederverwendbar</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-[#39F2AE]">
-                      <i className="ri-award-line text-sm"></i>
-                      <span className="text-xs font-medium">Praxiserprobt seit 2020</span>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <i className="ri-shield-check-line text-lg"></i>
+                  <span className="text-sm font-medium">Kostenlose Beratung</span>
                 </div>
-                
-                {/* Extra Content for Very Large Screens (27+ inch) */}
-                <div className="hidden 2xl:block mt-8 pt-6 border-t border-gray-200/50">
-                  <div className="space-y-6">
-                    <div className="text-center">
-                      <h4 className="text-lg font-medium text-[#2b3138] mb-4">Warum Tricast360?</h4>
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
-                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">50x</div>
-                          <div className="text-gray-600">Wiederverwendbar</div>
-                        </div>
-                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
-                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">5min</div>
-                          <div className="text-gray-600">Installation</div>
-                        </div>
-                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
-                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">360°</div>
-                          <div className="text-gray-600">Rundumschutz</div>
-                        </div>
-                        <div className="bg-[#39F2AE]/5 rounded-xl p-3 text-center">
-                          <div className="text-2xl font-bold text-[#39F2AE] mb-1">100%</div>
-                          <div className="text-gray-600">Nachhaltig</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 px-4 py-2 rounded-full border border-[#39F2AE]/20">
-                        <i className="ri-star-line text-[#39F2AE]"></i>
-                        <span className="text-[#39F2AE] text-sm font-medium">Innovatives Startup 2024</span>
-                      </div>
-                    </div>
-                    
-                    <div className="text-center space-y-3">
-                      <h5 className="text-base font-medium text-[#2b3138]">Schnelle Antwort garantiert</h5>
-                      <div className="flex items-center justify-center gap-4 text-xs text-gray-600">
-                        <div className="flex items-center gap-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <span>Online</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <i className="ri-time-line text-[#39F2AE]"></i>
-                          <span>Ø 2h Antwortzeit</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Original Contact Section for smaller screens */}
-          <div className="xl:hidden mt-16 sm:mt-20 pt-8 sm:pt-12 border-t border-gray-200">
-            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 text-center">
-              <Link href="/kontakt" className="space-y-2 sm:space-y-3 group cursor-pointer p-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110">
-                  <i className="ri-mail-line text-[#39F2AE] text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300"></i>
-                </div>
-                <div>
-                  <h4 className="text-sm sm:text-base text-[#2b3138] font-medium mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">E-Mail</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">info@tricast360.de</p>
-                </div>
-              </Link>
-              
-              <Link href="/kontakt" className="space-y-2 sm:space-y-3 group cursor-pointer p-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110">
-                  <i className="ri-phone-line text-[#39F2AE] text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300"></i>
-                </div>
-                <div>
-                  <h4 className="text-sm sm:text-base text-[#2b3138] font-medium mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">Telefon</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">+49 170 1002912</p>
-                </div>
-              </Link>
-              
-              <div className="space-y-2 sm:space-y-3 group cursor-pointer p-4 sm:col-span-1 col-span-full">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto group-hover:bg-[#39F2AE]/20 transition-all duration-300 group-hover:scale-110">
-                  <i className="ri-time-line text-[#39F2AE] text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300"></i>
-                </div>
-                <div>
-                  <h4 className="text-sm sm:text-base text-[#2b3138] font-medium mb-1 group-hover:text-[#39F2AE] transition-colors duration-300">Verfügbarkeit</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">Mo-Fr 8:00-18:00 Uhr</p>
-                </div>
+                <div className="flex items-center gap-2">
+                   <i className="ri-award-line text-lg"></i>
+                   <span className="text-sm font-medium">Qualitätsgeprüft</span>
+                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Modal */}
       <ProjectRequestModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 

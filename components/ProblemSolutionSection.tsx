@@ -24,53 +24,62 @@ export default function ProblemSolutionSection() {
     return () => observer.disconnect();
   }, []);
 
-  const problems = [
+  const comparisons = [
     {
-      text: 'Zeitaufwendig',
-      icon: 'ri-time-line',
-      detail: 'Stundenlange Montage mit Werkzeug'
+      problem: {
+        text: 'Zeitaufwendig',
+        icon: 'ri-time-line',
+        detail: 'Stundenlange Montage mit Werkzeug',
+        badge: 'Stunden'
+      },
+      solution: {
+        text: 'Werkzeuglose Installation',
+        icon: 'ri-tools-line',
+        detail: 'Einfaches Klicksystem ohne Werkzeug',
+        badge: '< 5 Min'
+      }
     },
     {
-      text: 'Nicht nachhaltig', 
-      icon: 'ri-leaf-line',
-      detail: 'Einmaliger Gebrauch, dann Müll'
+      problem: {
+        text: 'Nicht nachhaltig',
+        icon: 'ri-delete-bin-line',
+        detail: 'Einmaliger Gebrauch, dann Müll',
+        badge: '1x Nutzung'
+      },
+      solution: {
+        text: 'Wiederverwendbar',
+        icon: 'ri-recycle-line',
+        detail: 'Bis zu 10x wiederverwendbar',
+        badge: '10x nutzbar'
+      }
     },
     {
-      text: 'Schwer zu transportieren',
-      icon: 'ri-truck-line',
-      detail: 'Sperriger Transport, hohe Logistikkosten'
+      problem: {
+        text: 'Schwer & sperrig',
+        icon: 'ri-truck-line',
+        detail: 'Sperriger Transport, hohe Logistikkosten',
+        badge: 'Schwer'
+      },
+      solution: {
+        text: 'Leicht & kompakt',
+        icon: 'ri-flight-takeoff-line',
+        detail: 'Einfacher Transport und Lagerung',
+        badge: '80% leichter'
+      }
     },
     {
-      text: 'Hohe Kosten',
-      icon: 'ri-money-euro-circle-line',
-      detail: 'Beschaffung, Transport und Entsorgung'
-    }
-  ];
-
-  const solutions = [
-    {
-      text: 'Werkzeuglose Installation',
-      icon: 'ri-tools-line',
-      detail: 'Einfaches Klicksystem ohne Werkzeug',
-      highlight: '< 5 Min'
-    },
-    {
-      text: 'Nachhaltig & wiederverwendbar',
-      icon: 'ri-recycle-line',
-      detail: 'Bis zu 10x wiederverwendbar',
-      highlight: '10x nutzbar'
-    },
-    {
-      text: 'Leicht & kompakt',
-      icon: 'ri-flight-takeoff-line',
-      detail: 'Einfacher Transport und Lagerung',
-      highlight: '80% leichter'
-    },
-    {
-      text: 'Kosteneffizient',
-      icon: 'ri-line-chart-line',
-      detail: 'Langfristige Kostenersparnis',
-      highlight: '60% weniger'
+      problem: {
+        text: 'Hohe Kosten',
+        icon: 'ri-money-euro-circle-line',
+        detail: 'Beschaffung, Transport und Entsorgung',
+        badge: 'Teuer'
+      },
+      solution: {
+        text: 'Kosteneffizient',
+        icon: 'ri-line-chart-line',
+        detail: 'Langfristige Kostenersparnis',
+        badge: '60% günstiger'
+      }
     }
   ];
 
@@ -79,137 +88,73 @@ export default function ProblemSolutionSection() {
       <SectionGradient className="absolute inset-0" />
       <SectionNaturalBackground variant="leaves" />
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Simplified Header */}
+        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-lightbulb-line mr-2"></i>
-            2020 aus der Praxis geboren
+            Das Problem vs. Die Lösung
           </div>
           <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
             Von der <span className="text-red-500 font-medium">Herausforderung</span>
             <br />
             zur <span className="text-[#39F2AE] font-medium">Innovation</span>
           </h2>
-          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
-            Klassischer Baumschutz war schwer, sperrig und oft nicht regelkonform. 
-            <span className="text-[#39F2AE] font-medium"> Tricast360 macht es leicht, wiederverwendbar und effizient.</span>
-          </p>
         </div>
 
-        {/* Clean Two-Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          
-          {/* Problem Section */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center border border-red-200">
-                  <i className="ri-close-circle-line text-2xl text-red-500"></i>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-medium text-[#2b3138]">Das Problem</h3>
-                  <p className="text-red-500 text-sm">Herkömmliche Lösungen</p>
-                </div>
-              </div>
-            </div>
-               
-            <div className="space-y-4">
-              {problems.map((problem, index) => (
-                <div 
-                  key={index} 
-                  className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <i className={`${problem.icon} text-red-500 text-xl`}></i>
+        {/* Comparison Grid */}
+        <div className="space-y-8">
+          {comparisons.map((comparison, index) => (
+            <div 
+              key={index}
+              className={`grid lg:grid-cols-2 gap-6 lg:gap-8 relative transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
+              {/* Problem */}
+              <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center border border-red-300 flex-shrink-0">
+                    <i className={`${comparison.problem.icon} text-2xl text-red-600`}></i>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-red-800">{comparison.problem.text}</h3>
+                      <span className="bg-red-200 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                        {comparison.problem.badge}
+                      </span>
                     </div>
-                    <div className="flex-1 space-y-2">
-                      <h4 className="text-lg font-medium text-[#2b3138]">
-                        {problem.text}
-                      </h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {problem.detail}
-                      </p>
-                    </div>
+                    <p className="text-red-700 text-sm">{comparison.problem.detail}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Solution Section */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center border border-[#39F2AE]/30">
-                  <i className="ri-check-double-line text-2xl text-[#39F2AE]"></i>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-medium text-[#2b3138]">Die Lösung</h3>
-                  <p className="text-[#39F2AE] text-sm">Tricast360 Innovation</p>
+              {/* VS Divider */}
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="w-12 h-12 bg-white rounded-full border-4 border-gray-200 flex items-center justify-center shadow-lg">
+                  <span className="text-gray-600 font-bold text-sm">VS</span>
                 </div>
               </div>
-            </div>
-               
-            <div className="space-y-4">
-              {solutions.map((solution, index) => (
-                <div 
-                  key={index} 
-                  className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <i className={`${solution.icon} text-[#39F2AE] text-xl`}></i>
+
+              {/* Solution */}
+              <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center border border-emerald-300 flex-shrink-0">
+                    <i className={`${comparison.solution.icon} text-2xl text-emerald-600`}></i>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-emerald-800">{comparison.solution.text}</h3>
+                      <span className="bg-emerald-200 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">
+                        {comparison.solution.badge}
+                      </span>
                     </div>
-                    <div className="flex-1 space-y-2">
-                      <div className="flex items-center gap-3">
-                        <h4 className="text-lg font-medium text-[#2b3138] flex-1">
-                          {solution.text}
-                        </h4>
-                        <div className="px-3 py-1 bg-[#39F2AE]/10 rounded-full border border-[#39F2AE]/30">
-                          <span className="text-[#39F2AE] text-xs font-bold">{solution.highlight}</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {solution.detail}
-                      </p>
-                    </div>
+                    <p className="text-emerald-700 text-sm">{comparison.solution.detail}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom comparison stats */}
-        <div className="mt-16">
-          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-              <div className="space-y-3">
-                <div className="text-4xl font-bold text-[#39F2AE]">
-                  60%
-                </div>
-                <p className="text-[#2b3138] font-medium">Kostenersparnis</p>
-                <p className="text-gray-600 text-sm">gegenüber herkömmlichen Lösungen</p>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="text-4xl font-bold text-[#39F2AE]">
-                  10x
-                </div>
-                <p className="text-[#2b3138] font-medium">Wiederverwendbar</p>
-                <p className="text-gray-600 text-sm">für maximale Nachhaltigkeit</p>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="text-4xl font-bold text-[#39F2AE]">
-                  &lt; 5 Min
-                </div>
-                <p className="text-[#2b3138] font-medium">Montagezeit</p>
-                <p className="text-gray-600 text-sm">werkzeuglose Installation</p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

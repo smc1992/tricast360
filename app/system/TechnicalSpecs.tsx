@@ -37,7 +37,7 @@ export default function TechnicalSpecs() {
       category: "Nachhaltigkeit",
       icon: "ri-leaf-line",
       specs: [
-        { label: "Wiederverwendbar", value: "bis 50x" },
+        { label: "Wiederverwendbar", value: "bis 10x" },
         { label: "Recycelter Anteil", value: "85%" },
         { label: "Recycelbar", value: "100%" },
         { label: "CO₂-Einsparung", value: "60% vs. Einweg" }
@@ -50,7 +50,7 @@ export default function TechnicalSpecs() {
       name: "DIN 18920",
       description: "Vegetationstechnik im Landschaftsbau - Schutz von Bäumen",
       icon: "ri-award-line",
-      status: "Zertifiziert"
+      status: "Geprüft"
     },
     {
       name: "EN 13451",
@@ -68,7 +68,7 @@ export default function TechnicalSpecs() {
       name: "ISO 14001",
       description: "Umweltmanagementsystem",
       icon: "ri-earth-line",
-      status: "Zertifiziert"
+      status: "Geprüft"
     }
   ];
 
@@ -104,10 +104,10 @@ export default function TechnicalSpecs() {
       <div className="text-center space-y-6">
         <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
           Technische Daten &
-          <span className="block text-[#39F2AE]">Zertifizierungen</span>
+          <span className="block text-[#39F2AE]">Qualitätsstandards</span>
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Präzise entwickelt, umfassend getestet und nach höchsten Standards zertifiziert - 
+          Präzise entwickelt, umfassend getestet und nach höchsten Qualitätsstandards geprüft - 
           für maximale Sicherheit und Zuverlässigkeit.
         </p>
       </div>
@@ -242,7 +242,7 @@ export default function TechnicalSpecs() {
                 <i className="ri-refresh-line text-[#39F2AE]"></i>
               </div>
               <div>
-                <div className="text-gray-800 font-medium">50x wiederverwendbar</div>
+                <div className="text-gray-800 font-medium">10x wiederverwendbar</div>
                 <div className="text-gray-600 text-sm">Über viele Jahre hinweg</div>
               </div>
             </div>
@@ -273,7 +273,7 @@ export default function TechnicalSpecs() {
           </h3>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Laden Sie die vollständige technische Dokumentation mit detaillierten 
-            Spezifikationen, Prüfzertifikaten und Montageanweisungen herunter.
+            Spezifikationen, Prüfberichten und Montageanweisungen herunter.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-[#39F2AE] text-white px-8 py-4 rounded-2xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer">

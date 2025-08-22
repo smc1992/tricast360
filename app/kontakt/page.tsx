@@ -3,32 +3,54 @@
 import { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Link from 'next/link';
 import LoadingButton from '../../components/LoadingButton';
 
 export default function KontaktPage() {
   const [formData, setFormData] = useState({
-    company: '',
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    message: ''
+    message: '',
+    privacy: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<string[]>([]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement;
+    const { name, value, type, checked } = target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
+  };
+
+  const validateForm = () => {
+    const newErrors: string[] = [];
+    
+    if (!formData.name.trim()) newErrors.push('Name ist erforderlich');
+    if (!formData.email.trim()) newErrors.push('E-Mail ist erforderlich');
+    if (!formData.phone.trim()) newErrors.push('Telefonnummer ist erforderlich');
+    if (!formData.message.trim()) newErrors.push('Nachricht ist erforderlich');
+    if (!formData.privacy) newErrors.push('DSGVO-Zustimmung ist erforderlich');
+    
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.push('Ungültige E-Mail-Adresse');
+    }
+    
+    return newErrors;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const validationErrors = validateForm();
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    
     setIsSubmitting(true);
     setErrors([]);
     setSubmitStatus('idle');
@@ -50,16 +72,15 @@ export default function KontaktPage() {
       if (result.success) {
         setSubmitStatus('success');
         setFormData({
-          company: '',
           name: '',
           email: '',
           phone: '',
-          subject: '',
-          message: ''
+          message: '',
+          privacy: false
         });
       } else {
         setSubmitStatus('error');
-        setErrors(result.errors || ['Ein Fehler ist aufgetreten']);
+        setErrors([result.message || 'Ein Fehler ist aufgetreten']);
       }
     } catch (error) {
       setSubmitStatus('error');
@@ -69,353 +90,309 @@ export default function KontaktPage() {
     }
   };
 
-  const resetForm = () => {
-    setFormData({
-      company: '',
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
-    setSubmitStatus('idle');
-    setErrors([]);
-  };
-
   return (
     <div className="min-h-screen bg-white text-[#2b3138] font-inter">
       <Header />
-
-      <main className="pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 text-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 bg-[#39F2AE]/10 px-4 py-2 rounded-full border border-[#39F2AE]/20">
-                <div className="w-2 h-2 bg-[#39F2AE] rounded-full animate-pulse"></div>
-                <span className="text-[#39F2AE] text-sm font-medium">Wir sind für Sie da</span>
+      
+      <main className="pt-20">
+        {/* 1. Hero-Bereich */}
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#39F2AE]/5 to-[#2dd89a]/5">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-light text-[#2b3138] leading-tight">
+                  Fragen? Wir beraten Sie gerne.
+                </h1>
+                <p className="text-xl lg:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+                  Lassen Sie uns gemeinsam die perfekte Baumschutz-Lösung für Ihr Projekt finden.
+                </p>
               </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-light text-[#2b3138] leading-tight">
-                Lassen Sie uns über Ihr
-                <span className="block text-[#39F2AE] font-medium">Baumschutz-Projekt</span>
-                <span className="block text-[#39F2AE] font-medium">sprechen</span>
-              </h1>
-
-              <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
-                Als innovatives Startup entwickeln wir die Zukunft des Baumschutzes. 
-                Gemeinsam finden wir die perfekte Lösung für Ihr Projekt.
-              </p>
+              
+              {/* Klarer CTA */}
+              <div className="pt-4">
+                <a 
+                  href="#kontaktformular"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                >
+                  <i className="ri-message-line text-2xl"></i>
+                  Jetzt Kontakt aufnehmen
+                  <i className="ri-arrow-down-line text-xl"></i>
+                </a>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-12 items-start">
-            {/* Kontaktformular */}
-            <div className="order-2 lg:order-1 xl:order-1 xl:col-span-1">
-              <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg">
-                <div className="mb-8">
-                  <h2 className="text-2xl font-medium text-[#2b3138] mb-2">Nachricht senden</h2>
-                  <p className="text-gray-600">Wir melden uns innerhalb von 24 Stunden bei Ihnen</p>
-                </div>
-
-                {submitStatus === 'success' && (
-                  <div className="mb-6 p-4 bg-[#39F2AE]/10 border border-[#39F2AE]/30 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <i className="ri-check-line text-[#39F2AE] text-xl"></i>
-                      <div>
-                        <p className="text-[#39F2AE] font-medium">Nachricht erfolgreich gesendet!</p>
-                        <p className="text-gray-600 text-sm">Wir melden uns so schnell wie möglich bei Ihnen.</p>
-                      </div>
-                    </div>
+        {/* Hauptinhalt */}
+        <section className="py-16 sm:py-20 px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+              
+              {/* 2. Kontaktformular */}
+              <div id="kontaktformular">
+                <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                  <div className="mb-8">
+                    <h2 className="text-2xl font-semibold text-[#2b3138] mb-4">
+                      Nachricht senden
+                    </h2>
+                    <p className="text-gray-600">
+                      Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen.
+                    </p>
                   </div>
-                )}
 
-                {submitStatus === 'error' && (
-                  <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <i className="ri-error-warning-line text-red-400 text-xl"></i>
-                      <div>
-                        <p className="text-red-400 font-medium">Fehler beim Senden</p>
-                        {errors.length > 0 ? (
-                          <ul className="text-gray-600 text-sm mt-1">
-                            {errors.map((error, index) => (
-                              <li key={index}>• {error}</li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p className="text-gray-600 text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <form id="kontakt-formular" onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-[#2b3138] font-medium text-sm">Name *</label>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Name */}
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-semibold text-[#2b3138] mb-2">
+                        Name *
+                      </label>
                       <input
                         type="text"
+                        id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-[#2b3138] placeholder-gray-500 focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
-                        placeholder="Ihr Name"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200"
+                        placeholder="Ihr vollständiger Name"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-[#2b3138] font-medium text-sm">Unternehmen</label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-[#2b3138] placeholder-gray-500 focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
-                        placeholder="Ihr Unternehmen"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-[#2b3138] font-medium text-sm">E-Mail *</label>
+                    {/* E-Mail */}
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-[#2b3138] mb-2">
+                        E-Mail *
+                      </label>
                       <input
                         type="email"
+                        id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-[#2b3138] placeholder-gray-500 focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
-                        placeholder="ihre.email@example.com"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200"
+                        placeholder="ihre.email@beispiel.de"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-[#2b3138] font-medium text-sm">Telefon</label>
+
+                    {/* Telefonnummer */}
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-semibold text-[#2b3138] mb-2">
+                        Telefonnummer *
+                      </label>
                       <input
                         type="tel"
+                        id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-[#2b3138] placeholder-gray-500 focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
-                        placeholder="+49 (0) 123 456 789"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200"
+                        placeholder="+49 123 456789"
                       />
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <label className="text-[#2b3138] font-medium text-sm">Betreff</label>
-                    <div className="relative">
-                      <select
-                        name="subject"
-                        value={formData.subject}
+                    {/* Nachricht */}
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-semibold text-[#2b3138] mb-2">
+                        Nachricht *
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 pr-8 bg-white border border-gray-300 rounded-xl text-[#2b3138] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
-                      >
-                        <option value="">Betreff auswählen</option>
-                        <option value="projekt">Projekt-Anfrage</option>
-                        <option value="information">Allgemeine Information</option>
-                        <option value="technisch">Technische Frage</option>
-                        <option value="partnerschaft">Partnerschaft</option>
-                        <option value="presse">Presse-Anfrage</option>
-                        <option value="sonstiges">Sonstiges</option>
-                      </select>
-                      <i className="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"></i>
+                        rows={5}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200 resize-vertical"
+                        placeholder="Beschreiben Sie Ihr Anliegen oder Projekt..."
+                      />
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <label className="text-[#2b3138] font-medium text-sm">Nachricht *</label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      maxLength={500}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl text-[#2b3138] placeholder-gray-500 focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm resize-none"
-                      placeholder="Beschreiben Sie Ihr Anliegen oder Projekt..."
-                    />
-                    <div className="text-right text-xs text-gray-500">
-                      {formData.message.length}/500 Zeichen
+                    {/* DSGVO-Checkbox */}
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        id="privacy"
+                        name="privacy"
+                        checked={formData.privacy}
+                        onChange={handleInputChange}
+                        className="mt-1 w-4 h-4 text-[#39F2AE] border-gray-300 rounded focus:ring-[#39F2AE]"
+                      />
+                      <label htmlFor="privacy" className="text-sm text-gray-600 leading-relaxed">
+                        Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
+                        <a href="/datenschutz" className="text-[#39F2AE] hover:underline">
+                          Datenschutzerklärung
+                        </a>{' '}
+                        zu. *
+                      </label>
                     </div>
-                  </div>
 
-                  <LoadingButton
-                    type="submit"
-                    isLoading={isSubmitting}
-                    loadingText="Wird gesendet..."
-                    disabled={submitStatus === 'success'}
-                    className="w-full"
-                    size="lg"
-                  >
-                    {submitStatus === 'success' ? (
-                      <>
-                        <i className="ri-check-line text-lg mr-2"></i>
-                        Gesendet!
-                      </>
-                    ) : (
-                      <>
-                        <i className="ri-send-plane-line mr-2"></i>
-                        Nachricht senden
-                      </>
+                    {/* Fehler anzeigen */}
+                    {errors.length > 0 && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                        <div className="flex items-center gap-2 text-red-800 mb-2">
+                          <i className="ri-error-warning-line"></i>
+                          <span className="font-semibold">Bitte korrigieren Sie folgende Fehler:</span>
+                        </div>
+                        <ul className="list-disc list-inside text-red-700 text-sm space-y-1">
+                          {errors.map((error, index) => (
+                            <li key={index}>{error}</li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
-                  </LoadingButton>
-                </form>
-              </div>
-            </div>
 
-            {/* Startup Story - Second Column on XL+ */}
-            <div className="order-1 lg:order-2 xl:order-2 xl:col-span-1 lg:col-span-1">
-              <div className="bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/5 rounded-3xl p-8 border border-[#39F2AE]/20 h-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-[#39F2AE]/20 rounded-xl flex items-center justify-center">
-                    <i className="ri-rocket-line text-[#39F2AE] text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-medium text-[#2b3138]">Innovation beginnt hier</h3>
-                    <p className="text-[#39F2AE] text-sm">Startup mit Vision</p>
+                    {/* Erfolg anzeigen */}
+                    {submitStatus === 'success' && (
+                      <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <div className="flex items-center gap-2 text-green-800">
+                          <i className="ri-check-line"></i>
+                          <span className="font-semibold">Nachricht erfolgreich gesendet!</span>
+                        </div>
+                        <p className="text-green-700 text-sm mt-1">
+                          Wir melden uns binnen 24 Stunden bei Ihnen zurück.
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Sende-Button (auffällig, kontrastreich) */}
+                    <div className="pt-4">
+                      <LoadingButton
+                        type="submit"
+                        isLoading={isSubmitting}
+                        className="w-full bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50"
+                      >
+                        <span className="flex items-center gap-2 justify-center">
+                          <i className="ri-send-plane-line text-xl"></i>
+                          Nachricht senden
+                        </span>
+                      </LoadingButton>
+                    </div>
+                  </form>
+                </div>
+
+                {/* 3. Info-Leiste unterhalb des Formulars */}
+                <div className="mt-8 bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="flex flex-col md:flex-row items-center gap-3">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-time-line text-[#39F2AE] text-xl"></i>
+                      </div>
+                      <div className="text-center md:text-left">
+                        <h4 className="font-semibold text-[#2b3138] text-sm">Antwortzeit</h4>
+                        <p className="text-gray-600 text-sm">&lt;24 h</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col md:flex-row items-center gap-3">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-phone-line text-[#39F2AE] text-xl"></i>
+                      </div>
+                      <div className="text-center md:text-left">
+                        <h4 className="font-semibold text-[#2b3138] text-sm">Telefonische Beratung</h4>
+                        <p className="text-gray-600 text-sm">möglich</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col md:flex-row items-center gap-3">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-truck-line text-[#39F2AE] text-xl"></i>
+                      </div>
+                      <div className="text-center md:text-left">
+                        <h4 className="font-semibold text-[#2b3138] text-sm">Deutschlandweite</h4>
+                        <p className="text-gray-600 text-sm">Lieferung</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Als junges Unternehmen revolutionieren wir den Baumschutz mit innovativen, 
-                  nachhaltigen Lösungen. Unser Team bringt frische Ideen und modernste 
-                  Technologien in eine traditionelle Branche.
-                </p>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-2 h-2 bg-[#39F2AE] rounded-full animate-pulse"></div>
-                  <span className="text-[#39F2AE] text-sm font-medium">Gegründet 2024</span>
+              </div>
+
+              {/* 4. Alternative Kontaktmöglichkeiten */}
+              <div className="space-y-8">
+                <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+                  <h3 className="text-xl font-semibold text-[#2b3138] mb-6">
+                    Direkte Kontaktmöglichkeiten
+                  </h3>
+                  
+                  <div className="space-y-6">
+                    {/* Telefon klickbar */}
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-[#39F2AE]/5 transition-colors duration-200">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-phone-line text-[#39F2AE] text-xl"></i>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-[#2b3138] mb-1">Telefon</h4>
+                        <a 
+                          href="tel:+491701002912" 
+                          className="text-[#39F2AE] hover:underline font-medium"
+                        >
+                          +49 170 1002912
+                        </a>
+                        <p className="text-gray-600 text-sm mt-1">Mo-Fr 8:00-18:00 Uhr</p>
+                      </div>
+                    </div>
+                    
+                    {/* E-Mail klickbar */}
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-[#39F2AE]/5 transition-colors duration-200">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-mail-line text-[#39F2AE] text-xl"></i>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-[#2b3138] mb-1">E-Mail</h4>
+                        <a 
+                          href="mailto:info@tricast360.de" 
+                          className="text-[#39F2AE] hover:underline font-medium"
+                        >
+                          info@tricast360.de
+                        </a>
+                        <p className="text-gray-600 text-sm mt-1">Antwort binnen 24h</p>
+                      </div>
+                    </div>
+                    
+                    {/* Adresse */}
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-map-pin-line text-[#39F2AE] text-xl"></i>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-[#2b3138] mb-1">Adresse</h4>
+                        <div className="text-gray-600 text-sm leading-relaxed">
+                          Lüneburger Str. 90<br />
+                          D-21423 Winsen (Luhe)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
-                {/* Additional Benefits for XL screens */}
-                <div className="hidden xl:block space-y-4 pt-6 border-t border-[#39F2AE]/20">
-                  <h4 className="text-lg font-medium text-[#2b3138] mb-4">Warum Tricast360?</h4>
+                {/* Zusätzliche Informationen */}
+                <div className="bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl p-8 border border-[#39F2AE]/20">
+                  <h4 className="text-lg font-semibold text-[#2b3138] mb-4">
+                    Warum Tricast360?
+                  </h4>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <i className="ri-shield-check-line text-[#39F2AE]"></i>
-                      <span className="text-gray-600 text-sm">Kostenlose Erstberatung</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <i className="ri-truck-line text-[#39F2AE]"></i>
-                      <span className="text-gray-600 text-sm">Deutschlandweite Lieferung</span>
+                      <span className="text-gray-700 text-sm">Kostenlose Erstberatung</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <i className="ri-recycle-line text-[#39F2AE]"></i>
-                      <span className="text-gray-600 text-sm">100% wiederverwendbar</span>
+                      <span className="text-gray-700 text-sm">10× wiederverwendbar</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <i className="ri-time-line text-[#39F2AE]"></i>
-                      <span className="text-gray-600 text-sm">Schnelle Projektabwicklung</span>
+                      <i className="ri-award-line text-[#39F2AE]"></i>
+                      <span className="text-gray-700 text-sm">Qualitätsgeprüft</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Kontakt-Details - Third Column on XL+ */}
-            <div className="order-3 xl:order-3 xl:col-span-1 lg:col-span-1 xl:block">
-              <div className="space-y-6">
-                <h3 className="text-xl font-medium text-[#2b3138]">Kontakt-Details</h3>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-[#39F2AE]/30 transition-all duration-200 group shadow-sm">
-                    <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-200">
-                      <i className="ri-mail-line text-[#39F2AE]"></i>
+                    <div className="flex items-center gap-3">
+                      <i className="ri-leaf-line text-[#39F2AE]"></i>
+                      <span className="text-gray-700 text-sm">Klimaneutral</span>
                     </div>
-                    <div>
-                      <p className="text-[#2b3138] font-medium">E-Mail</p>
-                      <p className="text-gray-600 text-sm">info@tricast360.de</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-[#39F2AE]/30 transition-all duration-200 group shadow-sm">
-                    <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-200">
-                      <i className="ri-phone-line text-[#39F2AE]"></i>
-                    </div>
-                    <div>
-                      <p className="text-[#2b3138] font-medium">Telefon</p>
-                      <p className="text-gray-600 text-sm">+49 170 1002912</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-[#39F2AE]/30 transition-all duration-200 group shadow-sm">
-                    <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-200">
-                      <i className="ri-map-pin-line text-[#39F2AE]"></i>
-                    </div>
-                    <div>
-                      <p className="text-[#2b3138] font-medium">Adresse</p>
-                      <p className="text-gray-600 text-sm">
-                        Lüneburger Str. 90<br />
-                        D-21423 Winsen (Luhe)
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-[#39F2AE]/30 transition-all duration-200 group shadow-sm">
-                    <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-200">
-                      <i className="ri-time-line text-[#39F2AE]"></i>
-                    </div>
-                    <div>
-                      <p className="text-[#2b3138] font-medium">Verfügbarkeit</p>
-                      <p className="text-gray-600 text-sm">Mo-Fr 8:00-18:00 Uhr</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ */}
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                <h4 className="text-lg font-medium text-[#2b3138] mb-4 flex items-center gap-2">
-                  <i className="ri-question-line text-[#39F2AE]"></i>
-                  Häufige Fragen
-                </h4>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="text-[#2b3138] font-medium">Wie schnell erhalte ich eine Antwort?</p>
-                    <p className="text-gray-600">Innerhalb von 24 Stunden an Werktagen</p>
-                  </div>
-                  <div>
-                    <p className="text-[#2b3138] font-medium">Bieten Sie kostenlose Beratung an?</p>
-                    <p className="text-gray-600">Ja, die erste Beratung ist immer kostenfrei</p>
-                  </div>
-                  <div>
-                    <p className="text-[#2b3138] font-medium">Arbeiten Sie deutschlandweit?</p>
-                    <p className="text-gray-600">Ja, wir liefern und installieren bundesweit</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* CTA Bereich */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-3xl p-12 border border-[#39F2AE]/20">
-              <div className="max-w-2xl mx-auto space-y-6">
-                <div className="w-16 h-16 bg-[#39F2AE]/20 rounded-2xl flex items-center justify-center mx-auto">
-                  <i className="ri-team-line text-[#39F2AE] text-2xl"></i>
-                </div>
-                <h3 className="text-2xl font-light text-[#2b3138]">
-                  Gemeinsam gestalten wir die Zukunft
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Als Startup sind wir nah an unseren Kunden. Jedes Feedback hilft uns, 
-                  bessere Lösungen zu entwickeln. Werden Sie Teil unserer Reise!
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/system" className="bg-[#39F2AE] text-white px-8 py-4 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 justify-center">
-                    <i className="ri-eye-line"></i>
-                    System ansehen
-                  </Link>
-                  <Link href="/#markt" className="border border-[#39F2AE] text-[#39F2AE] px-8 py-4 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 justify-center">
-                    <i className="ri-lightbulb-line"></i>
-                    Unsere Vision
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
       </main>
 
+      {/* 5. Footer konsistent zur Startseite */}
       <Footer />
     </div>
   );

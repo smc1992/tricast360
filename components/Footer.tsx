@@ -7,140 +7,174 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-slate-900 border-t border-emerald-800/30 font-inter relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-gray-900 to-slate-900 border-t border-gray-700 font-inter relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-32 h-32 bg-emerald-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-teal-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-32 h-32 bg-[#39F2AE]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-[#39F2AE]/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
-        <div className="grid md:grid-cols-4 gap-12">
-          <div className="md:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <i className="ri-tree-line text-white text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-semibold text-white">Tricast360</span>
-                <span className="text-xs text-emerald-400 font-medium">Nachhaltige Innovation</span>
-              </div>
-            </Link>
-            <p className="text-gray-300 leading-relaxed max-w-md">
-              Umweltschutz trifft Innovation. Unser modulares 360°-System revolutioniert 
-              den nachhaltigen Baumschutz für eine grünere, klimafreundliche Zukunft.
-            </p>
-
-            {/* Umwelt-Zertifikate */}
-            <div className="flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 bg-emerald-900/40 text-emerald-300 px-3 py-2 rounded-full text-sm border border-emerald-700/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 relative z-10">
+        {/* 4-Spalten-Layout */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          
+          {/* Spalte 1: Unternehmen */}
+          <div className="space-y-6">
+            <div>
+              <Link href="/" className="flex items-center gap-3 group mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#39F2AE] to-[#2dd89a] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <i className="ri-tree-line text-white text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-semibold text-white">Tricast360</span>
+                  <span className="text-xs text-[#39F2AE] font-medium">Nachhaltige Innovation</span>
+                </div>
+              </Link>
+              <p className="text-gray-300 leading-relaxed text-sm">
+                Revolutionärer 360°-Baumschutz für eine nachhaltige Zukunft. Werkzeuglos, wiederverwendbar, konform.
+              </p>
+            </div>
+            
+            {/* Zertifikate */}
+            <div className="flex flex-wrap gap-2">
+              <div className="flex items-center gap-1 bg-[#39F2AE]/10 text-[#39F2AE] px-2 py-1 rounded-full text-xs border border-[#39F2AE]/20">
                 <i className="ri-leaf-line text-xs"></i>
                 <span>CO₂-neutral</span>
               </div>
-              <div className="flex items-center gap-2 bg-teal-900/40 text-teal-300 px-3 py-2 rounded-full text-sm border border-teal-700/50">
+              <div className="flex items-center gap-1 bg-[#39F2AE]/10 text-[#39F2AE] px-2 py-1 rounded-full text-xs border border-[#39F2AE]/20">
                 <i className="ri-recycle-line text-xs"></i>
-                <span>100% recyclebar</span>
-              </div>
-              <div className="flex items-center gap-2 bg-green-900/40 text-green-300 px-3 py-2 rounded-full text-sm border border-green-700/50">
-                <i className="ri-award-line text-xs"></i>
-                <span>Öko-zertifiziert</span>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-emerald-800/40 rounded-xl flex items-center justify-center hover:bg-emerald-700/50 transition-colors duration-200 cursor-pointer border border-emerald-700/30 hover:border-emerald-600/50">
-                <i className="ri-linkedin-line text-emerald-300 text-lg"></i>
-              </div>
-              <a href="mailto:info@tricast360.de" className="w-10 h-10 bg-teal-800/40 rounded-xl flex items-center justify-center hover:bg-teal-700/50 transition-colors duration-200 cursor-pointer border border-teal-700/30 hover:border-teal-600/50">
-                <i className="ri-mail-line text-teal-300 text-lg"></i>
-              </a>
-              <div className="w-10 h-10 bg-green-800/40 rounded-xl flex items-center justify-center hover:bg-green-700/50 transition-colors duration-200 cursor-pointer border border-green-700/30 hover:border-green-600/50">
-                <i className="ri-phone-line text-green-300 text-lg"></i>
+                <span>10× nutzbar</span>
               </div>
             </div>
           </div>
 
+          {/* Spalte 2: Links */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-white flex items-center gap-2">
-              <i className="ri-building-line text-emerald-400"></i>
-              Unternehmen
-            </h4>
-            <nav className="flex flex-col gap-3">
-              <Link href="/ueber-uns" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
-                <i className="ri-team-line text-sm opacity-60 group-hover:opacity-100"></i>
-                Unser Team
+            <h3 className="text-white font-semibold text-lg">Links</h3>
+            <div className="space-y-3">
+              <Link href="/system" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                System entdecken
               </Link>
-              <a href="#funktionsweise" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
-                <i className="ri-settings-line text-sm opacity-60 group-hover:opacity-100"></i>
-                Funktionsweise
-              </a>
-              <a href="#vorteile" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
-                <i className="ri-leaf-line text-sm opacity-60 group-hover:opacity-100"></i>
+              <Link href="/ueber-uns" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                Über uns
+              </Link>
+              <Link href="/#vision-2025" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                Vision 2025
+              </Link>
+              <Link href="/#umwelt" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
                 Umweltvorteile
-              </a>
-              <Link href="/system" className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 cursor-pointer flex items-center gap-2 group">
-                <i className="ri-eco-line text-sm opacity-60 group-hover:opacity-100"></i>
-                Nachhaltiges System
               </Link>
-            </nav>
+              <Link href="/#funktionsweise" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                So funktioniert's
+              </Link>
+            </div>
           </div>
 
+          {/* Spalte 3: Kontakt */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-white flex items-center gap-2">
-              <i className="ri-customer-service-line text-emerald-400"></i>
-              Kontakt
-            </h4>
+            <h3 className="text-white font-semibold text-lg">Kontakt</h3>
             <div className="space-y-4">
-              <div className="flex items-start gap-3 group">
-                <div className="w-8 h-8 bg-emerald-800/40 rounded-lg flex items-center justify-center mt-1 border border-emerald-700/30 group-hover:border-emerald-600/50 transition-colors duration-200">
-                  <i className="ri-mail-line text-emerald-400 text-sm"></i>
-                </div>
+              {/* E-Mail */}
+              <div className="flex items-start gap-3">
+                <i className="ri-mail-line text-[#39F2AE] text-lg mt-0.5"></i>
                 <div>
-                  <p className="text-white font-medium">E-Mail</p>
-                  <p className="text-gray-300 text-sm hover:text-emerald-400 transition-colors duration-200 cursor-pointer">info@tricast360.de</p>
+                  <p className="text-gray-400 text-xs mb-1">E-Mail</p>
+                  <a 
+                    href="mailto:info@tricast360.de" 
+                    className="text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm"
+                  >
+                    info@tricast360.de
+                  </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3 group">
-                <div className="w-8 h-8 bg-teal-800/40 rounded-lg flex items-center justify-center mt-1 border border-teal-700/30 group-hover:border-teal-600/50 transition-colors duration-200">
-                  <i className="ri-phone-line text-teal-400 text-sm"></i>
-                </div>
+              
+              {/* Telefon */}
+              <div className="flex items-start gap-3">
+                <i className="ri-phone-line text-[#39F2AE] text-lg mt-0.5"></i>
                 <div>
-                  <p className="text-white font-medium">Telefon</p>
-                  <p className="text-gray-300 text-sm hover:text-teal-400 transition-colors duration-200 cursor-pointer">+49 170 1002912</p>
+                  <p className="text-gray-400 text-xs mb-1">Telefon</p>
+                  <a 
+                    href="tel:+491701002912" 
+                    className="text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm"
+                  >
+                    +49 170 1002912
+                  </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3 group">
-                <div className="w-8 h-8 bg-green-800/40 rounded-lg flex items-center justify-center mt-1 border border-green-700/30 group-hover:border-green-600/50 transition-colors duration-200">
-                  <i className="ri-map-pin-line text-green-400 text-sm"></i>
-                </div>
+              
+              {/* Adresse */}
+              <div className="flex items-start gap-3">
+                <i className="ri-map-pin-line text-[#39F2AE] text-lg mt-0.5"></i>
                 <div>
-                  <p className="text-white font-medium">Adresse</p>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-400 text-xs mb-1">Adresse</p>
+                  <div className="text-gray-300 text-sm leading-relaxed">
                     Lüneburger Str. 90<br />
                     D-21423 Winsen (Luhe)
-                  </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Öffnungszeiten */}
+              <div className="flex items-start gap-3">
+                <i className="ri-time-line text-[#39F2AE] text-lg mt-0.5"></i>
+                <div>
+                  <p className="text-gray-400 text-xs mb-1">Öffnungszeiten</p>
+                  <p className="text-gray-300 text-sm">Mo-Fr 8:00-18:00 Uhr</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Spalte 4: Rechtliches */}
+          <div className="space-y-6">
+            <h3 className="text-white font-semibold text-lg">Rechtliches</h3>
+            <div className="space-y-3">
+              <Link href="/impressum" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                Impressum
+              </Link>
+              <Link href="/datenschutz" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                Datenschutz
+              </Link>
+              <Link href="/kontakt" className="block text-gray-300 hover:text-[#39F2AE] transition-colors duration-200 text-sm">
+                Kontakt
+              </Link>
+            </div>
+            
+            {/* Zusätzliche Infos */}
+            <div className="pt-4 border-t border-gray-700">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-gray-400 text-xs">
+                  <i className="ri-shield-check-line text-[#39F2AE]"></i>
+                  <span>DSGVO-konform</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-400 text-xs">
+                   <i className="ri-award-line text-[#39F2AE]"></i>
+                   <span>Qualitätsgeprüft</span>
+                 </div>
+                <div className="flex items-center gap-2 text-gray-400 text-xs">
+                  <i className="ri-truck-line text-[#39F2AE]"></i>
+                  <span>Deutschlandweit</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-700/50">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col md:flex-row gap-6 text-sm text-gray-400">
-              <span> {currentYear} Tricast360. Alle Rechte vorbehalten.</span>
-              <div className="flex gap-6">
-                <Link href="/datenschutz" className="hover:text-emerald-400 transition-colors duration-200 cursor-pointer">
-                  Datenschutz
-                </Link>
-                <Link href="/impressum" className="hover:text-emerald-400 transition-colors duration-200 cursor-pointer">
-                  Impressum
-                </Link>
-              </div>
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-gray-700">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-gray-400 text-sm">
+              © {currentYear} Tricast360. Alle Rechte vorbehalten.
             </div>
-            <div className="flex items-center gap-2 text-sm bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent font-semibold">
-              <i className="ri-heart-line text-emerald-400"></i>
-              Für eine grünere Zukunft
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 text-gray-400 text-sm">
+                <i className="ri-heart-line text-red-400"></i>
+                <span>Made in Germany</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-400 text-sm">
+                <i className="ri-leaf-line text-[#39F2AE]"></i>
+                <span>Klimaneutral</span>
+              </div>
             </div>
           </div>
         </div>

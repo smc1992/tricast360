@@ -1,151 +1,199 @@
 
 'use client';
 
-export default function OpportunitySection() {
-  const applicationFields = [
-    "Kommunen",
-    "Bauunternehmen", 
-    "GaLaBau",
-    "Straßenanierungen",
-    "Gehwegsanierungen",
-    "Baustellen"
-  ];
+import { useState, useEffect } from 'react';
 
-  const marketFacts = [
+export default function OpportunitySection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    const section = document.getElementById('opportunity');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // 3 Kennzahlen für Vorteile
+  const advantages = [
     {
-      title: "Nachhaltigkeit im Fokus",
-      description: "Kommunen setzen verstärkt auf wiederverwendbare Systeme",
-      icon: "ri-leaf-line",
-      stat: "85%"
-    },
-    {
-      title: "Zeitersparnis",
-      description: "Reduzierte Installationszeit bei Baustellen",
-      icon: "ri-time-line",
-      stat: "70%"
-    },
-    {
-      title: "Kosteneffizienz",
-      description: "Weniger Materialverschleiß und Entsorgungskosten",
+      value: "60%",
+      label: "Kostenersparnis",
+      description: "über den gesamten Lebenszyklus",
       icon: "ri-money-euro-circle-line",
-      stat: "60%"
+      color: "text-[#39F2AE]"
+    },
+    {
+      value: "10×",
+      label: "Wiederverwendbar",
+      description: "für maximale Nachhaltigkeit",
+      icon: "ri-recycle-line",
+      color: "text-teal-600"
+    },
+    {
+      value: "< 5 Min",
+      label: "Montagezeit",
+      description: "werkzeuglose Installation",
+      icon: "ri-time-line",
+      color: "text-emerald-600"
     }
   ];
 
+  // Einsatzfelder als Tag-Cloud
+  const applicationFields = [
+    { name: "Kommunen", size: "large" },
+    { name: "Bauunternehmen", size: "medium" },
+    { name: "GaLaBau", size: "large" },
+    { name: "Straßensanierung", size: "small" },
+    { name: "Gehwegsanierung", size: "medium" },
+    { name: "Baustellen", size: "large" },
+    { name: "Stadtplanung", size: "medium" },
+    { name: "Infrastruktur", size: "small" },
+    { name: "Tiefbau", size: "medium" },
+    { name: "Hochbau", size: "small" },
+    { name: "Umweltschutz", size: "medium" },
+    { name: "Naturschutz", size: "small" }
+  ];
+
+  const getTagSize = (size: string) => {
+    switch (size) {
+      case 'large':
+        return 'text-lg px-6 py-3 font-semibold';
+      case 'medium':
+        return 'text-base px-5 py-2 font-medium';
+      case 'small':
+        return 'text-sm px-4 py-2 font-normal';
+      default:
+        return 'text-base px-5 py-2 font-medium';
+    }
+  };
+
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
+    <section id="opportunity" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#2b3138] mb-4 sm:mb-6">
+          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+            <i className="ri-star-line mr-2"></i>
             Warum Tricast360?
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
+            Einsatz & Vorteile
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
-            Die Zukunft des Baumschutzes liegt in intelligenten, nachhaltigen Lösungen. 
-            Tricast360 revolutioniert den Markt mit durchdachter Innovation.
+          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+            Intelligente Lösungen für vielfältige Anwendungsbereiche
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          {marketFacts.map((fact, index) => (
-            <div 
-              key={index}
-              className="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200 hover:border-[#39F2AE]/50 hover:shadow-lg transition-all duration-300 group cursor-pointer"
-            >
-              <div className="text-center space-y-4 sm:space-y-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto group-hover:bg-[#39F2AE]/20 transition-colors duration-300">
-                  <i className={`${fact.icon} text-2xl sm:text-3xl text-[#39F2AE]`}></i>
-                </div>
-                
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="text-3xl sm:text-4xl font-light text-[#39F2AE]">
-                    {fact.stat}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium text-[#2b3138] group-hover:text-[#39F2AE] transition-colors duration-200">
-                    {fact.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    {fact.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="space-y-6 sm:space-y-8">
-            <div className="space-y-4 sm:space-y-6">
-              <div className="inline-block bg-[#39F2AE] text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-                Breites Einsatzspektrum
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-light text-[#2b3138]">
-                Für jeden Bedarf die richtige Lösung
+        {/* Split Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Links: Vorteile (3 Kennzahlen) */}
+          <div className={`space-y-8 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+          }`}>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-[#2b3138] mb-6">
+                Unsere Vorteile
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Von kommunalen Projekten bis hin zu großen Infrastrukturmaßnahmen – 
-                Tricast360 passt sich flexibel an verschiedenste Anforderungen an.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              {applicationFields.map((field, index) => (
-                <div 
-                  key={index}
-                  className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 hover:border-[#39F2AE]/50 hover:shadow-md transition-all duration-200 group cursor-pointer"
-                >
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#39F2AE] rounded-full group-hover:scale-125 transition-transform duration-200 flex-shrink-0"></div>
-                    <span className="text-sm sm:text-base text-[#2b3138] font-medium group-hover:text-[#39F2AE] transition-colors duration-200">
-                      {field}
-                    </span>
+              
+              <div className="space-y-6">
+                {advantages.map((advantage, index) => (
+                  <div 
+                    key={index}
+                    className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#39F2AE]/30 hover:shadow-lg transition-all duration-300"
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center border border-gray-200 shadow-sm">
+                        <i className={`${advantage.icon} text-2xl ${advantage.color}`}></i>
+                      </div>
+                      <div className="flex-1">
+                        <div className={`text-3xl font-bold ${advantage.color} mb-1`}>
+                          {advantage.value}
+                        </div>
+                        <div className="text-[#2b3138] font-semibold mb-1">
+                          {advantage.label}
+                        </div>
+                        <div className="text-gray-600 text-sm">
+                          {advantage.description}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="space-y-6 sm:space-y-8 mt-8 lg:mt-0">
-            <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                    <i className="ri-trophy-line text-[#39F2AE] text-lg sm:text-xl"></i>
-                  </div>
-                  <h4 className="text-lg sm:text-xl font-medium text-[#2b3138]">
-                    Praxiserprobt seit 2020
-                  </h4>
+          {/* Rechts: Einsatzfelder als Tag-Cloud */}
+          <div className={`space-y-8 transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+          }`}>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-[#2b3138] mb-6">
+                Einsatzfelder
+              </h3>
+              
+              {/* Tag-Cloud */}
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {applicationFields.map((field, index) => (
+                    <span 
+                      key={index}
+                      className={`${
+                        getTagSize(field.size)
+                      } bg-white text-[#2b3138] rounded-full border border-gray-200 hover:border-[#39F2AE] hover:text-[#39F2AE] hover:shadow-md transition-all duration-300 cursor-default`}
+                      style={{ 
+                        animationDelay: `${index * 100}ms`,
+                        transform: isVisible ? 'scale(1)' : 'scale(0.8)',
+                        opacity: isVisible ? 1 : 0,
+                        transition: `all 0.5s ease-out ${index * 100}ms`
+                      }}
+                    >
+                      {field.name}
+                    </span>
+                  ))}
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Entstanden aus echten Problemen der Praxis, entwickelt für maximale 
-                  Effizienz und Nachhaltigkeit in realen Einsatzszenarien.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-[#39F2AE]/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#39F2AE]/20">
-              <div className="flex items-start gap-3 sm:gap-4">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center mt-0.5 sm:mt-1 flex-shrink-0">
-                  <i className="ri-lightbulb-line text-[#39F2AE] text-base sm:text-lg"></i>
-                </div>
-                <div>
-                  <h4 className="text-sm sm:text-base text-[#2b3138] font-medium mb-1 sm:mb-2">Innovation trifft Nachhaltigkeit</h4>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    Recycelte Materialien, modularer Aufbau und werkzeuglose Installation 
-                    vereinen Umweltschutz mit wirtschaftlicher Effizienz.
+                
+                {/* Zusatz-Info */}
+                <div className="text-center mt-6 pt-6 border-t border-gray-200">
+                  <p className="text-gray-600 text-sm">
+                    <i className="ri-information-line mr-2"></i>
+                    Flexibel einsetzbar in allen Bereichen des Baumschutzes
                   </p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div className="text-center bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
-              <div className="space-y-1 sm:space-y-2">
-                <div className="text-2xl sm:text-3xl font-light text-[#39F2AE]">
-                  Zukunftssicher
-                </div>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  Investition in langfristige, nachhaltige Infrastruktur
-                </p>
-              </div>
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl p-8 border border-[#39F2AE]/20">
+            <h4 className="text-xl font-semibold text-[#2b3138] mb-4">
+              Bereit für den nächsten Schritt?
+            </h4>
+            <p className="text-gray-600 mb-6">
+              Entdecken Sie, wie Tricast360 Ihr nächstes Projekt revolutionieren kann
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-[#39F2AE] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300 flex items-center gap-2 justify-center">
+                <i className="ri-phone-line"></i>
+                Beratung anfragen
+              </button>
+              <button className="border border-[#39F2AE] text-[#39F2AE] px-8 py-3 rounded-xl font-semibold hover:bg-[#39F2AE]/10 transition-colors duration-300 flex items-center gap-2 justify-center">
+                <i className="ri-download-line"></i>
+                Produktinfo herunterladen
+              </button>
             </div>
           </div>
         </div>

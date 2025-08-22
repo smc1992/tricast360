@@ -8,6 +8,7 @@ import HeroSection from '../components/HeroSection';
 import ProblemSolutionSection from '../components/ProblemSolutionSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import BenefitsSection from '../components/BenefitsSection';
+import Vision2025Section from '../components/Vision2025Section';
 import EnvironmentalImpactSection from '../components/EnvironmentalImpactSection';
 import OpportunitySection from '../components/OpportunitySection';
 import CTAFooter from '../components/CTAFooter';
@@ -51,6 +52,12 @@ export default function Home() {
         <AnimatedCard delay={100}>
           <section id="umwelt">
             <EnvironmentalImpactSection />
+          </section>
+        </AnimatedCard>
+        
+        <AnimatedCard delay={150} direction="left">
+          <section id="vision-2025">
+            <Vision2025Section />
           </section>
         </AnimatedCard>
         

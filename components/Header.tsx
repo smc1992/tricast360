@@ -45,7 +45,7 @@ export default function Header() {
               {/* Umwelt-Badge */}
               <div className="hidden sm:flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium border border-emerald-200/60">
                 <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                Öko+
+                Nachhaltig
               </div>
             </Link>
 

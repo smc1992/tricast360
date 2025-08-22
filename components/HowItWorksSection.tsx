@@ -4,90 +4,105 @@
 export default function HowItWorksSection() {
   const steps = [
     {
-      number: "01",
+      number: "1",
       title: "Elemente um den Stamm legen",
       description: "Modulare Bauteile einfach um den Baumstamm positionieren",
-      icon: "ri-layout-grid-line"
+      icon: "ri-layout-grid-line",
+      benefit: "Sicher."
     },
     {
-      number: "02", 
+      number: "2", 
       title: "Klickverschluss schließen",
       description: "Werkzeuglose Verbindung durch intelligentes Klicksystem",
-      icon: "ri-link"
+      icon: "ri-link",
+      benefit: "Stabil."
     },
     {
-      number: "03",
-      title: "Sicher. Stabil. Fertig.",
-      description: "Höhe justieren und optimalen Schutz gewährleisten",
-      icon: "ri-shield-check-line"
+      number: "3",
+      title: "Höhe justieren",
+      description: "Optimalen Schutz gewährleisten und fertig",
+      icon: "ri-shield-check-line",
+      benefit: "Fertig."
     }
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-6 text-[#2b3138]">
+          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+            <i className="ri-tools-line mr-2"></i>
             So funktioniert's
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
+            Drei einfache Schritte
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-            Drei einfache Schritte für maximalen Baumschutz
+          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+            Werkzeuglose Installation in weniger als 5 Minuten
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           {steps.map((step, index) => (
             <div key={index} className="group relative">
-              <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200 hover:border-[#39F2AE]/30 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer">
-                <div className="flex flex-col items-center text-center space-y-4 sm:space-y-6">
-                  <div className="relative">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-300">
-                      <i className={`${step.icon} text-2xl sm:text-3xl text-[#39F2AE]`}></i>
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-[#39F2AE] rounded-full flex items-center justify-center text-[#2b3138] text-sm font-bold">
-                      {step.number}
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-lg sm:text-xl font-medium text-[#2b3138] leading-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {step.description}
-                    </p>
+              {/* Nummerierte Karte */}
+              <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 relative overflow-hidden">
+                {/* Nummer Badge */}
+                <div className="absolute top-6 right-6">
+                  <div className="w-12 h-12 bg-[#39F2AE] rounded-full flex items-center justify-center">
+                    <span className="text-white text-xl font-bold">{step.number}</span>
                   </div>
                 </div>
+
+                {/* Mini-Illustration */}
+                <div className="mb-6">
+                  <div className="w-20 h-20 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-300">
+                    <i className={`${step.icon} text-4xl text-[#39F2AE]`}></i>
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-[#2b3138] leading-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                  
+                  {/* Nutzen-Microcopy */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <span className="inline-block bg-[#39F2AE]/10 text-[#39F2AE] px-4 py-2 rounded-full text-sm font-semibold">
+                      {step.benefit}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Hover-Effekt */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#39F2AE]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
               </div>
               
-              {/* Arrow für Desktop */}
+              {/* Verbindungspfeil */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-6 xl:-right-8 transform -translate-y-1/2 z-10">
-                  <div className="w-8 h-px bg-gray-300 relative">
-                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                      <i className="ri-arrow-right-line text-[#39F2AE] text-sm"></i>
-                    </div>
-                  </div>
-                </div>
-              )}
-              
-              {/* Arrow für Mobile/Tablet */}
-              {index < steps.length - 1 && (
-                <div className="lg:hidden flex justify-center mt-4 sm:mt-6">
-                  <div className="h-8 w-px bg-gray-300 relative sm:hidden">
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-                      <i className="ri-arrow-down-line text-[#39F2AE] text-sm"></i>
-                    </div>
-                  </div>
-                  <div className="hidden sm:block lg:hidden w-8 h-px bg-gray-300 relative mt-4">
-                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                      <i className="ri-arrow-right-line text-[#39F2AE] text-sm"></i>
-                    </div>
+                <div className="hidden lg:flex absolute top-1/2 -right-6 transform -translate-y-1/2 z-10">
+                  <div className="flex items-center">
+                    <div className="w-8 h-0.5 bg-[#39F2AE]/30"></div>
+                    <i className="ri-arrow-right-line text-[#39F2AE] text-xl ml-1"></i>
                   </div>
                 </div>
               )}
             </div>
           ))}
+        </div>
+
+        {/* Abschluss-Microcopy */}
+        <div className="text-center mt-12">
+          <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-[#39F2AE]/20 shadow-sm">
+            <span className="text-[#39F2AE] font-semibold">Sicher.</span>
+            <span className="text-[#39F2AE] font-semibold">Stabil.</span>
+            <span className="text-[#39F2AE] font-semibold">Fertig.</span>
+            <i className="ri-check-double-line text-[#39F2AE] text-lg ml-2"></i>
+          </div>
         </div>
       </div>
     </section>
