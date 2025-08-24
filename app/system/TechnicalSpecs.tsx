@@ -276,7 +276,7 @@ export default function TechnicalSpecs() {
             Spezifikationen, Prüfberichten und Montageanweisungen herunter.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#39F2AE] text-white px-8 py-4 rounded-2xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer">
+            <button className="bg-[#39F2AE] text-[#2b3138] px-8 py-4 rounded-2xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer">
               <i className="ri-file-pdf-line mr-2"></i>
               Datenblatt (PDF)
             </button>

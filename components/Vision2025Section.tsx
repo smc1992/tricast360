@@ -28,7 +28,7 @@ export default function Vision2025Section() {
       label: "CO₂ einsparen",
       description: "Durch nachhaltigen Materialkreislauf und lokale Produktion",
       icon: "ri-earth-line",
-      color: "emerald"
+      color: "tricast"
     },
     {
       category: "Ressourcen",
@@ -36,7 +36,7 @@ export default function Vision2025Section() {
       label: "Weniger Material",
       description: "Durch intelligente Wiederverwendung und Kreislaufwirtschaft",
       icon: "ri-recycle-line",
-      color: "teal"
+      color: "tricast"
     },
     {
       category: "Biodiversität",
@@ -44,12 +44,20 @@ export default function Vision2025Section() {
       label: "Bäume schützen",
       description: "Urbane Ökosysteme erhalten und Artenvielfalt fördern",
       icon: "ri-plant-line",
-      color: "green"
+      color: "tricast"
     }
   ];
 
   const getColorClasses = (color: string) => {
     const colorMap = {
+      tricast: {
+        bg: 'bg-[#39F2AE]/10',
+        border: 'border-[#39F2AE]/20',
+        icon: 'text-[#39F2AE]',
+        metric: 'text-[#39F2AE]',
+        badge: 'bg-[#39F2AE]/10 text-[#39F2AE]',
+        hover: 'hover:border-[#39F2AE]/40'
+      },
       emerald: {
         bg: 'bg-emerald-50',
         border: 'border-emerald-200',

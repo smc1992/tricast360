@@ -10,40 +10,40 @@ export default function BenefitsSection() {
       description: "Reduzierte CO₂-Bilanz durch Mehrfachnutzung und nachhaltiges Material",
       icon: "ri-earth-line",
       highlight: "CO₂ -80%",
-      color: "from-emerald-500 to-teal-400",
-      bgColor: "bg-emerald-50/80",
-      borderColor: "border-emerald-200/60",
-      textColor: "text-emerald-700"
+      color: "from-[#39F2AE] to-[#2dd89a]",
+      bgColor: "bg-[#39F2AE]/10",
+      borderColor: "border-[#39F2AE]/20",
+      textColor: "text-[#39F2AE]"
     },
     {
       title: "Ressourcenschonend",
       description: "Minimaler Materialverbrauch durch intelligente Wiederverwendung",
       icon: "ri-recycle-line",
       highlight: "10x nutzbar",
-      color: "from-teal-500 to-cyan-400",
-      bgColor: "bg-teal-50/80",
-      borderColor: "border-teal-200/60",
-      textColor: "text-teal-700"
+      color: "from-[#39F2AE] to-[#2dd89a]",
+      bgColor: "bg-[#39F2AE]/10",
+      borderColor: "border-[#39F2AE]/20",
+      textColor: "text-[#39F2AE]"
     },
     {
       title: "Umweltfreundlich",
       description: "Nachhaltige Materialien und umweltfreundliche Produktion",
       icon: "ri-award-line",
       highlight: "Nachhaltig",
-      color: "from-green-500 to-emerald-400",
-      bgColor: "bg-green-50/80",
-      borderColor: "border-green-200/60",
-      textColor: "text-green-700"
+      color: "from-[#39F2AE] to-[#2dd89a]",
+      bgColor: "bg-[#39F2AE]/10",
+      borderColor: "border-[#39F2AE]/20",
+      textColor: "text-[#39F2AE]"
     },
     {
       title: "Zukunftssicher",
       description: "Investition in nachhaltige Technologie für kommende Generationen",
       icon: "ri-seedling-line",
       highlight: "Future-Ready",
-      color: "from-cyan-500 to-blue-400",
-      bgColor: "bg-cyan-50/80",
-      borderColor: "border-cyan-200/60",
-      textColor: "text-cyan-700"
+      color: "from-[#39F2AE] to-[#2dd89a]",
+      bgColor: "bg-[#39F2AE]/10",
+      borderColor: "border-[#39F2AE]/20",
+      textColor: "text-[#39F2AE]"
     }
   ];
 
@@ -53,21 +53,21 @@ export default function BenefitsSection() {
       label: "Bäume schützen",
       sublabel: "unser Ziel für 2025",
       icon: "ri-tree-line",
-      color: "text-emerald-600"
+      color: "text-[#39F2AE]"
     },
     {
       value: "85%",
       label: "Weniger Abfall",
       sublabel: "durch Wiederverwendung angestrebt",
       icon: "ri-leaf-line",
-      color: "text-teal-600"
+      color: "text-[#39F2AE]"
     },
     {
       value: "300kg",
       label: "CO₂ einsparen",
       sublabel: "pro Projekt als Ziel",
       icon: "ri-earth-line",
-      color: "text-green-600"
+      color: "text-[#39F2AE]"
     }
   ];
 
@@ -79,16 +79,16 @@ export default function BenefitsSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Enhanced Header */}
         <div className="text-center mb-12 sm:mb-16 content-spacing">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-100/90 to-teal-100/80 px-6 py-3 rounded-full border border-emerald-200/60 mb-6">
-            <i className="ri-leaf-line text-emerald-600"></i>
-            <span className="text-emerald-700 font-medium">Nachhaltigkeit im Fokus</span>
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+            <i className="ri-leaf-line text-[#2b3138]"></i>
+            <span className="text-[#2b3138] font-medium">Nachhaltigkeit im Fokus</span>
           </div>
           <h2 className="text-section-title font-light mb-4 sm:mb-6 text-gray-800">
-            Umwelt<span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent font-semibold">vorteile</span> für morgen
+            Umwelt<span className="bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] bg-clip-text text-transparent font-semibold">vorteile</span> für morgen
           </h2>
           <p className="text-large text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
             Jeder geschützte Baum ist ein Beitrag zum Klimaschutz. Unser System macht 
-            <span className="text-emerald-600 font-semibold"> nachhaltigen Baumschutz wirtschaftlich und ökologisch sinnvoll</span>
+            <span className="text-[#39F2AE] font-semibold"> nachhaltigen Baumschutz wirtschaftlich und ökologisch sinnvoll</span>
           </p>
         </div>
 
@@ -123,10 +123,10 @@ export default function BenefitsSection() {
         </div>
 
         {/* Neue Umwelt-Impact Sektion */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-emerald-200/50 shadow-xl mb-12">
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-[#39F2AE]/20 shadow-xl mb-12">
           <div className="text-center mb-8">
             <h3 className="text-2xl lg:text-3xl font-light text-gray-800 mb-4">
-              Unsere <span className="text-emerald-600 font-semibold">Vision 2025</span>
+              Unsere <span className="text-[#39F2AE] font-semibold">Vision 2025</span>
             </h3>
             <p className="text-gray-600">Gemeinsam erreichen wir diese Ziele für eine grünere Zukunft</p>
           </div>
@@ -134,7 +134,7 @@ export default function BenefitsSection() {
           <div className="grid md:grid-cols-3 gap-8">
             {ecoStats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 relative">
                   <i className={`${stat.icon} text-2xl ${stat.color}`}></i>
                   <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full flex items-center justify-center">
                     <i className="ri-target-line text-xs text-white"></i>
@@ -153,21 +153,21 @@ export default function BenefitsSection() {
         {/* Enhanced feature highlights */}
         <div className="text-center">
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-base sm:text-lg">
-            <span className="flex items-center gap-2 justify-center hover:text-emerald-600 transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-emerald-200/60">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-emerald-100 rounded-full flex items-center justify-center">
-                <i className="ri-plant-line text-emerald-600 text-sm"></i>
+            <span className="flex items-center gap-2 justify-center hover:text-[#39F2AE] transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-[#39F2AE]/20">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#39F2AE]/10 rounded-full flex items-center justify-center">
+                <i className="ri-plant-line text-[#39F2AE] text-sm"></i>
               </div>
               Baumfreundliche Materialien
             </span>
-            <span className="flex items-center gap-2 justify-center hover:text-teal-600 transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-teal-200/60">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-teal-100 rounded-full flex items-center justify-center">
-                <i className="ri-recycle-line text-teal-600 text-sm"></i>
+            <span className="flex items-center gap-2 justify-center hover:text-[#39F2AE] transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-[#39F2AE]/20">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#39F2AE]/10 rounded-full flex items-center justify-center">
+                <i className="ri-recycle-line text-[#39F2AE] text-sm"></i>
               </div>
               Kreislaufwirtschaft
             </span>
-            <span className="flex items-center gap-2 justify-center hover:text-green-600 transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-green-200/60">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center">
-                <i className="ri-leaf-line text-green-600 text-sm"></i>
+            <span className="flex items-center gap-2 justify-center hover:text-[#39F2AE] transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-[#39F2AE]/20">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#39F2AE]/10 rounded-full flex items-center justify-center">
+                <i className="ri-leaf-line text-[#39F2AE] text-sm"></i>
               </div>
               CO₂-neutral produziert
             </span>

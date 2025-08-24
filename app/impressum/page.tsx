@@ -184,10 +184,10 @@ export default function Impressum() {
                     <p className="text-gray-600 text-sm">Wir helfen Ihnen gerne weiter</p>
                   </div>
                 </div>
-                <Link href="/#kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200">
-                  <i className="ri-mail-line"></i>
-                  Kontakt aufnehmen
-                </Link>
+                <Link href="/#kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200">
+          <i className="ri-message-line"></i>
+          Kontakt aufnehmen
+        </Link>
               </div>
             </section>
           </div>

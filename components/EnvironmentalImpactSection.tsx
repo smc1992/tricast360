@@ -27,34 +27,41 @@ export default function EnvironmentalImpactSection() {
       title: "Klimaschonend",
       description: "85% weniger CO₂-Emissionen durch nachhaltigen Materialkreislauf und lokale Produktion.",
       icon: "ri-earth-line",
-      color: "emerald",
+      color: "tricast",
       badge: "CO₂-neutral"
     },
     {
       title: "Ressourcenschonend",
       description: "75% Materialreduktion durch intelligente Wiederverwendung über 10+ Zyklen.",
       icon: "ri-recycle-line",
-      color: "teal",
+      color: "tricast",
       badge: "10x nutzbar"
     },
     {
       title: "Qualitätsgeprüft",
       description: "Höchste Qualitätsstandards und umweltfreundliche Materialien für nachhaltigen Baumschutz.",
       icon: "ri-award-line",
-      color: "green",
+      color: "tricast",
       badge: "Geprüft"
     },
     {
       title: "Zukunftssicher",
       description: "Langlebige Materialien und zukunftsfähige Technologie für nachhaltige Stadtentwicklung.",
       icon: "ri-shield-check-line",
-      color: "blue",
+      color: "tricast",
       badge: "Langlebig"
     }
   ];
 
   const getColorClasses = (color: string) => {
     const colorMap = {
+      tricast: {
+        bg: 'bg-[#39F2AE]/10',
+        border: 'border-[#39F2AE]/20',
+        icon: 'text-[#39F2AE]',
+        badge: 'bg-[#39F2AE]/10 text-[#39F2AE]',
+        hover: 'hover:border-[#39F2AE]/40'
+      },
       emerald: {
         bg: 'bg-emerald-50',
         border: 'border-emerald-200',
@@ -159,7 +166,7 @@ export default function EnvironmentalImpactSection() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 bg-[#39F2AE] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300"
+                  className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300"
                 >
                   <i className="ri-download-line"></i>
                    Qualitätsbericht herunterladen

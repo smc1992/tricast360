@@ -119,12 +119,12 @@ export default function ProblemSolutionSection() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-red-800">{comparison.problem.text}</h3>
-                      <span className="bg-red-200 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                      <h3 className="text-lg font-semibold text-[#2b3138]">{comparison.problem.text}</h3>
+                      <span className="bg-red-200 text-[#2b3138] px-3 py-1 rounded-full text-sm font-medium">
                         {comparison.problem.badge}
                       </span>
                     </div>
-                    <p className="text-red-700 text-sm">{comparison.problem.detail}</p>
+                    <p className="text-[#2b3138] text-sm">{comparison.problem.detail}</p>
                   </div>
                 </div>
               </div>
@@ -137,19 +137,19 @@ export default function ProblemSolutionSection() {
               </div>
 
               {/* Solution */}
-              <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+              <div className="bg-[#39F2AE]/10 rounded-xl p-6 border border-[#39F2AE]/20">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center border border-emerald-300 flex-shrink-0">
-                    <i className={`${comparison.solution.icon} text-2xl text-emerald-600`}></i>
+                  <div className="w-12 h-12 bg-[#39F2AE]/20 rounded-xl flex items-center justify-center border border-[#39F2AE]/30 flex-shrink-0">
+                    <i className={`${comparison.solution.icon} text-2xl text-[#39F2AE]`}></i>
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-emerald-800">{comparison.solution.text}</h3>
-                      <span className="bg-emerald-200 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">
+                      <h3 className="text-lg font-semibold text-[#2b3138]">{comparison.solution.text}</h3>
+                      <span className="bg-[#39F2AE]/20 text-[#2b3138] px-3 py-1 rounded-full text-sm font-medium">
                         {comparison.solution.badge}
                       </span>
                     </div>
-                    <p className="text-emerald-700 text-sm">{comparison.solution.detail}</p>
+                    <p className="text-[#2b3138] text-sm">{comparison.solution.detail}</p>
                   </div>
                 </div>
               </div>

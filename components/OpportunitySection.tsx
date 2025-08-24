@@ -36,14 +36,14 @@ export default function OpportunitySection() {
       label: "Wiederverwendbar",
       description: "für maximale Nachhaltigkeit",
       icon: "ri-recycle-line",
-      color: "text-teal-600"
+      color: "text-[#39F2AE]"
     },
     {
       value: "< 5 Min",
       label: "Montagezeit",
       description: "werkzeuglose Installation",
       icon: "ri-time-line",
-      color: "text-emerald-600"
+      color: "text-[#39F2AE]"
     }
   ];
 
@@ -186,7 +186,7 @@ export default function OpportunitySection() {
               Entdecken Sie, wie Tricast360 Ihr nächstes Projekt revolutionieren kann
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#39F2AE] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300 flex items-center gap-2 justify-center">
+              <button className="bg-[#39F2AE] text-[#2b3138] px-8 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300 flex items-center gap-2 justify-center">
                 <i className="ri-phone-line"></i>
                 Beratung anfragen
               </button>

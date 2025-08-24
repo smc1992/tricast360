@@ -112,7 +112,7 @@ export default function KontaktPage() {
               <div className="pt-4">
                 <a 
                   href="#kontaktformular"
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <i className="ri-message-line text-2xl"></i>
                   Jetzt Kontakt aufnehmen
@@ -257,7 +257,7 @@ export default function KontaktPage() {
                       <LoadingButton
                         type="submit"
                         isLoading={isSubmitting}
-                        className="w-full bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50"
+                        className="w-full bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50"
                       >
                         <span className="flex items-center gap-2 justify-center">
                           <i className="ri-send-plane-line text-xl"></i>

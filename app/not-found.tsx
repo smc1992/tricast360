@@ -61,7 +61,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Link 
               href="/" 
-              className="bg-[#39F2AE] text-white px-8 py-4 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="bg-[#39F2AE] text-[#2b3138] px-8 py-4 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2 group"
             >
               <i className="ri-home-line text-lg group-hover:scale-110 transition-transform duration-200"></i>
               Zur Startseite

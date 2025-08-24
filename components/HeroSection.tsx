@@ -96,15 +96,15 @@ export default function HeroSection() {
                 
                 <div className="space-y-6 sm:space-y-8 relative z-10">
                   {/* Umwelt-Badge */}
-                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-100/80 to-teal-100/60 px-4 py-2 rounded-full border border-emerald-200/60 mb-4">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <span className="text-emerald-700 text-sm font-medium">Nachhaltige Innovation für die Zukunft</span>
-                    <i className="ri-leaf-line text-emerald-600 text-sm"></i>
+                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
+                    <div className="w-2 h-2 bg-[#2b3138] rounded-full animate-pulse"></div>
+                    <span className="text-[#2b3138] text-sm font-medium">Nachhaltige Innovation für die Zukunft</span>
+                    <i className="ri-leaf-line text-[#2b3138] text-sm"></i>
                   </div>
 
                   <div className="space-y-4 sm:space-y-6 xl:space-y-8 2xl:space-y-10 content-spacing">
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-[1.1] tracking-tight text-[#2b3138]">
-                      <span className="block">Baumschutz in &lt;5 Min</span>
+                      <span className="block whitespace-nowrap">Baumschutz in &lt;5 Min</span>
                       <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-[#39F2AE] font-bold mt-2">
                         60% günstiger über Lebenszyklus
                       </span>
@@ -122,7 +122,7 @@ export default function HeroSection() {
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 xl:gap-6 2xl:gap-8 justify-center">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="group bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white px-6 sm:px-8 xl:px-10 2xl:px-12 py-3 sm:py-4 xl:py-5 2xl:py-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg xl:text-xl 2xl:text-2xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
+                      className="group bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 sm:px-8 xl:px-10 2xl:px-12 py-3 sm:py-4 xl:py-5 2xl:py-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg xl:text-xl 2xl:text-2xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <span className="flex items-center gap-2 justify-center relative z-10">
@@ -141,13 +141,13 @@ export default function HeroSection() {
 
                   {/* Trust-Badges */}
                   <div className="flex flex-wrap justify-center gap-3 pt-4">
-                    <div className="flex items-center gap-2 bg-emerald-50/80 px-4 py-2 rounded-full border border-emerald-200/60">
-                      <i className="ri-tools-line text-emerald-600 text-sm"></i>
-                      <span className="text-emerald-700 text-sm font-medium">Werkzeuglos</span>
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-4 py-2 rounded-full shadow-lg">
+                      <i className="ri-tools-line text-[#2b3138] text-sm"></i>
+                      <span className="text-[#2b3138] text-sm font-medium">Werkzeuglos</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-teal-50/80 px-4 py-2 rounded-full border border-teal-200/60">
-                      <i className="ri-recycle-line text-teal-600 text-sm"></i>
-                      <span className="text-teal-700 text-sm font-medium">Wiederverwendbar</span>
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-4 py-2 rounded-full shadow-lg">
+                      <i className="ri-recycle-line text-[#2b3138] text-sm"></i>
+                      <span className="text-[#2b3138] text-sm font-medium">Wiederverwendbar</span>
                     </div>
                     <div className="flex items-center gap-2 bg-blue-50/80 px-4 py-2 rounded-full border border-blue-200/60">
                       <i className="ri-shield-check-line text-blue-600 text-sm"></i>

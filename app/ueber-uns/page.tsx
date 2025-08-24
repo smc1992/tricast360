@@ -17,9 +17,9 @@ export default function UeberUns() {
             <div className="absolute inset-0 bg-[url('https://readdy.ai/api/search-image?query=modern%20sustainable%20business%20team%20working%20together%20in%20green%20office%20environment%20with%20plants%20and%20natural%20lighting%20professional%20atmosphere%20innovation%20teamwork%20collaboration%20clean%20minimalist%20design&width=1200&height=600&seq=team-hero&orientation=landscape')] bg-cover bg-center bg-no-repeat opacity-20 rounded-3xl"></div>
             <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-3xl p-12 border border-gray-200 shadow-lg">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 bg-[#39F2AE]/10 px-4 py-2 rounded-full border border-[#39F2AE]/20">
-                  <div className="w-2 h-2 bg-[#39F2AE] rounded-full animate-pulse"></div>
-                  <span className="text-[#39F2AE] text-sm font-medium">Gegründet 2024</span>
+                <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+                  <i className="ri-calendar-line mr-2"></i>
+                  Gegründet 2024
                 </div>
                 
                 <h1 className="text-4xl lg:text-6xl font-light text-[#2b3138] leading-tight">
@@ -41,9 +41,9 @@ export default function UeberUns() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1 space-y-6">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 bg-[#39F2AE]/10 px-3 py-1 rounded-full border border-[#39F2AE]/20">
-                      <i className="ri-crown-line text-[#39F2AE] text-sm"></i>
-                      <span className="text-[#39F2AE] text-xs font-medium">Geschäftsführer</span>
+                    <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+                      <i className="ri-crown-line mr-2"></i>
+                      Geschäftsführer
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138]">
                       Galip Alkan
@@ -104,8 +104,12 @@ export default function UeberUns() {
           {/* Team Sektion */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138] mb-4">
+              <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+                <i className="ri-team-line mr-2"></i>
                 Unser Team
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138] mb-4">
+                Die Köpfe hinter Tricast360
               </h2>
               <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
                 Experten mit einer gemeinsamen Vision: Den Baumschutz zu revolutionieren
@@ -148,7 +152,7 @@ export default function UeberUns() {
                 </div>
               </div>
 
-              {/* Sarah Müller - Marketing & Sales */}
+              {/* Simon Müller - Marketing & Sales */}
               <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:border-[#39F2AE]/30 transition-all duration-300 group">
                 <div className="flex items-start gap-6">
                   <div className="relative">
@@ -163,14 +167,14 @@ export default function UeberUns() {
                   <div className="flex-1 space-y-3">
                     <div>
                       <h3 className="text-xl font-medium text-[#2b3138] group-hover:text-[#39F2AE] transition-colors duration-300">
-                        Sarah Müller
+                        Simon Müller
                       </h3>
-                      <p className="text-[#39F2AE] font-medium text-sm">Marketing & Sales</p>
+                      <p className="text-[#39F2AE] font-medium text-sm">Marketing & Digitalisierung</p>
                     </div>
                     
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Marktentwicklung und Kundenbetreuung - Sarah sorgt dafür, dass unsere 
-                      nachhaltigen Lösungen die richtigen Kunden erreichen.
+                      Marketing und Digitalisierung - Simon sorgt dafür, dass unsere 
+                      nachhaltigen Lösungen digital optimal präsentiert und vermarktet werden.
                     </p>
                     
                     <div className="flex gap-2 flex-wrap">
@@ -178,7 +182,7 @@ export default function UeberUns() {
                         Marketing
                       </span>
                       <span className="px-3 py-1 bg-[#39F2AE]/10 border border-[#39F2AE]/20 rounded-full text-[#39F2AE] text-xs">
-                        Kundenbetreuung
+                        Digitalisierung
                       </span>
                     </div>
                   </div>
@@ -198,7 +202,7 @@ export default function UeberUns() {
                       Werden Sie Teil unserer Vision!
                     </p>
                   </div>
-                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE]/10 text-[#39F2AE] px-4 py-2 rounded-xl text-sm font-medium hover:bg-[#39F2AE]/20 transition-all duration-200 whitespace-nowrap cursor-pointer">
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-4 py-2 rounded-xl text-sm font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer">
                     <i className="ri-team-line"></i>
                     Karriere-Anfrage
                   </Link>
@@ -210,8 +214,12 @@ export default function UeberUns() {
           {/* Unternehmenswerte */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138] mb-4">
+              <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+                <i className="ri-heart-line mr-2"></i>
                 Unsere Werte
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138] mb-4">
+                Was uns antreibt
               </h2>
               <p className="text-xl text-gray-600 font-light">
                 Was uns antreibt und leitet

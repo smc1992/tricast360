@@ -143,7 +143,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                     <div className="flex flex-col sm:flex-row gap-3 mb-4">
                       <button
                         onClick={handleAcceptAll}
-                        className="bg-[#39F2AE] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2"
+                        className="bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <i className="ri-check-line"></i>
                         Alle akzeptieren
@@ -253,7 +253,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                 <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200">
                   <button
                     onClick={handleSaveSelection}
-                    className="bg-[#39F2AE] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2"
+                    className="bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2"
                   >
                     <i className="ri-save-line"></i>
                     Auswahl speichern

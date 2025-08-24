@@ -300,10 +300,10 @@ export default function Datenschutz() {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200">
-                    <i className="ri-mail-line"></i>
-                    Kontakt aufnehmen
-                  </Link>
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200">
+                      <i className="ri-mail-line"></i>
+                      Kontakt aufnehmen
+                    </Link>
                   <a href="mailto:info@tricast360.de" className="inline-flex items-center gap-2 border border-[#39F2AE] text-[#39F2AE] px-6 py-3 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200">
                     <i className="ri-mail-line"></i>
                     Direkte E-Mail
