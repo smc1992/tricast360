@@ -35,7 +35,7 @@ export default function EnvironmentalImpactSection() {
       description: "75% Materialreduktion durch intelligente Wiederverwendung über 10+ Zyklen.",
       icon: "ri-recycle-line",
       color: "tricast",
-      badge: "10x nutzbar"
+      badge: "Wiederverwendbar"
     },
     {
       title: "Qualitätsgeprüft",

@@ -12,8 +12,8 @@ export default function HowItWorksSection() {
     },
     {
       number: "2", 
-      title: "Klickverschluss schließen",
-      description: "Werkzeuglose Verbindung durch intelligentes Klicksystem",
+      title: "Gurtsystem schließen",
+      description: "Werkzeuglose Verbindung durch intelligentes Gurtsystem",
       icon: "ri-link",
       benefit: "Stabil."
     },

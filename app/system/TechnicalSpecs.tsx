@@ -37,7 +37,7 @@ export default function TechnicalSpecs() {
       category: "Nachhaltigkeit",
       icon: "ri-leaf-line",
       specs: [
-        { label: "Wiederverwendbar", value: "bis 10x" },
+        { label: "Nachhaltig", value: "100%" },
         { label: "Recycelter Anteil", value: "85%" },
         { label: "Recycelbar", value: "100%" },
         { label: "CO₂-Einsparung", value: "60% vs. Einweg" }
@@ -242,7 +242,7 @@ export default function TechnicalSpecs() {
                 <i className="ri-refresh-line text-[#39F2AE]"></i>
               </div>
               <div>
-                <div className="text-gray-800 font-medium">10x wiederverwendbar</div>
+                <div className="text-gray-800 font-medium">Mehrfach wiederverwendbar</div>
                 <div className="text-gray-600 text-sm">Über viele Jahre hinweg</div>
               </div>
             </div>

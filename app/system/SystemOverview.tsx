@@ -10,7 +10,7 @@ export default function SystemOverview() {
       details: ["Stammumfang 20-80 cm", "Höhe stufenlos verstellbar", "Beliebig erweiterbar"]
     },
     {
-      title: "Klick-Verbindung",
+      title: "Gurt-Verbindung",
       description: "Werkzeuglose Installation in wenigen Minuten",
       icon: "ri-link",
       details: ["Ohne Werkzeug", "Sichere Verriegelung", "Einfache Demontage"]
@@ -25,7 +25,7 @@ export default function SystemOverview() {
       title: "Wiederverwendbar",
       description: "Nachhaltig durch mehrfache Nutzung auf verschiedenen Baustellen",
       icon: "ri-recycle-line",
-      details: ["Bis zu 10x verwendbar", "Einfache Reinigung", "Langlebige Materialien"]
+      details: ["Mehrfach verwendbar", "Einfache Reinigung", "Langlebige Materialien"]
     }
   ];
 
@@ -56,7 +56,7 @@ export default function SystemOverview() {
               <div className="w-6 h-6 bg-[#39F2AE] rounded-full flex items-center justify-center">
                 <i className="ri-check-line text-white text-sm"></i>
               </div>
-              <span className="text-gray-800">Über 10.000 geschützte Bäume</span>
+              <span className="text-gray-800">Bereit für den Markteintritt</span>
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@ export default function SystemOverview() {
               <div className="text-sm text-gray-600">Weniger Installationszeit</div>
             </div>
             <div className="space-y-3">
-              <div className="text-3xl font-light text-[#39F2AE]">10x</div>
-              <div className="text-sm text-gray-600">Wiederverwendbar</div>
+              <div className="text-3xl font-light text-[#39F2AE]">100%</div>
+              <div className="text-sm text-gray-600">Nachhaltig</div>
             </div>
             <div className="space-y-3">
               <div className="text-3xl font-light text-[#39F2AE]">100%</div>

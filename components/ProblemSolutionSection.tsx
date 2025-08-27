@@ -29,13 +29,13 @@ export default function ProblemSolutionSection() {
       problem: {
         text: 'Zeitaufwendig',
         icon: 'ri-time-line',
-        detail: 'Stundenlange Montage mit Werkzeug',
+        detail: 'Aufwendige Montage mit Werkzeug',
         badge: 'Stunden'
       },
       solution: {
         text: 'Werkzeuglose Installation',
         icon: 'ri-tools-line',
-        detail: 'Einfaches Klicksystem ohne Werkzeug',
+        detail: 'Einfache Installation ohne Werkzeug',
         badge: '< 5 Min'
       }
     },
@@ -43,14 +43,14 @@ export default function ProblemSolutionSection() {
       problem: {
         text: 'Nicht nachhaltig',
         icon: 'ri-delete-bin-line',
-        detail: 'Einmaliger Gebrauch, dann Müll',
+        detail: 'Teure Entsorgung',
         badge: '1x Nutzung'
       },
       solution: {
         text: 'Wiederverwendbar',
         icon: 'ri-recycle-line',
-        detail: 'Bis zu 10x wiederverwendbar',
-        badge: '10x nutzbar'
+        detail: 'Mehrfach wiederverwendbar',
+        badge: 'Wiederverwendbar'
       }
     },
     {

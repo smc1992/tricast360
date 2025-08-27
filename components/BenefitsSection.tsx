@@ -19,7 +19,7 @@ export default function BenefitsSection() {
       title: "Ressourcenschonend",
       description: "Minimaler Materialverbrauch durch intelligente Wiederverwendung",
       icon: "ri-recycle-line",
-      highlight: "10x nutzbar",
+      highlight: "Mehrfach nutzbar",
       color: "from-[#39F2AE] to-[#2dd89a]",
       bgColor: "bg-[#39F2AE]/10",
       borderColor: "border-[#39F2AE]/20",

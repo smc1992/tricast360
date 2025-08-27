@@ -374,7 +374,7 @@ export default function KontaktPage() {
                     </div>
                     <div className="flex items-center gap-3">
                       <i className="ri-recycle-line text-[#39F2AE]"></i>
-                      <span className="text-gray-700 text-sm">10× wiederverwendbar</span>
+                      <span className="text-gray-700 text-sm">Mehrfach wiederverwendbar</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <i className="ri-award-line text-[#39F2AE]"></i>
