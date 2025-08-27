@@ -14,8 +14,8 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
     { id: 'hero', label: 'Start', icon: 'ri-home-line' },
     { id: 'problem', label: 'Problem', icon: 'ri-alert-line' },
     { id: 'funktionsweise', label: 'Funktionsweise', icon: 'ri-settings-3-line' },
-    { id: 'vorteile', label: 'Vorteile', icon: 'ri-leaf-line' },
-    { id: 'umwelt', label: 'Umwelt', icon: 'ri-earth-line' },
+    { id: 'vorteile', label: 'Nachhaltigkeit', icon: 'ri-leaf-line' },
+    { id: 'vision-2025', label: 'Vision 2025', icon: 'ri-eye-line' },
     { id: 'markt', label: 'Markt', icon: 'ri-bar-chart-line' }
   ];
 
@@ -27,7 +27,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
       setIsVisible(window.scrollY > window.innerHeight * 0.2);
       
       // Find active section with better detection
-      let newActiveSection = 0;
+      let newActiveSection = activeSection; // Keep current section as default
       
       sections.forEach((section, index) => {
         const element = document.getElementById(section.id);
@@ -43,7 +43,10 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
         }
       });
       
-      setActiveSection(newActiveSection);
+      // Only update if we found a valid section
+      if (newActiveSection !== activeSection) {
+        setActiveSection(newActiveSection);
+      }
     };
 
     // Throttle scroll events for better performance
@@ -104,9 +107,10 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
               
               {/* Tooltip */}
               <div className={`
-                absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg
+                absolute right-full mr-6 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg
                 opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                pointer-events-none whitespace-nowrap
+                pointer-events-none whitespace-nowrap z-50 min-w-max
+                top-1/2 -translate-y-1/2
                 before:content-[''] before:absolute before:left-full before:top-1/2 before:-translate-y-1/2
                 before:border-4 before:border-transparent before:border-l-gray-900
               `}>
@@ -154,8 +158,8 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
     { id: 'hero', label: 'Start', icon: 'ri-home-line' },
     { id: 'problem', label: 'Problem', icon: 'ri-alert-line' },
     { id: 'funktionsweise', label: 'Lösung', icon: 'ri-settings-3-line' },
-    { id: 'vorteile', label: 'Vorteile', icon: 'ri-leaf-line' },
-    { id: 'umwelt', label: 'Umwelt', icon: 'ri-earth-line' },
+    { id: 'vorteile', label: 'Nachhaltigkeit', icon: 'ri-leaf-line' },
+    { id: 'vision-2025', label: 'Vision', icon: 'ri-eye-line' },
     { id: 'markt', label: 'Markt', icon: 'ri-bar-chart-line' }
   ];
 
@@ -167,7 +171,7 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
       setIsVisible(window.scrollY > window.innerHeight * 0.2);
       
       // Find active section with better detection
-      let newActiveSection = 0;
+      let newActiveSection = activeSection; // Keep current section as default
       
       sections.forEach((section, index) => {
         const element = document.getElementById(section.id);
@@ -183,7 +187,10 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
         }
       });
       
-      setActiveSection(newActiveSection);
+      // Only update if we found a valid section
+      if (newActiveSection !== activeSection) {
+        setActiveSection(newActiveSection);
+      }
     };
 
     // Throttle scroll events for better performance
