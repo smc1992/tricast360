@@ -81,14 +81,14 @@ export default function BenefitsSection() {
         <div className="text-center mb-12 sm:mb-16 content-spacing">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-leaf-line text-[#2b3138]"></i>
-            <span className="text-[#2b3138] font-medium">Nachhaltigkeit im Fokus</span>
+            <span className="text-[#2b3138] font-medium">Nachhaltigkeit & Umwelt</span>
           </div>
           <h2 className="text-section-title font-light mb-4 sm:mb-6 text-gray-800">
-            Umwelt<span className="bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] bg-clip-text text-transparent font-semibold">vorteile</span> für morgen
+            Nachhaltige <span className="bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] bg-clip-text text-transparent font-semibold">Innovation</span> für die Zukunft
           </h2>
           <p className="text-large text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
-            Jeder geschützte Baum ist ein Beitrag zum Klimaschutz. Unser System macht 
-            <span className="text-[#39F2AE] font-semibold"> nachhaltigen Baumschutz wirtschaftlich und ökologisch sinnvoll</span>
+            Tricast360 vereint Umweltschutz mit wirtschaftlicher Effizienz. Unser System macht 
+            <span className="text-[#39F2AE] font-semibold"> nachhaltigen Baumschutz zur intelligenten Investition</span> in die Zukunft.
           </p>
         </div>
 
