@@ -39,7 +39,7 @@ export default function Header() {
               <img 
                 src="/images/1x/Logo Header Tricast360.webp" 
                 alt="Tricast360 Logo" 
-                className="h-12 sm:h-14 w-auto group-hover:scale-110 transition-all duration-300"
+                className="h-16 sm:h-14 w-auto group-hover:scale-110 transition-all duration-300"
               />
             </Link>
 
