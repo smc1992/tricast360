@@ -11,7 +11,7 @@ export default function Impressum() {
       <main className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
-            <Link href="/" className="inline-flex items-center gap-2 text-[#39F2AE] hover:text-[#2dd89a] transition-colors duration-200 mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-[#baf742] hover:text-[#a3e635] transition-colors duration-200 mb-8">
               <i className="ri-arrow-left-line"></i>
               Zurück zur Startseite
             </Link>
@@ -20,7 +20,7 @@ export default function Impressum() {
               <h1 className="text-4xl lg:text-5xl font-light text-[#2b3138]">
                 Impressum
               </h1>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-[#baf742] to-[#a3e635] rounded-full"></div>
             </div>
           </div>
 
@@ -28,8 +28,8 @@ export default function Impressum() {
             {/* Unternehmensangaben */}
             <section className="space-y-6">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-building-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-building-line text-[#baf742]"></i>
                 </div>
                 Unternehmensangaben
               </h2>
@@ -63,8 +63,8 @@ export default function Impressum() {
             {/* Kontakt */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-phone-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-phone-line text-[#baf742]"></i>
                 </div>
                 Kontakt
               </h2>
@@ -72,7 +72,7 @@ export default function Impressum() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <i className="ri-phone-line text-[#39F2AE] w-5"></i>
+                    <i className="ri-phone-line text-[#baf742] w-5"></i>
                     <div>
                       <p className="text-[#2b3138] font-medium">Telefon</p>
                       <p className="text-gray-600">+49 170 1002912</p>
@@ -80,7 +80,7 @@ export default function Impressum() {
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <i className="ri-mail-line text-[#39F2AE] w-5"></i>
+                    <i className="ri-mail-line text-[#baf742] w-5"></i>
                     <div>
                       <p className="text-[#2b3138] font-medium">E-Mail</p>
                       <p className="text-gray-600">info@tricast360.de</p>
@@ -90,7 +90,7 @@ export default function Impressum() {
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <i className="ri-global-line text-[#39F2AE] w-5"></i>
+                    <i className="ri-global-line text-[#baf742] w-5"></i>
                     <div>
                       <p className="text-[#2b3138] font-medium">Internet</p>
                       <p className="text-gray-600">www.tricast360.de</p>
@@ -103,8 +103,8 @@ export default function Impressum() {
             {/* Umsatzsteuer */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-file-text-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-file-text-line text-[#baf742]"></i>
                 </div>
                 Umsatzsteuer-ID
               </h2>
@@ -118,8 +118,8 @@ export default function Impressum() {
             {/* Verantwortlich für den Inhalt */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-user-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-user-line text-[#baf742]"></i>
                 </div>
                 Verantwortlich für den Inhalt
               </h2>
@@ -135,8 +135,8 @@ export default function Impressum() {
             {/* Haftungsausschluss */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-shield-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-shield-line text-[#baf742]"></i>
                 </div>
                 Haftungsausschluss
               </h2>
@@ -174,17 +174,17 @@ export default function Impressum() {
 
             {/* Kontakt-CTA */}
             <section className="border-t border-gray-300 pt-10">
-              <div className="bg-[#39F2AE]/5 rounded-2xl p-6 border border-[#39F2AE]/20">
+              <div className="bg-[#baf742]/5 rounded-2xl p-6 border border-[#baf742]/20">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                    <i className="ri-question-line text-[#39F2AE] text-xl"></i>
+                  <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                    <i className="ri-question-line text-[#baf742] text-xl"></i>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#2b3138]">Fragen zum Impressum?</h3>
                     <p className="text-gray-600 text-sm">Wir helfen Ihnen gerne weiter</p>
                   </div>
                 </div>
-                <Link href="/#kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200">
+                <Link href="/#kontakt" className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200">
           <i className="ri-message-line"></i>
           Kontakt aufnehmen
         </Link>

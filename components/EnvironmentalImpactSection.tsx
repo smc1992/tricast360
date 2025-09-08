@@ -56,11 +56,11 @@ export default function EnvironmentalImpactSection() {
   const getColorClasses = (color: string) => {
     const colorMap = {
       tricast: {
-        bg: 'bg-[#39F2AE]/10',
-        border: 'border-[#39F2AE]/20',
-        icon: 'text-[#39F2AE]',
-        badge: 'bg-[#39F2AE]/10 text-[#39F2AE]',
-        hover: 'hover:border-[#39F2AE]/40'
+        bg: 'bg-[#baf742]/10',
+        border: 'border-[#baf742]/20',
+        icon: 'text-[#baf742]',
+        badge: 'bg-[#baf742]/10 text-[#baf742]',
+        hover: 'hover:border-[#baf742]/40'
       },
       emerald: {
         bg: 'bg-emerald-50',
@@ -84,9 +84,9 @@ export default function EnvironmentalImpactSection() {
         hover: 'hover:border-green-300'
       },
       blue: {
-        bg: 'bg-blue-50',
-        border: 'border-blue-200',
-        icon: 'text-blue-600',
+        bg: 'bg-accent-100',
+    border: 'border-accent-200',
+    icon: 'text-accent-600',
         badge: 'bg-blue-100 text-blue-800',
         hover: 'hover:border-blue-300'
       }
@@ -99,7 +99,7 @@ export default function EnvironmentalImpactSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-leaf-line mr-2"></i>
             Umweltvorteile
           </div>
@@ -151,8 +151,8 @@ export default function EnvironmentalImpactSection() {
         <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center">
-                <i className="ri-award-line text-4xl text-[#39F2AE]"></i>
+              <div className="w-20 h-20 bg-[#baf742]/10 rounded-2xl flex items-center justify-center">
+                <i className="ri-award-line text-4xl text-[#baf742]"></i>
               </div>
             </div>
             
@@ -166,14 +166,14 @@ export default function EnvironmentalImpactSection() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300"
+                  className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-semibold hover:bg-[#a3e635] transition-colors duration-300"
                 >
                   <i className="ri-download-line"></i>
                    Qualitätsbericht herunterladen
                  </a>
                  <a 
                    href="#" 
-                   className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:border-[#39F2AE] hover:text-[#39F2AE] transition-colors duration-300"
+                   className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:border-[#baf742] hover:text-[#baf742] transition-colors duration-300"
                  >
                    <i className="ri-external-link-line"></i>
                    Mehr erfahren

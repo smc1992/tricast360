@@ -96,7 +96,7 @@ export default function KontaktPage() {
       
       <main className="pt-20">
         {/* 1. Hero-Bereich */}
-        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#39F2AE]/5 to-[#2dd89a]/5">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#baf742]/5 to-[#a3e635]/5">
           <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-8">
               <div className="space-y-6">
@@ -112,7 +112,7 @@ export default function KontaktPage() {
               <div className="pt-4">
                 <a 
                   href="#kontaktformular"
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <i className="ri-message-line text-2xl"></i>
                   Jetzt Kontakt aufnehmen
@@ -152,7 +152,7 @@ export default function KontaktPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#baf742] focus:border-[#baf742] transition-colors duration-200"
                         placeholder="Ihr vollständiger Name"
                       />
                     </div>
@@ -168,7 +168,7 @@ export default function KontaktPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#baf742] focus:border-[#baf742] transition-colors duration-200"
                         placeholder="ihre.email@beispiel.de"
                       />
                     </div>
@@ -184,7 +184,7 @@ export default function KontaktPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#baf742] focus:border-[#baf742] transition-colors duration-200"
                         placeholder="+49 123 456789"
                       />
                     </div>
@@ -200,7 +200,7 @@ export default function KontaktPage() {
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={5}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#39F2AE] focus:border-[#39F2AE] transition-colors duration-200 resize-vertical"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#baf742] focus:border-[#baf742] transition-colors duration-200 resize-vertical"
                         placeholder="Beschreiben Sie Ihr Anliegen oder Projekt..."
                       />
                     </div>
@@ -213,11 +213,11 @@ export default function KontaktPage() {
                         name="privacy"
                         checked={formData.privacy}
                         onChange={handleInputChange}
-                        className="mt-1 w-4 h-4 text-[#39F2AE] border-gray-300 rounded focus:ring-[#39F2AE]"
+                        className="mt-1 w-4 h-4 text-[#baf742] border-gray-300 rounded focus:ring-[#baf742]"
                       />
                       <label htmlFor="privacy" className="text-sm text-gray-600 leading-relaxed">
                         Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
-                        <a href="/datenschutz" className="text-[#39F2AE] hover:underline">
+                        <a href="/datenschutz" className="text-[#baf742] hover:underline">
                           Datenschutzerklärung
                         </a>{' '}
                         zu. *
@@ -257,7 +257,7 @@ export default function KontaktPage() {
                       <LoadingButton
                         type="submit"
                         isLoading={isSubmitting}
-                        className="w-full bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50"
+                        className="w-full bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50"
                       >
                         <span className="flex items-center gap-2 justify-center">
                           <i className="ri-send-plane-line text-xl"></i>
@@ -272,8 +272,8 @@ export default function KontaktPage() {
                 <div className="mt-8 bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="flex flex-col md:flex-row items-center gap-3">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className="ri-time-line text-[#39F2AE] text-xl"></i>
+                      <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-time-line text-[#baf742] text-xl"></i>
                       </div>
                       <div className="text-center md:text-left">
                         <h4 className="font-semibold text-[#2b3138] text-sm">Antwortzeit</h4>
@@ -282,8 +282,8 @@ export default function KontaktPage() {
                     </div>
                     
                     <div className="flex flex-col md:flex-row items-center gap-3">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className="ri-phone-line text-[#39F2AE] text-xl"></i>
+                      <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-phone-line text-[#baf742] text-xl"></i>
                       </div>
                       <div className="text-center md:text-left">
                         <h4 className="font-semibold text-[#2b3138] text-sm">Telefonische Beratung</h4>
@@ -292,8 +292,8 @@ export default function KontaktPage() {
                     </div>
                     
                     <div className="flex flex-col md:flex-row items-center gap-3">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className="ri-truck-line text-[#39F2AE] text-xl"></i>
+                      <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-truck-line text-[#baf742] text-xl"></i>
                       </div>
                       <div className="text-center md:text-left">
                         <h4 className="font-semibold text-[#2b3138] text-sm">Deutschlandweite</h4>
@@ -313,15 +313,15 @@ export default function KontaktPage() {
                   
                   <div className="space-y-6">
                     {/* Telefon klickbar */}
-                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-[#39F2AE]/5 transition-colors duration-200">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className="ri-phone-line text-[#39F2AE] text-xl"></i>
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-[#baf742]/5 transition-colors duration-200">
+                      <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-phone-line text-[#baf742] text-xl"></i>
                       </div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-[#2b3138] mb-1">Telefon</h4>
                         <a 
                           href="tel:+491701002912" 
-                          className="text-[#39F2AE] hover:underline font-medium"
+                          className="text-[#baf742] hover:underline font-medium"
                         >
                           +49 170 1002912
                         </a>
@@ -330,15 +330,15 @@ export default function KontaktPage() {
                     </div>
                     
                     {/* E-Mail klickbar */}
-                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-[#39F2AE]/5 transition-colors duration-200">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className="ri-mail-line text-[#39F2AE] text-xl"></i>
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-[#baf742]/5 transition-colors duration-200">
+                      <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-mail-line text-[#baf742] text-xl"></i>
                       </div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-[#2b3138] mb-1">E-Mail</h4>
                         <a 
                           href="mailto:info@tricast360.de" 
-                          className="text-[#39F2AE] hover:underline font-medium"
+                          className="text-[#baf742] hover:underline font-medium"
                         >
                           info@tricast360.de
                         </a>
@@ -348,8 +348,8 @@ export default function KontaktPage() {
                     
                     {/* Adresse */}
                     <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
-                      <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i className="ri-map-pin-line text-[#39F2AE] text-xl"></i>
+                      <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className="ri-map-pin-line text-[#baf742] text-xl"></i>
                       </div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-[#2b3138] mb-1">Adresse</h4>
@@ -363,25 +363,25 @@ export default function KontaktPage() {
                 </div>
                 
                 {/* Zusätzliche Informationen */}
-                <div className="bg-gradient-to-br from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl p-8 border border-[#39F2AE]/20">
+                <div className="bg-gradient-to-br from-[#baf742]/10 to-[#a3e635]/10 rounded-2xl p-8 border border-[#baf742]/20">
                   <h4 className="text-lg font-semibold text-[#2b3138] mb-4">
                     Warum Tricast360?
                   </h4>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <i className="ri-shield-check-line text-[#39F2AE]"></i>
+                      <i className="ri-shield-check-line text-[#baf742]"></i>
                       <span className="text-gray-700 text-sm">Kostenlose Erstberatung</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <i className="ri-recycle-line text-[#39F2AE]"></i>
+                      <i className="ri-recycle-line text-[#baf742]"></i>
                       <span className="text-gray-700 text-sm">Mehrfach wiederverwendbar</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <i className="ri-award-line text-[#39F2AE]"></i>
+                      <i className="ri-award-line text-[#baf742]"></i>
                       <span className="text-gray-700 text-sm">Qualitätsgeprüft</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <i className="ri-leaf-line text-[#39F2AE]"></i>
+                      <i className="ri-leaf-line text-[#baf742]"></i>
                       <span className="text-gray-700 text-sm">Klimaneutral</span>
                     </div>
                   </div>

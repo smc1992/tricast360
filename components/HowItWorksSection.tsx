@@ -30,7 +30,7 @@ export default function HowItWorksSection() {
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-tools-line mr-2"></i>
             So funktioniert's
           </div>
@@ -49,15 +49,15 @@ export default function HowItWorksSection() {
               <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 relative overflow-hidden">
                 {/* Nummer Badge */}
                 <div className="absolute top-6 right-6">
-                  <div className="w-12 h-12 bg-[#39F2AE] rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#baf742] rounded-full flex items-center justify-center">
                     <span className="text-white text-xl font-bold">{step.number}</span>
                   </div>
                 </div>
 
                 {/* Mini-Illustration */}
                 <div className="mb-6">
-                  <div className="w-20 h-20 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#39F2AE]/20 transition-colors duration-300">
-                    <i className={`${step.icon} text-4xl text-[#39F2AE]`}></i>
+                  <div className="w-20 h-20 bg-[#baf742]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#baf742]/20 transition-colors duration-300">
+                    <i className={`${step.icon} text-4xl text-[#baf742]`}></i>
                   </div>
                 </div>
                 
@@ -72,22 +72,22 @@ export default function HowItWorksSection() {
                   
                   {/* Nutzen-Microcopy */}
                   <div className="pt-4 border-t border-gray-100">
-                    <span className="inline-block bg-[#39F2AE]/10 text-[#39F2AE] px-4 py-2 rounded-full text-sm font-semibold">
+                    <span className="inline-block bg-[#baf742]/10 text-[#baf742] px-4 py-2 rounded-full text-sm font-semibold">
                       {step.benefit}
                     </span>
                   </div>
                 </div>
 
                 {/* Hover-Effekt */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#39F2AE]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#baf742]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
               </div>
               
               {/* Verbindungspfeil */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:flex absolute top-1/2 -right-6 transform -translate-y-1/2 z-10">
                   <div className="flex items-center">
-                    <div className="w-8 h-0.5 bg-[#39F2AE]/30"></div>
-                    <i className="ri-arrow-right-line text-[#39F2AE] text-xl ml-1"></i>
+                    <div className="w-8 h-0.5 bg-[#baf742]/30"></div>
+                    <i className="ri-arrow-right-line text-[#baf742] text-xl ml-1"></i>
                   </div>
                 </div>
               )}
@@ -97,11 +97,11 @@ export default function HowItWorksSection() {
 
         {/* Abschluss-Microcopy */}
         <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-[#39F2AE]/20 shadow-sm">
-            <span className="text-[#39F2AE] font-semibold">Sicher.</span>
-            <span className="text-[#39F2AE] font-semibold">Stabil.</span>
-            <span className="text-[#39F2AE] font-semibold">Fertig.</span>
-            <i className="ri-check-double-line text-[#39F2AE] text-lg ml-2"></i>
+          <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-[#baf742]/20 shadow-sm">
+            <span className="text-[#baf742] font-semibold">Sicher.</span>
+            <span className="text-[#baf742] font-semibold">Stabil.</span>
+            <span className="text-[#baf742] font-semibold">Fertig.</span>
+            <i className="ri-check-double-line text-[#baf742] text-lg ml-2"></i>
           </div>
         </div>
       </div>

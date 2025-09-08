@@ -25,12 +25,12 @@ export default function LoadingButton({
   disabled = false,
   type = 'button'
 }: LoadingButtonProps) {
-  const baseClasses = 'relative overflow-hidden font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#39F2AE] focus:ring-offset-2';
+  const baseClasses = 'relative overflow-hidden font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#baf742] focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
+    primary: 'bg-gradient-to-r from-[#baf742] to-[#a3e635] text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
     secondary: 'bg-gray-100 text-gray-800 hover:bg-gray-200 hover:-translate-y-0.5',
-    outline: 'border-2 border-[#39F2AE] text-[#39F2AE] hover:bg-[#39F2AE]/10 hover:-translate-y-0.5'
+    outline: 'border-2 border-[#baf742] text-[#baf742] hover:bg-[#baf742]/10 hover:-translate-y-0.5'
   };
   
   const sizeClasses = {

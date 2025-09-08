@@ -126,8 +126,8 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
               // Kompakte Ansicht
               <div className="p-6 sm:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i className="ri-shield-check-line text-[#39F2AE] text-xl"></i>
+                  <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i className="ri-shield-check-line text-[#baf742] text-xl"></i>
                   </div>
                   
                   <div className="flex-1 min-w-0">
@@ -143,7 +143,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                     <div className="flex flex-col sm:flex-row gap-3 mb-4">
                       <button
                         onClick={handleAcceptAll}
-                        className="bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2"
+                        className="bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <i className="ri-check-line"></i>
                         Alle akzeptieren
@@ -151,7 +151,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                       
                       <button
                         onClick={handleAcceptNecessary}
-                        className="border border-gray-300 text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:border-[#39F2AE] hover:text-[#39F2AE] transition-all duration-200 flex items-center justify-center gap-2"
+                        className="border border-gray-300 text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:border-[#baf742] hover:text-[#baf742] transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <i className="ri-close-line"></i>
                         Nur notwendige
@@ -159,7 +159,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                       
                       <button
                         onClick={() => setShowDetails(true)}
-                        className="border border-[#39F2AE] text-[#39F2AE] px-6 py-3 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="border border-[#baf742] text-[#baf742] px-6 py-3 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <i className="ri-settings-3-line"></i>
                         Einstellungen
@@ -167,11 +167,11 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                     </div>
                     
                     <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                      <Link href="/datenschutz" className="hover:text-[#39F2AE] transition-colors duration-200 flex items-center gap-1">
+                      <Link href="/datenschutz" className="hover:text-[#baf742] transition-colors duration-200 flex items-center gap-1">
                         <i className="ri-shield-line"></i>
                         Datenschutzerklärung
                       </Link>
-                      <Link href="/impressum" className="hover:text-[#39F2AE] transition-colors duration-200 flex items-center gap-1">
+                      <Link href="/impressum" className="hover:text-[#baf742] transition-colors duration-200 flex items-center gap-1">
                         <i className="ri-information-line"></i>
                         Impressum
                       </Link>
@@ -184,8 +184,8 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
               <div className="p-6 sm:p-8 max-h-[80vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                      <i className="ri-settings-3-line text-[#39F2AE] text-lg"></i>
+                    <div className="w-10 h-10 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                      <i className="ri-settings-3-line text-[#baf742] text-lg"></i>
                     </div>
                     <h3 className="text-xl font-semibold text-[#2b3138]">
                       Cookie-Einstellungen
@@ -194,7 +194,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                   
                   <button
                     onClick={() => setShowDetails(false)}
-                    className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-[#39F2AE] hover:bg-[#39F2AE]/10 rounded-lg transition-all duration-200"
+                    className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-[#baf742] hover:bg-[#baf742]/10 rounded-lg transition-all duration-200"
                   >
                     <i className="ri-close-line text-lg"></i>
                   </button>
@@ -220,7 +220,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                         <div className="ml-4">
                           {category.required ? (
                             <div className="flex items-center gap-2 text-sm text-gray-500">
-                              <div className="w-10 h-6 bg-[#39F2AE] rounded-full flex items-center justify-end px-1">
+                              <div className="w-10 h-6 bg-[#baf742] rounded-full flex items-center justify-end px-1">
                                 <div className="w-4 h-4 bg-white rounded-full"></div>
                               </div>
                               <span>Erforderlich</span>
@@ -235,7 +235,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                                   className="sr-only"
                                 />
                                 <div className={`w-10 h-6 rounded-full transition-colors duration-200 ${
-                                  consent[category.id as keyof CookieConsent] ? 'bg-[#39F2AE]' : 'bg-gray-300'
+                                  consent[category.id as keyof CookieConsent] ? 'bg-[#baf742]' : 'bg-gray-300'
                                 }`}>
                                   <div className={`w-4 h-4 bg-white rounded-full transition-transform duration-200 transform ${
                                     consent[category.id as keyof CookieConsent] ? 'translate-x-5' : 'translate-x-1'
@@ -253,7 +253,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                 <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200">
                   <button
                     onClick={handleSaveSelection}
-                    className="bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2"
+                    className="bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200 flex items-center justify-center gap-2"
                   >
                     <i className="ri-save-line"></i>
                     Auswahl speichern
@@ -261,7 +261,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                   
                   <button
                     onClick={handleAcceptAll}
-                    className="border border-[#39F2AE] text-[#39F2AE] px-6 py-3 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200 flex items-center justify-center gap-2"
+                    className="border border-[#baf742] text-[#baf742] px-6 py-3 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 flex items-center justify-center gap-2"
                   >
                     <i className="ri-check-line"></i>
                     Alle akzeptieren
@@ -277,11 +277,11 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
                 </div>
                 
                 <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-gray-100 text-xs text-gray-500">
-                  <Link href="/datenschutz" className="hover:text-[#39F2AE] transition-colors duration-200 flex items-center gap-1">
+                  <Link href="/datenschutz" className="hover:text-[#baf742] transition-colors duration-200 flex items-center gap-1">
                     <i className="ri-shield-line"></i>
                     Datenschutzerklärung
                   </Link>
-                  <Link href="/impressum" className="hover:text-[#39F2AE] transition-colors duration-200 flex items-center gap-1">
+                  <Link href="/impressum" className="hover:text-[#baf742] transition-colors duration-200 flex items-center gap-1">
                     <i className="ri-information-line"></i>
                     Impressum
                   </Link>

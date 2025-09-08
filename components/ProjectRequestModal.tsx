@@ -106,8 +106,8 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                <i className="ri-phone-line text-[#39F2AE] text-xl"></i>
+              <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                <i className="ri-phone-line text-[#baf742] text-xl"></i>
               </div>
               <div>
                 <h2 className="text-2xl font-semibold text-[#ECEFF3]">Projekt anfragen</h2>
@@ -116,7 +116,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
             </div>
             <button
               onClick={onClose}
-              className="w-10 h-10 flex items-center justify-center text-[#B6BCCA] hover:text-[#39F2AE] hover:bg-[#39F2AE]/10 rounded-xl transition-all duration-200 cursor-pointer"
+              className="w-10 h-10 flex items-center justify-center text-[#B6BCCA] hover:text-[#baf742] hover:bg-[#baf742]/10 rounded-xl transition-all duration-200 cursor-pointer"
             >
               <i className="ri-close-line text-xl"></i>
             </button>
@@ -124,11 +124,11 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
           {/* Status Messages */}
           {submitStatus === 'success' && (
-            <div className="mb-6 p-4 bg-[#39F2AE]/10 border border-[#39F2AE]/30 rounded-xl">
+            <div className="mb-6 p-4 bg-[#baf742]/10 border border-[#baf742]/30 rounded-xl">
               <div className="flex items-center gap-3">
-                <i className="ri-check-line text-[#39F2AE] text-xl"></i>
+                <i className="ri-check-line text-[#baf742] text-xl"></i>
                 <div>
-                  <p className="text-[#39F2AE] font-medium">Anfrage erfolgreich gesendet!</p>
+                  <p className="text-[#baf742] font-medium">Anfrage erfolgreich gesendet!</p>
                   <p className="text-[#B6BCCA] text-sm">Wir melden uns so schnell wie möglich bei Ihnen.</p>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.company}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Ihr Unternehmen"
                 />
               </div>
@@ -178,7 +178,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Vor- und Nachname"
                 />
               </div>
@@ -193,7 +193,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="ihre.email@example.com"
                 />
               </div>
@@ -205,7 +205,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="+49 (0) 123 456 789"
                 />
               </div>
@@ -219,7 +219,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 pr-8 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 pr-8 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
                   >
                     <option value="">Projekt auswählen</option>
                     {projectTypes.map((type) => (
@@ -237,7 +237,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.treeCount}
                   onChange={handleInputChange}
                   min="1"
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Geschätzte Anzahl"
                 />
               </div>
@@ -251,7 +251,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Stadt, PLZ oder Adresse"
                 />
               </div>
@@ -262,7 +262,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   name="startDate"
                   value={formData.startDate}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                 />
               </div>
             </div>
@@ -275,7 +275,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 onChange={handleInputChange}
                 maxLength={500}
                 rows={4}
-                className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#39F2AE] focus:outline-none transition-colors duration-200 text-sm resize-none"
+                className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm resize-none"
                 placeholder="Beschreiben Sie Ihr Projekt und besondere Anforderungen..."
               />
               <div className="text-right text-xs text-[#B6BCCA]">
@@ -285,7 +285,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
             <div className="bg-[#323941]/60 rounded-xl p-4 border border-[#3c4450]">
               <div className="flex items-start gap-3">
-                <i className="ri-information-line text-[#39F2AE] text-lg mt-0.5"></i>
+                <i className="ri-information-line text-[#baf742] text-lg mt-0.5"></i>
                 <div className="text-sm text-[#B6BCCA]">
                   <p className="font-medium text-[#ECEFF3] mb-1">Nächste Schritte:</p>
                   <ul className="space-y-1">
@@ -301,7 +301,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
               <button
                 type="button"
                 onClick={onClose}
-                className="px-8 py-4 border border-[#3c4450] text-[#ECEFF3] rounded-xl font-medium hover:border-[#39F2AE] hover:text-[#39F2AE] transition-all duration-200 whitespace-nowrap cursor-pointer"
+                className="px-8 py-4 border border-[#3c4450] text-[#ECEFF3] rounded-xl font-medium hover:border-[#baf742] hover:text-[#baf742] transition-all duration-200 whitespace-nowrap cursor-pointer"
               >
                 Abbrechen
               </button>
@@ -310,7 +310,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 isLoading={isSubmitting}
                 loadingText="Wird gesendet..."
                 disabled={submitStatus === 'success'}
-                className="flex-1 bg-[#39F2AE] text-[#2b3138] hover:bg-[#2dd89a]"
+                className="flex-1 bg-[#baf742] text-[#2b3138] hover:bg-[#a3e635]"
                 size="lg"
               >
                 {submitStatus === 'success' ? (

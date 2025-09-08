@@ -11,7 +11,7 @@ export default function Datenschutz() {
       <main className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
-            <Link href="/" className="inline-flex items-center gap-2 text-[#39F2AE] hover:text-[#2dd89a] transition-colors duration-200 mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-[#baf742] hover:text-[#a3e635] transition-colors duration-200 mb-8">
               <i className="ri-arrow-left-line"></i>
               Zurück zur Startseite
             </Link>
@@ -20,7 +20,7 @@ export default function Datenschutz() {
               <h1 className="text-4xl lg:text-5xl font-light text-[#2b3138]">
                 Datenschutzerklärung
               </h1>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-[#baf742] to-[#a3e635] rounded-full"></div>
               <p className="text-xl text-gray-600 font-light leading-relaxed">
                 Ihre Privatsphäre ist uns wichtig. Hier erfahren Sie, wie wir mit Ihren Daten umgehen.
               </p>
@@ -32,8 +32,8 @@ export default function Datenschutz() {
             {/* Verantwortlicher */}
             <section className="space-y-6">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-user-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-user-line text-[#baf742]"></i>
                 </div>
                 1. Verantwortlicher
               </h2>
@@ -56,8 +56,8 @@ export default function Datenschutz() {
             {/* Allgemeine Hinweise */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-information-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-information-line text-[#baf742]"></i>
                 </div>
                 2. Allgemeine Hinweise und Pflichtinformationen
               </h2>
@@ -87,7 +87,7 @@ export default function Datenschutz() {
                     gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung 
                     oder Löschung dieser Daten zu verlangen.
                   </p>
-                  <div className="bg-[#39F2AE]/5 rounded-xl p-4 border border-[#39F2AE]/20">
+                  <div className="bg-[#baf742]/5 rounded-xl p-4 border border-[#baf742]/20">
                     <p className="text-[#2b3138] text-sm">
                       <strong>Kontakt:</strong> Bei Fragen zum Datenschutz wenden Sie sich gerne an uns unter 
                       info@tricast360.de
@@ -100,8 +100,8 @@ export default function Datenschutz() {
             {/* Datenerfassung */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-database-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-database-line text-[#baf742]"></i>
                 </div>
                 3. Datenerfassung auf dieser Website
               </h2>
@@ -136,7 +136,7 @@ export default function Datenschutz() {
                     Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung 
                     der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
                   </p>
-                  <div className="bg-[#39F2AE]/5 rounded-xl p-4 border border-[#39F2AE]/20">
+                  <div className="bg-[#baf742]/5 rounded-xl p-4 border border-[#baf742]/20">
                     <p className="text-[#2b3138] text-sm">
                       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)<br/>
                       <strong>Speicherdauer:</strong> Bis zur vollständigen Bearbeitung Ihrer Anfrage
@@ -158,8 +158,8 @@ export default function Datenschutz() {
             {/* Cookies */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-cake-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-cake-line text-[#baf742]"></i>
                 </div>
                 4. Cookies
               </h2>
@@ -173,7 +173,7 @@ export default function Datenschutz() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <h4 className="text-[#2b3138] font-medium mb-2 flex items-center gap-2">
-                      <i className="ri-shield-check-line text-[#39F2AE]"></i>
+                      <i className="ri-shield-check-line text-[#baf742]"></i>
                       Notwendige Cookies
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -184,7 +184,7 @@ export default function Datenschutz() {
                   
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <h4 className="text-[#2b3138] font-medium mb-2 flex items-center gap-2">
-                      <i className="ri-bar-chart-line text-[#39F2AE]"></i>
+                      <i className="ri-bar-chart-line text-[#baf742]"></i>
                       Analytische Cookies
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -207,8 +207,8 @@ export default function Datenschutz() {
             {/* SSL/TLS */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-lock-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-lock-line text-[#baf742]"></i>
                 </div>
                 5. SSL- bzw. TLS-Verschlüsselung
               </h2>
@@ -237,8 +237,8 @@ export default function Datenschutz() {
             {/* Ihre Rechte */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-user-settings-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-user-settings-line text-[#baf742]"></i>
                 </div>
                 6. Ihre Rechte nach der DSGVO
               </h2>
@@ -247,7 +247,7 @@ export default function Datenschutz() {
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <h4 className="text-[#2b3138] font-medium mb-2 flex items-center gap-2">
-                      <i className="ri-eye-line text-[#39F2AE]"></i>
+                      <i className="ri-eye-line text-[#baf742]"></i>
                       Auskunftsrecht
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -257,7 +257,7 @@ export default function Datenschutz() {
                   
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <h4 className="text-[#2b3138] font-medium mb-2 flex items-center gap-2">
-                      <i className="ri-edit-line text-[#39F2AE]"></i>
+                      <i className="ri-edit-line text-[#baf742]"></i>
                       Berichtigungsrecht
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -269,7 +269,7 @@ export default function Datenschutz() {
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <h4 className="text-[#2b3138] font-medium mb-2 flex items-center gap-2">
-                      <i className="ri-delete-bin-line text-[#39F2AE]"></i>
+                      <i className="ri-delete-bin-line text-[#baf742]"></i>
                       Löschungsrecht
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -279,7 +279,7 @@ export default function Datenschutz() {
                   
                   <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                     <h4 className="text-[#2b3138] font-medium mb-2 flex items-center gap-2">
-                      <i className="ri-download-line text-[#39F2AE]"></i>
+                      <i className="ri-download-line text-[#baf742]"></i>
                       Datenübertragbarkeit
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -289,10 +289,10 @@ export default function Datenschutz() {
                 </div>
               </div>
               
-              <div className="bg-[#39F2AE]/5 rounded-2xl p-6 border border-[#39F2AE]/20">
+              <div className="bg-[#baf742]/5 rounded-2xl p-6 border border-[#baf742]/20">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                    <i className="ri-customer-service-line text-[#39F2AE] text-xl"></i>
+                  <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                    <i className="ri-customer-service-line text-[#baf742] text-xl"></i>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#2b3138]">Ihre Rechte wahrnehmen</h3>
@@ -300,11 +300,11 @@ export default function Datenschutz() {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#39F2AE] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200">
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200">
                       <i className="ri-mail-line"></i>
                       Kontakt aufnehmen
                     </Link>
-                  <a href="mailto:info@tricast360.de" className="inline-flex items-center gap-2 border border-[#39F2AE] text-[#39F2AE] px-6 py-3 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200">
+                  <a href="mailto:info@tricast360.de" className="inline-flex items-center gap-2 border border-[#baf742] text-[#baf742] px-6 py-3 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200">
                     <i className="ri-mail-line"></i>
                     Direkte E-Mail
                   </a>
@@ -315,8 +315,8 @@ export default function Datenschutz() {
             {/* Änderungen */}
             <section className="space-y-6 border-t border-gray-300 pt-10">
               <h2 className="text-2xl font-semibold text-[#2b3138] flex items-center gap-3">
-                <div className="w-8 h-8 bg-[#39F2AE]/10 rounded-lg flex items-center justify-center">
-                  <i className="ri-refresh-line text-[#39F2AE]"></i>
+                <div className="w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center">
+                  <i className="ri-refresh-line text-[#baf742]"></i>
                 </div>
                 7. Änderungen der Datenschutzerklärung
               </h2>

@@ -57,8 +57,8 @@ export default function NaturalBackground({
       
       <defs>
         <linearGradient id="leafGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#39F2AE" stopOpacity="0.8" />
-          <stop offset="50%" stopColor="#2dd89a" stopOpacity="0.6" />
+          <stop offset="0%" stopColor="#baf742" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="#a3e635" stopOpacity="0.6" />
           <stop offset="100%" stopColor="#22c55e" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient id="leafGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -106,7 +106,7 @@ export default function NaturalBackground({
           <stop offset="100%" stopColor="#654321" stopOpacity="0.4" />
         </linearGradient>
         <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#39F2AE" stopOpacity="0.7" />
+          <stop offset="0%" stopColor="#baf742" stopOpacity="0.7" />
           <stop offset="50%" stopColor="#22c55e" stopOpacity="0.5" />
           <stop offset="100%" stopColor="#16a34a" stopOpacity="0.3" />
         </linearGradient>
@@ -136,7 +136,7 @@ export default function NaturalBackground({
       
       <defs>
         <linearGradient id="organicGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#39F2AE" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="#baf742" stopOpacity="0.1" />
           <stop offset="100%" stopColor="#22c55e" stopOpacity="0.05" />
         </linearGradient>
         <linearGradient id="organicGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -151,17 +151,17 @@ export default function NaturalBackground({
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
       <g opacity={opacity}>
         {/* Minimal dots pattern */}
-        <circle cx="100" cy="100" r="2" fill="#39F2AE" />
+        <circle cx="100" cy="100" r="2" fill="#baf742" />
         <circle cx="300" cy="150" r="1.5" fill="#22c55e" />
         <circle cx="500" cy="80" r="2.5" fill="#16a34a" />
-        <circle cx="700" cy="120" r="1" fill="#39F2AE" />
+        <circle cx="700" cy="120" r="1" fill="#baf742" />
         <circle cx="900" cy="180" r="2" fill="#22c55e" />
         <circle cx="1100" cy="140" r="1.5" fill="#16a34a" />
         
-        <circle cx="150" cy="600" r="1.5" fill="#39F2AE" />
+        <circle cx="150" cy="600" r="1.5" fill="#baf742" />
         <circle cx="350" cy="650" r="2" fill="#22c55e" />
         <circle cx="550" cy="620" r="1" fill="#16a34a" />
-        <circle cx="750" cy="680" r="2.5" fill="#39F2AE" />
+        <circle cx="750" cy="680" r="2.5" fill="#baf742" />
         <circle cx="950" cy="640" r="1.5" fill="#22c55e" />
         <circle cx="1150" cy="700" r="2" fill="#16a34a" />
       </g>

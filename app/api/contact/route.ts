@@ -27,7 +27,7 @@ function createEmailTemplate(data: any, type: 'contact' | 'project') {
           margin: 20px;
         }
         .header {
-          background: linear-gradient(135deg, #39F2AE 0%, #2dd89a 100%);
+          background: linear-gradient(135deg, #baf742 0%, #a3e635 100%);
           color: white;
           padding: 30px;
           text-align: center;
@@ -50,7 +50,7 @@ function createEmailTemplate(data: any, type: 'contact' | 'project') {
           padding: 15px;
           background: #f8f9fa;
           border-radius: 8px;
-          border-left: 4px solid #39F2AE;
+          border-left: 4px solid #baf742;
         }
         .field-label {
           font-weight: 600;
@@ -73,12 +73,12 @@ function createEmailTemplate(data: any, type: 'contact' | 'project') {
           font-size: 14px;
         }
         .footer a {
-          color: #39F2AE;
+          color: #baf742;
           text-decoration: none;
         }
         .badge {
           display: inline-block;
-          background: #39F2AE;
+          background: #baf742;
           color: white;
           padding: 4px 12px;
           border-radius: 20px;

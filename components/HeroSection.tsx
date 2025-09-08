@@ -32,7 +32,7 @@ export default function HeroSection() {
                   <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-gray-600 font-extralight mt-2">
                     Der neue Standard
                   </span>
-                  <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#39F2AE] font-extralight">
+                  <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#baf742] font-extralight">
                     im Baumschutz
                   </span>
                 </h1>
@@ -96,23 +96,23 @@ export default function HeroSection() {
                 
                 <div className="space-y-6 sm:space-y-8 relative z-10">
                   {/* Umwelt-Badge */}
-                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
+                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#baf742] to-[#a3e635] px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
                     <div className="w-2 h-2 bg-[#2b3138] rounded-full animate-pulse"></div>
                     <span className="text-[#2b3138] text-sm font-medium">Nachhaltige Innovation für die Zukunft</span>
                     <i className="ri-leaf-line text-[#2b3138] text-sm"></i>
                   </div>
 
                   <div className="space-y-4 sm:space-y-6 xl:space-y-8 2xl:space-y-10 content-spacing">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-[1.1] tracking-tight text-[#2b3138]">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-vela-extrabold leading-[1.1] tracking-tight text-brand-dark">
                       <span className="block whitespace-nowrap">Baumschutz in &lt;5 Min</span>
-                      <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-[#39F2AE] font-bold mt-2">
+                      <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-accent-500 font-vela-extrabold mt-2">
                         60% günstiger über Lebenszyklus
                       </span>
                     </h1>
 
-                    <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-gray-700 font-medium leading-relaxed max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
+                    <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-gray-700 font-vela font-medium leading-relaxed max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
                       Tricast360 – der werkzeuglose Rundumschutz für Bäume. 
-                      <span className="text-[#39F2AE] font-semibold">
+                      <span className="text-accent-500 font-vela font-semibold">
                         Wiederverwendbar, konform, zukunftssicher.
                       </span>
                     </p>
@@ -122,7 +122,7 @@ export default function HeroSection() {
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 xl:gap-6 2xl:gap-8 justify-center">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="group bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 sm:px-8 xl:px-10 2xl:px-12 py-3 sm:py-4 xl:py-5 2xl:py-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg xl:text-xl 2xl:text-2xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
+                      className="group bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 sm:px-8 xl:px-10 2xl:px-12 py-3 sm:py-4 xl:py-5 2xl:py-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg xl:text-xl 2xl:text-2xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer relative overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <span className="flex items-center gap-2 justify-center relative z-10">
@@ -132,7 +132,7 @@ export default function HeroSection() {
                     </button>
                     <Link
                       href="/system"
-                      className="group border-2 border-gray-200 bg-white/70 backdrop-blur-sm text-gray-700 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:border-[#39F2AE] hover:text-[#39F2AE] hover:bg-white transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer flex items-center justify-center gap-2"
+                      className="group border-2 border-gray-200 bg-white/70 backdrop-blur-sm text-gray-700 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:border-[#baf742] hover:text-[#baf742] hover:bg-white transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer flex items-center justify-center gap-2"
                     >
                       <i className="ri-eye-line text-lg sm:text-xl group-hover:rotate-12 transition-transform duration-300"></i>
                       System entdecken
@@ -141,18 +141,18 @@ export default function HeroSection() {
 
                   {/* Trust-Badges */}
                   <div className="flex flex-wrap justify-center gap-3 pt-4">
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-4 py-2 rounded-full shadow-lg">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-[#baf742] to-[#a3e635] px-4 py-2 rounded-full shadow-lg">
                       <i className="ri-tools-line text-[#2b3138] text-sm"></i>
                       <span className="text-[#2b3138] text-sm font-medium">Werkzeuglos</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] px-4 py-2 rounded-full shadow-lg">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-[#baf742] to-[#a3e635] px-4 py-2 rounded-full shadow-lg">
                       <i className="ri-recycle-line text-[#2b3138] text-sm"></i>
                       <span className="text-[#2b3138] text-sm font-medium">Wiederverwendbar</span>
                     </div>
-                    <div className="flex items-center gap-2 bg-blue-50/80 px-4 py-2 rounded-full border border-blue-200/60">
-                      <i className="ri-shield-check-line text-blue-600 text-sm"></i>
-                      <span className="text-blue-700 text-sm font-medium">Konform</span>
-                    </div>
+                    <div className="flex items-center gap-2 bg-accent-100/80 px-4 py-2 rounded-full border border-accent-200/60">
+                  <i className="ri-shield-check-line text-accent-600 text-sm"></i>
+                  <span className="text-accent-700 text-sm font-medium">Konform</span>
+                </div>
                   </div>
                 </div>
               </div>

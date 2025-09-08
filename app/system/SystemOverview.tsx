@@ -36,7 +36,7 @@ export default function SystemOverview() {
           <div className="space-y-6">
             <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
               Innovation trifft
-              <span className="block text-[#39F2AE]">Nachhaltigkeit</span>
+              <span className="block text-[#baf742]">Nachhaltigkeit</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               Das Tricast360-System revolutioniert den Baumschutz durch intelligente 
@@ -47,13 +47,13 @@ export default function SystemOverview() {
           
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="w-6 h-6 bg-[#39F2AE] rounded-full flex items-center justify-center">
+              <div className="w-6 h-6 bg-[#baf742] rounded-full flex items-center justify-center">
                 <i className="ri-check-line text-white text-sm"></i>
               </div>
               <span className="text-gray-800">Praxiserprobt seit 2020</span>
             </div>
             <div className="flex items-center gap-4">
-              <div className="w-6 h-6 bg-[#39F2AE] rounded-full flex items-center justify-center">
+              <div className="w-6 h-6 bg-[#baf742] rounded-full flex items-center justify-center">
                 <i className="ri-check-line text-white text-sm"></i>
               </div>
               <span className="text-gray-800">Bereit für den Markteintritt</span>
@@ -68,7 +68,7 @@ export default function SystemOverview() {
               alt="Tricast360 System"
               className="w-full h-auto rounded-2xl shadow-2xl object-top"
             />
-            <div className="absolute -bottom-4 -right-4 bg-[#39F2AE] rounded-2xl p-4 shadow-xl">
+            <div className="absolute -bottom-4 -right-4 bg-[#baf742] rounded-2xl p-4 shadow-xl">
               <i className="ri-shield-check-line text-white text-2xl"></i>
             </div>
           </div>
@@ -77,10 +77,10 @@ export default function SystemOverview() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-6 xl:gap-8">
         {features.map((feature, index) => (
-          <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#39F2AE]/30 hover:shadow-lg transition-all duration-300 cursor-pointer">
+          <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#baf742]/30 hover:shadow-lg transition-all duration-300 cursor-pointer">
             <div className="space-y-4">
-              <div className="w-14 h-14 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                <i className={`${feature.icon} text-[#39F2AE] text-2xl`}></i>
+              <div className="w-14 h-14 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                <i className={`${feature.icon} text-[#baf742] text-2xl`}></i>
               </div>
               
               <div className="space-y-3">
@@ -95,7 +95,7 @@ export default function SystemOverview() {
               <div className="space-y-2">
                 {feature.details.map((detail, idx) => (
                   <div key={idx} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-[#39F2AE] rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-[#baf742] rounded-full"></div>
                     <span className="text-gray-600 text-xs">{detail}</span>
                   </div>
                 ))}
@@ -112,15 +112,15 @@ export default function SystemOverview() {
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <div className="text-3xl font-light text-[#39F2AE]">90%</div>
+              <div className="text-3xl font-light text-[#baf742]">90%</div>
               <div className="text-sm text-gray-600">Weniger Installationszeit</div>
             </div>
             <div className="space-y-3">
-              <div className="text-3xl font-light text-[#39F2AE]">100%</div>
+              <div className="text-3xl font-light text-[#baf742]">100%</div>
               <div className="text-sm text-gray-600">Nachhaltig</div>
             </div>
             <div className="space-y-3">
-              <div className="text-3xl font-light text-[#39F2AE]">100%</div>
+              <div className="text-3xl font-light text-[#baf742]">100%</div>
               <div className="text-sm text-gray-600">Normkonform</div>
             </div>
           </div>

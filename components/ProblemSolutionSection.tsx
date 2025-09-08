@@ -90,14 +90,14 @@ export default function ProblemSolutionSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-lightbulb-line mr-2"></i>
             Das Problem vs. Die Lösung
           </div>
           <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
             Von der <span className="text-red-500 font-medium">Herausforderung</span>
             <br />
-            zur <span className="text-[#39F2AE] font-medium">Innovation</span>
+            zur <span className="text-[#baf742] font-medium">Innovation</span>
           </h2>
         </div>
 
@@ -137,15 +137,15 @@ export default function ProblemSolutionSection() {
               </div>
 
               {/* Solution */}
-              <div className="bg-[#39F2AE]/10 rounded-xl p-6 border border-[#39F2AE]/20">
+              <div className="bg-[#baf742]/10 rounded-xl p-6 border border-[#baf742]/20">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#39F2AE]/20 rounded-xl flex items-center justify-center border border-[#39F2AE]/30 flex-shrink-0">
-                    <i className={`${comparison.solution.icon} text-2xl text-[#39F2AE]`}></i>
+                  <div className="w-12 h-12 bg-[#baf742]/20 rounded-xl flex items-center justify-center border border-[#baf742]/30 flex-shrink-0">
+                    <i className={`${comparison.solution.icon} text-2xl text-[#baf742]`}></i>
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-lg font-semibold text-[#2b3138]">{comparison.solution.text}</h3>
-                      <span className="bg-[#39F2AE]/20 text-[#2b3138] px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-[#baf742]/20 text-[#2b3138] px-3 py-1 rounded-full text-sm font-medium">
                         {comparison.solution.badge}
                       </span>
                     </div>

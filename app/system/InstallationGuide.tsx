@@ -101,7 +101,7 @@ export default function InstallationGuide() {
       <div className="text-center space-y-6">
         <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
           Installation in
-          <span className="block text-[#39F2AE]">5 einfachen Schritten</span>
+          <span className="block text-[#baf742]">5 einfachen Schritten</span>
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Die werkzeuglose Installation des Tricast360-Systems dauert nur wenige Minuten 
@@ -111,18 +111,18 @@ export default function InstallationGuide() {
 
       <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
         <h3 className="text-xl font-medium text-gray-800 mb-6 flex items-center gap-2">
-          <i className="ri-tools-line text-[#39F2AE]"></i>
+          <i className="ri-tools-line text-[#baf742]"></i>
           Benötigte Ausrüstung
         </h3>
         <div className="grid md:grid-cols-4 gap-4">
           {tools.map((tool, index) => (
             <div key={index} className="flex items-center gap-3 bg-white rounded-xl p-4">
-              <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                <i className={`${tool.icon} text-[#39F2AE] text-lg`}></i>
+              <div className="w-10 h-10 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                <i className={`${tool.icon} text-[#baf742] text-lg`}></i>
               </div>
               <div>
                 <div className="text-gray-800 font-medium text-sm">{tool.name}</div>
-                <div className={`text-xs ${tool.required ? 'text-[#39F2AE]' : 'text-gray-600'}`}>
+                <div className={`text-xs ${tool.required ? 'text-[#baf742]' : 'text-gray-600'}`}>
                   {tool.required ? 'Erforderlich' : 'Optional'}
                 </div>
               </div>
@@ -140,21 +140,21 @@ export default function InstallationGuide() {
                 onClick={() => setActiveStep(index)}
                 className={`w-full text-left p-4 rounded-xl transition-all duration-200 cursor-pointer ${
                   activeStep === index
-                    ? 'bg-[#39F2AE]/10 border border-[#39F2AE]/30'
-                    : 'bg-white border border-gray-200 hover:border-[#39F2AE]/20'
+                    ? 'bg-[#baf742]/10 border border-[#baf742]/30'
+                    : 'bg-white border border-gray-200 hover:border-[#baf742]/20'
                 }`}
               >
                 <div className="flex items-center gap-4">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold ${
                     activeStep === index
-                      ? 'bg-[#39F2AE] text-white'
+                      ? 'bg-[#baf742] text-white'
                       : 'bg-gray-100 text-gray-600'
                   }`}>
                     {index + 1}
                   </div>
                   <div>
                     <div className={`font-medium ${
-                      activeStep === index ? 'text-[#39F2AE]' : 'text-gray-800'
+                      activeStep === index ? 'text-[#baf742]' : 'text-gray-800'
                     }`}>
                       {step.title}
                     </div>
@@ -170,14 +170,14 @@ export default function InstallationGuide() {
           <div className="bg-white rounded-2xl p-8 border border-gray-200">
             <div className="space-y-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#39F2AE] rounded-xl flex items-center justify-center font-bold text-white">
+                <div className="w-12 h-12 bg-[#baf742] rounded-xl flex items-center justify-center font-bold text-white">
                   {activeStep + 1}
                 </div>
                 <div>
                   <h3 className="text-2xl font-medium text-gray-800">
                     {steps[activeStep].title}
                   </h3>
-                  <p className="text-[#39F2AE]">{steps[activeStep].duration}</p>
+                  <p className="text-[#baf742]">{steps[activeStep].duration}</p>
                 </div>
               </div>
 
@@ -196,14 +196,14 @@ export default function InstallationGuide() {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-lg font-medium text-gray-800 mb-4 flex items-center gap-2">
-                    <i className="ri-list-check text-[#39F2AE]"></i>
+                    <i className="ri-list-check text-[#baf742]"></i>
                     Arbeitsschritte
                   </h4>
                   <div className="space-y-3">
                     {steps[activeStep].details.map((detail, index) => (
                       <div key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-[#39F2AE]/20 rounded-full flex items-center justify-center mt-0.5">
-                          <div className="w-2 h-2 bg-[#39F2AE] rounded-full"></div>
+                        <div className="w-6 h-6 bg-[#baf742]/20 rounded-full flex items-center justify-center mt-0.5">
+                          <div className="w-2 h-2 bg-[#baf742] rounded-full"></div>
                         </div>
                         <span className="text-gray-600">{detail}</span>
                       </div>
@@ -213,13 +213,13 @@ export default function InstallationGuide() {
 
                 <div>
                   <h4 className="text-lg font-medium text-gray-800 mb-4 flex items-center gap-2">
-                    <i className="ri-lightbulb-line text-[#39F2AE]"></i>
+                    <i className="ri-lightbulb-line text-[#baf742]"></i>
                     Profi-Tipps
                   </h4>
                   <div className="space-y-3">
                     {steps[activeStep].tips.map((tip, index) => (
-                      <div key={index} className="flex items-start gap-3 bg-[#39F2AE]/5 rounded-xl p-4 border border-[#39F2AE]/10">
-                        <i className="ri-information-line text-[#39F2AE] mt-0.5"></i>
+                      <div key={index} className="flex items-start gap-3 bg-[#baf742]/5 rounded-xl p-4 border border-[#baf742]/10">
+                        <i className="ri-information-line text-[#baf742] mt-0.5"></i>
                         <span className="text-gray-600">{tip}</span>
                       </div>
                     ))}
@@ -247,7 +247,7 @@ export default function InstallationGuide() {
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
                     activeStep === steps.length - 1
                       ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-[#39F2AE] text-white hover:bg-[#2dd89a]'
+                      : 'bg-[#baf742] text-white hover:bg-[#a3e635]'
                   }`}
                 >
                   Weiter
@@ -259,15 +259,15 @@ export default function InstallationGuide() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl p-8 border border-[#39F2AE]/20">
+      <div className="bg-gradient-to-r from-[#baf742]/10 to-[#a3e635]/10 rounded-2xl p-8 border border-[#baf742]/20">
         <div className="text-center space-y-4">
-          <div className="w-16 h-16 bg-[#39F2AE]/20 rounded-2xl flex items-center justify-center mx-auto">
-            <i className="ri-time-line text-[#39F2AE] text-2xl"></i>
+          <div className="w-16 h-16 bg-[#baf742]/20 rounded-2xl flex items-center justify-center mx-auto">
+            <i className="ri-time-line text-[#baf742] text-2xl"></i>
           </div>
           <h3 className="text-2xl font-light text-gray-800">
             Gesamte Installationszeit
           </h3>
-          <div className="text-4xl font-light text-[#39F2AE] mb-2">
+          <div className="text-4xl font-light text-[#baf742] mb-2">
             ca. 15 Minuten
           </div>  
           <p className="text-gray-600 max-w-2xl mx-auto">

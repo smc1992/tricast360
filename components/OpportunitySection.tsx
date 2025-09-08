@@ -29,21 +29,21 @@ export default function OpportunitySection() {
       label: "Kostenersparnis",
       description: "über den gesamten Lebenszyklus",
       icon: "ri-money-euro-circle-line",
-      color: "text-[#39F2AE]"
+      color: "text-[#baf742]"
     },
     {
       value: "10×",
       label: "Wiederverwendbar",
       description: "für maximale Nachhaltigkeit",
       icon: "ri-recycle-line",
-      color: "text-[#39F2AE]"
+      color: "text-[#baf742]"
     },
     {
       value: "< 5 Min",
       label: "Montagezeit",
       description: "werkzeuglose Installation",
       icon: "ri-time-line",
-      color: "text-[#39F2AE]"
+      color: "text-[#baf742]"
     }
   ];
 
@@ -81,7 +81,7 @@ export default function OpportunitySection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-star-line mr-2"></i>
             Warum Tricast360?
           </div>
@@ -109,7 +109,7 @@ export default function OpportunitySection() {
                 {advantages.map((advantage, index) => (
                   <div 
                     key={index}
-                    className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#39F2AE]/30 hover:shadow-lg transition-all duration-300"
+                    className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#baf742]/30 hover:shadow-lg transition-all duration-300"
                     style={{ transitionDelay: `${index * 150}ms` }}
                   >
                     <div className="flex items-center gap-4">
@@ -151,7 +151,7 @@ export default function OpportunitySection() {
                       key={index}
                       className={`${
                         getTagSize(field.size)
-                      } bg-white text-[#2b3138] rounded-full border border-gray-200 hover:border-[#39F2AE] hover:text-[#39F2AE] hover:shadow-md transition-all duration-300 cursor-default`}
+                      } bg-white text-[#2b3138] rounded-full border border-gray-200 hover:border-[#baf742] hover:text-[#baf742] hover:shadow-md transition-all duration-300 cursor-default`}
                       style={{ 
                         animationDelay: `${index * 100}ms`,
                         transform: isVisible ? 'scale(1)' : 'scale(0.8)',
@@ -178,7 +178,7 @@ export default function OpportunitySection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl p-8 border border-[#39F2AE]/20">
+          <div className="bg-gradient-to-r from-[#baf742]/10 to-[#a3e635]/10 rounded-2xl p-8 border border-[#baf742]/20">
             <h4 className="text-xl font-semibold text-[#2b3138] mb-4">
               Bereit für den nächsten Schritt?
             </h4>
@@ -186,11 +186,11 @@ export default function OpportunitySection() {
               Entdecken Sie, wie Tricast360 Ihr nächstes Projekt revolutionieren kann
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#39F2AE] text-[#2b3138] px-8 py-3 rounded-xl font-semibold hover:bg-[#2dd89a] transition-colors duration-300 flex items-center gap-2 justify-center">
+              <button className="bg-[#baf742] text-[#2b3138] px-8 py-3 rounded-xl font-semibold hover:bg-[#a3e635] transition-colors duration-300 flex items-center gap-2 justify-center">
                 <i className="ri-phone-line"></i>
                 Beratung anfragen
               </button>
-              <button className="border border-[#39F2AE] text-[#39F2AE] px-8 py-3 rounded-xl font-semibold hover:bg-[#39F2AE]/10 transition-colors duration-300 flex items-center gap-2 justify-center">
+              <button className="border border-[#baf742] text-[#baf742] px-8 py-3 rounded-xl font-semibold hover:bg-[#baf742]/10 transition-colors duration-300 flex items-center gap-2 justify-center">
                 <i className="ri-download-line"></i>
                 Produktinfo herunterladen
               </button>

@@ -57,7 +57,7 @@ export default function ComponentDetails() {
       <div className="text-center space-y-6">
         <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
           Präzise entwickelte
-          <span className="block text-[#39F2AE]">Systemkomponenten</span>
+          <span className="block text-[#baf742]">Systemkomponenten</span>
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Jede Komponente des Tricast360-Systems wurde für maximale Funktionalität, 
@@ -69,9 +69,9 @@ export default function ComponentDetails() {
         {components.map((component, index) => (
           <div key={index} className="space-y-8">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-3 bg-[#39F2AE]/10 px-4 py-2 rounded-full">
-                <div className="w-2 h-2 bg-[#39F2AE] rounded-full"></div>
-                <span className="text-[#39F2AE] text-sm font-medium">Komponente {index + 1}</span>
+              <div className="inline-flex items-center gap-3 bg-[#baf742]/10 px-4 py-2 rounded-full">
+                <div className="w-2 h-2 bg-[#baf742] rounded-full"></div>
+                <span className="text-[#baf742] text-sm font-medium">Komponente {index + 1}</span>
               </div>
               <h3 className="text-2xl font-medium text-gray-800">
                 {component.name}
@@ -84,13 +84,13 @@ export default function ComponentDetails() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <h4 className="text-lg font-medium text-gray-800 flex items-center gap-2">
-                  <i className="ri-settings-3-line text-[#39F2AE]"></i>
+                  <i className="ri-settings-3-line text-[#baf742]"></i>
                   Spezifikationen
                 </h4>
                 <div className="space-y-2">
                   {component.specifications.map((spec, idx) => (
                     <div key={idx} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-[#39F2AE] rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-[#baf742] rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600 text-sm">{spec}</span>
                     </div>
                   ))}
@@ -99,13 +99,13 @@ export default function ComponentDetails() {
 
               <div className="space-y-4">
                 <h4 className="text-lg font-medium text-gray-800 flex items-center gap-2">
-                  <i className="ri-star-line text-[#39F2AE]"></i>
+                  <i className="ri-star-line text-[#baf742]"></i>
                   Features
                 </h4>
                 <div className="space-y-2">
                   {component.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-[#39F2AE] rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-[#baf742] rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600 text-sm">{feature}</span>
                     </div>
                   ))}
@@ -128,24 +128,24 @@ export default function ComponentDetails() {
           
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className="ri-puzzle-line text-[#39F2AE] text-xl"></i>
+              <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <i className="ri-puzzle-line text-[#baf742] text-xl"></i>
               </div>
               <h4 className="text-lg font-medium text-gray-800 mb-2">Modulares System</h4>
               <p className="text-gray-600 text-sm">Beliebige Kombinationen für individuelle Schutzlösungen</p>
             </div>
             
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className="ri-refresh-line text-[#39F2AE] text-xl"></i>
+              <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <i className="ri-refresh-line text-[#baf742] text-xl"></i>
               </div>
               <h4 className="text-lg font-medium text-gray-800 mb-2">Erweiterbar</h4>
               <p className="text-gray-600 text-sm">Jederzeit um zusätzliche Komponenten ergänzbar</p>
             </div>
             
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className="ri-tools-line text-[#39F2AE] text-xl"></i>
+              <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <i className="ri-tools-line text-[#baf742] text-xl"></i>
               </div>
               <h4 className="text-lg font-medium text-gray-800 mb-2">Wartungsarm</h4>
               <p className="text-gray-600 text-sm">Langlebige Materialien mit minimalen Wartungsanforderungen</p>

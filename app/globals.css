@@ -1,4 +1,64 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Vela Sans Font Family - Local Files */
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('/fonts/VelaSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('/fonts/VelaSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('/fonts/VelaSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans ExtraBold';
+  src: url('/fonts/VelaSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Custom CSS Variables - New Accent Color System */
+:root {
+  --color-brand-dark: rgb(14, 28, 61);
+  --color-brand-primary: #baf742;
+  --color-brand-secondary: #a3e635;
+  --color-brand-accent: #baf742;        /* Global accent color */
+  --color-accent-light: #d9f99d;
+  --color-accent-dark: #a3e635;
+  
+  /* Accent color scale based on new color */
+  --accent-50: #f7fee7;
+  --accent-100: #ecfccb;
+  --accent-200: #d9f99d;
+  --accent-300: #bef264;
+  --accent-400: #a3e635;
+  --accent-500: #baf742;               /* Main accent color */
+  --accent-600: #84cc16;
+  --accent-700: #65a30d;
+  --accent-800: #4d7c0f;
+  --accent-900: #365314;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,16 +80,17 @@
   }
 }
 
-/* Enhanced Button Styles */
+/* Enhanced Button Styles - Using Logo Accent Color */
 @layer components {
   .btn-primary {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden bg-accent-500 text-white;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .btn-primary:hover {
+    @apply bg-accent-600;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(57, 242, 174, 0.4);
+    box-shadow: 0 10px 25px rgba(186, 247, 66, 0.4);
   }
   
   .btn-primary:active {

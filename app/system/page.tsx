@@ -24,7 +24,7 @@ export default function SystemPage() {
           <div className="text-center mb-16">
             <h1 className="text-5xl lg:text-6xl font-light mb-6 text-gray-800">
               Das Tricast360
-              <span className="block text-[#39F2AE]">System im Detail</span>
+              <span className="block text-[#baf742]">System im Detail</span>
             </h1>
             <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
               Modularer 360°-Baumschutz mit innovativer Klick-Technologie. 
@@ -40,8 +40,8 @@ export default function SystemPage() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 ${
                     activeTab === tab.id
-                      ? 'bg-[#39F2AE] text-white'
-                      : 'text-gray-600 hover:text-[#39F2AE] hover:bg-[#39F2AE]/10'
+                      ? 'bg-[#baf742] text-white'
+                      : 'text-gray-600 hover:text-[#baf742] hover:bg-[#baf742]/10'
                   }`}
                 >
                   <i className={`${tab.icon} text-lg`}></i>

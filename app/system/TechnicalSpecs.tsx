@@ -104,7 +104,7 @@ export default function TechnicalSpecs() {
       <div className="text-center space-y-6">
         <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
           Technische Daten &
-          <span className="block text-[#39F2AE]">Qualitätsstandards</span>
+          <span className="block text-[#baf742]">Qualitätsstandards</span>
         </h2>
         <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
           Präzise entwickelt, umfassend getestet und nach höchsten Qualitätsstandards geprüft - 
@@ -114,11 +114,11 @@ export default function TechnicalSpecs() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {specifications.map((category, index) => (
-          <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#39F2AE]/30 hover:shadow-lg transition-all duration-300">
+          <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#baf742]/30 hover:shadow-lg transition-all duration-300">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                  <i className={`${category.icon} text-[#39F2AE] text-xl`}></i>
+                <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                  <i className={`${category.icon} text-[#baf742] text-xl`}></i>
                 </div>
                 <h3 className="text-lg font-medium text-gray-800">
                   {category.category}
@@ -152,14 +152,14 @@ export default function TechnicalSpecs() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {certifications.map((cert, index) => (
             <div key={index} className="bg-white rounded-xl p-6 border border-gray-200 text-center">
-              <div className="w-16 h-16 bg-[#39F2AE]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <i className={`${cert.icon} text-[#39F2AE] text-2xl`}></i>
+              <div className="w-16 h-16 bg-[#baf742]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i className={`${cert.icon} text-[#baf742] text-2xl`}></i>
               </div>
               <h4 className="text-lg font-medium text-gray-800 mb-2">{cert.name}</h4>
               <p className="text-gray-600 text-sm mb-3">{cert.description}</p>
-              <div className="inline-flex items-center gap-2 bg-[#39F2AE]/10 px-3 py-1 rounded-full">
-                <div className="w-2 h-2 bg-[#39F2AE] rounded-full"></div>
-                <span className="text-[#39F2AE] text-xs font-medium">{cert.status}</span>
+              <div className="inline-flex items-center gap-2 bg-[#baf742]/10 px-3 py-1 rounded-full">
+                <div className="w-2 h-2 bg-[#baf742] rounded-full"></div>
+                <span className="text-[#baf742] text-xs font-medium">{cert.status}</span>
               </div>
             </div>
           ))}
@@ -194,7 +194,7 @@ export default function TechnicalSpecs() {
                     <div key={index} className="grid grid-cols-4 gap-4 py-4 border-b border-gray-200 last:border-0">
                       <div className="text-gray-800 font-medium">{test.test}</div>
                       <div className="text-gray-600 text-sm">{test.method}</div>
-                      <div className="text-[#39F2AE] font-medium">{test.result}</div>
+                      <div className="text-[#baf742] font-medium">{test.result}</div>
                       <div className="text-gray-600 text-sm">{test.description}</div>
                     </div>
                   ))}
@@ -218,8 +218,8 @@ export default function TechnicalSpecs() {
           
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                <i className="ri-recycle-line text-[#39F2AE]"></i>
+              <div className="w-10 h-10 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                <i className="ri-recycle-line text-[#baf742]"></i>
               </div>
               <div>
                 <div className="text-gray-800 font-medium">85% recyceltes Material</div>
@@ -228,8 +228,8 @@ export default function TechnicalSpecs() {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                <i className="ri-leaf-line text-[#39F2AE]"></i>
+              <div className="w-10 h-10 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                <i className="ri-leaf-line text-[#baf742]"></i>
               </div>
               <div>
                 <div className="text-gray-800 font-medium">60% weniger CO₂</div>
@@ -238,8 +238,8 @@ export default function TechnicalSpecs() {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#39F2AE]/10 rounded-xl flex items-center justify-center">
-                <i className="ri-refresh-line text-[#39F2AE]"></i>
+              <div className="w-10 h-10 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                <i className="ri-refresh-line text-[#baf742]"></i>
               </div>
               <div>
                 <div className="text-gray-800 font-medium">Mehrfach wiederverwendbar</div>
@@ -256,17 +256,17 @@ export default function TechnicalSpecs() {
               alt="Nachhaltigkeit Tricast360"
               className="w-full h-auto rounded-2xl shadow-xl object-top"
             />
-            <div className="absolute -bottom-4 -right-4 bg-[#39F2AE] rounded-2xl p-4 shadow-xl">
+            <div className="absolute -bottom-4 -right-4 bg-[#baf742] rounded-2xl p-4 shadow-xl">
               <i className="ri-earth-line text-white text-2xl"></i>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-[#39F2AE]/10 to-[#2dd89a]/10 rounded-2xl p-8 border border-[#39F2AE]/20 text-center">
+      <div className="bg-gradient-to-r from-[#baf742]/10 to-[#a3e635]/10 rounded-2xl p-8 border border-[#baf742]/20 text-center">
         <div className="space-y-6">
-          <div className="w-16 h-16 bg-[#39F2AE]/20 rounded-2xl flex items-center justify-center mx-auto">
-            <i className="ri-download-line text-[#39F2AE] text-2xl"></i>
+          <div className="w-16 h-16 bg-[#baf742]/20 rounded-2xl flex items-center justify-center mx-auto">
+            <i className="ri-download-line text-[#baf742] text-2xl"></i>
           </div>
           <h3 className="text-2xl font-light text-gray-800">
             Technische Dokumentation
@@ -276,11 +276,11 @@ export default function TechnicalSpecs() {
             Spezifikationen, Prüfberichten und Montageanweisungen herunter.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#39F2AE] text-[#2b3138] px-8 py-4 rounded-2xl font-medium hover:bg-[#2dd89a] transition-all duration-200 whitespace-nowrap cursor-pointer">
+            <button className="bg-[#baf742] text-[#2b3138] px-8 py-4 rounded-2xl font-medium hover:bg-[#a3e635] transition-all duration-200 whitespace-nowrap cursor-pointer">
               <i className="ri-file-pdf-line mr-2"></i>
               Datenblatt (PDF)
             </button>
-            <button className="border border-[#39F2AE] text-[#39F2AE] px-8 py-4 rounded-2xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200 whitespace-nowrap cursor-pointer">
+            <button className="border border-[#baf742] text-[#baf742] px-8 py-4 rounded-2xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 whitespace-nowrap cursor-pointer">
               <i className="ri-file-zip-line mr-2"></i>
               CAD-Dateien (ZIP)
             </button>

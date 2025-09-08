@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50/70 via-teal-50/50 to-cyan-50/60 flex items-center justify-center px-4 sm:px-6">
+    <div className="min-h-screen bg-gradient-to-br from-accent-50/70 via-accent-50/50 to-cyan-50/60 flex items-center justify-center px-4 sm:px-6">
       <div className="max-w-2xl w-full text-center">
         {/* 404 Illustration */}
         <div className="mb-8">
@@ -40,7 +40,7 @@ export default function NotFound() {
               <line x1="160" y1="210" x2="160" y2="260" stroke="#adb5bd" strokeWidth="1.5" opacity="0.8" strokeDasharray="2 2" />
               
               {/* 404 Text integrated */}
-              <text x="160" y="200" textAnchor="middle" fill="#39F2AE" fontSize="24" fontWeight="bold" className="font-mono">404</text>
+              <text x="160" y="200" textAnchor="middle" fill="#baf742" fontSize="24" fontWeight="bold" className="font-mono">404</text>
             </svg>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Link 
               href="/" 
-              className="bg-[#39F2AE] text-[#2b3138] px-8 py-4 rounded-xl font-medium hover:bg-[#2dd89a] transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="bg-[#baf742] text-[#2b3138] px-8 py-4 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200 flex items-center justify-center gap-2 group"
             >
               <i className="ri-home-line text-lg group-hover:scale-110 transition-transform duration-200"></i>
               Zur Startseite
@@ -69,7 +69,7 @@ export default function NotFound() {
             
             <Link 
               href="/system" 
-              className="border border-[#39F2AE] text-[#39F2AE] px-8 py-4 rounded-xl font-medium hover:bg-[#39F2AE]/10 transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="border border-[#baf742] text-[#baf742] px-8 py-4 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 flex items-center justify-center gap-2 group"
             >
               <i className="ri-shield-check-line text-lg group-hover:scale-110 transition-transform duration-200"></i>
               Unser System
@@ -80,15 +80,15 @@ export default function NotFound() {
           <div className="pt-8 border-t border-gray-200 mt-12">
             <p className="text-gray-500 text-sm mb-4">Suchen Sie etwas Bestimmtes?</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/kontakt" className="text-[#39F2AE] hover:underline flex items-center gap-1">
+              <Link href="/kontakt" className="text-[#baf742] hover:underline flex items-center gap-1">
                 <i className="ri-mail-line"></i>
                 Kontakt
               </Link>
-              <Link href="/ueber-uns" className="text-[#39F2AE] hover:underline flex items-center gap-1">
+              <Link href="/ueber-uns" className="text-[#baf742] hover:underline flex items-center gap-1">
                 <i className="ri-team-line"></i>
                 Über uns
               </Link>
-              <Link href="/impressum" className="text-[#39F2AE] hover:underline flex items-center gap-1">
+              <Link href="/impressum" className="text-[#baf742] hover:underline flex items-center gap-1">
                 <i className="ri-information-line"></i>
                 Impressum
               </Link>

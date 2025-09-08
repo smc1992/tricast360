@@ -51,12 +51,12 @@ export default function Vision2025Section() {
   const getColorClasses = (color: string) => {
     const colorMap = {
       tricast: {
-        bg: 'bg-[#39F2AE]/10',
-        border: 'border-[#39F2AE]/20',
-        icon: 'text-[#39F2AE]',
-        metric: 'text-[#39F2AE]',
-        badge: 'bg-[#39F2AE]/10 text-[#39F2AE]',
-        hover: 'hover:border-[#39F2AE]/40'
+        bg: 'bg-[#baf742]/10',
+        border: 'border-[#baf742]/20',
+        icon: 'text-[#baf742]',
+        metric: 'text-[#baf742]',
+        badge: 'bg-[#baf742]/10 text-[#baf742]',
+        hover: 'hover:border-[#baf742]/40'
       },
       emerald: {
         bg: 'bg-emerald-50',
@@ -91,14 +91,14 @@ export default function Vision2025Section() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#39F2AE] to-[#2dd89a] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
             <i className="ri-target-line mr-2"></i>
             Vision 2025
           </div>
           <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
             Unsere Ziele für eine
             <br />
-            <span className="text-[#39F2AE] font-medium">grünere Zukunft</span>
+            <span className="text-[#baf742] font-medium">grünere Zukunft</span>
           </h2>
           <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
             Messbare Ziele für Klimaschutz, Ressourcenschonung und Biodiversität

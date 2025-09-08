@@ -3,6 +3,34 @@ module.exports = {
   content: ["./{app,components,libs,pages,hooks}/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'vela': ['Vela Sans', 'Inter', 'Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+        'vela-extrabold': ['Vela Sans ExtraBold', 'Vela Sans', 'Inter', 'Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
+        'manrope': ['Manrope', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        'brand': {
+          'dark': 'rgb(14, 28, 61)',     // RGB: 14, 28, 61 (from design specs)
+          'primary': '#baf742',          // New accent color - bright green
+          'secondary': '#a3e635',        // Darker shade of new accent color
+          'light': '#d9f99d',           // Lighter shade of new accent color
+          'accent': '#baf742',          // Global accent color
+        },
+        // Global accent color system based on new color
+        'accent': {
+          '50': '#f7fee7',
+          '100': '#ecfccb', 
+          '200': '#d9f99d',
+          '300': '#bef264',
+          '400': '#a3e635',
+          '500': '#baf742',             // Main accent color
+          '600': '#84cc16',
+          '700': '#65a30d',
+          '800': '#4d7c0f',
+          '900': '#365314',
+        },
+      },
       screens: {
         '3xl': '1920px',
         '4xl': '2560px',

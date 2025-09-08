@@ -96,8 +96,8 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
                 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
                 ${
                   isActive 
-                    ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30' 
-                    : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 shadow-md'
+                    ? 'bg-accent-500 text-white shadow-lg shadow-accent-500/30'
+                : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-accent-100 hover:text-accent-600 shadow-md'
                 }
               `}
               aria-label={`Zu ${section.label} scrollen`}
@@ -129,7 +129,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
         <div className="mt-4 w-12 flex justify-center">
           <div className="w-1 h-16 bg-gray-200 rounded-full overflow-hidden">
             <div 
-              className="w-full bg-gradient-to-t from-emerald-500 to-teal-500 rounded-full transition-all duration-500 ease-out"
+              className="w-full bg-gradient-to-t from-accent-500 to-accent-600 rounded-full transition-all duration-500 ease-out"
               style={{ 
                 height: `${((activeSection + 1) / sections.length) * 100}%`,
                 transform: 'translateY(0)'
@@ -241,8 +241,8 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
                   min-w-[3rem] focus:outline-none focus:ring-2 focus:ring-emerald-500
                   ${
                     isActive 
-                      ? 'bg-emerald-500 text-white' 
-                      : 'text-gray-600 hover:bg-emerald-50 hover:text-emerald-600'
+                      ? 'bg-accent-500 text-white'
+                : 'text-gray-600 hover:bg-accent-100 hover:text-accent-600'
                   }
                 `}
                 aria-label={`Zu ${section.label} scrollen`}
