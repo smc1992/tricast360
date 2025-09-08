@@ -35,17 +35,12 @@ export default function Header() {
       }`}>
         <div className="w-full px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center group">
               <img 
-                src="/images/1x/1x/Tricast360 Logo grün.webp" 
+                src="/images/1x/Logo Header Tricast360.webp" 
                 alt="Tricast360 Logo" 
-                className="h-8 sm:h-10 w-auto group-hover:scale-110 transition-all duration-300"
+                className="h-12 sm:h-14 w-auto group-hover:scale-110 transition-all duration-300"
               />
-              {/* Umwelt-Badge */}
-              <div className="hidden sm:flex items-center gap-1 bg-[#baf742]/10 text-[#baf742] px-2 py-1 rounded-full text-xs font-medium border border-[#baf742]/20">
-                <div className="w-1.5 h-1.5 bg-[#baf742] rounded-full animate-pulse"></div>
-                Nachhaltig
-              </div>
             </Link>
 
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
