@@ -12,7 +12,7 @@ function createEmailTemplate(data: any, type: 'contact' | 'project') {
       <title>Neue Anfrage - Tricast360</title>
       <style>
         body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-family: 'Vela Sans', 'Inter', system-ui, -apple-system, sans-serif;
           line-height: 1.6;
           color: #333;
           max-width: 600px;

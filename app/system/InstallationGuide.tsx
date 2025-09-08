@@ -99,7 +99,7 @@ export default function InstallationGuide() {
   return (
     <div className="space-y-12">
       <div className="text-center space-y-6">
-        <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
+        <h2 className="heading-2">
           Installation in
           <span className="block text-[#baf742]">5 einfachen Schritten</span>
         </h2>
@@ -247,7 +247,7 @@ export default function InstallationGuide() {
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
                     activeStep === steps.length - 1
                       ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-[#baf742] text-white hover:bg-[#a3e635]'
+                      : 'bg-[#baf742] text-white hover:bg-[#0E1C3D]'
                   }`}
                 >
                   Weiter

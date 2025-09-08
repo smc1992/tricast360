@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0a0c14] border-t border-gray-700 font-inter relative overflow-hidden">
+    <footer className="bg-[#0a0c14] border-t border-gray-700 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-32 h-32 bg-[#baf742]/20 rounded-full blur-3xl"></div>
@@ -23,7 +23,7 @@ export default function Footer() {
             <div>
               <Link href="/" className="flex items-center group mb-4">
                 <img 
-                  src="/images/1x/Logo Tricast360 quer.webp" 
+                  src="/images/1x/1x/1x/Tricast360 Logo hell.webp" 
                   alt="Tricast360 Logo" 
                   className="h-12 w-auto group-hover:scale-105 transition-all duration-300"
                 />

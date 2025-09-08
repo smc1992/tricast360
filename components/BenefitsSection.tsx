@@ -1,179 +1,170 @@
 'use client';
 
-import { SectionGradient } from './GradientBackgrounds';
-import { SectionNaturalBackground } from './NaturalBackground';
+import { useState, useEffect } from 'react';
 
 export default function BenefitsSection() {
-  const benefits = [
-    {
-      title: "Klimaschonend",
-      description: "Reduzierte CO₂-Bilanz durch Mehrfachnutzung und nachhaltiges Material",
-      icon: "ri-earth-line",
-      highlight: "CO₂ -80%",
-      color: "from-[#baf742] to-[#a3e635]",
-      bgColor: "bg-[#baf742]/10",
-      borderColor: "border-[#baf742]/20",
-      textColor: "text-[#baf742]"
-    },
-    {
-      title: "Ressourcenschonend",
-      description: "Minimaler Materialverbrauch durch intelligente Wiederverwendung",
-      icon: "ri-recycle-line",
-      highlight: "Mehrfach nutzbar",
-      color: "from-[#baf742] to-[#a3e635]",
-      bgColor: "bg-[#baf742]/10",
-      borderColor: "border-[#baf742]/20",
-      textColor: "text-[#baf742]"
-    },
-    {
-      title: "Umweltfreundlich",
-      description: "Nachhaltige Materialien und umweltfreundliche Produktion",
-      icon: "ri-award-line",
-      highlight: "Nachhaltig",
-      color: "from-[#baf742] to-[#a3e635]",
-      bgColor: "bg-[#baf742]/10",
-      borderColor: "border-[#baf742]/20",
-      textColor: "text-[#baf742]"
-    },
-    {
-      title: "Zukunftssicher",
-      description: "Investition in nachhaltige Technologie für kommende Generationen",
-      icon: "ri-seedling-line",
-      highlight: "Future-Ready",
-      color: "from-[#baf742] to-[#a3e635]",
-      bgColor: "bg-[#baf742]/10",
-      borderColor: "border-[#baf742]/20",
-      textColor: "text-[#baf742]"
-    }
-  ];
+  const [isVisible, setIsVisible] = useState(false);
 
-  const ecoStats = [
-    {
-      value: "1,200+",
-      label: "Bäume schützen",
-      sublabel: "unser Ziel für 2025",
-      icon: "ri-tree-line",
-      color: "text-[#baf742]"
-    },
-    {
-      value: "85%",
-      label: "Weniger Abfall",
-      sublabel: "durch Wiederverwendung angestrebt",
-      icon: "ri-leaf-line",
-      color: "text-[#baf742]"
-    },
-    {
-      value: "300kg",
-      label: "CO₂ einsparen",
-      sublabel: "pro Projekt als Ziel",
-      icon: "ri-earth-line",
-      color: "text-[#baf742]"
-    }
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    const section = document.getElementById('benefits');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
-      <SectionGradient className="absolute inset-0" reverse={true} />
-      <SectionNaturalBackground variant="trees" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Enhanced Header */}
-        <div className="text-center mb-12 sm:mb-16 content-spacing">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#baf742] to-[#a3e635] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
-            <i className="ri-leaf-line text-[#2b3138]"></i>
-            <span className="text-[#2b3138] font-medium">Nachhaltigkeit & Umwelt</span>
-          </div>
-          <h2 className="text-section-title font-light mb-4 sm:mb-6 text-gray-800">
-            Nachhaltige <span className="bg-gradient-to-r from-[#baf742] to-[#a3e635] bg-clip-text text-transparent font-semibold">Innovation</span> für die Zukunft
-          </h2>
-          <p className="text-large text-gray-600 font-light leading-relaxed max-w-3xl mx-auto px-4">
-            Tricast360 vereint Umweltschutz mit wirtschaftlicher Effizienz. Unser System macht 
-            <span className="text-[#baf742] font-semibold"> nachhaltigen Baumschutz zur intelligenten Investition</span> in die Zukunft.
-          </p>
+    <section id="benefits" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
+      {/* Geometric background shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-56 h-56 bg-[#90CFC4]/20 rounded-full"></div>
+          <div className="absolute bottom-10 right-20 w-40 h-40 bg-[#90CFC4]/25 rounded-full"></div>
         </div>
-
-        {/* Enhanced Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-16">
-          {benefits.map((benefit, index) => (
-            <div 
-              key={index} 
-              className={`${benefit.bgColor} rounded-2xl p-6 lg:p-8 border ${benefit.borderColor} shadow-sm`}
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center border ${benefit.borderColor}`}>
-                    <i className={`${benefit.icon} text-xl lg:text-2xl ${benefit.textColor}`}></i>
-                  </div>
-                  <div className={`text-lg lg:text-xl font-bold ${benefit.textColor}`}>
-                    {benefit.highlight}
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-lg lg:text-xl font-semibold text-gray-800">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* First Column - Content (Mobile: First, Desktop: Left) */}
+          <div className={`space-y-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="heading-2 text-gray-900">
+              Nachhaltige
+              <br />
+              <span className="text-accent-500 font-medium">Innovation</span>
+            </h2>
+            
+            <div className="space-y-4">
+              <p className="body-base text-gray-700">
+                Tricast360 vereint Umweltschutz mit wirtschaftlicher Effizienz. 
+                Unser System macht nachhaltigen Baumschutz zur intelligenten Investition in die Zukunft.
+              </p>
+              
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">80% CO₂-Reduktion vs. herkömmliche Systeme</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">100% wiederverwendbar durch Mehrfachnutzung</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Baumfreundliche und nachhaltige Materialien</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">CO₂-neutral produziert für maximale Nachhaltigkeit</span>
+                </li>
+              </ul>
             </div>
-          ))}
-        </div>
 
-        {/* Neue Umwelt-Impact Sektion */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-[#baf742]/20 shadow-xl mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl lg:text-3xl font-light text-gray-800 mb-4">
-              Unsere <span className="text-[#baf742] font-semibold">Vision 2025</span>
-            </h3>
-            <p className="text-gray-600">Gemeinsam erreichen wir diese Ziele für eine grünere Zukunft</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {ecoStats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#baf742]/10 to-[#a3e635]/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 relative">
-                  <i className={`${stat.icon} text-2xl ${stat.color}`}></i>
-                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full flex items-center justify-center">
-                    <i className="ri-target-line text-xs text-white"></i>
-                  </div>
-                </div>
-                <div className={`text-3xl font-bold ${stat.color} mb-2 group-hover:scale-105 transition-transform duration-300`}>
-                  {stat.value}
-                </div>
-                <div className="text-gray-800 font-medium mb-1">{stat.label}</div>
-                <div className="text-sm text-gray-600">{stat.sublabel}</div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Enhanced feature highlights */}
-        <div className="text-center">
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-base sm:text-lg">
-            <span className="flex items-center gap-2 justify-center hover:text-[#baf742] transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-[#baf742]/20">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#baf742]/10 rounded-full flex items-center justify-center">
-                <i className="ri-plant-line text-[#baf742] text-sm"></i>
-              </div>
-              Baumfreundliche Materialien
-            </span>
-            <span className="flex items-center gap-2 justify-center hover:text-[#baf742] transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-[#baf742]/20">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#baf742]/10 rounded-full flex items-center justify-center">
-                <i className="ri-recycle-line text-[#baf742] text-sm"></i>
-              </div>
-              Kreislaufwirtschaft
-            </span>
-            <span className="flex items-center gap-2 justify-center hover:text-[#baf742] transition-colors duration-300 cursor-default bg-white/60 px-4 py-2 rounded-full border border-[#baf742]/20">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#baf742]/10 rounded-full flex items-center justify-center">
-                <i className="ri-leaf-line text-[#baf742] text-sm"></i>
-              </div>
-              CO₂-neutral produziert
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+           </div>
+
+           {/* Second Column - Grafik (Mobile: Second, Desktop: Right) */}
+           <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+           }`}>
+             <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+               {/* Enhanced Sustainability Visualization */}
+               <svg viewBox="0 0 280 280" className="w-full h-full">
+                 {/* Background Elements */}
+                 <defs>
+                   <linearGradient id="sustainabilityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                     <stop offset="0%" stopColor="#baf742" />
+                     <stop offset="100%" stopColor="#84cc16" />
+                   </linearGradient>
+                   <filter id="sustainabilityShadow" x="-20%" y="-20%" width="140%" height="140%">
+                     <feDropShadow dx="2" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.1"/>
+                   </filter>
+                 </defs>
+                 
+                 {/* Central Sustainability Symbol */}
+                 <g transform="translate(140, 140)">
+                   {/* Outer Ring */}
+                   <circle r="60" fill="none" stroke="#f3f4f6" strokeWidth="2" opacity="0.3" />
+                   
+                   {/* Main Circle */}
+                   <circle r="45" fill="url(#sustainabilityGradient)" filter="url(#sustainabilityShadow)" opacity="0.9" />
+                   
+                   {/* Leaf Icon */}
+                   <g transform="translate(0, -5)">
+                     <path d="M -15 5 Q -15 -15 0 -20 Q 15 -15 15 5 Q 0 15 -15 5 Z" fill="white" opacity="0.9" />
+                     <path d="M -10 0 Q 0 -5 10 0" stroke="#84cc16" strokeWidth="2" fill="none" />
+                   </g>
+                   
+                   {/* Text */}
+                   <text y="25" textAnchor="middle" fill="white" fontSize="14" fontWeight="600">Nachhaltig</text>
+                 </g>
+                 
+                 {/* Benefit Icons around the circle */}
+                 <g>
+                   {/* CO2 Reduction - Top */}
+                   <g transform="translate(140, 60)">
+                     <circle r="20" fill="url(#sustainabilityGradient)" filter="url(#sustainabilityShadow)" />
+                     <circle r="15" fill="white" opacity="0.9" />
+                     <text textAnchor="middle" y="-2" fill="#84cc16" fontSize="10" fontWeight="600">CO₂</text>
+                     <text textAnchor="middle" y="8" fill="#84cc16" fontSize="8">-80%</text>
+                     <text y="-35" textAnchor="middle" fill="#374151" fontSize="10" fontWeight="500">Reduktion</text>
+                   </g>
+                   
+                   {/* Reusability - Right */}
+                   <g transform="translate(220, 140)">
+                     <circle r="20" fill="url(#sustainabilityGradient)" filter="url(#sustainabilityShadow)" />
+                     <circle r="15" fill="white" opacity="0.9" />
+                     {/* Recycling Symbol */}
+                     <g stroke="#84cc16" strokeWidth="2" fill="none">
+                       <path d="M -6 -3 Q -3 -6 0 -3 Q 3 0 0 3 Q -3 6 -6 3" strokeLinecap="round" />
+                       <path d="M 2 -2 L 5 -2 L 4 -5" strokeLinecap="round" />
+                     </g>
+                     <text y="35" textAnchor="middle" fill="#374151" fontSize="10" fontWeight="500">Wiederverwendbar</text>
+                   </g>
+                   
+                   {/* Materials - Bottom */}
+                   <g transform="translate(140, 220)">
+                     <circle r="20" fill="url(#sustainabilityGradient)" filter="url(#sustainabilityShadow)" />
+                     <circle r="15" fill="white" opacity="0.9" />
+                     {/* Material Icon */}
+                     <g stroke="#84cc16" strokeWidth="2" fill="none">
+                       <rect x="-6" y="-6" width="12" height="8" rx="1" />
+                       <path d="M -3 -2 L 3 -2 M -3 2 L 3 2" strokeLinecap="round" />
+                     </g>
+                     <text y="35" textAnchor="middle" fill="#374151" fontSize="10" fontWeight="500">Öko-Material</text>
+                   </g>
+                   
+                   {/* Efficiency - Left */}
+                   <g transform="translate(60, 140)">
+                     <circle r="20" fill="url(#sustainabilityGradient)" filter="url(#sustainabilityShadow)" />
+                     <circle r="15" fill="white" opacity="0.9" />
+                     {/* Efficiency Icon */}
+                     <g stroke="#84cc16" strokeWidth="2" fill="none">
+                       <path d="M -6 3 L -2 -3 L 2 0 L 6 -6" strokeLinecap="round" strokeLinejoin="round" />
+                       <circle cx="6" cy="-6" r="1" fill="#84cc16" />
+                     </g>
+                     <text y="-35" textAnchor="middle" fill="#374151" fontSize="10" fontWeight="500">Effizienz</text>
+                   </g>
+                 </g>
+                 
+                 {/* Connecting Lines */}
+                 <g stroke="#baf742" strokeWidth="2" fill="none" opacity="0.4" strokeDasharray="3,2">
+                   <line x1="140" y1="80" x2="140" y2="120" />
+                   <line x1="200" y1="140" x2="160" y2="140" />
+                   <line x1="140" y1="200" x2="140" y2="160" />
+                   <line x1="80" y1="140" x2="120" y2="140" />
+                 </g>
+               </svg>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+   );
 }

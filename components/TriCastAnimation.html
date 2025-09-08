@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriCast360 Installation Animation</title>
+</head>
+<body>
+    <figure id="triCastAnim" class="triCast-figure" aria-label="TriCast360 Installationsschritte">
+        <svg 
+            role="img" 
+            aria-labelledby="tri-title tri-desc"
+            viewBox="0 0 400 300" 
+            xmlns="http://www.w3.org/2000/svg"
+            style="width: 100%; height: auto; min-width: 280px; max-width: 560px;"
+        >
+            <defs>
+                <!-- Gradients -->
+                <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="var(--color-bark)" />
+                    <stop offset="50%" stop-color="var(--color-brown)" />
+                    <stop offset="100%" stop-color="var(--color-bark)" />
+                </linearGradient>
+                
+                <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--color-leaf)" />
+                    <stop offset="100%" stop-color="var(--color-green-dark)" />
+                </linearGradient>
+                
+                <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--color-green)" />
+                    <stop offset="50%" stop-color="var(--color-green-dark)" />
+                    <stop offset="100%" stop-color="var(--color-green)" />
+                </linearGradient>
+                
+                <!-- Filters -->
+                <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="rgba(0,0,0,0.3)" />
+                </filter>
+                
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/> 
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <title id="tri-title">TriCast360 Installation in drei Schritten</title>
+            <desc id="tri-desc">Animation zeigt die werkzeuglose Installation des Baumschutzmoduls in unter 5 Minuten</desc>
+            
+            <!-- Tree Trunk -->
+            <g id="treeTrunk">
+                <rect x="180" y="150" width="40" height="120" rx="20" 
+                      fill="url(#trunkGradient)" 
+                      stroke="var(--color-stroke)" 
+                      stroke-width="2" 
+                      filter="url(#dropShadow)" />
+                <!-- Bark texture lines -->
+                <path d="M185 160 Q195 165 185 170 Q195 175 185 180" 
+                      stroke="var(--color-bark)" 
+                      stroke-width="1" 
+                      fill="none" 
+                      opacity="0.6" />
+                <path d="M210 180 Q200 185 210 190 Q200 195 210 200" 
+                      stroke="var(--color-bark)" 
+                      stroke-width="1" 
+                      fill="none" 
+                      opacity="0.6" />
+            </g>
+            
+            <!-- Tree Crown -->
+            <g id="treeCrown">
+                <circle cx="200" cy="130" r="45" 
+                        fill="url(#crownGradient)" 
+                        stroke="var(--color-stroke)" 
+                        stroke-width="2" 
+                        filter="url(#dropShadow)" />
+            </g>
+            
+            <!-- Glow Effect (initially hidden) -->
+            <g id="glow" style="opacity: 0;">
+                <circle cx="200" cy="200" r="35" 
+                        fill="none" 
+                        stroke="var(--color-green)" 
+                        stroke-width="4" 
+                        filter="url(#glow)" 
+                        opacity="0.8" />
+            </g>
+            
+            <!-- Shield Ring (TriCast360 Module) -->
+            <g id="shieldRing" style="transform: translateX(80px);">
+                <!-- Main ring segments -->
+                <path d="M 165 180 A 25 25 0 0 1 165 220" 
+                      stroke="url(#shieldGradient)" 
+                      stroke-width="12" 
+                      fill="none" 
+                      stroke-linecap="round" 
+                      filter="url(#dropShadow)" />
+                <path d="M 235 180 A 25 25 0 0 0 235 220" 
+                      stroke="url(#shieldGradient)" 
+                      stroke-width="12" 
+                      fill="none" 
+                      stroke-linecap="round" 
+                      filter="url(#dropShadow)" />
+                
+                <!-- Padding texture -->
+                <path d="M 170 185 L 170 215" 
+                      stroke="var(--color-green-dark)" 
+                      stroke-width="1" 
+                      opacity="0.7" />
+                <path d="M 230 185 L 230 215" 
+                      stroke="var(--color-green-dark)" 
+                      stroke-width="1" 
+                      opacity="0.7" />
+            </g>
+            
+            <!-- Ring Clip -->
+            <g id="ringClip" style="transform: translateX(80px) rotate(0deg); transform-origin: 240px 200px;">
+                <rect x="235" y="195" width="12" height="10" rx="2" 
+                      fill="var(--color-stroke)" 
+                      stroke="var(--color-green)" 
+                      stroke-width="1" />
+                <circle cx="241" cy="200" r="2" fill="var(--color-green)" />
+            </g>
+            
+            <!-- Timer Badge -->
+            <g id="timerBadge" style="opacity: 0; transform: scale(0.85);">
+                <circle cx="320" cy="80" r="25" 
+                        fill="white" 
+                        stroke="var(--color-green)" 
+                        stroke-width="3" 
+                        filter="url(#dropShadow)" />
+                <text x="320" y="75" 
+                      text-anchor="middle" 
+                      font-family="Vela Sans, sans-serif" 
+                      font-size="10" 
+                      font-weight="bold" 
+                      fill="var(--color-stroke)">≤ 5</text>
+                <text x="320" y="87" 
+                      text-anchor="middle" 
+                      font-family="Vela Sans, sans-serif" 
+                      font-size="8" 
+                      fill="var(--color-stroke)">Min</text>
+            </g>
+            
+            <!-- Optional tick icons (hidden by default) -->
+            <g id="tickIcons" style="display: none;">
+                <g class="tick tick-1" style="opacity: 0;">
+                    <circle cx="150" cy="100" r="8" fill="var(--color-green)" />
+                    <path d="M 146 100 L 149 103 L 154 97" 
+                          stroke="white" 
+                          stroke-width="2" 
+                          stroke-linecap="round" 
+                          fill="none" />
+                </g>
+                <g class="tick tick-2" style="opacity: 0;">
+                    <circle cx="150" cy="130" r="8" fill="var(--color-green)" />
+                    <path d="M 146 130 L 149 133 L 154 127" 
+                          stroke="white" 
+                          stroke-width="2" 
+                          stroke-linecap="round" 
+                          fill="none" />
+                </g>
+                <g class="tick tick-3" style="opacity: 0;">
+                    <circle cx="150" cy="160" r="8" fill="var(--color-green)" />
+                    <path d="M 146 160 L 149 163 L 154 157" 
+                          stroke="white" 
+                          stroke-width="2" 
+                          stroke-linecap="round" 
+                          fill="none" />
+                </g>
+            </g>
+        </svg>
+        
+        <style>
+            .triCast-figure {
+                --color-bg: transparent;
+                --color-green: #B5FF3D;
+                --color-green-dark: #2F9E44;
+                --color-brown: #8B4C1A;
+                --color-bark: #6A3A12;
+                --color-leaf: #49CF84;
+                --color-stroke: #0C111D;
+                
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--color-bg);
+            }
+            
+            .triCast-figure svg {
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+            
+            .triCast-figure:hover svg {
+                transform: scale(1.02);
+            }
+            
+            /* Animation keyframes */
+            @keyframes badgePulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.85; }
+            }
+            
+            @keyframes ringBreathe {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.02); }
+            }
+            
+            @keyframes glowPulse {
+                0%, 100% { opacity: 0.8; }
+                50% { opacity: 0.4; }
+            }
+            
+            /* Animation states */
+            .triCast-figure.is-paused * {
+                animation-play-state: paused !important;
+            }
+            
+            .triCast-figure.breathing #shieldRing {
+                animation: ringBreathe 3s ease-in-out infinite;
+            }
+            
+            .triCast-figure.pulsing #timerBadge {
+                animation: badgePulse 2s ease-in-out infinite;
+            }
+            
+            .triCast-figure.glowing #glow {
+                animation: glowPulse 2.5s ease-in-out infinite;
+            }
+            
+            /* Responsive adjustments */
+            @media (max-width: 480px) {
+                .triCast-figure svg {
+                    min-width: 280px;
+                }
+                
+                #timerBadge {
+                    transform: scale(0.8);
+                }
+                
+                #timerBadge text {
+                    font-size: 9px;
+                }
+            }
+            
+            /* Reduced motion support */
+            @media (prefers-reduced-motion: reduce) {
+                .triCast-figure * {
+                    animation: none !important;
+                    transition: none !important;
+                }
+                
+                .triCast-figure:hover svg {
+                    transform: none;
+                }
+            }
+        </style>
+        
+        <script>
+            (function() {
+                'use strict';
+                
+                const container = document.getElementById('triCastAnim');
+                const shieldRing = document.getElementById('shieldRing');
+                const ringClip = document.getElementById('ringClip');
+                const timerBadge = document.getElementById('timerBadge');
+                const glow = document.getElementById('glow');
+                const tickIcons = document.getElementById('tickIcons');
+                
+                let animationId;
+                let startTime;
+                let isPaused = false;
+                let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                
+                // Animation timeline (7 seconds total)
+                const timeline = {
+                    ringMove: { start: 0.6, duration: 1.0 },
+                    ringClose: { start: 1.6, duration: 0.6 },
+                    ringBounce: { start: 2.2, duration: 0.6 },
+                    heightAdjust: { start: 2.8, duration: 0.8 },
+                    glowAppear: { start: 3.6, duration: 0.6 },
+                    badgeAppear: { start: 3.6, duration: 0.6 },
+                    breathing: { start: 4.2, duration: 1.8 },
+                    reset: { start: 7.0, duration: 1.0 }
+                };
+                
+                function easeOutBack(t) {
+                    const c1 = 1.70158;
+                    const c3 = c1 + 1;
+                    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+                }
+                
+                function easeInOutCubic(t) {
+                    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                }
+                
+                function lerp(start, end, t) {
+                    return start + (end - start) * t;
+                }
+                
+                function dispatchStepEvent(step) {
+                    const event = new CustomEvent('tricase-stepchange', {
+                        detail: { step: step }
+                    });
+                    container.dispatchEvent(event);
+                }
+                
+                function setReducedMotionState() {
+                    // Set final state without animation
+                    shieldRing.style.transform = 'translateX(0px)';
+                    ringClip.style.transform = 'translateX(0px) rotate(-15deg)';
+                    timerBadge.style.opacity = '1';
+                    timerBadge.style.transform = 'scale(1)';
+                    glow.style.opacity = '1';
+                    
+                    container.classList.add('pulsing');
+                    
+                    // Dispatch all step events immediately
+                    setTimeout(() => dispatchStepEvent(1), 100);
+                    setTimeout(() => dispatchStepEvent(2), 200);
+                    setTimeout(() => dispatchStepEvent(3), 300);
+                }
+                
+                function animate(currentTime) {
+                    if (!startTime) startTime = currentTime;
+                    if (isPaused) return;
+                    
+                    const elapsed = (currentTime - startTime) / 1000; // Convert to seconds
+                    const cycleTime = elapsed % 8; // 8 second cycle (7s animation + 1s pause)
+                    
+                    if (cycleTime >= 7) {
+                        // Pause phase
+                        animationId = requestAnimationFrame(animate);
+                        return;
+                    }
+                    
+                    // Step 1: Ring moves to tree (0.6s - 1.6s)
+                    if (cycleTime >= timeline.ringMove.start && cycleTime < timeline.ringMove.start + timeline.ringMove.duration) {
+                        const t = (cycleTime - timeline.ringMove.start) / timeline.ringMove.duration;
+                        const easedT = easeOutBack(t);
+                        const x = lerp(80, -5, easedT); // Overshoot then settle
+                        shieldRing.style.transform = `translateX(${x}px)`;
+                        ringClip.style.transform = `translateX(${x}px) rotate(0deg)`;
+                        
+                        if (t === 0 || (cycleTime >= 0.6 && cycleTime < 0.7)) {
+                            dispatchStepEvent(1);
+                        }
+                    }
+                    
+                    // Step 2: Ring closes and clip snaps (1.6s - 2.2s)
+                    if (cycleTime >= timeline.ringClose.start && cycleTime < timeline.ringClose.start + timeline.ringClose.duration) {
+                        const t = (cycleTime - timeline.ringClose.start) / timeline.ringClose.duration;
+                        const rotation = lerp(0, -15, easeInOutCubic(t));
+                        ringClip.style.transform = `translateX(0px) rotate(${rotation}deg)`;
+                        
+                        if (t === 0 || (cycleTime >= 1.6 && cycleTime < 1.8)) {
+                            dispatchStepEvent(2);
+                        }
+                    }
+                    
+                    // Ring bounce (2.2s - 2.8s)
+                    if (cycleTime >= timeline.ringBounce.start && cycleTime < timeline.ringBounce.start + timeline.ringBounce.duration) {
+                        const t = (cycleTime - timeline.ringBounce.start) / timeline.ringBounce.duration;
+                        const bounceScale = 1 + 0.04 * Math.sin(t * Math.PI * 2);
+                        shieldRing.style.transform = `translateX(0px) scale(${bounceScale})`;
+                    }
+                    
+                    // Step 3: Height adjustment (2.8s - 3.6s)
+                    if (cycleTime >= timeline.heightAdjust.start && cycleTime < timeline.heightAdjust.start + timeline.heightAdjust.duration) {
+                        const t = (cycleTime - timeline.heightAdjust.start) / timeline.heightAdjust.duration;
+                        const y = 12 * Math.sin(t * Math.PI); // Up and down motion
+                        shieldRing.style.transform = `translateX(0px) translateY(${-y}px)`;
+                        ringClip.style.transform = `translateX(0px) translateY(${-y}px) rotate(-15deg)`;
+                    }
+                    
+                    // Glow and badge appear (3.6s - 4.2s)
+                    if (cycleTime >= timeline.glowAppear.start && cycleTime < timeline.glowAppear.start + timeline.glowAppear.duration) {
+                        const t = (cycleTime - timeline.glowAppear.start) / timeline.glowAppear.duration;
+                        glow.style.opacity = easeInOutCubic(t);
+                        
+                        if (t === 0 || (cycleTime >= 3.6 && cycleTime < 3.8)) {
+                            dispatchStepEvent(3);
+                        }
+                    }
+                    
+                    if (cycleTime >= timeline.badgeAppear.start && cycleTime < timeline.badgeAppear.start + timeline.badgeAppear.duration) {
+                        const t = (cycleTime - timeline.badgeAppear.start) / timeline.badgeAppear.duration;
+                        const scale = lerp(0.85, 1, easeOutBack(t));
+                        timerBadge.style.opacity = easeInOutCubic(t);
+                        timerBadge.style.transform = `scale(${scale})`;
+                    }
+                    
+                    // Breathing phase (4.2s - 6.0s)
+                    if (cycleTime >= timeline.breathing.start && cycleTime < timeline.breathing.start + timeline.breathing.duration) {
+                        container.classList.add('breathing', 'pulsing', 'glowing');
+                    } else {
+                        container.classList.remove('breathing', 'pulsing', 'glowing');
+                    }
+                    
+                    // Reset phase (7.0s - 8.0s)
+                    if (cycleTime >= timeline.reset.start) {
+                        const t = (cycleTime - timeline.reset.start) / timeline.reset.duration;
+                        if (t >= 1) {
+                            // Reset to initial state
+                            shieldRing.style.transform = 'translateX(80px)';
+                            ringClip.style.transform = 'translateX(80px) rotate(0deg)';
+                            timerBadge.style.opacity = '0';
+                            timerBadge.style.transform = 'scale(0.85)';
+                            glow.style.opacity = '0';
+                            container.classList.remove('breathing', 'pulsing', 'glowing');
+                        }
+                    }
+                    
+                    animationId = requestAnimationFrame(animate);
+                }
+                
+                function startAnimation() {
+                    if (isReducedMotion) {
+                        setReducedMotionState();
+                        return;
+                    }
+                    
+                    startTime = null;
+                    animationId = requestAnimationFrame(animate);
+                }
+                
+                function pauseAnimation() {
+                    isPaused = true;
+                    container.classList.add('is-paused');
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                }
+                
+                function resumeAnimation() {
+                    isPaused = false;
+                    container.classList.remove('is-paused');
+                    animationId = requestAnimationFrame(animate);
+                }
+                
+                // Event listeners
+                container.addEventListener('mouseenter', pauseAnimation);
+                container.addEventListener('mouseleave', resumeAnimation);
+                container.addEventListener('focusin', pauseAnimation);
+                container.addEventListener('focusout', resumeAnimation);
+                
+                // Listen for reduced motion changes
+                window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+                    isReducedMotion = e.matches;
+                    if (isReducedMotion) {
+                        pauseAnimation();
+                        setReducedMotionState();
+                    } else {
+                        startAnimation();
+                    }
+                });
+                
+                // Start animation
+                startAnimation();
+                
+                // Expose pause/resume methods for external control
+                window.triCastAnimation = {
+                    pause: pauseAnimation,
+                    resume: resumeAnimation,
+                    restart: startAnimation
+                };
+            })();
+        </script>
+    </figure>
+</body>
+</html>

@@ -20,10 +20,10 @@ export default function CTAFooter() {
           {/* Starker CTA-Block */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0a0c14] leading-tight">
+              <h2 className="heading-2 text-[#0a0c14]">
                 Bereit für nachhaltigen Baumschutz?
               </h2>
-              <p className="text-xl lg:text-2xl text-[#0a0c14]/90 font-light leading-relaxed max-w-3xl mx-auto">
+              <p className="body-large text-[#0a0c14]/90 max-w-3xl mx-auto">
                 Starten Sie Ihr nächstes Projekt mit Tricast360 und erleben Sie die Zukunft des umweltfreundlichen Baumschutzes.
               </p>
             </div>

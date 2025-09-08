@@ -185,16 +185,7 @@ export default function OpportunitySection() {
             <p className="text-gray-600 mb-6">
               Entdecken Sie, wie Tricast360 Ihr nächstes Projekt revolutionieren kann
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#baf742] text-[#2b3138] px-8 py-3 rounded-xl font-semibold hover:bg-[#a3e635] transition-colors duration-300 flex items-center gap-2 justify-center">
-                <i className="ri-phone-line"></i>
-                Beratung anfragen
-              </button>
-              <button className="border border-[#baf742] text-[#baf742] px-8 py-3 rounded-xl font-semibold hover:bg-[#baf742]/10 transition-colors duration-300 flex items-center gap-2 justify-center">
-                <i className="ri-download-line"></i>
-                Produktinfo herunterladen
-              </button>
-            </div>
+
           </div>
         </div>
       </div>

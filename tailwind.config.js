@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'vela': ['Vela Sans', 'Inter', 'Manrope', 'system-ui', '-apple-system', 'sans-serif'],
-        'vela-extrabold': ['Vela Sans ExtraBold', 'Vela Sans', 'Inter', 'Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+        'sans': ['Vela Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        'vela': ['Vela Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         'inter': ['Inter', 'system-ui', 'sans-serif'],
         'manrope': ['Manrope', 'system-ui', 'sans-serif'],
       },

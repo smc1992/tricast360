@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Datenschutz() {
   return (
-    <div className="min-h-screen bg-white text-[#2b3138] font-['Inter']">
+    <div className="min-h-screen bg-white text-[#2b3138]">
       <Header />
       <main className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
@@ -17,7 +17,7 @@ export default function Datenschutz() {
             </Link>
             
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-light text-[#2b3138]">
+              <h1 className="heading-1">
                 Datenschutzerklärung
               </h1>
               <div className="w-20 h-1 bg-gradient-to-r from-[#baf742] to-[#a3e635] rounded-full"></div>
@@ -300,11 +300,11 @@ export default function Datenschutz() {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200">
+                  <Link href="/kontakt" className="btn-small inline-flex items-center gap-2">
                       <i className="ri-mail-line"></i>
                       Kontakt aufnehmen
                     </Link>
-                  <a href="mailto:info@tricast360.de" className="inline-flex items-center gap-2 border border-[#baf742] text-[#baf742] px-6 py-3 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200">
+                  <a href="mailto:info@tricast360.de" className="btn-outline-small inline-flex items-center gap-2">
                     <i className="ri-mail-line"></i>
                     Direkte E-Mail
                   </a>

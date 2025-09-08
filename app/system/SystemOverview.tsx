@@ -34,7 +34,7 @@ export default function SystemOverview() {
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div className="space-y-6">
-            <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
+            <h2 className="heading-2">
               Innovation trifft
               <span className="block text-[#baf742]">Nachhaltigkeit</span>
             </h2>

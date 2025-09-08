@@ -97,7 +97,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
                 ${
                   isActive 
                     ? 'bg-accent-500 text-white shadow-lg shadow-accent-500/30'
-                : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-accent-100 hover:text-accent-600 shadow-md'
+                : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-[#baf742]/10 hover:text-[#baf742] shadow-md'
                 }
               `}
               aria-label={`Zu ${section.label} scrollen`}
@@ -242,7 +242,7 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
                   ${
                     isActive 
                       ? 'bg-accent-500 text-white'
-                : 'text-gray-600 hover:bg-accent-100 hover:text-accent-600'
+                : 'text-gray-600 hover:bg-[#baf742]/10 hover:text-[#baf742]'
                   }
                 `}
                 aria-label={`Zu ${section.label} scrollen`}

@@ -21,144 +21,134 @@ export default function Vision2025Section() {
     return () => observer.disconnect();
   }, []);
 
-  const visionGoals = [
-    {
-      category: "Klimaschutz",
-      metric: "1.000t",
-      label: "CO₂ einsparen",
-      description: "Durch nachhaltigen Materialkreislauf und lokale Produktion",
-      icon: "ri-earth-line",
-      color: "tricast"
-    },
-    {
-      category: "Ressourcen",
-      metric: "75%",
-      label: "Weniger Material",
-      description: "Durch intelligente Wiederverwendung und Kreislaufwirtschaft",
-      icon: "ri-recycle-line",
-      color: "tricast"
-    },
-    {
-      category: "Biodiversität",
-      metric: "5.000",
-      label: "Bäume schützen",
-      description: "Urbane Ökosysteme erhalten und Artenvielfalt fördern",
-      icon: "ri-plant-line",
-      color: "tricast"
-    }
-  ];
-
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      tricast: {
-        bg: 'bg-[#baf742]/10',
-        border: 'border-[#baf742]/20',
-        icon: 'text-[#baf742]',
-        metric: 'text-[#baf742]',
-        badge: 'bg-[#baf742]/10 text-[#baf742]',
-        hover: 'hover:border-[#baf742]/40'
-      },
-      emerald: {
-        bg: 'bg-emerald-50',
-        border: 'border-emerald-200',
-        icon: 'text-emerald-600',
-        metric: 'text-emerald-600',
-        badge: 'bg-emerald-100 text-emerald-800',
-        hover: 'hover:border-emerald-300'
-      },
-      teal: {
-        bg: 'bg-teal-50',
-        border: 'border-teal-200',
-        icon: 'text-teal-600',
-        metric: 'text-teal-600',
-        badge: 'bg-teal-100 text-teal-800',
-        hover: 'hover:border-teal-300'
-      },
-      green: {
-        bg: 'bg-green-50',
-        border: 'border-green-200',
-        icon: 'text-green-600',
-        metric: 'text-green-600',
-        badge: 'bg-green-100 text-green-800',
-        hover: 'hover:border-green-300'
-      }
-    };
-    return colorMap[color as keyof typeof colorMap];
-  };
-
   return (
-    <section id="vision-2025" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
-            <i className="ri-target-line mr-2"></i>
-            Vision 2025
+    <section id="vision-2025" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
+      {/* Geometric background shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-8 right-8 w-72 h-72 bg-[#90CFC4]/15 rounded-full"></div>
+          <div className="absolute bottom-12 left-8 w-44 h-44 bg-[#90CFC4]/18 rounded-full"></div>
+        </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* First Column - Grafik (Mobile: Second, Desktop: Left) */}
+          <div className={`flex justify-center lg:justify-start transition-all duration-1000 order-2 lg:order-1 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+              {/* Enhanced Vision 2025 Visualization */}
+               <svg viewBox="0 0 280 280" className="w-full h-full">
+                 {/* Background Elements */}
+                 <defs>
+                   <linearGradient id="visionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                     <stop offset="0%" stopColor="#baf742" />
+                     <stop offset="100%" stopColor="#84cc16" />
+                   </linearGradient>
+                   <filter id="visionShadow" x="-20%" y="-20%" width="140%" height="140%">
+                     <feDropShadow dx="2" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.1"/>
+                   </filter>
+                 </defs>
+                 
+                 {/* Central Vision Symbol */}
+                 <g transform="translate(140, 140)">
+                   {/* Outer Ring */}
+                   <circle r="70" fill="none" stroke="#f3f4f6" strokeWidth="2" opacity="0.3" />
+                   
+                   {/* Main Circle */}
+                   <circle r="50" fill="url(#visionGradient)" filter="url(#visionShadow)" opacity="0.9" />
+                   
+                   {/* Target/Vision Icon */}
+                   <g transform="translate(0, -8)">
+                     <circle r="20" fill="white" opacity="0.9" />
+                     <circle r="15" fill="none" stroke="#84cc16" strokeWidth="2" />
+                     <circle r="8" fill="#84cc16" opacity="0.8" />
+                     <circle r="3" fill="white" />
+                   </g>
+                   
+                   {/* Vision Text */}
+                    <text y="25" textAnchor="middle" fill="white" fontSize="14" fontWeight="700">Vision</text>
+                 </g>
+                 
+                 {/* Vision Goals around the circle */}
+                 <g>
+                   {/* CO2 Savings - Top */}
+                   <g transform="translate(140, 50)">
+                     <circle r="18" fill="url(#visionGradient)" filter="url(#visionShadow)" />
+                     <circle r="13" fill="white" opacity="0.9" />
+                     <text textAnchor="middle" y="-1" fill="#84cc16" fontSize="8" fontWeight="600">1000t</text>
+                     <text textAnchor="middle" y="7" fill="#84cc16" fontSize="6">CO₂</text>
+                     <text y="-30" textAnchor="middle" fill="#374151" fontSize="9" fontWeight="500">CO₂ Einsparung</text>
+                   </g>
+                   
+                   {/* Material Reduction - Right */}
+                   <g transform="translate(230, 140)">
+                     <circle r="18" fill="url(#visionGradient)" filter="url(#visionShadow)" />
+                     <circle r="13" fill="white" opacity="0.9" />
+                     <text textAnchor="middle" y="2" fill="#84cc16" fontSize="10" fontWeight="600">75%</text>
+                     <text y="32" textAnchor="middle" fill="#374151" fontSize="9" fontWeight="500">Material-Reduktion</text>
+                   </g>
+                   
+                   {/* Trees Protected - Bottom */}
+                   <g transform="translate(140, 230)">
+                     <circle r="18" fill="url(#visionGradient)" filter="url(#visionShadow)" />
+                     <circle r="13" fill="white" opacity="0.9" />
+                     <text textAnchor="middle" y="2" fill="#84cc16" fontSize="8" fontWeight="600">5000</text>
+                     <text y="32" textAnchor="middle" fill="#374151" fontSize="9" fontWeight="500">Geschützte Bäume</text>
+                   </g>
+                   
+                   {/* Biodiversity - Left */}
+                   <g transform="translate(50, 140)">
+                     <circle r="18" fill="url(#visionGradient)" filter="url(#visionShadow)" />
+                     <circle r="13" fill="white" opacity="0.9" />
+                     {/* Leaf Icon */}
+                     <path d="M -4 2 Q -4 -4 0 -6 Q 4 -4 4 2 Q 0 6 -4 2 Z" fill="#84cc16" />
+                     <text y="-30" textAnchor="middle" fill="#374151" fontSize="9" fontWeight="500">Artenvielfalt</text>
+                   </g>
+                 </g>
+                 
+
+                 
+
+               </svg>
+            </div>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
-            Unsere Ziele für eine
-            <br />
-            <span className="text-[#baf742] font-medium">grünere Zukunft</span>
-          </h2>
-          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
-            Messbare Ziele für Klimaschutz, Ressourcenschonung und Biodiversität
-          </p>
-        </div>
 
-        {/* 3-Karten-Sektion */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
-          {visionGoals.map((goal, index) => {
-            const colors = getColorClasses(goal.color);
-            return (
-              <div 
-                key={index}
-                className={`bg-white rounded-2xl p-8 border ${colors.border} ${colors.hover} shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                {/* Icon & Ziel 2025 Badge */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`w-16 h-16 ${colors.bg} rounded-2xl flex items-center justify-center border ${colors.border}`}>
-                    <i className={`${goal.icon} text-3xl ${colors.icon}`}></i>
-                  </div>
-                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
-                    <i className="ri-target-line text-xs"></i>
-                    Ziel 2025
-                  </span>
-                </div>
+          {/* Second Column - Content (Mobile: First, Desktop: Right) */}
+          <div className={`space-y-6 transition-all duration-1000 delay-300 order-1 lg:order-2 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="heading-2 text-gray-900">
+              Unsere
+              <br />
+              <span className="text-accent-500 font-medium">Zukunftsvision</span>
+            </h2>
+            
+            <div className="space-y-4">
+              <p className="body-base text-gray-700">
+                Unsere langfristigen Ziele für Klimaschutz, Ressourcenschonung und Biodiversität. 
+                Gemeinsam schaffen wir eine grünere und nachhaltigere Zukunft für kommende Generationen.
+              </p>
+              
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">1.000t CO₂ einsparen durch nachhaltigen Materialkreislauf</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">75% weniger Material durch intelligente Wiederverwendung langfristig</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">5.000 Bäume schützen und urbane Ökosysteme nachhaltig erhalten</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Artenvielfalt fördern und Biodiversität dauerhaft stärken</span>
+                </li>
+              </ul>
+            </div>
 
-                {/* Kategorie */}
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-[#2b3138] mb-2">
-                    {goal.category}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {goal.description}
-                  </p>
-                </div>
 
-                {/* Leitmetrik */}
-                <div className="text-center pt-6 border-t border-gray-100">
-                  <div className={`text-4xl font-bold ${colors.metric} mb-2`}>
-                    {goal.metric}
-                  </div>
-                  <div className="text-[#2b3138] font-medium">
-                    {goal.label}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Hinweis */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm">
-            <i className="ri-information-line text-gray-500"></i>
-            <span className="text-gray-600 text-sm">
-              Zielwerte – werden jährlich aktualisiert
-            </span>
           </div>
         </div>
       </div>

@@ -48,7 +48,7 @@ export default function NotFound() {
         {/* Error Message */}
         <div className="space-y-6">
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#2b3138] leading-tight">
+            <h1 className="heading-1">
               Seite nicht gefunden
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed max-w-xl mx-auto">
@@ -61,7 +61,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Link 
               href="/" 
-              className="bg-[#baf742] text-[#2b3138] px-8 py-4 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="btn-small flex items-center justify-center gap-2 group"
             >
               <i className="ri-home-line text-lg group-hover:scale-110 transition-transform duration-200"></i>
               Zur Startseite
@@ -69,7 +69,7 @@ export default function NotFound() {
             
             <Link 
               href="/system" 
-              className="border border-[#baf742] text-[#baf742] px-8 py-4 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="btn-outline-small flex items-center justify-center gap-2 group"
             >
               <i className="ri-shield-check-line text-lg group-hover:scale-110 transition-transform duration-200"></i>
               Unser System

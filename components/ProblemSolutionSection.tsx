@@ -24,137 +24,66 @@ export default function ProblemSolutionSection() {
     return () => observer.disconnect();
   }, []);
 
-  const comparisons = [
-    {
-      problem: {
-        text: 'Zeitaufwendig',
-        icon: 'ri-time-line',
-        detail: 'Aufwendige Montage mit Werkzeug',
-        badge: 'Stunden'
-      },
-      solution: {
-        text: 'Werkzeuglose Installation',
-        icon: 'ri-tools-line',
-        detail: 'Einfache Installation ohne Werkzeug',
-        badge: '< 5 Min'
-      }
-    },
-    {
-      problem: {
-        text: 'Nicht nachhaltig',
-        icon: 'ri-delete-bin-line',
-        detail: 'Teure Entsorgung',
-        badge: '1x Nutzung'
-      },
-      solution: {
-        text: 'Wiederverwendbar',
-        icon: 'ri-recycle-line',
-        detail: 'Mehrfach wiederverwendbar',
-        badge: 'Wiederverwendbar'
-      }
-    },
-    {
-      problem: {
-        text: 'Schwer & sperrig',
-        icon: 'ri-truck-line',
-        detail: 'Sperriger Transport, hohe Logistikkosten',
-        badge: 'Schwer'
-      },
-      solution: {
-        text: 'Leicht & kompakt',
-        icon: 'ri-flight-takeoff-line',
-        detail: 'Einfacher Transport und Lagerung',
-        badge: '80% leichter'
-      }
-    },
-    {
-      problem: {
-        text: 'Hohe Kosten',
-        icon: 'ri-money-euro-circle-line',
-        detail: 'Beschaffung, Transport und Entsorgung',
-        badge: 'Teuer'
-      },
-      solution: {
-        text: 'Kosteneffizient',
-        icon: 'ri-line-chart-line',
-        detail: 'Langfristige Kostenersparnis',
-        badge: '60% günstiger'
-      }
-    }
-  ];
-
   return (
-    <section id="problem-solution" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
-      <SectionGradient className="absolute inset-0" />
-      <SectionNaturalBackground variant="leaves" />
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
-            <i className="ri-lightbulb-line mr-2"></i>
-            Das Problem vs. Die Lösung
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
-            Von der <span className="text-red-500 font-medium">Herausforderung</span>
-            <br />
-            zur <span className="text-[#baf742] font-medium">Innovation</span>
-          </h2>
-        </div>
-
-        {/* Comparison Grid */}
-        <div className="space-y-8">
-          {comparisons.map((comparison, index) => (
-            <div 
-              key={index}
-              className={`grid lg:grid-cols-2 gap-6 lg:gap-8 relative transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              {/* Problem */}
-              <div className="bg-red-50 rounded-xl p-6 border border-red-200">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center border border-red-300 flex-shrink-0">
-                    <i className={`${comparison.problem.icon} text-2xl text-red-600`}></i>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-[#2b3138]">{comparison.problem.text}</h3>
-                      <span className="bg-red-200 text-[#2b3138] px-3 py-1 rounded-full text-sm font-medium">
-                        {comparison.problem.badge}
-                      </span>
-                    </div>
-                    <p className="text-[#2b3138] text-sm">{comparison.problem.detail}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* VS Divider */}
-              <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="w-12 h-12 bg-white rounded-full border-4 border-gray-200 flex items-center justify-center shadow-lg">
-                  <span className="text-gray-600 font-bold text-sm">VS</span>
-                </div>
-              </div>
-
-              {/* Solution */}
-              <div className="bg-[#baf742]/10 rounded-xl p-6 border border-[#baf742]/20">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#baf742]/20 rounded-xl flex items-center justify-center border border-[#baf742]/30 flex-shrink-0">
-                    <i className={`${comparison.solution.icon} text-2xl text-[#baf742]`}></i>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-[#2b3138]">{comparison.solution.text}</h3>
-                      <span className="bg-[#baf742]/20 text-[#2b3138] px-3 py-1 rounded-full text-sm font-medium">
-                        {comparison.solution.badge}
-                      </span>
-                    </div>
-                    <p className="text-[#2b3138] text-sm">{comparison.solution.detail}</p>
-                  </div>
-                </div>
-              </div>
+    <section id="problem-solution" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
+       {/* Geometric background shapes */}
+         <div className="absolute inset-0 overflow-hidden">
+           <div className="absolute top-10 right-20 w-48 h-48 bg-[#90CFC4]/10 rounded-full"></div>
+           <div className="absolute bottom-20 left-10 w-64 h-64 bg-[#90CFC4]/15 rounded-full"></div>
+         </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* First Column - Content (Mobile: First, Desktop: Left) */}
+          <div className={`space-y-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="heading-2 text-gray-900">
+              Das Problem &
+              <br />
+              <span className="text-accent-500 font-medium">Die Lösung</span>
+            </h2>
+            
+            <div className="space-y-4">
+              <p className="body-base text-gray-700">
+                Bäume in urbanen Gebieten sind täglich Gefahren ausgesetzt. Tricast360 bietet 
+                innovativen Schutz, der Natur und Stadtentwicklung in Einklang bringt.
+              </p>
+              
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Schutz vor Baustellenschäden und Vandalismus</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Erhaltung des urbanen Grüns für kommende Generationen</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Nachhaltige Materialien für umweltbewusste Lösungen</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Schnelle Installation ohne Wurzelschäden</span>
+                </li>
+              </ul>
             </div>
-          ))}
+
+ 
+          </div>
+
+          {/* Second Column - Image (Mobile: Second, Desktop: Right) */}
+          <div className={`flex justify-center lg:justify-start transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-96 lg:h-96">
+                <img 
+                  src="/images/1x/1x/stump-of-a-tree-on-the-green-grass-in-the-city-2024-12-07-02-11-18-utc%20(1).webp"
+                  alt="Baumstumpf auf grünem Gras - Problem ohne nachhaltigen Baumschutz"
+                  className="w-full h-full object-cover rounded-3xl border border-gray-200 shadow-lg"
+                />
+            </div>
+          </div>
         </div>
       </div>
     </section>

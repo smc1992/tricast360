@@ -102,7 +102,7 @@ export default function TechnicalSpecs() {
   return (
     <div className="space-y-16">
       <div className="text-center space-y-6">
-        <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
+        <h2 className="heading-2">
           Technische Daten &
           <span className="block text-[#baf742]">Qualitätsstandards</span>
         </h2>
@@ -276,11 +276,11 @@ export default function TechnicalSpecs() {
             Spezifikationen, Prüfberichten und Montageanweisungen herunter.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#baf742] text-[#2b3138] px-8 py-4 rounded-2xl font-medium hover:bg-[#a3e635] transition-all duration-200 whitespace-nowrap cursor-pointer">
+            <button className="btn-small">
               <i className="ri-file-pdf-line mr-2"></i>
               Datenblatt (PDF)
             </button>
-            <button className="border border-[#baf742] text-[#baf742] px-8 py-4 rounded-2xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 whitespace-nowrap cursor-pointer">
+            <button className="btn-outline-small">
               <i className="ri-file-zip-line mr-2"></i>
               CAD-Dateien (ZIP)
             </button>

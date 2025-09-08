@@ -55,7 +55,7 @@ export default function ComponentDetails() {
   return (
     <div className="space-y-12">
       <div className="text-center space-y-6">
-        <h2 className="text-3xl lg:text-4xl font-light text-gray-800">
+        <h2 className="heading-2">
           Präzise entwickelte
           <span className="block text-[#baf742]">Systemkomponenten</span>
         </h2>

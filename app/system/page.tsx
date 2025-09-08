@@ -16,13 +16,13 @@ export default function SystemPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-['Inter']">
+    <div className="min-h-screen bg-white text-gray-800">
       <Header />
       
       <main className="pt-24">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="text-center mb-16">
-            <h1 className="text-5xl lg:text-6xl font-light mb-6 text-gray-800">
+            <h1 className="heading-1 mb-6">
               Das Tricast360
               <span className="block text-[#baf742]">System im Detail</span>
             </h1>

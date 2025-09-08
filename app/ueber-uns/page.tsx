@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function UeberUns() {
   return (
-    <div className="min-h-screen bg-white text-[#2b3138] font-inter">
+    <div className="min-h-screen bg-white text-[#2b3138]">
       <Header />
       
       <main className="pt-32 pb-16">
@@ -22,7 +22,7 @@ export default function UeberUns() {
                   Gegründet 2024
                 </div>
                 
-                <h1 className="text-4xl lg:text-6xl font-light text-[#2b3138] leading-tight">
+                <h1 className="heading-1">
                   Innovation trifft
                   <span className="block text-[#baf742] font-medium">Leidenschaft</span>
                 </h1>
@@ -45,7 +45,7 @@ export default function UeberUns() {
                       <i className="ri-crown-line mr-2"></i>
                       Geschäftsführer
                     </div>
-                    <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138]">
+                    <h2 className="heading-2">
                       Galip Alkan
                     </h2>
                   </div>
@@ -108,7 +108,7 @@ export default function UeberUns() {
                 <i className="ri-team-line mr-2"></i>
                 Unser Team
               </div>
-              <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138] mb-4">
+              <h2 className="heading-2 mb-4">
                 Die Köpfe hinter Tricast360
               </h2>
               <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
@@ -202,7 +202,7 @@ export default function UeberUns() {
                       Werden Sie Teil unserer Vision!
                     </p>
                   </div>
-                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-4 py-2 rounded-xl text-sm font-medium hover:bg-[#a3e635] transition-all duration-200 whitespace-nowrap cursor-pointer">
+                  <Link href="/kontakt" className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-4 py-2 rounded-xl text-sm font-medium hover:bg-[#0E1C3D] hover:text-white transition-all duration-200 whitespace-nowrap cursor-pointer">
                     <i className="ri-team-line"></i>
                     Karriere-Anfrage
                   </Link>
@@ -218,7 +218,7 @@ export default function UeberUns() {
                 <i className="ri-heart-line mr-2"></i>
                 Unsere Werte
               </div>
-              <h2 className="text-3xl lg:text-4xl font-light text-[#2b3138] mb-4">
+              <h2 className="heading-2 mb-4">
                 Was uns antreibt
               </h2>
               <p className="text-xl text-gray-600 font-light">
@@ -343,11 +343,11 @@ export default function UeberUns() {
                   Lassen Sie uns zusammen nachhaltige Lösungen entwickeln.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/kontakt" className="bg-[#baf742] text-[#2b3138] px-8 py-4 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 justify-center">
+                  <Link href="/kontakt" className="btn-small flex items-center gap-2 justify-center">
                     <i className="ri-team-line"></i>
                     Kontakt aufnehmen
                   </Link>
-                  <Link href="/system" className="border border-[#baf742] text-[#baf742] px-8 py-4 rounded-xl font-medium hover:bg-[#baf742]/10 transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 justify-center">
+                  <Link href="/system" className="btn-outline-small flex items-center gap-2 justify-center">
                     <i className="ri-eye-line"></i>
                     Unser System
                   </Link>

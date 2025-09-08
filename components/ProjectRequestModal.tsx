@@ -310,7 +310,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 isLoading={isSubmitting}
                 loadingText="Wird gesendet..."
                 disabled={submitStatus === 'success'}
-                className="flex-1 bg-[#baf742] text-[#2b3138] hover:bg-[#a3e635]"
+                className="flex-1 bg-[#baf742] text-[#2b3138] hover:bg-[#0E1C3D] hover:text-white"
                 size="lg"
               >
                 {submitStatus === 'success' ? (

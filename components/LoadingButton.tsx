@@ -30,7 +30,7 @@ export default function LoadingButton({
   const variantClasses = {
     primary: 'bg-gradient-to-r from-[#baf742] to-[#a3e635] text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
     secondary: 'bg-gray-100 text-gray-800 hover:bg-gray-200 hover:-translate-y-0.5',
-    outline: 'border-2 border-[#baf742] text-[#baf742] hover:bg-[#baf742]/10 hover:-translate-y-0.5'
+    outline: 'border-2 border-[#baf742] text-[#baf742] hover:bg-[#0E1C3D] hover:text-white hover:border-[#0E1C3D] hover:-translate-y-0.5'
   };
   
   const sizeClasses = {

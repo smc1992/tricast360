@@ -22,167 +22,84 @@ export default function EnvironmentalImpactSection() {
     return () => observer.disconnect();
   }, []);
 
-  const factTiles = [
-    {
-      title: "Klimaschonend",
-      description: "85% weniger CO₂-Emissionen durch nachhaltigen Materialkreislauf und lokale Produktion.",
-      icon: "ri-earth-line",
-      color: "tricast",
-      badge: "CO₂-neutral"
-    },
-    {
-      title: "Ressourcenschonend",
-      description: "75% Materialreduktion durch intelligente Wiederverwendung über 10+ Zyklen.",
-      icon: "ri-recycle-line",
-      color: "tricast",
-      badge: "Wiederverwendbar"
-    },
-    {
-      title: "Qualitätsgeprüft",
-      description: "Höchste Qualitätsstandards und umweltfreundliche Materialien für nachhaltigen Baumschutz.",
-      icon: "ri-award-line",
-      color: "tricast",
-      badge: "Geprüft"
-    },
-    {
-      title: "Zukunftssicher",
-      description: "Langlebige Materialien und zukunftsfähige Technologie für nachhaltige Stadtentwicklung.",
-      icon: "ri-shield-check-line",
-      color: "tricast",
-      badge: "Langlebig"
-    }
-  ];
-
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      tricast: {
-        bg: 'bg-[#baf742]/10',
-        border: 'border-[#baf742]/20',
-        icon: 'text-[#baf742]',
-        badge: 'bg-[#baf742]/10 text-[#baf742]',
-        hover: 'hover:border-[#baf742]/40'
-      },
-      emerald: {
-        bg: 'bg-emerald-50',
-        border: 'border-emerald-200',
-        icon: 'text-emerald-600',
-        badge: 'bg-emerald-100 text-emerald-800',
-        hover: 'hover:border-emerald-300'
-      },
-      teal: {
-        bg: 'bg-teal-50',
-        border: 'border-teal-200',
-        icon: 'text-teal-600',
-        badge: 'bg-teal-100 text-teal-800',
-        hover: 'hover:border-teal-300'
-      },
-      green: {
-        bg: 'bg-green-50',
-        border: 'border-green-200',
-        icon: 'text-green-600',
-        badge: 'bg-green-100 text-green-800',
-        hover: 'hover:border-green-300'
-      },
-      blue: {
-        bg: 'bg-accent-100',
-    border: 'border-accent-200',
-    icon: 'text-accent-600',
-        badge: 'bg-blue-100 text-blue-800',
-        hover: 'hover:border-blue-300'
-      }
-    };
-    return colorMap[color as keyof typeof colorMap];
-  };
-
   return (
-    <section id="environmental-impact" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
-            <i className="ri-leaf-line mr-2"></i>
-            Umweltvorteile
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
-            Nachhaltig für die Zukunft
-          </h2>
-          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
-            Tricast360 setzt neue Maßstäbe in der umweltfreundlichen Baumschutz-Technologie
-          </p>
-        </div>
-
-        {/* Fact-Tiles Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
-          {factTiles.map((tile, index) => {
-            const colors = getColorClasses(tile.color);
-            return (
-              <div 
-                key={index}
-                className={`${colors.bg} ${colors.border} ${colors.hover} rounded-2xl p-6 border transition-all duration-300 hover:shadow-lg hover:transform hover:-translate-y-1 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                {/* Icon & Badge */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center border ${colors.border}`}>
-                    <i className={`${tile.icon} text-2xl ${colors.icon}`}></i>
-                  </div>
-                  <span className={`${colors.badge} px-3 py-1 rounded-full text-xs font-semibold`}>
-                    {tile.badge}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-[#2b3138]">
-                    {tile.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {tile.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Zertifikatsbeleg/Link-Platzhalter */}
-        <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
-            <div className="flex-shrink-0">
-              <div className="w-20 h-20 bg-[#baf742]/10 rounded-2xl flex items-center justify-center">
-                <i className="ri-award-line text-4xl text-[#baf742]"></i>
-              </div>
-            </div>
+    <section id="environmental-impact" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
+       {/* Geometric background shapes */}
+         <div className="absolute inset-0 overflow-hidden">
+           <div className="absolute top-12 left-12 w-60 h-60 bg-[#90CFC4]/25 rounded-full"></div>
+          <div className="absolute bottom-16 right-12 w-48 h-48 bg-[#90CFC4]/20 rounded-full"></div>
+         </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Content */}
+          <div className={`space-y-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="heading-2 text-gray-900">
+              Für eine
+              <br />
+              <span className="text-accent-500 font-medium">grünere Zukunft</span>
+            </h2>
             
-            <div className="flex-1 text-center lg:text-left">
-              <h3 className="text-xl font-semibold text-[#2b3138] mb-2">
-               Qualitätsstandards
-             </h3>
-             <p className="text-gray-600 leading-relaxed mb-4">
-               Tricast360 erfüllt höchste Qualitäts- und Umweltstandards für nachhaltigen Baumschutz und umweltfreundliche Materialien.
-             </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-semibold hover:bg-[#a3e635] transition-colors duration-300"
-                >
-                  <i className="ri-download-line"></i>
-                   Qualitätsbericht herunterladen
-                 </a>
-                 <a 
-                   href="#" 
-                   className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:border-[#baf742] hover:text-[#baf742] transition-colors duration-300"
-                 >
-                   <i className="ri-external-link-line"></i>
-                   Mehr erfahren
-                </a>
-              </div>
+            <div className="space-y-4">
+              <p className="body-base text-gray-700">
+                Tricast360 setzt neue Maßstäbe in der nachhaltigen Stadtentwicklung. 
+                Unser innovatives System schützt nicht nur Bäume, sondern auch unsere Umwelt.
+              </p>
+              
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">85% weniger CO₂-Emissionen durch nachhaltigen Materialkreislauf</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">75% Materialreduktion durch intelligente Wiederverwendung</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">100% umweltfreundliche und nachhaltige Materialien</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700">Zukunftssichere Technologie für nachhaltige Stadtentwicklung</span>
+                </li>
+              </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+
+
+           </div>
+
+           {/* Right Column - Minimalist Environmental Icon */}
+           <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+           }`}>
+             <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+               {/* Ultra-Minimalist Corporate Icon */}
+               <svg viewBox="0 0 200 200" className="w-full h-full">
+                 {/* Simple Grid Structure */}
+                 <g stroke="#e5e7eb" strokeWidth="1" opacity="0.3">
+                   <line x1="0" y1="100" x2="200" y2="100" />
+                   <line x1="100" y1="0" x2="100" y2="200" />
+                 </g>
+                 
+                 {/* Central Triangle */}
+                 <polygon points="100,60 130,120 70,120" fill="#22c55e" opacity="0.1" />
+                 <polygon points="100,60 130,120 70,120" fill="none" stroke="#16a34a" strokeWidth="2" />
+                 <text x="100" y="105" textAnchor="middle" fill="#16a34a" fontSize="12" fontWeight="500">Umwelt</text>
+                 
+                 {/* Corner Lines */}
+                 <g stroke="#16a34a" strokeWidth="1" opacity="0.4">
+                   <line x1="50" y1="50" x2="70" y2="70" />
+                   <line x1="150" y1="50" x2="130" y2="70" />
+                   <line x1="50" y1="150" x2="70" y2="130" />
+                   <line x1="150" y1="150" x2="130" y2="130" />
+                 </g>
+               </svg>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+   );
 }

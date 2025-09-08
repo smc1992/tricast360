@@ -91,7 +91,7 @@ export default function KontaktPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#2b3138] font-inter">
+    <div className="min-h-screen bg-white text-[#2b3138]">
       <Header />
       
       <main className="pt-20">
@@ -100,10 +100,10 @@ export default function KontaktPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-8">
               <div className="space-y-6">
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-light text-[#2b3138] leading-tight">
+                <h1 className="heading-1">
                   Fragen? Wir beraten Sie gerne.
                 </h1>
-                <p className="text-xl lg:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+                <p className="body-large text-gray-600 max-w-3xl mx-auto">
                   Lassen Sie uns gemeinsam die perfekte Baumschutz-Lösung für Ihr Projekt finden.
                 </p>
               </div>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Impressum() {
   return (
-    <div className="min-h-screen bg-white text-[#2b3138] font-['Inter']">
+    <div className="min-h-screen bg-white text-[#2b3138]">
       <Header />
       <main className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
@@ -17,7 +17,7 @@ export default function Impressum() {
             </Link>
             
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-light text-[#2b3138]">
+              <h1 className="heading-1">
                 Impressum
               </h1>
               <div className="w-20 h-1 bg-gradient-to-r from-[#baf742] to-[#a3e635] rounded-full"></div>
@@ -184,7 +184,7 @@ export default function Impressum() {
                     <p className="text-gray-600 text-sm">Wir helfen Ihnen gerne weiter</p>
                   </div>
                 </div>
-                <Link href="/#kontakt" className="inline-flex items-center gap-2 bg-[#baf742] text-[#2b3138] px-6 py-3 rounded-xl font-medium hover:bg-[#a3e635] transition-all duration-200">
+                <Link href="/#kontakt" className="btn-small inline-flex items-center gap-2">
           <i className="ri-message-line"></i>
           Kontakt aufnehmen
         </Link>

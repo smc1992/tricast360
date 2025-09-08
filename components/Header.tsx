@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-inter ${ 
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${ 
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md border-b border-[#baf742]/30 shadow-sm' 
           : 'bg-white/90 backdrop-blur-sm border-b border-transparent'
@@ -37,7 +37,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center group">
               <img 
-                src="/images/1x/Logo Header Tricast360.webp" 
+                src="/images/1x/1x/Tricast360 Logo quer transparent.webp" 
                 alt="Tricast360 Logo" 
                 className="h-16 sm:h-14 w-auto group-hover:scale-110 transition-all duration-300"
               />
@@ -87,13 +87,13 @@ export default function Header() {
             <div className="lg:hidden flex items-center gap-3">
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-accent-500 to-accent-600 text-white p-2.5 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
+                className="bg-[#baf742] text-[#0E1C3D] p-2.5 rounded-xl font-semibold hover:bg-[#0E1C3D] hover:text-white hover:shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden group"
               >
                 <i className="ri-file-text-line text-lg"></i>
               </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-gray-600 hover:text-accent-500 transition-colors duration-200 relative z-50"
+                className="p-2 text-gray-600 hover:text-[#baf742] transition-colors duration-200 relative z-50"
                 aria-label="Menu öffnen"
               >
                 <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -121,7 +121,7 @@ export default function Header() {
               <nav className="space-y-6">
                 <Link 
                   href="/#problem" 
-                  className="block text-lg text-gray-800 hover:text-accent-500 transition-colors duration-200 py-2 border-b border-gray-200"
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-alert-line mr-3 text-accent-500"></i>
@@ -129,7 +129,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/#funktionsweise" 
-                  className="block text-lg text-gray-800 hover:text-accent-500 transition-colors duration-200 py-2 border-b border-gray-200"
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-settings-3-line mr-3 text-accent-500"></i>
@@ -137,7 +137,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/#vorteile" 
-                  className="block text-lg text-gray-800 hover:text-accent-500 transition-colors duration-200 py-2 border-b border-gray-200"
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-leaf-line mr-3 text-accent-500"></i>
@@ -145,7 +145,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/system" 
-                  className="block text-lg text-gray-800 hover:text-accent-500 transition-colors duration-200 py-2 border-b border-gray-200"
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-eco-line mr-3 text-accent-500"></i>
@@ -153,7 +153,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/ueber-uns" 
-                  className="block text-lg text-gray-800 hover:text-accent-500 transition-colors duration-200 py-2 border-b border-gray-200"
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-team-line mr-3 text-accent-500"></i>
@@ -161,7 +161,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/kontakt" 
-                  className="block text-lg text-gray-800 hover:text-accent-500 transition-colors duration-200 py-2 border-b border-gray-200"
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <i className="ri-mail-line mr-3 text-accent-500"></i>
@@ -189,14 +189,14 @@ export default function Header() {
               <div className="mt-6 space-y-3">
                 <a 
                   href="tel:+491701002912" 
-                  className="flex items-center gap-3 text-gray-700 hover:text-accent-500 transition-colors duration-200"
+                  className="flex items-center gap-3 text-gray-700 hover:text-[#baf742] transition-colors duration-200"
                 >
                   <i className="ri-phone-line text-lg"></i>
                   <span>+49 170 1002912</span>
                 </a>
                 <a 
                   href="mailto:info@tricast360.de" 
-                  className="flex items-center gap-3 text-gray-700 hover:text-accent-500 transition-colors duration-200"
+                  className="flex items-center gap-3 text-gray-700 hover:text-[#baf742] transition-colors duration-200"
                 >
                   <i className="ri-mail-line text-lg"></i>
                   <span>info@tricast360.de</span>

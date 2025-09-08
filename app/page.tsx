@@ -23,7 +23,7 @@ export default function Home() {
     <SwipeNavigation 
       onSwipeLeft={nextSection}
       onSwipeRight={prevSection}
-      className="min-h-screen bg-white text-[#2b3138] font-inter"
+      className="min-h-screen bg-white text-[#2b3138]"
     >
       <Header />
       <main>
