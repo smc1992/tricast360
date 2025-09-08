@@ -72,7 +72,7 @@ export default function HeroSection() {
               <div className="space-y-4 sm:space-y-6">
                 <h1 className="heading-1">
                   <span className="block">Baumschutz in &lt;5 Min</span>
-                  <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-600 font-medium mt-2">
+                  <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-900 font-medium mt-2">
                     60% günstiger über Lebenszyklus
                   </span>
                 </h1>
