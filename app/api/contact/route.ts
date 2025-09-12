@@ -140,8 +140,7 @@ function createEmailTemplate(data: any, type: 'contact' | 'project' | 'configura
         <div class="field-label">💬 Nachricht</div>
         <div class="field-value">${data.message.replace(/\n/g, '<br>')}</div>
       </div>
-    `;
-  } else {
+    `;  } else if (type === 'project') {
     fieldsHtml = `
       <div class="field">
         <div class="field-label">🏢 Unternehmen</div>
@@ -182,7 +181,7 @@ function createEmailTemplate(data: any, type: 'contact' | 'project' | 'configura
       </div>
       ` : ''}
     `;
-  } else if (type === 'configuration') {
+  } else {
     fieldsHtml = `
       <div class="field">
         <div class="field-label">👤 Name</div>
@@ -217,8 +216,8 @@ function createEmailTemplate(data: any, type: 'contact' | 'project' | 'configura
             <div style="font-size: 16px; font-weight: 600;">${data.configuration.height} cm</div>
           </div>
           <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
-            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">MODULE</div>
-            <div style="font-size: 16px; font-weight: 600;">${data.configuration.modules} Stück</div>
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">STÜCKZAHL</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.quantity}x Systeme</div>
           </div>
           <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
             <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">MATERIAL</div>
@@ -226,8 +225,9 @@ function createEmailTemplate(data: any, type: 'contact' | 'project' | 'configura
           </div>
         </div>
         <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.3); border-radius: 8px; text-align: center;">
-          <div style="font-size: 14px; opacity: 0.9; margin-bottom: 5px;">GESCHÄTZTER PREIS</div>
-          <div style="font-size: 24px; font-weight: 700;">€ ${data.estimatedPrice.toLocaleString()}</div>
+          <div style="font-size: 14px; opacity: 0.9; margin-bottom: 5px;">GESAMTPREIS</div>
+          <div style="font-size: 24px; font-weight: 700;">€ ${data.configuration.totalPrice.toLocaleString()}</div>
+          <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">${data.configuration.quantity}x Systeme à ${data.configuration.pricePerSystem.toLocaleString()} €</div>
         </div>
       </div>
       
