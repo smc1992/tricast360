@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 // E-Mail-Template-Funktion
-function createEmailTemplate(data: any, type: 'contact' | 'project') {
+function createEmailTemplate(data: any, type: 'contact' | 'project' | 'configuration') {
   const baseTemplate = `
     <!DOCTYPE html>
     <html lang="de">
@@ -100,8 +100,8 @@ function createEmailTemplate(data: any, type: 'contact' | 'project') {
       <div class="container">
         <div class="header">
           <h1>🌳 Tricast360</h1>
-          <p>${type === 'contact' ? 'Neue Kontaktanfrage' : 'Neue Projektanfrage'}</p>
-          <div class="badge">${type === 'contact' ? 'KONTAKT' : 'PROJEKT'}</div>
+          <p>${type === 'contact' ? 'Neue Kontaktanfrage' : type === 'project' ? 'Neue Projektanfrage' : 'Neue Produktkonfiguration'}</p>
+          <div class="badge">${type === 'contact' ? 'KONTAKT' : type === 'project' ? 'PROJEKT' : 'KONFIGURATOR'}</div>
         </div>
         <div class="content">
   `;
@@ -175,6 +175,62 @@ function createEmailTemplate(data: any, type: 'contact' | 'project') {
         <div class="field-label">📅 Gewünschter Starttermin</div>
         <div class="field-value">${data.startDate}</div>
       </div>
+      ${data.message ? `
+      <div class="field">
+        <div class="field-label">💬 Zusätzliche Informationen</div>
+        <div class="field-value">${data.message.replace(/\n/g, '<br>')}</div>
+      </div>
+      ` : ''}
+    `;
+  } else if (type === 'configuration') {
+    fieldsHtml = `
+      <div class="field">
+        <div class="field-label">👤 Name</div>
+        <div class="field-value">${data.name}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">📧 E-Mail</div>
+        <div class="field-value"><a href="mailto:${data.email}">${data.email}</a></div>
+      </div>
+      ${data.company ? `
+      <div class="field">
+        <div class="field-label">🏢 Unternehmen</div>
+        <div class="field-value">${data.company}</div>
+      </div>
+      ` : ''}
+      ${data.phone ? `
+      <div class="field">
+        <div class="field-label">📞 Telefon</div>
+        <div class="field-value"><a href="tel:${data.phone}">${data.phone}</a></div>
+      </div>
+      ` : ''}
+      
+      <div style="margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #baf742 0%, #a3e635 100%); border-radius: 12px; color: white;">
+        <h3 style="margin: 0 0 15px 0; font-size: 18px;">🔧 Produktkonfiguration</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+          <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">DURCHMESSER</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.diameter} cm</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">HÖHE</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.height} cm</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">MODULE</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.modules} Stück</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">MATERIAL</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.material === 'premium' ? 'Premium' : 'Standard'}</div>
+          </div>
+        </div>
+        <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.3); border-radius: 8px; text-align: center;">
+          <div style="font-size: 14px; opacity: 0.9; margin-bottom: 5px;">GESCHÄTZTER PREIS</div>
+          <div style="font-size: 24px; font-weight: 700;">€ ${data.estimatedPrice.toLocaleString()}</div>
+        </div>
+      </div>
+      
       ${data.message ? `
       <div class="field">
         <div class="field-label">💬 Zusätzliche Informationen</div>
@@ -269,6 +325,51 @@ function validateProjectForm(data: any): { isValid: boolean; errors: string[] } 
   return { isValid: errors.length === 0, errors };
 }
 
+function validateConfigurationForm(data: any): { isValid: boolean; errors: string[] } {
+  const errors: string[] = [];
+
+  // Pflichtfelder prüfen
+  if (!data.name || data.name.trim().length < 2) {
+    errors.push('Name ist erforderlich und muss mindestens 2 Zeichen lang sein.');
+  }
+
+  if (!data.email || !validateEmail(data.email)) {
+    errors.push('Eine gültige E-Mail-Adresse ist erforderlich.');
+  }
+
+  // Konfigurationsdaten prüfen
+  if (!data.configuration) {
+    errors.push('Konfigurationsdaten sind erforderlich.');
+  } else {
+    const config = data.configuration;
+    
+    if (!config.diameter || config.diameter < 50 || config.diameter > 300) {
+      errors.push('Durchmesser muss zwischen 50 und 300 cm liegen.');
+    }
+    
+    if (!config.height || config.height < 100 || config.height > 250) {
+      errors.push('Höhe muss zwischen 100 und 250 cm liegen.');
+    }
+    
+    if (!config.modules || config.modules < 3 || config.modules > 8) {
+      errors.push('Anzahl Module muss zwischen 3 und 8 liegen.');
+    }
+    
+    if (!config.material || !['standard', 'premium'].includes(config.material)) {
+      errors.push('Ungültiges Material ausgewählt.');
+    }
+  }
+
+  if (!data.estimatedPrice || data.estimatedPrice <= 0) {
+    errors.push('Geschätzter Preis ist erforderlich.');
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors
+  };
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -278,6 +379,8 @@ export async function POST(request: NextRequest) {
     let validation;
     if (type === 'project') {
       validation = validateProjectForm(formData);
+    } else if (type === 'configuration') {
+      validation = validateConfigurationForm(formData);
     } else {
       validation = validateContactForm(formData);
     }
@@ -306,6 +409,8 @@ export async function POST(request: NextRequest) {
       to: 'info@tricast360.de',
       subject: type === 'project' 
         ? `🏗️ Neue Projektanfrage von ${formData.company}` 
+        : type === 'configuration'
+        ? `🔧 Neue Produktkonfiguration von ${formData.name}`
         : `📧 Neue Kontaktanfrage von ${formData.name}`,
       html: createEmailTemplate(formData, type),
       replyTo: formData.email,
@@ -319,6 +424,8 @@ export async function POST(request: NextRequest) {
         success: true, 
         message: type === 'project' 
           ? 'Projektanfrage erfolgreich gesendet!' 
+          : type === 'configuration'
+          ? 'Produktkonfiguration erfolgreich gesendet!'
           : 'Nachricht erfolgreich gesendet!' 
       },
       { status: 200 }

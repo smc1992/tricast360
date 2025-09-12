@@ -64,6 +64,10 @@ export default function Header() {
                 Kontakt
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#baf742] group-hover:w-full transition-all duration-300"></span>
               </Link>
+              <Link href="/konfigurator" className="relative text-gray-600 hover:text-[#baf742] transition-colors duration-200 cursor-pointer group text-sm xl:text-base font-semibold">
+                Konfigurator
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#baf742] group-hover:w-full transition-all duration-300"></span>
+              </Link>
             </nav>
 
             {/* Desktop Navigation */}
@@ -166,6 +170,14 @@ export default function Header() {
                 >
                   <i className="ri-mail-line mr-3 text-accent-500"></i>
                   Kontakt
+                </Link>
+                <Link 
+                  href="/konfigurator" 
+                  className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200 font-semibold"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <i className="ri-settings-4-line mr-3 text-accent-500"></i>
+                  Konfigurator
                 </Link>
               </nav>
 
