@@ -23,196 +23,155 @@ export default function HowItWorksSection() {
   }, []);
 
   useEffect(() => {
-    // TriCast360 Animation Script
-    const script = document.createElement('script');
-    script.innerHTML = `
-      (function() {
-        'use strict';
-        
-        const container = document.getElementById('triCastAnim');
-        if (!container) return;
-        
-        const shieldRing = document.getElementById('shieldRing');
-        const ringClip = document.getElementById('ringClip');
-        const timerBadge = document.getElementById('timerBadge');
-        const glow = document.getElementById('glow');
-        
-        let animationId;
-        let startTime;
-        let isPaused = false;
-        let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        
-        function easeOutBack(t) {
-          const c1 = 1.70158;
-          const c3 = c1 + 1;
-          return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-        }
-        
-        function easeInOutCubic(t) {
-          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        }
-        
-        function lerp(start, end, t) {
-          return start + (end - start) * t;
-        }
-        
-        function dispatchStepEvent(step) {
-          const event = new CustomEvent('tricase-stepchange', {
-            detail: { step: step }
-          });
-          container.dispatchEvent(event);
-        }
-        
-        function setReducedMotionState() {
-          if (!shieldRing || !ringClip || !timerBadge || !glow) return;
-          shieldRing.style.transform = 'translateX(0px)';
-          ringClip.style.transform = 'translateX(0px) rotate(-15deg)';
-          timerBadge.style.opacity = '1';
-          timerBadge.style.transform = 'scale(1)';
-          glow.style.opacity = '1';
-          container.classList.add('pulsing');
-          
-          setTimeout(() => dispatchStepEvent(1), 100);
-          setTimeout(() => dispatchStepEvent(2), 200);
-          setTimeout(() => dispatchStepEvent(3), 300);
-        }
-        
-        function animate(currentTime) {
-          if (!startTime) startTime = currentTime;
-          if (isPaused || !shieldRing || !ringClip || !timerBadge || !glow) return;
-          
-          const elapsed = (currentTime - startTime) / 1000;
-          const cycleTime = elapsed % 8;
-          
-          if (cycleTime >= 7) {
-            animationId = requestAnimationFrame(animate);
-            return;
-          }
-          
-          // Step 1: Ring moves (0.6s - 1.6s)
-          if (cycleTime >= 0.6 && cycleTime < 1.6) {
-            const t = (cycleTime - 0.6) / 1.0;
-            const easedT = easeOutBack(t);
-            const x = lerp(80, -5, easedT);
-            shieldRing.style.transform = \`translateX(\${x}px)\`;
-            ringClip.style.transform = \`translateX(\${x}px) rotate(0deg)\`;
-            
-            if (cycleTime >= 0.6 && cycleTime < 0.7) {
-              dispatchStepEvent(1);
-            }
-          }
-          
-          // Step 2: Ring closes (1.6s - 2.2s)
-          if (cycleTime >= 1.6 && cycleTime < 2.2) {
-            const t = (cycleTime - 1.6) / 0.6;
-            const rotation = lerp(0, -15, easeInOutCubic(t));
-            ringClip.style.transform = \`translateX(0px) rotate(\${rotation}deg)\`;
-            
-            if (cycleTime >= 1.6 && cycleTime < 1.8) {
-              dispatchStepEvent(2);
-            }
-          }
-          
-          // Ring bounce (2.2s - 2.8s)
-          if (cycleTime >= 2.2 && cycleTime < 2.8) {
-            const t = (cycleTime - 2.2) / 0.6;
-            const bounceScale = 1 + 0.04 * Math.sin(t * Math.PI * 2);
-            shieldRing.style.transform = \`translateX(0px) scale(\${bounceScale})\`;
-          }
-          
-          // Step 3: Height adjustment (2.8s - 3.6s)
-          if (cycleTime >= 2.8 && cycleTime < 3.6) {
-            const t = (cycleTime - 2.8) / 0.8;
-            const y = 12 * Math.sin(t * Math.PI);
-            shieldRing.style.transform = \`translateX(0px) translateY(\${-y}px)\`;
-            ringClip.style.transform = \`translateX(0px) translateY(\${-y}px) rotate(-15deg)\`;
-          }
-          
-          // Glow and badge appear (3.6s - 4.2s)
-          if (cycleTime >= 3.6 && cycleTime < 4.2) {
-            const t = (cycleTime - 3.6) / 0.6;
-            glow.style.opacity = easeInOutCubic(t);
-            
-            const scale = lerp(0.85, 1, easeOutBack(t));
-            timerBadge.style.opacity = easeInOutCubic(t);
-            timerBadge.style.transform = \`scale(\${scale})\`;
-            
-            if (cycleTime >= 3.6 && cycleTime < 3.8) {
-              dispatchStepEvent(3);
-            }
-          }
-          
-          // Breathing phase (4.2s - 6.0s)
-          if (cycleTime >= 4.2 && cycleTime < 6.0) {
-            container.classList.add('breathing', 'pulsing', 'glowing');
-          } else {
-            container.classList.remove('breathing', 'pulsing', 'glowing');
-          }
-          
-          // Reset phase (7.0s - 8.0s)
-          if (cycleTime >= 7.0) {
-            const t = (cycleTime - 7.0) / 1.0;
-            if (t >= 1) {
-              shieldRing.style.transform = 'translateX(80px)';
-              ringClip.style.transform = 'translateX(80px) rotate(0deg)';
-              timerBadge.style.opacity = '0';
-              timerBadge.style.transform = 'scale(0.85)';
-              glow.style.opacity = '0';
-              container.classList.remove('breathing', 'pulsing', 'glowing');
-            }
-          }
-          
-          animationId = requestAnimationFrame(animate);
-        }
-        
-        function startAnimation() {
-          if (isReducedMotion) {
-            setReducedMotionState();
-            return;
-          }
-          
-          startTime = null;
-          animationId = requestAnimationFrame(animate);
-        }
-        
-        function pauseAnimation() {
-          isPaused = true;
-          container.classList.add('is-paused');
-          if (animationId) {
-            cancelAnimationFrame(animationId);
-          }
-        }
-        
-        function resumeAnimation() {
-          isPaused = false;
-          container.classList.remove('is-paused');
-          animationId = requestAnimationFrame(animate);
-        }
-        
-        container.addEventListener('mouseenter', pauseAnimation);
-        container.addEventListener('mouseleave', resumeAnimation);
-        container.addEventListener('focusin', pauseAnimation);
-        container.addEventListener('focusout', resumeAnimation);
-        
-        window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
-          isReducedMotion = e.matches;
-          if (isReducedMotion) {
-            pauseAnimation();
-            setReducedMotionState();
-          } else {
-            startAnimation();
-          }
+    let tl: any | null = null;
+    let container: HTMLElement | null = null;
+
+    const setup = async () => {
+      container = document.getElementById('triCastAnim');
+      if (!container) return;
+
+      const shieldRing = document.getElementById('shieldRing') as HTMLElement | null;
+      const ringClip = document.getElementById('ringClip') as HTMLElement | null;
+      const timerBadge = document.getElementById('timerBadge') as HTMLElement | null;
+      const glow = document.getElementById('glow') as HTMLElement | null;
+      if (!shieldRing || !ringClip || !timerBadge || !glow) return;
+
+      // Fixed anime.js import with proper timeline support
+      const getAnime = async () => {
+        const mod: any = await import('animejs/lib/anime.es.js');
+        return mod?.default ?? mod?.anime ?? mod;
+      };
+      const anime = await getAnime();
+      
+      // Check if anime has timeline method
+      if (!anime || typeof anime.timeline !== 'function') {
+        console.warn('anime.timeline not available, falling back to static state');
+        return;
+      }
+
+      const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      const setReducedState = () => {
+        shieldRing.style.transform = 'translateX(0px)';
+        ringClip.style.transform = 'translateX(0px) rotate(-15deg)';
+        timerBadge.style.opacity = '1';
+        timerBadge.style.transform = 'scale(1)';
+        ;(glow as HTMLElement).style.opacity = '1';
+        container!.classList.add('pulsing');
+      };
+
+      if (media.matches) {
+        setReducedState();
+        return;
+      }
+
+      tl = anime.timeline({
+        autoplay: false,
+        loop: true,
+        easing: 'linear',
+        delay: 600,
+        endDelay: 1000,
+      });
+
+      tl
+        .add({
+          targets: '#shieldRing',
+          translateX: [80, 0],
+          duration: 1000,
+          easing: 'easeOutBack',
+          begin: () => {
+            container!.dispatchEvent(new CustomEvent('tricase-stepchange', { detail: { step: 1 } }));
+          },
+        })
+        .add({
+          targets: '#ringClip',
+          translateX: [80, 0],
+          rotate: [0, -15],
+          duration: 600,
+          easing: 'easeInOutCubic',
+          begin: () => {
+            container!.dispatchEvent(new CustomEvent('tricase-stepchange', { detail: { step: 2 } }));
+          },
+        }, '-=200')
+        .add({
+          targets: '#shieldRing',
+          scale: [
+            { value: 1.04, duration: 150, easing: 'easeInOutSine' },
+            { value: 1.0, duration: 150, easing: 'easeInOutSine' },
+          ],
+        })
+        .add({
+          targets: ['#shieldRing', '#ringClip'],
+          translateY: [
+            { value: -12, duration: 400, easing: 'easeInOutSine' },
+            { value: 0, duration: 400, easing: 'easeInOutSine' },
+          ],
+        })
+        .add({
+          targets: '#glow',
+          opacity: [0, 0.8],
+          duration: 600,
+          easing: 'easeInOutCubic',
+          begin: () => {
+            container!.dispatchEvent(new CustomEvent('tricase-stepchange', { detail: { step: 3 } }));
+          },
+        }, '-=200')
+        .add({
+          targets: '#timerBadge',
+          opacity: [0, 1],
+          scale: [0.85, 1],
+          duration: 600,
+          easing: 'easeOutBack',
+        }, '-=600')
+        .add({
+          duration: 1800,
+          begin: () => container!.classList.add('breathing', 'pulsing', 'glowing'),
+          complete: () => container!.classList.remove('breathing', 'pulsing', 'glowing'),
         });
-        
-        // Start animation after a short delay to ensure DOM is ready
-        setTimeout(startAnimation, 100);
-      })();
-    `;
-    
-    document.head.appendChild(script);
-    
+
+      const onEnter = () => {
+        tl && tl.pause();
+        container!.classList.add('is-paused');
+      };
+      const onLeave = () => {
+        tl && tl.play();
+        container!.classList.remove('is-paused');
+      };
+
+      container.addEventListener('mouseenter', onEnter);
+      container.addEventListener('mouseleave', onLeave);
+      container.addEventListener('focusin', onEnter);
+      container.addEventListener('focusout', onLeave);
+
+      const onMedia = (e: MediaQueryListEvent) => {
+        if (!tl) return;
+        if (e.matches) {
+          tl.pause();
+          setReducedState();
+        } else {
+          tl.restart();
+        }
+      };
+      media.addEventListener('change', onMedia);
+
+      tl.play();
+
+      return () => {
+        media.removeEventListener('change', onMedia);
+        container!.removeEventListener('mouseenter', onEnter);
+        container!.removeEventListener('mouseleave', onLeave);
+        container!.removeEventListener('focusin', onEnter);
+        container!.removeEventListener('focusout', onLeave);
+        if (tl) tl.pause();
+        tl = null;
+      };
+    };
+
+    // Start async setup
+    setup();
+
     return () => {
-      document.head.removeChild(script);
+      // Cleanup executed inside setup when timeline created
     };
   }, []);
 
@@ -224,83 +183,21 @@ export default function HowItWorksSection() {
            <div className="absolute bottom-24 left-16 w-52 h-52 bg-[#90CFC4]/12 rounded-full"></div>
         </div>
       <style jsx>{`
-        .triCast-figure {
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        .triCast-figure svg {
-          cursor: pointer;
-          transition: transform 0.2s ease;
-        }
-        
-        .triCast-figure:hover svg {
-          transform: scale(1.02);
-        }
-        
-        @keyframes badgePulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.85; }
-        }
-        
-        @keyframes ringBreathe {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.02); }
-        }
-        
-        @keyframes glowPulse {
-          0%, 100% { opacity: 0.8; }
-          50% { opacity: 0.4; }
-        }
-        
-        .triCast-figure.is-paused * {
-          animation-play-state: paused !important;
-        }
-        
-        .triCast-figure.breathing #shieldRing {
-          animation: ringBreathe 3s ease-in-out infinite;
-        }
-        
-        .triCast-figure.pulsing #timerBadge {
-          animation: badgePulse 2s ease-in-out infinite;
-        }
-        
-        .triCast-figure.glowing #glow {
-          animation: glowPulse 2.5s ease-in-out infinite;
-        }
-        
-        @media (max-width: 480px) {
-          .triCast-figure svg {
-            min-width: 280px;
-          }
-          
-          #timerBadge {
-            transform: scale(0.8);
-          }
-        }
-        
         @media (prefers-reduced-motion: reduce) {
-          .triCast-figure * {
+          * {
             animation: none !important;
             transition: none !important;
-          }
-          
-          .triCast-figure:hover svg {
-            transform: none;
           }
         }
       `}</style>
       
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* First Column - Grafik (Mobile: Second, Desktop: Left) */}
           <div className={`flex justify-center lg:justify-start transition-all duration-1000 order-2 lg:order-1 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+            <div className="relative w-80 h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[48rem] 3xl:h-[48rem]">
               {/* Enhanced Step Process Visualization */}
                <svg viewBox="0 0 280 280" className="w-full h-full">
                  {/* Background Elements */}

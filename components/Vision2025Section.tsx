@@ -28,13 +28,13 @@ export default function Vision2025Section() {
           <div className="absolute top-8 right-8 w-72 h-72 bg-[#90CFC4]/15 rounded-full"></div>
           <div className="absolute bottom-12 left-8 w-44 h-44 bg-[#90CFC4]/18 rounded-full"></div>
         </div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* First Column - Grafik (Mobile: Second, Desktop: Left) */}
           <div className={`flex justify-center lg:justify-start transition-all duration-1000 order-2 lg:order-1 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+            <div className="relative w-80 h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[48rem] 3xl:h-[48rem]">
               {/* Enhanced Vision 2025 Visualization */}
                <svg viewBox="0 0 280 280" className="w-full h-full">
                  {/* Background Elements */}

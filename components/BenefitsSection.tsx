@@ -28,7 +28,7 @@ export default function BenefitsSection() {
           <div className="absolute top-20 left-10 w-56 h-56 bg-[#90CFC4]/20 rounded-full"></div>
           <div className="absolute bottom-10 right-20 w-40 h-40 bg-[#90CFC4]/25 rounded-full"></div>
         </div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* First Column - Content (Mobile: First, Desktop: Left) */}
           <div className={`space-y-6 transition-all duration-1000 ${
@@ -42,7 +42,7 @@ export default function BenefitsSection() {
             
             <div className="space-y-4">
               <p className="body-base text-gray-700">
-                Tricast360 vereint Umweltschutz mit wirtschaftlicher Effizienz. 
+                TriCast360 vereint Umweltschutz mit wirtschaftlicher Effizienz. 
                 Unser System macht nachhaltigen Baumschutz zur intelligenten Investition in die Zukunft.
               </p>
               
@@ -73,7 +73,7 @@ export default function BenefitsSection() {
            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
            }`}>
-             <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+             <div className="relative w-80 h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[48rem] 3xl:h-[48rem]">
                {/* Enhanced Sustainability Visualization */}
                <svg viewBox="0 0 280 280" className="w-full h-full">
                  {/* Background Elements */}

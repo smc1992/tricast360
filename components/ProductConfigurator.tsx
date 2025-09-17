@@ -41,6 +41,7 @@ export default function ProductConfigurator() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
+  const [animeLoaded, setAnimeLoaded] = useState(false);
 
   // Preisberechnung basierend auf Konfiguration - pro Modul
   useEffect(() => {
@@ -53,6 +54,411 @@ export default function ProductConfigurator() {
     const totalPrice = pricePerModule * config.modules * config.quantity;
     setEstimatedPrice(totalPrice);
   }, [config]);
+
+  // Helper to get anime instance (client-side only)
+  const getAnime = async () => {
+    if (typeof window === 'undefined') return null;
+    try {
+      // Import the correct anime.js file
+      const anime = await import('animejs/lib/anime.es.js');
+      return anime.default || anime;
+    } catch (error) {
+      console.error('Failed to load anime.js:', error);
+      return null;
+    }
+  };
+
+  // Check if anime is available
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      getAnime().then(anime => {
+        if (anime) {
+          setAnimeLoaded(true);
+          console.log('Anime.js loaded successfully');
+        }
+      });
+    }
+  }, []);
+
+  // Sanfte, kontinuierliche Animation der Baumkrone
+  useEffect(() => {
+    if (!animeLoaded) return;
+    let mounted = true;
+    (async () => {
+      const anime = await getAnime();
+      if (!mounted || !anime) return;
+      anime({
+        targets: '.js-crown',
+        translateY: [-2, 2],
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        duration: 2000,
+        loop: true,
+      });
+    })();
+    return () => { mounted = false; };
+  }, [animeLoaded]);
+
+  // Kleine Feedback-Animation bei Konfigurationsänderungen
+  useEffect(() => {
+    if (!animeLoaded) return;
+    let mounted = true;
+    (async () => {
+      const anime = await getAnime();
+      if (!mounted || !anime) return;
+      anime({
+        targets: '.js-strap',
+        scale: [0.95, 1],
+        opacity: [0.9, 1],
+        easing: 'easeOutQuad',
+        duration: 400,
+      });
+      anime({
+        targets: '.js-panel',
+        translateY: [-3, 0],
+        opacity: [0.85, 1],
+        easing: 'easeOutQuad',
+        duration: 450,
+        delay: anime.stagger ? anime.stagger(60) : (el: any, i: number) => i * 60,
+      });
+    })();
+    return () => { mounted = false; };
+  }, [config.diameter, config.height, config.material, config.color, config.modules, config.quantity, animeLoaded]);
+
+  // Preisbalken-Animation beim Preis-Update
+  useEffect(() => {
+    if (!animeLoaded) return;
+    let mounted = true;
+    (async () => {
+      const anime = await getAnime();
+      if (!mounted || !anime) return;
+      anime({
+        targets: '.js-price-bar',
+        width: ['0%', '100%'],
+        easing: 'easeInOutQuad',
+        duration: 800,
+      });
+    })();
+    return () => { mounted = false; };
+  }, [estimatedPrice, animeLoaded]);
+
+  // Professional SVG Product Rendering with Anime.js
+  const renderProduct = async (diameter: number, height: number, count: number) => {
+    try {
+      console.log('renderProduct called with:', { diameter, height, count, animeLoaded });
+      
+      if (!animeLoaded) {
+        console.warn('Anime.js not loaded yet, skipping render');
+        return;
+      }
+      
+      const visual = document.getElementById('product-visual');
+      if (!visual) {
+        console.error('product-visual container not found!');
+        return;
+      }
+
+      const anime = await getAnime();
+      if (!anime) {
+        console.error('anime.js not available after loading!');
+        return;
+      }
+
+      // Calculate responsive dimensions
+      const svgWidth = 400;
+      const svgHeight = 500;
+      const centerX = svgWidth / 2;
+      const treeY = 180;
+      const moduleHeight = Math.max(height * 0.8, 40);
+      
+      console.log('Rendering SVG with dimensions:', { svgWidth, svgHeight, centerX, treeY, moduleHeight, diameter });
+      
+      // Clear existing content first
+      visual.innerHTML = '';
+      
+      visual.innerHTML = `
+        <svg width="${svgWidth}" height="${svgHeight}" viewBox="0 0 ${svgWidth} ${svgHeight}" class="w-full h-full">
+          <!-- Stamm -->
+          <rect id="stamm" x="${centerX - diameter/2}" y="${treeY}" 
+                width="${diameter}" height="250" 
+                fill="#8B5A2B" rx="12" stroke="#654321" stroke-width="2"
+                style="opacity: 0; transform-origin: center bottom;"/>
+
+          <!-- Krone -->
+          <circle id="krone" cx="${centerX}" cy="${treeY - 80}" r="80" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"
+                  style="opacity: 0; transform-origin: center center;"/>
+
+          <!-- Module am Baumstamm -->
+          ${Array.from({length: count}).map((_,i) => {
+            const moduleY = treeY + 150 + i*(moduleHeight + 10); // Module weit unten am Stamm
+            return `
+              <g class="module module-${i}" transform="translate(0, ${moduleY})" style="opacity: 0; transform: scale(0.8);">
+                <!-- Modul Polster um den Stamm - sollte den Stamm umschließen -->
+                <rect x="${centerX - diameter/2 - 10}" y="0" 
+                      width="${diameter + 20}" height="${moduleHeight}" 
+                      fill="#66BB6A" rx="10" stroke="#4CAF50" stroke-width="2"/>
+                
+                <!-- Polster-Textur -->
+                <rect x="${centerX - diameter/2 - 5}" y="5" 
+                      width="${diameter + 10}" height="${moduleHeight - 10}" 
+                      fill="#81C784" rx="8" opacity="0.7"/>
+                
+                <!-- Linker Gurt -->
+                <line x1="${centerX - diameter/2 - 10}" y1="${moduleHeight/2}" 
+                      x2="${centerX - diameter/2 - 40}" y2="${moduleHeight/2}" 
+                      stroke="#000" stroke-width="4" stroke-linecap="round"/>
+                
+                <!-- Rechter Gurt -->
+                <line x1="${centerX + diameter/2 + 10}" y1="${moduleHeight/2}" 
+                      x2="${centerX + diameter/2 + 40}" y2="${moduleHeight/2}" 
+                      stroke="#000" stroke-width="4" stroke-linecap="round"/>
+                
+                <!-- Linker Verschluss -->
+                <rect class="clip clip-left clip-left-${i}" 
+                      x="${centerX - diameter/2 - 50}" y="${moduleHeight/2 - 8}" 
+                      width="15" height="16" fill="#000" rx="3" 
+                      style="opacity: 0; transform: translateX(-15px) rotate(-30deg);"/>
+                
+                <!-- Rechter Verschluss -->
+                <rect class="clip clip-right clip-right-${i}" 
+                      x="${centerX + diameter/2 + 35}" y="${moduleHeight/2 - 8}" 
+                      width="15" height="16" fill="#000" rx="3" 
+                      style="opacity: 0; transform: translateX(15px) rotate(30deg);"/>
+                
+                <!-- Verschluss-Details -->
+                <circle class="clip-detail clip-detail-left-${i}" 
+                        cx="${centerX - diameter/2 - 42}" cy="${moduleHeight/2}" 
+                        r="3" fill="#333" style="opacity: 0;"/>
+                <circle class="clip-detail clip-detail-right-${i}" 
+                        cx="${centerX + diameter/2 + 42}" cy="${moduleHeight/2}" 
+                        r="3" fill="#333" style="opacity: 0;"/>
+              </g>
+            `;
+          }).join("")}
+          
+          <!-- Preis-Indikator -->
+          <g transform="translate(${centerX}, ${svgHeight - 60})">
+            <rect x="-60" y="-15" width="120" height="30" fill="white" rx="15" stroke="#ddd" stroke-width="2"/>
+            <text x="0" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+              €${Math.round((diameter * height * count * 0.89))}
+            </text>
+            <text x="0" y="10" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">
+              Geschätzt
+            </text>
+          </g>
+        </svg>
+      `;
+
+      console.log('SVG rendered successfully, starting animations in 100ms');
+      console.log('Elements found:', {
+        krone: document.getElementById('krone'),
+        stamm: document.getElementById('stamm'),
+        modules: document.querySelectorAll('.module'),
+        clips: document.querySelectorAll('.clip'),
+        details: document.querySelectorAll('.clip-detail')
+      });
+
+      // Wait for DOM to update, then start animations
+      setTimeout(() => {
+        console.log('Starting detailed anime.js installation sequence');
+        
+        // Ensure all elements are visible first (fallback)
+        const allElements = visual.querySelectorAll('*');
+        allElements.forEach(el => {
+          const htmlEl = el as HTMLElement;
+          if (htmlEl.style && htmlEl.style.opacity === '0') {
+            console.log('Found hidden element:', el);
+          }
+        });
+        
+        // Create a master timeline for the installation sequence
+        const masterTimeline = anime.timeline({
+          easing: 'easeOutQuad',
+          complete: () => {
+            console.log('Complete installation sequence finished');
+            // Ensure all elements are visible at the end
+            visual.querySelectorAll('*').forEach((el: Element) => {
+              const htmlEl = el as HTMLElement;
+              if (htmlEl.style) {
+                htmlEl.style.opacity = '1';
+              }
+            });
+          }
+        });
+
+        // Phase 1: Tree appears with gentle sway
+        masterTimeline
+          .add({
+            targets: '#krone',
+            scale: [0, 1],
+            opacity: [0, 1],
+            duration: 800,
+            easing: 'easeOutBack',
+            complete: () => console.log('Tree crown appeared')
+          })
+          .add({
+            targets: '#stamm',
+            scaleY: [0, 1],
+            opacity: [0, 1],
+            duration: 600,
+            easing: 'easeOutQuart',
+            complete: () => console.log('Tree trunk appeared')
+          }, '-=400')
+          .add({
+            targets: '#krone',
+            rotate: [-2, 2, -1, 1, 0],
+            duration: 2000,
+            easing: 'easeInOutSine',
+            complete: () => console.log('Tree sway completed')
+          }, '-=200');
+
+        // Phase 2: Modules slide in from sides with stagger
+        masterTimeline
+          .add({
+            targets: '.module',
+            translateX: (el: any, i: number) => i % 2 === 0 ? [-200, 0] : [200, 0],
+            scale: [0.6, 1],
+            opacity: [0, 1],
+            rotate: (el: any, i: number) => [i % 2 === 0 ? -10 : 10, 0],
+            delay: anime.stagger ? anime.stagger(200) : (el: any, i: number) => i * 200,
+            duration: 1000,
+            easing: 'easeOutBack',
+            complete: () => console.log('All modules positioned')
+          }, '+=300');
+
+        // Phase 3: Gurte extend and connect
+        masterTimeline
+          .add({
+            targets: '.module line',
+            strokeDasharray: ['100 100', '0 100'],
+            duration: 800,
+            delay: anime.stagger ? anime.stagger(100) : (el: any, i: number) => i * 100,
+            easing: 'easeInOutQuad',
+            complete: () => console.log('Straps connected')
+          }, '+=200');
+
+        // Phase 4: Clips slide in and rotate to close
+        masterTimeline
+          .add({
+            targets: '.clip-left',
+            translateX: [-30, 0],
+            rotate: [-45, 0],
+            scale: [0.8, 1],
+            opacity: [0, 1],
+            delay: anime.stagger ? anime.stagger(150) : (el: any, i: number) => i * 150,
+            duration: 700,
+            easing: 'easeOutBack',
+            complete: () => console.log('Left clips engaged')
+          }, '+=100')
+          .add({
+            targets: '.clip-right',
+            translateX: [30, 0],
+            rotate: [45, 0],
+            scale: [0.8, 1],
+            opacity: [0, 1],
+            delay: anime.stagger ? anime.stagger(150) : (el: any, i: number) => i * 150,
+            duration: 700,
+            easing: 'easeOutBack',
+            complete: () => console.log('Right clips engaged')
+          }, '-=500');
+
+        // Phase 5: Clip details appear with bounce
+        masterTimeline
+          .add({
+            targets: '.clip-detail',
+            scale: [0, 1.2, 1],
+            opacity: [0, 1],
+            rotate: [0, 360],
+            delay: anime.stagger ? anime.stagger(100) : (el: any, i: number) => i * 100,
+            duration: 600,
+            easing: 'easeOutElastic(1, .8)',
+            complete: () => console.log('Clip details secured')
+          }, '+=200');
+
+        // Phase 6: Security confirmation - modules glow and pulse
+        masterTimeline
+          .add({
+            targets: '.module rect:first-child',
+            stroke: ['#4CAF50', '#00E676', '#4CAF50'],
+            strokeWidth: [2, 4, 2],
+            duration: 1500,
+            easing: 'easeInOutSine',
+            complete: () => console.log('Security confirmation glow')
+          }, '+=300')
+          .add({
+            targets: '.module',
+            scale: [1, 1.02, 1],
+            duration: 800,
+            delay: anime.stagger ? anime.stagger(200) : (el: any, i: number) => i * 200,
+            easing: 'easeInOutSine',
+            complete: () => console.log('Final security pulse')
+          }, '-=1000');
+
+        // Phase 7: Price indicator appears with celebration
+        masterTimeline
+          .add({
+            targets: 'g:last-child', // Price indicator group
+            scale: [0, 1.1, 1],
+            opacity: [0, 1],
+            rotate: [0, 5, -5, 0],
+            duration: 1000,
+            easing: 'easeOutBack',
+            complete: () => console.log('Price calculated and displayed')
+          }, '+=200');
+
+        // Phase 8: Continuous subtle animations for living feel
+        masterTimeline
+          .add({
+            targets: '#krone',
+            rotate: [-1, 1],
+            duration: 4000,
+            direction: 'alternate',
+            loop: true,
+            easing: 'easeInOutSine'
+          }, '+=500')
+          .add({
+            targets: '.clip-detail',
+            scale: [1, 1.1, 1],
+            duration: 2000,
+            direction: 'alternate',
+            loop: true,
+            delay: anime.stagger ? anime.stagger(300) : (el: any, i: number) => i * 300,
+            easing: 'easeInOutSine'
+          }, '-=3500');
+        
+      }, 100);
+      
+    } catch (error) {
+      console.error('Error in renderProduct:', error);
+    }
+  };
+
+  // Render product when config changes (only when anime is loaded)
+  useEffect(() => {
+    if (!animeLoaded) return;
+    
+    console.log('Config changed, re-rendering product:', config);
+    
+    // Delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      renderProduct(config.diameter, config.height, config.quantity);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [config.diameter, config.height, config.quantity, config.modules, animeLoaded]);
+
+  // Initial render on component mount (only when anime is loaded)
+  useEffect(() => {
+    if (!animeLoaded) return;
+    
+    console.log('Component mounted, initial render with anime loaded');
+    
+    const timer = setTimeout(() => {
+      renderProduct(config.diameter, config.height, config.quantity);
+    }, 200);
+    
+    return () => clearTimeout(timer);
+  }, [animeLoaded]);
 
   const handleConfigChange = (key: keyof Configuration, value: any) => {
     setConfig(prev => ({ ...prev, [key]: value }));
@@ -135,9 +541,15 @@ export default function ProductConfigurator() {
         {/* Visuelle Darstellung */}
         <div className="bg-gray-50 rounded-2xl p-4 lg:p-8">
           <h3 className="text-2xl font-bold mb-6 text-center">Ihre Konfiguration</h3>
+
+          {/* Tricast360 Gurtsystem mit Schaumstoffpolsterung */}
+          <div id="product-visual" className="relative h-64 sm:h-80 lg:h-96 bg-white rounded-xl overflow-hidden border-2 border-gray-200 shadow-lg flex items-center justify-center">
+            {/* Professional SVG Animation wird hier von renderProduct() eingefügt */}
+            <div className="text-gray-500 text-sm">Animation wird geladen...</div>
+          </div>
           
-          {/* TreeCast360 Gurtsystem mit Schaumstoffpolsterung */}
-          <div className="relative h-64 sm:h-80 lg:h-96 bg-white rounded-xl overflow-hidden border-2 border-gray-200 shadow-lg">
+          {/* Alte statische Darstellung als Fallback (ausgeblendet) */}
+          <div className="hidden relative h-64 sm:h-80 lg:h-96 bg-white rounded-xl overflow-hidden border-2 border-gray-200 shadow-lg">
             {/* Einfacher Hintergrund */}
             <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-gray-100" />
             
@@ -155,10 +567,10 @@ export default function ProductConfigurator() {
                 }}
               />
               {/* Baumkrone */}
-              <div className="w-16 h-16 bg-green-600 rounded-full mx-auto -mt-8" />
+              <div className="w-16 h-16 bg-green-600 rounded-full mx-auto -mt-8 js-crown" />
             </div>
             
-            {/* TreeCast360 Gurtsystem */}
+            {/* Tricast360 Gurtsystem */}
             <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
               {/* Schaumstoffpolsterung um den Baum */}
               <div 
@@ -182,113 +594,69 @@ export default function ProductConfigurator() {
               {/* Gurtsystem - horizontal um den Baum */}
               {[0, 1, 2].map((index) => {
                 const gurtHeight = (config.height / 3) * (index + 1) / 4;
-                const gurtRadius = Math.max(config.diameter / 6, 20);
+                const gurtWidth = Math.max(config.diameter / 6, 20);
                 
                 return (
-                  <div key={`gurt-${index}`}>
-                    {/* Horizontaler Gurt */}
+                  <div key={index} className="js-strap">
+                    {/* Linker Gurt */}
                     <div 
-                      className="absolute border-2 rounded-full transition-all duration-500"
+                      className="absolute bg-gray-800 rounded transition-all duration-500"
                       style={{
-                        width: `${gurtRadius * 2}px`,
-                        height: `${gurtRadius * 2}px`,
-                        left: `${-gurtRadius}px`,
-                        top: `${gurtHeight}px`,
-                        borderColor: config.material === 'premium' ? '#f59e0b' : '#374151',
-                        borderStyle: 'solid'
+                        width: '3px',
+                        height: `${Math.max(config.height / 6, 8)}px`,
+                        left: `${-gurtWidth}px`,
+                        top: `${gurtHeight}px`
+                      }}
+                    />
+                    {/* Rechter Gurt */}
+                    <div 
+                      className="absolute bg-gray-800 rounded transition-all duration-500"
+                      style={{
+                        width: '3px', 
+                        height: `${Math.max(config.height / 6, 8)}px`,
+                        right: `${-gurtWidth}px`,
+                        top: `${gurtHeight}px`
                       }}
                     />
                     
-                    {/* Gurtverschluss */}
+                    {/* Verschluss-Clips */}
                     <div 
-                      className="absolute bg-gray-700 border border-gray-500 rounded transition-all duration-500"
+                      className="absolute bg-gray-900 rounded transition-all duration-500 js-panel"
                       style={{
                         width: '8px',
                         height: '6px',
-                        left: `${gurtRadius - 4}px`,
-                        top: `${gurtHeight - 3}px`,
-                        backgroundColor: config.material === 'premium' ? '#f59e0b' : '#374151'
+                        left: `${-gurtWidth - 4}px`,
+                        top: `${gurtHeight + 2}px`
                       }}
-                    >
-                      {/* Verschluss-Detail */}
-                      <div className="absolute inset-0.5 bg-gray-600 rounded-sm" />
-                    </div>
-                  </div>
-                );
-              })}
-              
-              {/* Schaumstoff-Paneele an den Gurten */}
-              {[0, 1, 2, 3].map((index) => {
-                const angle = (360 / 4) * index;
-                const radius = Math.max(config.diameter / 6, 20);
-                const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius;
-                const panelHeight = Math.max(config.height / 4, 20);
-                
-                return (
-                  <div
-                    key={`schaumstoff-${index}`}
-                    className="absolute transition-all duration-500"
-                    style={{
-                      left: `${x}px`,
-                      top: `${y + 5}px`,
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                  >
-                    {/* Schaumstoff-Paneel */}
-                    <div
-                      className="border-2 shadow-lg transition-all duration-500 rounded"
+                    />
+                    <div 
+                      className="absolute bg-gray-900 rounded transition-all duration-500 js-panel"
                       style={{
-                        width: '10px',
-                        height: `${panelHeight}px`,
-                        backgroundColor: config.color,
-                        borderColor: config.material === 'premium' ? '#f59e0b' : '#6b7280',
-                        opacity: 0.9
+                        width: '8px',
+                        height: '6px', 
+                        right: `${-gurtWidth - 4}px`,
+                        top: `${gurtHeight + 2}px`
                       }}
-                    >
-                      {/* Schaumstoff-Struktur */}
-                      <div className="absolute inset-0.5 bg-white bg-opacity-30 rounded-sm" />
-                      <div className="absolute top-1 left-1 w-0.5 h-0.5 bg-white bg-opacity-50 rounded-full" />
-                      <div className="absolute bottom-1 right-1 w-0.5 h-0.5 bg-white bg-opacity-50 rounded-full" />
-                      
-                      {/* Premium-Kennzeichnung */}
-                      {config.material === 'premium' && (
-                        <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full border border-yellow-600" />
-                      )}
-                    </div>
+                    />
                   </div>
                 );
               })}
-              
-              {/* Schutzbereich-Anzeige */}
-              <div 
-                className="absolute border border-dashed border-blue-400 rounded-full opacity-30 transition-all duration-500"
-                style={{
-                  width: `${Math.max(config.diameter / 3, 50)}px`,
-                  height: `${Math.max(config.diameter / 3, 50)}px`,
-                  left: `${-Math.max(config.diameter / 6, 25)}px`,
-                  top: `${-Math.max(config.diameter / 6, 25) + 15}px`
-                }}
-              />
             </div>
             
-            {/* Produktbeschreibung */}
-            <div className="absolute top-2 left-2 bg-white bg-opacity-95 p-2 rounded-lg shadow-sm border border-gray-200 text-xs">
-              <div className="font-bold text-gray-800 mb-1">TreeCast360</div>
-              <div className="text-gray-600 space-y-0.5">
-                <div>🛡️ Gurtsystem</div>
-                <div>🧽 Schaumstoffpolster</div>
-                <div>⌀ {config.diameter}cm</div>
+            {/* Preisbalken */}
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div 
+                  className="js-price-bar h-full bg-gradient-to-r from-[#baf742] to-[#84cc16] rounded-full transition-all duration-800"
+                  style={{ width: '100%' }}
+                />
+              </div>
+              <div className="text-center mt-2 text-sm font-medium text-gray-700">
+                Geschätzter Preis: €{estimatedPrice}
               </div>
             </div>
-            
-            {/* Live-Indikator */}
-            <div className="absolute top-2 right-2 flex items-center bg-green-100 px-2 py-1 rounded-full shadow-sm">
-              <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 animate-pulse" />
-              <span className="text-xs text-green-700 font-medium">Live</span>
-            </div>
           </div>
-          
+        
           {/* Erweiterte Konfigurationsübersicht */}
           <div className="mt-6 space-y-4">
             {/* Live-Änderungsindikator */}
@@ -388,7 +756,7 @@ export default function ProductConfigurator() {
                {/* Preisaufschlüsselung */}
                <div className="mt-3 pt-3 border-t border-white border-opacity-30">
                  <div className="flex justify-between text-sm opacity-90">
-                   <span>{config.quantity}x TreeCast360-System</span>
+                   <span>{config.quantity}x Tricast360-System</span>
                    <span>à {Math.round(estimatedPrice / config.quantity)} €</span>
                  </div>
                  <div className="flex justify-between text-xs opacity-75 mt-1">
@@ -399,7 +767,7 @@ export default function ProductConfigurator() {
                
                {/* Preisänderungs-Animation */}
                <div className="mt-2 h-1 bg-white bg-opacity-30 rounded-full overflow-hidden">
-                 <div className="h-full bg-white rounded-full transition-all duration-1000 animate-pulse" style={{ width: '100%' }} />
+                 <div className="js-price-bar h-full bg-white rounded-full transition-all duration-1000 animate-pulse" style={{ width: '0%' }} />
                </div>
              </div>
             
@@ -460,7 +828,7 @@ export default function ProductConfigurator() {
 
               {/* Stückzahl */}
               <div>
-                <label className="block text-sm font-medium mb-2">Anzahl TreeCast360-Systeme</label>
+                <label className="block text-sm font-medium mb-2">Anzahl TriCast360-Systeme</label>
                 <div className="grid grid-cols-4 gap-2">
                   {[1, 2, 3, 5].map((num) => (
                     <button

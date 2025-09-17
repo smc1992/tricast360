@@ -31,7 +31,7 @@ export default function ProblemSolutionSection() {
            <div className="absolute top-10 right-20 w-48 h-48 bg-[#90CFC4]/10 rounded-full"></div>
            <div className="absolute bottom-20 left-10 w-64 h-64 bg-[#90CFC4]/15 rounded-full"></div>
          </div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* First Column - Content (Mobile: First, Desktop: Left) */}
           <div className={`space-y-6 transition-all duration-1000 ${
@@ -45,7 +45,7 @@ export default function ProblemSolutionSection() {
             
             <div className="space-y-4">
               <p className="body-base text-gray-700">
-                Bäume in urbanen Gebieten sind täglich Gefahren ausgesetzt. Tricast360 bietet 
+                Bäume in urbanen Gebieten sind täglich Gefahren ausgesetzt. TriCast360 bietet 
                 innovativen Schutz, der Natur und Stadtentwicklung in Einklang bringt.
               </p>
               
@@ -76,7 +76,7 @@ export default function ProblemSolutionSection() {
           <div className={`flex justify-center lg:justify-start transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-96 lg:h-96">
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[48rem] 3xl:h-[48rem]">
                 <img 
                   src="/images/1x/1x/stump-of-a-tree-on-the-green-grass-in-the-city-2024-12-07-02-11-18-utc%20(1).webp"
                   alt="Baumstumpf auf grünem Gras - Problem ohne nachhaltigen Baumschutz"

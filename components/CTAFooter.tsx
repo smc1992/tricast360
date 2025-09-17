@@ -16,7 +16,7 @@ export default function CTAFooter() {
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-white rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-4xl 2xl:max-w-[1200px] 3xl:max-w-[1400px] container-wide mx-auto text-center relative z-10">
           {/* Starker CTA-Block */}
           <div className="space-y-8">
             <div className="space-y-6">
@@ -24,7 +24,7 @@ export default function CTAFooter() {
                 Bereit für nachhaltigen Baumschutz?
               </h2>
               <p className="body-large text-[#0a0c14]/90 max-w-3xl mx-auto">
-                Starten Sie Ihr nächstes Projekt mit Tricast360 und erleben Sie die Zukunft des umweltfreundlichen Baumschutzes.
+                Starten Sie Ihr nächstes Projekt mit TriCast360 und erleben Sie die Zukunft des umweltfreundlichen Baumschutzes.
               </p>
             </div>
 

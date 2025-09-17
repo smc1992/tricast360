@@ -78,17 +78,17 @@ export default function OpportunitySection() {
 
   return (
     <section id="opportunity" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+        <div className="mb-12 sm:mb-16" style={{textAlign: 'left', display: 'block'}}>
+          <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg" style={{textAlign: 'left'}}>
             <i className="ri-star-line mr-2"></i>
             Warum Tricast360?
           </div>
-          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight" style={{textAlign: 'left', margin: '0 0 2rem 0'}}>
             Einsatz & Vorteile
           </h2>
-          <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 font-light leading-relaxed" style={{textAlign: 'left', marginLeft: '0', marginRight: '0', maxWidth: '48rem', display: 'block'}}>
             Intelligente Lösungen für vielfältige Anwendungsbereiche
           </p>
         </div>

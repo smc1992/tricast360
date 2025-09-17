@@ -38,7 +38,7 @@ export default function Header() {
             <Link href="/" className="flex items-center group">
               <img 
                 src="/images/1x/1x/Tricast360 Logo quer transparent.webp" 
-                alt="Tricast360 Logo" 
+                alt="TriCast360 Logo" 
                 className="h-16 sm:h-14 w-auto group-hover:scale-110 transition-all duration-300"
               />
             </Link>

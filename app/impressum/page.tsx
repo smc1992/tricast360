@@ -38,7 +38,7 @@ export default function Impressum() {
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-lg font-medium text-[#2b3138] mb-2">Unternehmen</h3>
-                    <p className="text-gray-600">Tricast360</p>
+                    <p className="text-gray-600">TriCast360</p>
                     <p className="text-gray-600 text-sm italic">(Brand)</p>
                   </div>
                   

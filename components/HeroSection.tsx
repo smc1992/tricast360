@@ -20,7 +20,7 @@ export default function HeroSection() {
 
   if (!isMounted) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 overflow-hidden">
         <HeroGradient className="absolute inset-0" />
         <HeroNaturalBackground />
         <div className="max-w-7xl w-full mx-auto relative z-20">
@@ -28,7 +28,7 @@ export default function HeroSection() {
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left opacity-0">
               <div className="space-y-4 sm:space-y-6">
                 <h1 className="heading-1">
-                  <span className="block">Tricast360</span>
+                  <span className="block">TriCast360</span>
                   <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-gray-600 font-light mt-2">
                     Der neue Standard
                   </span>
@@ -39,7 +39,7 @@ export default function HeroSection() {
               </div>
             </div>
             <div className="flex justify-center lg:justify-end opacity-0">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem]"></div>
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[40rem] xl:h-[40rem] 2xl:w-[48rem] 2xl:h-[48rem] 3xl:w-[56rem] 3xl:h-[56rem]"></div>
             </div>
           </div>
         </div>
@@ -49,17 +49,17 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="relative min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32">
+      <section className="relative min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56">
         {/* Clean geometric background */}
         <div className="absolute inset-0">
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#90CFC4]/20 rounded-full"></div>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-7xl w-full mx-auto relative z-20">
+        <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide w-full mx-auto relative z-20">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-4 items-center">
             {/* Left Column - Text Content */}
-            <div className={`space-y-6 sm:space-y-8 text-center lg:text-left transition-all duration-1000 ${
+            <div className={`space-y-6 sm:space-y-8 text-left transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               {/* Umwelt-Badge */}
@@ -78,8 +78,8 @@ export default function HeroSection() {
                 </h1>
                 
                 <div className="space-y-4">
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 font-normal leading-relaxed max-w-xl lg:max-w-2xl mx-auto lg:mx-0">
-                    Tricast360 – der werkzeuglose Rundumschutz für Bäume. 
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 font-normal leading-relaxed">
+                    TriCast360 – der werkzeuglose Rundumschutz für Bäume. 
                     <span className="text-gray-900 font-medium">
                       Wiederverwendbar, konform, zukunftssicher.
                     </span>
@@ -88,7 +88,7 @@ export default function HeroSection() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start">
                 <button 
                   onClick={() => setIsModalOpen(true)}
                   className="bg-[#baf742] text-[#0E1C3D] px-8 py-4 lg:px-10 lg:py-5 rounded-2xl font-semibold text-lg lg:text-xl hover:bg-[#0E1C3D] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
@@ -109,18 +109,18 @@ export default function HeroSection() {
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4">
-                <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
-                  <i className="ri-tools-line text-gray-600 text-sm"></i>
-                  <span className="text-gray-700 text-sm font-medium">Werkzeuglos</span>
+              <div style={{display: 'flex', flexDirection: 'row', gap: '12px', paddingTop: '16px', flexWrap: 'wrap'}}>
+                <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#f9fafb', padding: '8px 12px', borderRadius: '9999px', border: '1px solid #e5e7eb', whiteSpace: 'nowrap'}}>
+                  <i className="ri-tools-line" style={{color: '#6b7280', fontSize: '14px'}}></i>
+                  <span style={{color: '#374151', fontSize: '14px', fontWeight: '500'}}>Werkzeuglos</span>
                 </div>
-                <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
-                  <i className="ri-recycle-line text-gray-600 text-sm"></i>
-                  <span className="text-gray-700 text-sm font-medium">Wiederverwendbar</span>
+                <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#f9fafb', padding: '8px 12px', borderRadius: '9999px', border: '1px solid #e5e7eb', whiteSpace: 'nowrap'}}>
+                  <i className="ri-recycle-line" style={{color: '#6b7280', fontSize: '14px'}}></i>
+                  <span style={{color: '#374151', fontSize: '14px', fontWeight: '500'}}>Wiederverwendbar</span>
                 </div>
-                <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
-                  <i className="ri-shield-check-line text-gray-600 text-sm"></i>
-                  <span className="text-gray-700 text-sm font-medium">Konform</span>
+                <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#f9fafb', padding: '8px 12px', borderRadius: '9999px', border: '1px solid #e5e7eb', whiteSpace: 'nowrap'}}>
+                  <i className="ri-shield-check-line" style={{color: '#6b7280', fontSize: '14px'}}></i>
+                  <span style={{color: '#374151', fontSize: '14px', fontWeight: '500'}}>Konform</span>
                 </div>
               </div>
             </div>
@@ -129,29 +129,29 @@ export default function HeroSection() {
             <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem]">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[40rem] xl:h-[40rem] 2xl:w-[48rem] 2xl:h-[48rem] 3xl:w-[56rem] 3xl:h-[56rem]">
                 {/* Hero Image */}
                 <div className="relative w-full h-full rounded-3xl overflow-hidden border border-gray-200">
                   <img 
                     src="https://static.readdy.ai/image/5cb98375ce345c7331a1619afba21cba/0623913294cb49f45f91812b9749776a.jfif" 
-                    alt="Tricast360 Baumschutz System" 
+                    alt="TriCast360 Baumschutz System" 
                     className="w-full h-full object-cover"
                   />
                   
                   {/* Overlay with stats */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 border border-gray-200">
-                      <div className="flex items-center justify-between text-sm">
-                        <div className="text-center">
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-gray-200 max-w-sm w-full">
+                      <div className="flex items-center justify-between text-sm gap-6">
+                        <div className="text-center flex-1">
                           <div className="font-semibold text-gray-900">&lt;5 Min</div>
                           <div className="text-gray-600 text-xs">Installation</div>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center flex-1">
                           <div className="font-semibold text-gray-900">100%</div>
                           <div className="text-gray-600 text-xs">Wiederverwendbar</div>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center flex-1">
                           <div className="font-semibold text-gray-900">60%</div>
                           <div className="text-gray-600 text-xs">Günstiger</div>
                         </div>

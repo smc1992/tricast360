@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-[#baf742]/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 relative z-10">
+      <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto py-16 relative z-10">
         {/* 4-Spalten-Layout */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           

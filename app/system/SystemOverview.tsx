@@ -39,7 +39,7 @@ export default function SystemOverview() {
               <span className="block text-[#baf742]">Nachhaltigkeit</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Das Tricast360-System revolutioniert den Baumschutz durch intelligente 
+              Das TriCast360-System revolutioniert den Baumschutz durch intelligente 
               Modularität und nachhaltige Materialien. Entwickelt für die Anforderungen 
               moderner Baustellen.
             </p>
@@ -65,7 +65,7 @@ export default function SystemOverview() {
           <div className="relative w-full max-w-md">
             <img 
               src="https://static.readdy.ai/image/5cb98375ce345c7331a1619afba21cba/0623913294cb49f45f91812b9749776a.jfif"
-              alt="Tricast360 System"
+              alt="TriCast360 System"
               className="w-full h-auto rounded-2xl shadow-2xl object-top"
             />
             <div className="absolute -bottom-4 -right-4 bg-[#baf742] rounded-2xl p-4 shadow-xl">
@@ -108,7 +108,7 @@ export default function SystemOverview() {
       <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
         <div className="text-center space-y-6">
           <h3 className="text-2xl font-light text-gray-800">
-            Warum Tricast360?
+            Warum TriCast360?
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="space-y-3">

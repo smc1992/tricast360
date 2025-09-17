@@ -29,7 +29,7 @@ export default function EnvironmentalImpactSection() {
            <div className="absolute top-12 left-12 w-60 h-60 bg-[#90CFC4]/25 rounded-full"></div>
           <div className="absolute bottom-16 right-12 w-48 h-48 bg-[#90CFC4]/20 rounded-full"></div>
          </div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className={`space-y-6 transition-all duration-1000 ${
@@ -43,7 +43,7 @@ export default function EnvironmentalImpactSection() {
             
             <div className="space-y-4">
               <p className="body-base text-gray-700">
-                Tricast360 setzt neue Maßstäbe in der nachhaltigen Stadtentwicklung. 
+                Tricast360 setzt neue Maßstäbe in der nachhaltigen Stadtentwicklung.
                 Unser innovatives System schützt nicht nur Bäume, sondern auch unsere Umwelt.
               </p>
               
@@ -74,7 +74,7 @@ export default function EnvironmentalImpactSection() {
            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
            }`}>
-             <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+             <div className="relative w-64 h-64 lg:w-[24rem] lg:h-[24rem] xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem] 3xl:w-[40rem] 3xl:h-[40rem]">
                {/* Ultra-Minimalist Corporate Icon */}
                <svg viewBox="0 0 200 200" className="w-full h-full">
                  {/* Simple Grid Structure */}
