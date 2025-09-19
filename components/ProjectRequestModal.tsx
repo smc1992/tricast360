@@ -117,10 +117,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
-      <div className="rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto" style={{
-        background: 'linear-gradient(135deg, rgba(186, 247, 66, 0.95) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(186, 247, 66, 0.95) 100%)',
-        border: '1px solid rgba(186, 247, 66, 0.3)'
-      }}>
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-gray-200">
         <div className="p-8">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
@@ -135,7 +132,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
             </div>
             <button
               onClick={onClose}
-              className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-[#baf742] hover:bg-[#baf742]/10 rounded-xl transition-all duration-200 cursor-pointer"
+              className="w-10 h-10 flex items-center justify-center text-gray-500 hover:text-[#baf742] hover:bg-gray-100 rounded-xl transition-all duration-200 cursor-pointer"
             >
               <i className="ri-close-line text-xl"></i>
             </button>
@@ -185,7 +182,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.company}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Ihr Unternehmen"
                 />
               </div>
@@ -197,7 +194,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Vor- und Nachname"
                 />
               </div>
@@ -212,7 +209,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="ihre.email@example.com"
                 />
               </div>
@@ -224,7 +221,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="+49 (0) 123 456 789"
                 />
               </div>
@@ -238,14 +235,14 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 pr-8 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 pr-8 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
                   >
                     <option value="">Projekt auswählen</option>
                     {projectTypes.map((type) => (
                       <option key={type} value={type}>{type}</option>
                     ))}
                   </select>
-                  <i className="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2 text-[#B6BCCA] pointer-events-none"></i>
+                  <i className="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"></i>
                 </div>
               </div>
               <div className="space-y-2">
@@ -256,7 +253,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   value={formData.treeCount}
                   onChange={handleInputChange}
                   min="1"
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Geschätzte Anzahl"
                 />
               </div>
@@ -270,7 +267,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Stadt, PLZ oder Adresse"
                 />
               </div>
@@ -281,7 +278,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                   name="startDate"
                   value={formData.startDate}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                 />
               </div>
             </div>
@@ -294,7 +291,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 onChange={handleInputChange}
                 maxLength={500}
                 rows={4}
-                className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm resize-none"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm resize-none"
                 placeholder="Beschreiben Sie Ihr Projekt und besondere Anforderungen..."
               />
               <div className="text-right text-xs text-gray-600">
@@ -302,7 +299,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
               </div>
             </div>
 
-            <div className="bg-white/60 rounded-xl p-4 border border-gray-300">
+            <div className="bg-gray-50 rounded-xl p-4 border border-gray-300">
               <div className="flex items-start gap-3">
                 <i className="ri-information-line text-[#baf742] text-lg mt-0.5"></i>
                 <div className="text-sm text-gray-600">
