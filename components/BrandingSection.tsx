@@ -143,29 +143,35 @@ export default function BrandingSection() {
       {/* Enhanced Bottom Stats - Full Screen Width */}
       <div className="mt-16 lg:mt-20 xl:mt-24 2xl:mt-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 justify-items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 xl:gap-8 justify-items-center">
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 xl:p-8 2xl:p-10 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full max-w-xs xl:max-w-sm 2xl:max-w-md">
-                <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-3 xl:mb-4 2xl:mb-5">500+</div>
-                <div className="font-medium text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-700">Sichtbare Standorte</div>
+              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">5</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Software Standards</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 xl:p-8 2xl:p-10 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full max-w-xs xl:max-w-sm 2xl:max-w-md">
-                <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-3 xl:mb-4 2xl:mb-5">24/7</div>
-                <div className="font-medium text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-700">Marketing Präsenz</div>
+              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">2</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Marketing Prinzipien</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 xl:p-8 2xl:p-10 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full max-w-xs xl:max-w-sm 2xl:max-w-md">
-                <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-3 xl:mb-4 2xl:mb-5">100%</div>
-                <div className="font-medium text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-700">Umweltfreundlich</div>
+              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">1</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Umweltfreundlich</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 xl:p-8 2xl:p-10 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full max-w-xs xl:max-w-sm 2xl:max-w-md">
-                <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-3 xl:mb-4 2xl:mb-5">∞</div>
-                <div className="font-medium text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-700">Reichweite</div>
+              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">∞</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Reichweite</div>
+              </div>
+            </div>
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">24/7</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Verfügbarkeit</div>
               </div>
             </div>
           </div>

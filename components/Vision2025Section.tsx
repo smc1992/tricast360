@@ -34,11 +34,11 @@ export default function Vision2025Section() {
                 {/* Enhanced Inner Circle */}
                 <div className="absolute inset-16 rounded-full bg-gradient-to-br from-[#90CFC4]/20 via-[#90CFC4]/30 to-[#90CFC4]/40 flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/20 group-hover:scale-105 transition-all duration-700">
                   <div className="text-center space-y-4">
-                    <div className="text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold bg-gradient-to-br from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">
-                      2025
+                    <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-br from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">
+                      Vision
                     </div>
                     <div className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-gray-800">
-                      Vision
+                      Zukunft
                     </div>
                   </div>
                 </div>
@@ -62,7 +62,6 @@ export default function Vision2025Section() {
                 <h2 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold leading-tight">
                   <span className="text-gray-900">Unsere </span>
                   <span className="bg-gradient-to-r from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">Vision</span>
-                  <span className="text-gray-900"> für 2025</span>
                 </h2>
                 <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-700 leading-relaxed text-left">
                   Wir gestalten die Zukunft der nachhaltigen Energiegewinnung und setzen neue Maßstäbe in der Holzpellet-Industrie.
@@ -108,8 +107,31 @@ export default function Vision2025Section() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#baf742]/20 to-transparent rounded-full transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-1000"></div>
                 
                 <div className="relative z-10 flex items-start space-x-6 lg:space-x-8">
-                  <div className="w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-gradient-to-br from-[#90CFC4] to-[#baf742] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                    <svg className="w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <div 
+                    className="bg-gradient-to-br from-[#90CFC4] to-[#baf742] rounded-2xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500"
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px',
+                      maxWidth: '40px',
+                      maxHeight: '40px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <svg 
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        display: 'block',
+                        margin: '0 auto'
+                      }}
+                      className="text-white" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
                     </svg>
                   </div>

@@ -18,7 +18,7 @@ export default function ProblemSolutionSection() {
       <SectionNaturalBackground />
       
       <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12 xl:px-12 2xl:px-16 relative z-10">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 items-center transition-all duration-1000 ${
+        <div className={`grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 items-center transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           {/* Enhanced Content */}
@@ -30,7 +30,7 @@ export default function ProblemSolutionSection() {
               </div>
               
               <h2 className="heading-2 font-bold text-gray-900 leading-tight">
-                Das Problem: Baumschutz ist 
+                <span className="block">Das Problem: Baumschutz ist</span>
                 <span className="block text-red-600 mt-2">teuer und zeitaufwändig</span>
               </h2>
             </div>
@@ -60,16 +60,15 @@ export default function ProblemSolutionSection() {
             </div>
           </div>
           
-          {/* Enhanced Image */}
-          <div className="relative group">
+          {/* Enhanced Illustration */}
+          <div className="relative group flex justify-center lg:justify-end">
             <div className="absolute -inset-4 bg-gradient-to-r from-red-200/20 to-orange-200/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 bg-white/80 backdrop-blur-sm border border-gray-200/50">
                 <img 
-                  src="/images/1x/1x/stump-of-a-tree-on-the-green-grass-in-the-city-2024-12-07-02-11-18-utc%20(1).webp"
-                  alt="Baumstumpf auf grünem Gras - Problem ohne nachhaltigen Baumschutz"
-                  className="w-full h-full object-cover rounded-3xl border border-gray-200/50 group-hover:scale-105 transition-transform duration-700"
+                  src="/images/1x/1x/stump-of-a-tree-on-the-green-grass-in-the-city-2024-12-07-02-11-18-utc (1).webp"
+                  alt="Baumstumpf auf grünem Gras - Problem des herkömmlichen Baumschutzes"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl"></div>
             </div>
           </div>
         </div>

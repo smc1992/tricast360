@@ -41,8 +41,8 @@ export default function HeroSection() {
                   Jetzt anfragen
                 </button>
                 <Link 
-                  href="#features"
-                  className="border-2 border-gray-300 hover:border-[#baf742] text-gray-700 hover:text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
+                  href="#vorteile"
+                  className="border-2 border-gray-300 hover:border-[#baf742] text-gray-700 hover:text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 hover:bg-[#baf742]/5 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
                 >
                   Mehr erfahren
                 </Link>
@@ -106,13 +106,38 @@ export default function HeroSection() {
                 >
                   <span className="flex items-center gap-3">
                     Jetzt anfragen
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 3xl:w-9 3xl:h-9 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    <div
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        minWidth: '20px',
+                        minHeight: '20px',
+                        maxWidth: '20px',
+                        maxHeight: '20px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                      className="group-hover:translate-x-1 transition-transform"
+                    >
+                      <svg 
+                        style={{
+                          width: '18px',
+                          height: '18px',
+                          display: 'block',
+                          margin: '0 auto'
+                        }}
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </span>
                 </button>
                 <Link 
-                  href="#features"
+                  href="#vorteile"
                   className="border-2 border-gray-300 hover:border-[#baf742] text-gray-700 hover:text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 hover:bg-[#baf742]/5 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
                 >
                   Mehr erfahren
@@ -124,10 +149,6 @@ export default function HeroSection() {
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-green-500 rounded-full"></div>
                   <span className="text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl text-gray-600">Made in Germany</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl text-gray-600">TÜV Geprüft</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-[#baf742] rounded-full"></div>
@@ -150,26 +171,7 @@ export default function HeroSection() {
                       className="w-full h-full object-cover"
                     />
                     
-                    {/* Overlay with stats */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-gray-200 max-w-sm w-full">
-                        <div className="flex items-center justify-between text-sm gap-6">
-                          <div className="text-center flex-1">
-                            <div className="font-semibold text-gray-900">&lt;5 Min</div>
-                            <div className="text-gray-600 text-xs">Installation</div>
-                          </div>
-                          <div className="text-center flex-1">
-                            <div className="font-semibold text-gray-900">100%</div>
-                            <div className="text-gray-600 text-xs">Wiederverwendbar</div>
-                          </div>
-                          <div className="text-center flex-1">
-                            <div className="font-semibold text-gray-900">70%</div>
-                            <div className="text-gray-600 text-xs">Kostenersparnis</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
 
                   {/* Additional floating stats */}

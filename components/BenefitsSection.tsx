@@ -44,8 +44,38 @@ export default function BenefitsSection() {
               
               <div className="space-y-4">
                 <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <i className="ri-leaf-line text-[#0E1C3D] text-lg"></i>
+                  <div 
+                    className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px',
+                      maxWidth: '40px',
+                      maxHeight: '40px'
+                    }}
+                  >
+                    <svg 
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="text-[#0E1C3D]"
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        display: 'block',
+                        margin: '0 auto'
+                      }}
+                    >
+                      <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 16C12 19.31 9.31 22 6 22C2.69 22 0 19.31 0 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M24 16C24 19.31 21.31 22 18 22C14.69 22 12 19.31 12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <span className="font-bold text-gray-900">80% CO₂-Reduktion</span>
@@ -54,8 +84,38 @@ export default function BenefitsSection() {
                 </div>
                 
                 <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <i className="ri-recycle-line text-[#0E1C3D] text-lg"></i>
+                  <div 
+                    className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px',
+                      maxWidth: '40px',
+                      maxHeight: '40px'
+                    }}
+                  >
+                    <svg 
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="text-[#0E1C3D]"
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        display: 'block',
+                        margin: '0 auto'
+                      }}
+                    >
+                      <path d="M7 6H17L19 8V18C19 19.1 18.1 20 17 20H7C5.9 20 5 19.1 5 18V8L7 6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M16 10L12 14L8 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 14V4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <span className="font-bold text-gray-900">100% wiederverwendbar</span>
@@ -64,8 +124,38 @@ export default function BenefitsSection() {
                 </div>
                 
                 <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <i className="ri-plant-line text-[#0E1C3D] text-lg"></i>
+                  <div 
+                    className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px',
+                      maxWidth: '40px',
+                      maxHeight: '40px'
+                    }}
+                  >
+                    <svg 
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="text-[#0E1C3D]"
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        display: 'block',
+                        margin: '0 auto'
+                      }}
+                    >
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M2 12H22" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M12 2C14.5 4.5 16 8.5 16 12S14.5 19.5 12 22C9.5 19.5 8 15.5 8 12S9.5 4.5 12 2Z" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <span className="font-bold text-gray-900">Baumfreundliche Materialien</span>
@@ -74,8 +164,37 @@ export default function BenefitsSection() {
                 </div>
                 
                 <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <i className="ri-earth-line text-[#0E1C3D] text-lg"></i>
+                  <div 
+                    className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px',
+                      maxWidth: '40px',
+                      maxHeight: '40px'
+                    }}
+                  >
+                    <svg 
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="text-[#0E1C3D]"
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        display: 'block',
+                        margin: '0 auto'
+                      }}
+                    >
+                      <path d="M12 22S2 16 2 9C2 7 4 2 12 2S22 7 22 9C22 16 12 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <span className="font-bold text-gray-900">CO₂-neutral produziert</span>
