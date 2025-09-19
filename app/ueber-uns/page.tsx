@@ -93,7 +93,7 @@ export default function UeberUns() {
                   <div className="relative">
                     <div className="aspect-square rounded-3xl bg-[url('https://readdy.ai/api/search-image?query=professional%20business%20portrait%20of%20confident%20male%20CEO%20entrepreneur%20in%20modern%20office%20setting%20wearing%20business%20casual%20attire%20warm%20lighting%20executive%20leadership%20sustainability%20focused%20innovative%20mindset%20clean%20background&width=400&height=400&seq=ceo-galip&orientation=squarish')] bg-cover bg-center bg-no-repeat border border-[#baf742]/20"></div>
                     <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-[#baf742] to-[#a3e635] rounded-2xl flex items-center justify-center">
-                      <i className="ri-tree-line text-[#2b3138] text-3xl"></i>
+                      <i className="ri-tree-line text-[#2b3138] text-3xl mx-auto"></i>
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function UeberUns() {
                   <div className="relative">
                     <div className="w-20 h-20 rounded-2xl bg-[url('https://readdy.ai/api/search-image?query=professional%20portrait%20of%20product%20manager%20engineer%20in%20modern%20workspace%20technical%20innovation%20manufacturing%20development%20expertise%20confident%20approachable%20clean%20industrial%20background%20product%20design%20focus&width=300&height=300&seq=rifat-acar&orientation=squarish')] bg-cover bg-center bg-no-repeat border border-[#baf742]/20 group-hover:border-[#baf742]/40 transition-all duration-300"></div>
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center group-hover:bg-[#baf742]/20 transition-all duration-300">
-                      <i className="ri-settings-3-line text-[#baf742] text-sm"></i>
+                      <i className="ri-settings-3-line text-[#baf742] text-sm mx-auto"></i>
                     </div>
                   </div>
                   
@@ -157,10 +157,10 @@ export default function UeberUns() {
                 <div className="flex items-start gap-6">
                   <div className="relative">
                     <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#baf742]/20 to-[#a3e635]/10 border border-[#baf742]/20 group-hover:border-[#baf742]/40 transition-all duration-300 flex items-center justify-center">
-                      <i className="ri-presentation-line text-[#baf742] text-2xl"></i>
+                      <i className="ri-presentation-line text-[#baf742] text-2xl mx-auto"></i>
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#baf742]/10 rounded-lg flex items-center justify-center group-hover:bg-[#baf742]/20 transition-all duration-300">
-                      <i className="ri-megaphone-line text-[#baf742] text-sm"></i>
+                      <i className="ri-megaphone-line text-[#baf742] text-sm mx-auto"></i>
                     </div>
                   </div>
                   
@@ -193,7 +193,7 @@ export default function UeberUns() {
               <div className="bg-white rounded-3xl p-8 border border-gray-200 border-dashed shadow-lg xl:col-span-1 md:col-span-2 xl:col-span-1">
                 <div className="text-center space-y-4">
                   <div className="w-16 h-16 bg-[#baf742]/10 rounded-2xl flex items-center justify-center mx-auto">
-                    <i className="ri-add-line text-[#baf742] text-2xl"></i>
+                    <i className="ri-add-line text-[#baf742] text-2xl mx-auto"></i>
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-[#2b3138] mb-2">Wir wachsen</h3>
@@ -229,7 +229,7 @@ export default function UeberUns() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center space-y-6 group">
                 <div className="w-20 h-20 bg-gradient-to-br from-[#baf742]/20 to-[#a3e635]/10 rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300">
-                  <i className="ri-leaf-line text-[#baf742] text-3xl group-hover:rotate-12 transition-transform duration-300"></i>
+                  <i className="ri-leaf-line text-[#baf742] text-3xl group-hover:rotate-12 transition-transform duration-300 mx-auto"></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-[#2b3138] mb-3 group-hover:text-[#baf742] transition-colors duration-300">
@@ -244,7 +244,7 @@ export default function UeberUns() {
 
               <div className="text-center space-y-6 group">
                 <div className="w-20 h-20 bg-gradient-to-br from-[#baf742]/20 to-[#a3e635]/10 rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300">
-                  <i className="ri-lightbulb-line text-[#baf742] text-3xl group-hover:rotate-12 transition-transform duration-300"></i>
+                  <i className="ri-lightbulb-line text-[#baf742] text-3xl group-hover:rotate-12 transition-transform duration-300 mx-auto"></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-[#2b3138] mb-3 group-hover:text-[#baf742] transition-colors duration-300">
@@ -259,7 +259,7 @@ export default function UeberUns() {
 
               <div className="text-center space-y-6 group">
                 <div className="w-20 h-20 bg-gradient-to-br from-[#baf742]/20 to-[#a3e635]/10 rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300">
-                  <i className="ri-recycle-line text-[#baf742] text-3xl group-hover:rotate-12 transition-transform duration-300"></i>
+                  <i className="ri-recycle-line text-[#baf742] text-3xl group-hover:rotate-12 transition-transform duration-300 mx-auto"></i>
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-[#2b3138] mb-3 group-hover:text-[#baf742] transition-colors duration-300">
@@ -333,7 +333,7 @@ export default function UeberUns() {
             <div className="bg-gradient-to-br from-[#baf742]/10 to-[#a3e635]/10 rounded-3xl p-12 border border-[#baf742]/20">
               <div className="max-w-2xl mx-auto space-y-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#baf742] to-[#a3e635] rounded-2xl flex items-center justify-center mx-auto">
-                  <i className="ri-heart-line text-[#2b3138] text-2xl"></i>
+                  <i className="ri-heart-line text-[#2b3138] text-2xl mx-auto"></i>
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-light text-[#2b3138]">
                   Werden Sie Teil unserer Mission
@@ -342,12 +342,12 @@ export default function UeberUns() {
                   Gemeinsam gestalten wir die Zukunft des Baumschutzes. 
                   Lassen Sie uns zusammen nachhaltige Lösungen entwickeln.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/kontakt" className="btn-small flex items-center gap-2 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-center">
+                  <Link href="/kontakt" className="btn-small flex items-center gap-2 justify-center mx-auto">
                     <i className="ri-team-line"></i>
                     Kontakt aufnehmen
                   </Link>
-                  <Link href="/system" className="btn-outline-small flex items-center gap-2 justify-center">
+                  <Link href="/system" className="btn-outline-small flex items-center gap-2 justify-center mx-auto">
                     <i className="ri-eye-line"></i>
                     Unser System
                   </Link>

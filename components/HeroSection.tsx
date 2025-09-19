@@ -70,15 +70,15 @@ export default function HeroSection() {
               </div>
 
               <div className="space-y-4 sm:space-y-6">
-                <h1 className="heading-1">
-                  <span className="block" style={{whiteSpace: 'nowrap'}}>Baumschutz in &lt;5&nbsp;Min</span>
-                  <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-gray-900 font-medium mt-2" style={{fontSize: 'clamp(1.25rem, 3vw, 2.5rem)'}}>
+                <h1 className="heading-1 font-bold">
+                  <span className="block">Baumschutz in &lt;5&nbsp;Min</span>
+                  <span className="block subtitle-large text-gray-700 font-medium mt-2">
                     70% günstiger über Lebenszyklus
                   </span>
                 </h1>
                 
                 <div className="space-y-4">
-                  <p className="text-base text-gray-700 font-normal leading-relaxed">
+                  <p className="body-base">
                     TriCast360 – der werkzeuglose Rundumschutz für Bäume. 
                     <span className="text-gray-900 font-medium">
                       Wiederverwendbar, konform, zukunftssicher.
@@ -88,38 +88,38 @@ export default function HeroSection() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#baf742] text-[#0E1C3D] px-8 py-4 lg:px-10 lg:py-5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 rounded-2xl font-semibold text-lg lg:text-xl xl:text-lg 2xl:text-xl hover:bg-[#0E1C3D] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+                  className="bg-[#baf742] text-[#0E1C3D] px-6 py-3 lg:px-7 lg:py-3.5 rounded-xl font-semibold text-base lg:text-lg hover:bg-[#0E1C3D] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
-                  <i className="ri-phone-line text-xl lg:text-2xl xl:text-xl 2xl:text-2xl"></i>
+                  <i className="ri-phone-line text-lg"></i>
                   Projekt anfragen
-                  <i className="ri-arrow-right-line text-lg lg:text-xl xl:text-lg 2xl:text-xl"></i>
+                  <i className="ri-arrow-right-line text-sm"></i>
                 </button>
                 
                 <Link 
                   href="/system" 
-                  className="btn-secondary flex items-center justify-center gap-3 px-8 py-4 lg:px-10 lg:py-5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 text-lg lg:text-xl xl:text-lg 2xl:text-xl"
+                  className="btn-secondary flex items-center justify-center gap-2 px-6 py-3 lg:px-7 lg:py-3.5 text-base lg:text-lg"
                 >
-                  <i className="ri-eye-line text-xl lg:text-2xl xl:text-xl 2xl:text-2xl"></i>
+                  <i className="ri-eye-line text-lg"></i>
                   System entdecken
-                  <i className="ri-external-link-line text-lg lg:text-xl xl:text-lg 2xl:text-xl"></i>
+                  <i className="ri-external-link-line text-sm"></i>
                 </Link>
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-row flex-wrap items-center justify-start gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 pt-6 w-full">
-                <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base xl:text-lg font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
-                  <i className="ri-tools-line text-green-600 text-base lg:text-lg xl:text-xl"></i>
-                  <span>Werkzeuglos</span>
+              <div className="flex flex-wrap gap-2 lg:gap-3">
+                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-2 lg:px-4 lg:py-2 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
+                  <i className="ri-recycle-line text-emerald-600 text-sm lg:text-base"></i>
+                  <span>Wertzeglos</span>
                 </div>
-                <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base xl:text-lg font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
-                  <i className="ri-recycle-line text-blue-600 text-base lg:text-lg xl:text-xl"></i>
+                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-2 lg:px-4 lg:py-2 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
+                  <i className="ri-refresh-line text-emerald-600 text-sm lg:text-base"></i>
                   <span>Wiederverwendbar</span>
                 </div>
-                <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base xl:text-lg font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
-                  <i className="ri-shield-check-line text-emerald-600 text-base lg:text-lg xl:text-xl"></i>
+                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-2 lg:px-4 lg:py-2 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
+                  <i className="ri-shield-check-line text-emerald-600 text-sm lg:text-base"></i>
                   <span>Konform</span>
                 </div>
               </div>

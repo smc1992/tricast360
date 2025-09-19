@@ -117,7 +117,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
-      <div className="rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" style={{
+      <div className="rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto" style={{
         background: 'linear-gradient(135deg, rgba(186, 247, 66, 0.95) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(186, 247, 66, 0.95) 100%)',
         border: '1px solid rgba(186, 247, 66, 0.3)'
       }}>

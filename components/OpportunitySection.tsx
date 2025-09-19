@@ -85,7 +85,7 @@ export default function OpportunitySection() {
             <i className="ri-star-line mr-2"></i>
             Warum Tricast360?
           </div>
-          <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight" style={{textAlign: 'left', margin: '0 0 2rem 0'}}>
+          <h2 className="heading-2 mb-8" style={{textAlign: 'left', margin: '0 0 2rem 0'}}>
             Einsatz & Vorteile
           </h2>
           <p className="text-base text-gray-600 font-light leading-relaxed" style={{textAlign: 'left', marginLeft: '0', marginRight: '0', maxWidth: '48rem', display: 'block'}}>
@@ -101,7 +101,7 @@ export default function OpportunitySection() {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-[#2b3138] mb-6">
+              <h3 className="heading-3 mb-6">
                 Unsere Vorteile
               </h3>
               
@@ -139,7 +139,7 @@ export default function OpportunitySection() {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-[#2b3138] mb-6">
+              <h3 className="heading-3 mb-6">
                 Einsatzfelder
               </h3>
               

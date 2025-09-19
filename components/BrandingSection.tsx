@@ -36,13 +36,13 @@ export default function BrandingSection() {
               <i className="ri-megaphone-line" style={{ color: '#baf742' }}></i>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6" style={{ color: '#0E1C3D' }}>
+            <h2 className="heading-2 font-bold mb-6" style={{ color: '#0E1C3D' }}>
               Ihr Branding im{' '}
               <span style={{ color: '#baf742' }}>
                 Fokus
               </span>
             </h2>
-            <p className="text-base mb-8 max-w-3xl" style={{ color: '#0E1C3D' }}>
+            <p className="body-base mb-8 max-w-3xl" style={{ color: '#0E1C3D' }}>
               Nutzen Sie TreeCast360 als mobile Werbefläche und zeigen Sie Ihr Engagement für Umweltschutz. 
               Ihre Marke wird zum Symbol für nachhaltigen Fortschritt.
             </p>
@@ -82,7 +82,7 @@ export default function BrandingSection() {
               
               {/* Branding Benefits */}
               <div className="space-y-6">
-                <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-6">
+                <h3 className="heading-3 font-bold text-gray-900 mb-6">
                   Maximale Sichtbarkeit für Ihr Unternehmen
                 </h3>
                 

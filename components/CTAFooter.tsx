@@ -16,20 +16,20 @@ export default function CTAFooter() {
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-white rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div className="max-w-4xl 2xl:max-w-[1200px] 3xl:max-w-[1400px] container-wide mx-auto text-center relative z-10">
+        <div className="max-w-4xl 2xl:max-w-[1200px] 3xl:max-w-[1400px] relative z-10">
           {/* Starker CTA-Block */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="heading-2 text-[#0a0c14]">
+              <h2 className="heading-2 text-[#0a0c14] text-left">
                 Bereit für nachhaltigen Baumschutz?
               </h2>
-              <p className="body-large text-[#0a0c14]/90 max-w-3xl mx-auto">
+              <p className="body-large text-[#0a0c14]/90 text-left">
                 Starten Sie Ihr nächstes Projekt mit TriCast360 und erleben Sie die Zukunft des umweltfreundlichen Baumschutzes.
               </p>
             </div>
 
             {/* Single Strong CTA Button */}
-            <div className="pt-4">
+            <div className="pt-4 text-center">
               <button 
                 onClick={() => setIsModalOpen(true)}
                 className="bg-white text-[#0a0c14] px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group"
@@ -41,7 +41,7 @@ export default function CTAFooter() {
             </div>
 
             {/* Vertrauens-Elemente */}
-            <div className="pt-8 border-t border-white/20">
+            <div className="pt-8 border-t border-white/20 text-center">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-[#0a0c14]/80">
                 <div className="flex items-center gap-2">
                   <i className="ri-time-line text-lg"></i>
