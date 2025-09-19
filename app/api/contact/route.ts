@@ -208,12 +208,20 @@ function createEmailTemplate(data: any, type: 'contact' | 'project' | 'configura
         <h3 style="margin: 0 0 15px 0; font-size: 18px;">🔧 Produktkonfiguration</h3>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
           <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">PRODUKTMODELL</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.productModel === '2-chamber' ? '2-Kammer System' : '7-Kammer System'}</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
             <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">DURCHMESSER</div>
             <div style="font-size: 16px; font-weight: 600;">${data.configuration.diameter} cm</div>
           </div>
           <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
             <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">HÖHE</div>
             <div style="font-size: 16px; font-weight: 600;">${data.configuration.height} cm</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">MODULE</div>
+            <div style="font-size: 16px; font-weight: 600;">${data.configuration.modules}</div>
           </div>
           <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
             <div style="font-size: 12px; opacity: 0.9; margin-bottom: 5px;">STÜCKZAHL</div>

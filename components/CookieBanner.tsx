@@ -21,7 +21,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
     necessary: true, // Immer aktiviert
     analytics: false,
     marketing: false,
-    timestamp: Date.now()
+    timestamp: 0 // Will be set in useEffect to avoid hydration mismatch
   });
 
   // Cookie-Kategorien mit Beschreibungen
@@ -53,7 +53,8 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
     // Prüfen ob bereits eine Einwilligung vorliegt
     const savedConsent = localStorage.getItem('cookie-consent');
     if (!savedConsent) {
-      // Banner nach kurzer Verzögerung anzeigen
+      // Set initial timestamp and show banner after delay
+      setConsent(prev => ({ ...prev, timestamp: Date.now() }));
       const timer = setTimeout(() => setIsVisible(true), 1000);
       return () => clearTimeout(timer);
     } else {
@@ -63,6 +64,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
         onConsentChange?.(parsedConsent);
       } catch (error) {
         console.error('Fehler beim Laden der Cookie-Einstellungen:', error);
+        setConsent(prev => ({ ...prev, timestamp: Date.now() }));
         setIsVisible(true);
       }
     }

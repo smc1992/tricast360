@@ -1,26 +1,12 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React from 'react';
+import { SectionGradient } from './GradientBackgrounds';
+import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function EnvironmentalImpactSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    const section = document.getElementById('environmental-impact');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
+  const isVisible = true; // Always visible
 
   return (
     <section id="environmental-impact" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
@@ -29,10 +15,10 @@ export default function EnvironmentalImpactSection() {
            <div className="absolute top-12 left-12 w-60 h-60 bg-[#90CFC4]/25 rounded-full"></div>
           <div className="absolute bottom-16 right-12 w-48 h-48 bg-[#90CFC4]/20 rounded-full"></div>
          </div>
-      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12 xl:px-12 2xl:px-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 3xl:gap-28 items-center">
           {/* Left Column - Content */}
-          <div className={`space-y-6 transition-all duration-1000 ${
+          <div className={`space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <h2 className="heading-2 text-gray-900">
@@ -41,28 +27,28 @@ export default function EnvironmentalImpactSection() {
               <span className="text-accent-500 font-medium">grünere Zukunft</span>
             </h2>
             
-            <div className="space-y-4">
-              <p className="body-base text-gray-700">
+            <div className="space-y-4 lg:space-y-5 xl:space-y-6 2xl:space-y-7">
+              <p className="body-base xl:text-xl 2xl:text-2xl text-gray-700">
                 Tricast360 setzt neue Maßstäbe in der nachhaltigen Stadtentwicklung.
                 Unser innovatives System schützt nicht nur Bäume, sondern auch unsere Umwelt.
               </p>
               
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">85% weniger CO₂-Emissionen durch nachhaltigen Materialkreislauf</span>
+              <ul className="space-y-3 lg:space-y-4 xl:space-y-5 2xl:space-y-6">
+                <li className="flex items-center gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+                  <div className="w-2 h-2 lg:w-3 lg:h-3 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700 xl:text-lg 2xl:text-xl">85% weniger CO₂-Emissionen durch nachhaltigen Materialkreislauf</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">75% Materialreduktion durch intelligente Wiederverwendung</span>
+                <li className="flex items-center gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+                  <div className="w-2 h-2 lg:w-3 lg:h-3 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700 xl:text-lg 2xl:text-xl">75% Materialreduktion durch intelligente Wiederverwendung</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">100% umweltfreundliche und nachhaltige Materialien</span>
+                <li className="flex items-center gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+                  <div className="w-2 h-2 lg:w-3 lg:h-3 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700 xl:text-lg 2xl:text-xl">100% umweltfreundliche und nachhaltige Materialien</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">Zukunftssichere Technologie für nachhaltige Stadtentwicklung</span>
+                <li className="flex items-center gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+                  <div className="w-2 h-2 lg:w-3 lg:h-3 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 bg-accent-500 rounded-full"></div>
+                  <span className="text-gray-700 xl:text-lg 2xl:text-xl">Zukunftssichere Technologie für nachhaltige Stadtentwicklung</span>
                 </li>
               </ul>
             </div>

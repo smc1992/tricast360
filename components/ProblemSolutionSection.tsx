@@ -1,87 +1,75 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { SectionGradient } from './GradientBackgrounds';
 import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function ProblemSolutionSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    const section = document.getElementById('problem-solution');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
+  const isVisible = true; // Always visible
 
   return (
-    <section id="problem-solution" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50">
-       {/* Geometric background shapes */}
-         <div className="absolute inset-0 overflow-hidden">
-           <div className="absolute top-10 right-20 w-48 h-48 bg-[#90CFC4]/10 rounded-full"></div>
-           <div className="absolute bottom-20 left-10 w-64 h-64 bg-[#90CFC4]/15 rounded-full"></div>
-         </div>
-      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* First Column - Content (Mobile: First, Desktop: Left) */}
-          <div className={`space-y-6 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h2 className="heading-2 text-gray-900">
-              Das Problem &
-              <br />
-              <span className="text-accent-500 font-medium">Die Lösung</span>
-            </h2>
-            
+    <section className="relative py-20 lg:py-24 xl:py-28 2xl:py-36 overflow-hidden">
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-red-100/40 to-orange-100/40 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-gray-200/50 to-slate-100/50 rounded-full blur-3xl"></div>
+      <SectionGradient />
+      <SectionNaturalBackground />
+      
+      <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12 xl:px-12 2xl:px-16 relative z-10">
+        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 items-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          {/* Enhanced Content */}
+          <div className="space-y-8 lg:space-y-10">
             <div className="space-y-4">
-              <p className="body-base text-gray-700">
-                Bäume in urbanen Gebieten sind täglich Gefahren ausgesetzt. TriCast360 bietet 
-                innovativen Schutz, der Natur und Stadtentwicklung in Einklang bringt.
-              </p>
+              <div className="inline-flex items-center gap-2 bg-red-100/80 backdrop-blur-sm text-red-800 px-4 py-2 rounded-full text-sm font-semibold border border-red-200/50">
+                <i className="ri-error-warning-line text-red-600"></i>
+                <span>Aktuelle Herausforderungen</span>
+              </div>
               
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">Schutz vor Baustellenschäden und Vandalismus</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">Erhaltung des urbanen Grüns für kommende Generationen</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">Nachhaltige Materialien für umweltbewusste Lösungen</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">Schnelle Installation ohne Wurzelschäden</span>
-                </li>
-              </ul>
+              <h2 className="heading-2 font-bold text-gray-900 leading-tight">
+                Das Problem: Baumschutz ist 
+                <span className="block text-red-600 mt-2">teuer und zeitaufwändig</span>
+              </h2>
             </div>
-
- 
+            
+            <p className="body-large text-gray-700 leading-relaxed">
+              Herkömmliche Baumschutzlösungen sind nicht nur kostspielig, sondern auch arbeitsintensiv. 
+              Viele Systeme erfordern Werkzeuge, sind schwer zu transportieren und oft nicht wiederverwendbar.
+            </p>
+            
+            <div className="space-y-5">
+              <li className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-red-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                <span className="body-base text-gray-800 font-medium">Hohe Anschaffungskosten bei einmaliger Nutzung</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-red-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                <span className="body-base text-gray-800 font-medium">Zeitaufwändige Installation mit Werkzeugen</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-red-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                <span className="body-base text-gray-800 font-medium">Schwerer Transport und Lagerung</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-red-100/50 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
+                <span className="body-base text-gray-800 font-medium">Nicht nachhaltig und umweltbelastend</span>
+              </li>
+            </div>
           </div>
-
-          {/* Second Column - Image (Mobile: Second, Desktop: Right) */}
-          <div className={`flex justify-center lg:justify-start transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[48rem] 3xl:h-[48rem]">
+          
+          {/* Enhanced Image */}
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-red-200/20 to-orange-200/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                 <img 
                   src="/images/1x/1x/stump-of-a-tree-on-the-green-grass-in-the-city-2024-12-07-02-11-18-utc%20(1).webp"
                   alt="Baumstumpf auf grünem Gras - Problem ohne nachhaltigen Baumschutz"
-                  className="w-full h-full object-cover rounded-3xl border border-gray-200 shadow-lg"
+                  className="w-full h-full object-cover rounded-3xl border border-gray-200/50 group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl"></div>
             </div>
           </div>
         </div>

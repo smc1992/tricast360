@@ -1,26 +1,12 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { SectionGradient } from './GradientBackgrounds';
+import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function HowItWorksSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    const section = document.getElementById('how-it-works');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
+  const isVisible = true; // Always visible
 
   useEffect(() => {
     let tl: any | null = null;
@@ -176,12 +162,12 @@ export default function HowItWorksSection() {
   }, []);
 
   return (
-    <section id="how-it-works" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
-      {/* Geometric background shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-16 right-16 w-44 h-44 bg-[#90CFC4]/20 rounded-full"></div>
-           <div className="absolute bottom-24 left-16 w-52 h-52 bg-[#90CFC4]/12 rounded-full"></div>
-        </div>
+    <section id="how-it-works" className="relative py-20 lg:py-24 xl:py-28 2xl:py-36 overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-[#baf742]/5"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#baf742]/20 to-[#90CFC4]/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#90CFC4]/15 to-[#baf742]/15 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#baf742]/10 to-[#90CFC4]/10 rounded-full blur-2xl"></div>
       <style jsx>{`
         @media (prefers-reduced-motion: reduce) {
           * {
@@ -191,8 +177,8 @@ export default function HowItWorksSection() {
         }
       `}</style>
       
-      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12 xl:px-12 2xl:px-16">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 items-center relative z-10">
           {/* First Column - Grafik (Mobile: Second, Desktop: Left) */}
           <div className={`flex justify-center lg:justify-start transition-all duration-1000 order-2 lg:order-1 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -277,51 +263,70 @@ export default function HowItWorksSection() {
             </div>
           </div>
           
-          {/* Second Column - Content (Mobile: First, Desktop: Right) */}
-          <div className={`space-y-6 transition-all duration-1000 delay-300 order-1 lg:order-2 ${
+          {/* Enhanced Content Section */}
+          <div className={`space-y-8 lg:space-y-10 xl:space-y-12 transition-all duration-1000 delay-300 order-1 lg:order-2 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="heading-2 text-gray-900">
-              Drei einfache <span className="text-accent-500 font-medium">Schritte</span>
-            </h2>
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 bg-[#baf742]/20 backdrop-blur-sm text-[#0E1C3D] px-4 py-2 rounded-full text-sm font-semibold border border-[#baf742]/30">
+                <i className="ri-time-line text-[#0E1C3D]"></i>
+                <span>Schnelle Installation</span>
+              </div>
+              
+              <h2 className="heading-2 font-bold text-gray-900 leading-tight">
+                Drei einfache 
+                <span className="block bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mt-2">Schritte</span>
+              </h2>
+            </div>
             
-            <p className="body-base text-gray-600">
+            <p className="body-large text-gray-700 leading-relaxed">
               Die Installation des TriCast360 Baumschutzsystems ist werkzeuglos und dauert weniger als 5 Minuten. 
               Unser innovatives Design macht den Schutz Ihrer Bäume so einfach wie nie zuvor.
             </p>
             
-            <div className="space-y-4">
-              <div className="flex items-start gap-4 lg:gap-6">
-                <div className="flex-shrink-0 w-8 h-8 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 bg-[#baf742] text-[#0E1C3D] rounded-full grid place-items-center font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl leading-none">
-                  1
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Elemente um den Stamm legen</h3>
-                  <p className="text-gray-600">Positionieren Sie die gepolsterten Schutzmodule um den Baumstamm.</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 lg:gap-6">
-                <div className="flex-shrink-0 w-8 h-8 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 bg-[#baf742] text-[#0E1C3D] rounded-full grid place-items-center font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl leading-none">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Gurtsystem werkzeuglos schließen</h3>
-                  <p className="text-gray-600">Verbinden Sie die Module mit unserem patentierten Verschlusssystem.</p>
+            <div className="space-y-6">
+              <div className="group p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-[#0E1C3D] rounded-2xl grid place-items-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    1
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-gray-900 text-lg">Elemente um den Stamm legen</h3>
+                    <p className="text-gray-700 leading-relaxed">Positionieren Sie die gepolsterten Schutzmodule um den Baumstamm.</p>
+                  </div>
                 </div>
               </div>
               
-              <div className="flex items-start gap-4 lg:gap-6">
-                <div className="flex-shrink-0 w-8 h-8 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 bg-[#baf742] text-[#0E1C3D] rounded-full grid place-items-center font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl leading-none">
-                  3
+              <div className="group p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-[#0E1C3D] rounded-2xl grid place-items-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    2
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-gray-900 text-lg">Gurtsystem werkzeuglos schließen</h3>
+                    <p className="text-gray-700 leading-relaxed">Verbinden Sie die Module mit unserem patentierten Verschlusssystem.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Höhe justieren und fertig</h3>
-                  <p className="text-gray-600">Passen Sie die Höhe an und genießen Sie optimalen Schutz in unter 5 Minuten.</p>
+              </div>
+              
+              <div className="group p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-[#0E1C3D] rounded-2xl grid place-items-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    3
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-gray-900 text-lg">Höhe justieren und fertig</h3>
+                    <p className="text-gray-700 leading-relaxed">Passen Sie die Höhe an und genießen Sie optimalen Schutz in unter 5 Minuten.</p>
+                  </div>
                 </div>
               </div>
             </div>
             
+            {/* Time Badge */}
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#baf742]/10 to-[#90CFC4]/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-[#baf742]/30">
+              <i className="ri-timer-2-line text-[#0E1C3D] text-xl"></i>
+              <span className="font-semibold text-[#0E1C3D]">Gesamtzeit: &lt; 5 Minuten</span>
+            </div>
 
           </div>
         </div>

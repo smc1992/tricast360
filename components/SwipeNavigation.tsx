@@ -82,7 +82,7 @@ export default function SwipeNavigation({
 // Hook for section navigation
 export function useSectionNavigation() {
   const [currentSection, setCurrentSection] = useState(0);
-  const sections = ['hero', 'problem', 'funktionsweise', 'vorteile', 'umwelt', 'markt'];
+  const sections = ['hero', 'problem', 'funktionsweise', 'vorteile', 'environmental', 'branding', 'vision-2025', 'markt'];
 
   const navigateToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

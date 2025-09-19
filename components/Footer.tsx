@@ -2,9 +2,14 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(2025); // Default fallback
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-[#0a0c14] border-t border-gray-700 relative overflow-hidden">
@@ -14,7 +19,7 @@ export default function Footer() {
         <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-[#baf742]/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto py-16 px-6 md:px-8 lg:px-12 relative z-10">
+      <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto py-16 px-6 md:px-8 lg:px-12 relative z-10">
         {/* 4-Spalten-Layout */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           

@@ -3,39 +3,49 @@
 import { useState, useEffect } from 'react';
 import ProjectRequestModal from './ProjectRequestModal';
 import Link from 'next/link';
-import { HeroGradient } from './GradientBackgrounds';
-import { HeroNaturalBackground } from './NaturalBackground';
 
 export default function HeroSection() {
-  const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-    const timer = setTimeout(() => setIsVisible(true), 100);
+    setMounted(true);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
-  if (!isMounted) {
+  if (!mounted) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 overflow-hidden">
-        <HeroGradient className="absolute inset-0" />
-        <HeroNaturalBackground />
-        <div className="max-w-7xl w-full mx-auto relative z-20">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left opacity-0">
-              <div className="space-y-4 sm:space-y-6">
-                <h1 className="heading-1">
-                  <span className="block">TriCast360</span>
-                  <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-gray-600 font-light mt-2">
-                    Der neue Standard
-                  </span>
-                  <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#baf742] font-light">
-                    im Baumschutz
-                  </span>
+      <section className="relative bg-gradient-to-br from-white via-gray-50/30 to-[#baf742]/5 flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 overflow-hidden">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+            <div className="text-left space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12">
+              <div className="space-y-4 lg:space-y-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl font-bold text-gray-900 leading-tight">
+                  <span className="block">Baumschutz</span>
+                  <span className="block text-[#baf742]">neu gedacht</span>
                 </h1>
+                <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-gray-600 max-w-2xl">
+                  Revolutionäres Schutzsystem für Bäume - wiederverwendbar, nachhaltig und kostengünstig.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-start">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-[#baf742] hover:bg-[#a8e63a] text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 transform hover:scale-105 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
+                >
+                  Jetzt anfragen
+                </button>
+                <Link 
+                  href="#features"
+                  className="border-2 border-gray-300 hover:border-[#baf742] text-gray-700 hover:text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
+                >
+                  Mehr erfahren
+                </Link>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end opacity-0">
@@ -49,122 +59,140 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="relative min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56">
-        {/* Clean geometric background */}
+      <section className="relative bg-gradient-to-br from-white via-gray-50/30 to-[#baf742]/5 flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 overflow-hidden">
+        {/* Enhanced geometric background */}
         <div className="absolute inset-0">
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#90CFC4]/20 rounded-full"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#baf742]/10 to-[#90CFC4]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-[#90CFC4]/15 to-[#baf742]/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-transparent via-[#baf742]/5 to-transparent rounded-full"></div>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide w-full mx-auto relative z-20">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <div className="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide w-full mx-auto relative z-20">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 2xl:gap-20 3xl:gap-24 items-start">
             {/* Left Column - Text Content */}
-            <div className={`space-y-6 sm:space-y-8 lg:space-y-10 xl:space-y-12 text-left transition-all duration-1000 ${
+            <div className={`space-y-6 sm:space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 3xl:space-y-16 text-left flex flex-col items-start transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              {/* Umwelt-Badge */}
-              <div className="inline-flex items-center gap-3 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-gray-200">
-                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                <span className="text-gray-700 text-sm font-medium">Nachhaltige Innovation für die Zukunft</span>
-                <i className="ri-leaf-line text-gray-500 text-sm"></i>
+              {/* Enhanced Umwelt-Badge */}
+              <div className="flex items-center gap-3 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-gray-800 px-5 py-3 rounded-full text-sm font-semibold mb-6 border border-[#baf742]/30 shadow-lg w-fit">
+                <div className="w-2.5 h-2.5 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-full animate-pulse"></div>
+                Umweltfreundlich & Nachhaltig
               </div>
 
-              <div className="space-y-4 sm:space-y-6">
-                <h1 className="heading-1 font-bold">
-                  <span className="block">Baumschutz in &lt;5&nbsp;Min</span>
-                  <span className="block subtitle-large text-gray-700 font-medium mt-2">
-                    70% günstiger über Lebenszyklus
-                  </span>
+              {/* Enhanced Headline */}
+              <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-left">
+                <h1 className="heading-1 text-left">
+                  <span className="block text-left">Revolutionäres</span>
+                  <span className="block text-left text-[#baf742]">Schutzsystem</span>
+                  <span className="block text-left">für Bäume</span>
                 </h1>
                 
-                <div className="space-y-4">
-                  <p className="body-base">
-                    TriCast360 – der werkzeuglose Rundumschutz für Bäume. 
-                    <span className="text-gray-900 font-medium">
-                      Wiederverwendbar, konform, zukunftssicher.
-                    </span>
+                <div className="text-left w-full">
+                  <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-gray-600 leading-relaxed text-left w-full">
+                    wiederverwendbar, nachhaltig und kostengünstig. 
+                  </p>
+                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-gray-600 leading-relaxed text-left w-full mt-2">
+                    Perfekt für Baustellen, Veranstaltungen und Stadtentwicklung.
                   </p>
                 </div>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start">
+              {/* Enhanced CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-start items-start">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#baf742] text-[#0E1C3D] px-6 py-3 lg:px-7 lg:py-3.5 rounded-xl font-semibold text-base lg:text-lg hover:bg-[#0E1C3D] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                  className="group bg-gradient-to-r from-[#baf742] to-[#90CFC4] hover:from-[#a8e63a] hover:to-[#7fb8b3] text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
                 >
-                  <i className="ri-phone-line text-lg"></i>
-                  Projekt anfragen
-                  <i className="ri-arrow-right-line text-sm"></i>
+                  <span className="flex items-center gap-3">
+                    Jetzt anfragen
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 3xl:w-9 3xl:h-9 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
                 </button>
-                
                 <Link 
-                  href="/system" 
-                  className="btn-secondary flex items-center justify-center gap-2 px-6 py-3 lg:px-7 lg:py-3.5 text-base lg:text-lg"
+                  href="#features"
+                  className="border-2 border-gray-300 hover:border-[#baf742] text-gray-700 hover:text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 hover:bg-[#baf742]/5 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
                 >
-                  <i className="ri-eye-line text-lg"></i>
-                  System entdecken
-                  <i className="ri-external-link-line text-sm"></i>
+                  Mehr erfahren
                 </Link>
               </div>
 
-              {/* Trust Badges */}
-              <div className="flex flex-wrap gap-2 lg:gap-3">
-                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-2 lg:px-4 lg:py-2 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
-                  <i className="ri-recycle-line text-emerald-600 text-sm lg:text-base"></i>
-                  <span>Wertzeglos</span>
+              {/* Enhanced Trust Indicators */}
+              <div className="flex flex-wrap items-center gap-6 lg:gap-8 pt-4 lg:pt-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-green-500 rounded-full"></div>
+                  <span className="text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl text-gray-600">Made in Germany</span>
                 </div>
-                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-2 lg:px-4 lg:py-2 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
-                  <i className="ri-refresh-line text-emerald-600 text-sm lg:text-base"></i>
-                  <span>Wiederverwendbar</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl text-gray-600">TÜV Geprüft</span>
                 </div>
-                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-2 lg:px-4 lg:py-2 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
-                  <i className="ri-shield-check-line text-emerald-600 text-sm lg:text-base"></i>
-                  <span>Konform</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-[#baf742] rounded-full"></div>
+                  <span className="text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl text-gray-600">100% Recyclebar</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Visual Content */}
-            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 mt-5 lg:mt-0 ${
+            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[44rem] 3xl:h-[44rem]">
-                {/* Hero Image */}
-                <div className="relative w-full h-full rounded-3xl overflow-hidden border border-gray-200">
-                  <img 
-                    src="https://static.readdy.ai/image/5cb98375ce345c7331a1619afba21cba/0623913294cb49f45f91812b9749776a.jfif" 
-                    alt="TriCast360 Baumschutz System" 
-                    className="w-full h-full object-cover"
-                  />
-                  
-                  {/* Overlay with stats */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-gray-200 max-w-sm w-full">
-                      <div className="flex items-center justify-between text-sm gap-6">
-                        <div className="text-center flex-1">
-                          <div className="font-semibold text-gray-900">&lt;5 Min</div>
-                          <div className="text-gray-600 text-xs">Installation</div>
-                        </div>
-                        <div className="text-center flex-1">
-                          <div className="font-semibold text-gray-900">100%</div>
-                          <div className="text-gray-600 text-xs">Wiederverwendbar</div>
-                        </div>
-                        <div className="text-center flex-1">
-                          <div className="font-semibold text-gray-900">70%</div>
-                          <div className="text-gray-600 text-xs">Kostenersparnis</div>
+              <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl 3xl:max-w-4xl mx-auto lg:mx-0">
+                <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[44rem] 3xl:h-[44rem] mx-auto">
+                  {/* Hero Image */}
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden border border-gray-200">
+                    <img 
+                      src="/Baum Bild .webp" 
+                      alt="TriCast360 Baumschutz System" 
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Overlay with stats */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-gray-200 max-w-sm w-full">
+                        <div className="flex items-center justify-between text-sm gap-6">
+                          <div className="text-center flex-1">
+                            <div className="font-semibold text-gray-900">&lt;5 Min</div>
+                            <div className="text-gray-600 text-xs">Installation</div>
+                          </div>
+                          <div className="text-center flex-1">
+                            <div className="font-semibold text-gray-900">100%</div>
+                            <div className="text-gray-600 text-xs">Wiederverwendbar</div>
+                          </div>
+                          <div className="text-center flex-1">
+                            <div className="font-semibold text-gray-900">70%</div>
+                            <div className="text-gray-600 text-xs">Kostenersparnis</div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Additional floating stats */}
-                <div className="absolute -top-8 right-8 bg-white border border-gray-200 rounded-2xl p-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-semibold text-gray-900">CO₂</div>
-                    <div className="text-xs text-gray-600">Neutral</div>
+                  {/* Additional floating stats */}
+                  <div className="absolute -top-8 right-8 bg-white border border-gray-200 rounded-2xl p-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-semibold text-gray-900">CO₂</div>
+                      <div className="text-xs text-gray-600">Neutral</div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Stats */}
+                  <div className="absolute -bottom-6 -left-6 bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
+                    <div className="text-center">
+                      <div className="text-2xl font-semibold text-[#baf742]">5+</div>
+                      <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg text-gray-600">Jahre Garantie</div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-8 -left-8 bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
+                    <div className="text-center">
+                      <div className="text-2xl font-semibold text-[#90CFC4]">24/7</div>
+                      <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg text-gray-600">Verfügbar</div>
+                    </div>
                   </div>
                 </div>
               </div>

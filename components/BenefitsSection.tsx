@@ -1,71 +1,89 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function BenefitsSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    const section = document.getElementById('benefits');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
+  const isVisible = true; // Always visible
 
   return (
-    <section id="benefits" className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
-      {/* Geometric background shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-56 h-56 bg-[#90CFC4]/20 rounded-full"></div>
-          <div className="absolute bottom-10 right-20 w-40 h-40 bg-[#90CFC4]/25 rounded-full"></div>
-        </div>
-      <div className="max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1600px] container-wide mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* First Column - Content (Mobile: First, Desktop: Left) */}
-          <div className={`space-y-6 transition-all duration-1000 ${
+    <section id="benefits" className="relative py-20 lg:py-28 xl:py-32 bg-gradient-to-br from-gray-50 via-white to-[#baf742]/5 overflow-hidden">
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Top gradient blur */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-br from-[#baf742]/20 to-[#90CFC4]/20 rounded-full blur-3xl"></div>
+        
+        {/* Bottom gradient blur */}
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-tl from-[#90CFC4]/15 to-[#baf742]/15 rounded-full blur-3xl"></div>
+        
+        {/* Center accent */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#baf742]/5 to-transparent rounded-full"></div>
+      </div>
+      <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12 xl:px-12 2xl:px-16">
+        <div className="grid lg:grid-cols-2 lg:gap-16 xl:gap-20 2xl:gap-24 3xl:gap-28 items-center">
+          {/* Enhanced Content Section */}
+          <div className={`space-y-8 lg:space-y-10 xl:space-y-12 transition-all duration-1000 relative z-10 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="heading-2 text-gray-900">
-              Nachhaltige
-              <br />
-              <span className="text-accent-500 font-medium">Innovation</span>
-            </h2>
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 bg-[#baf742]/20 backdrop-blur-sm text-[#0E1C3D] px-4 py-2 rounded-full text-sm font-semibold border border-[#baf742]/30">
+                <i className="ri-leaf-line text-[#0E1C3D]"></i>
+                <span>Nachhaltige Innovation</span>
+              </div>
+              
+              <h2 className="heading-2 font-bold text-gray-900 leading-tight">
+                Nachhaltige
+                <span className="block bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mt-2">Innovation</span>
+              </h2>
+            </div>
             
-            <div className="space-y-4">
-              <p className="body-base text-gray-700">
+            <div className="space-y-8">
+              <p className="body-large text-gray-700 leading-relaxed">
                 TriCast360 vereint Umweltschutz mit wirtschaftlicher Effizienz. 
                 Unser System macht nachhaltigen Baumschutz zur intelligenten Investition in die Zukunft.
               </p>
               
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">80% CO₂-Reduktion vs. herkömmliche Systeme</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">100% wiederverwendbar durch Mehrfachnutzung</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">Baumfreundliche und nachhaltige Materialien</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                  <span className="text-gray-700">CO₂-neutral produziert für maximale Nachhaltigkeit</span>
-                </li>
-              </ul>
+              <div className="space-y-4">
+                <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <i className="ri-leaf-line text-[#0E1C3D] text-lg"></i>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-bold text-gray-900">80% CO₂-Reduktion</span>
+                    <p className="text-gray-600 text-sm">vs. herkömmliche Systeme</p>
+                  </div>
+                </div>
+                
+                <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <i className="ri-recycle-line text-[#0E1C3D] text-lg"></i>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-bold text-gray-900">100% wiederverwendbar</span>
+                    <p className="text-gray-600 text-sm">durch Mehrfachnutzung</p>
+                  </div>
+                </div>
+                
+                <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <i className="ri-plant-line text-[#0E1C3D] text-lg"></i>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-bold text-gray-900">Baumfreundliche Materialien</span>
+                    <p className="text-gray-600 text-sm">nachhaltig und umweltschonend</p>
+                  </div>
+                </div>
+                
+                <div className="group flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl grid place-items-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <i className="ri-earth-line text-[#0E1C3D] text-lg"></i>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-bold text-gray-900">CO₂-neutral produziert</span>
+                    <p className="text-gray-600 text-sm">für maximale Nachhaltigkeit</p>
+                  </div>
+                </div>
+              </div>
             </div>
-
 
            </div>
 
