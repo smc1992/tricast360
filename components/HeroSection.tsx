@@ -24,7 +24,7 @@ export default function HeroSection() {
         <HeroGradient className="absolute inset-0" />
         <HeroNaturalBackground />
         <div className="max-w-7xl w-full mx-auto relative z-20">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-4 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left opacity-0">
               <div className="space-y-4 sm:space-y-6">
                 <h1 className="heading-1">
@@ -39,7 +39,7 @@ export default function HeroSection() {
               </div>
             </div>
             <div className="flex justify-center lg:justify-end opacity-0">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[40rem] xl:h-[40rem] 2xl:w-[48rem] 2xl:h-[48rem] 3xl:w-[56rem] 3xl:h-[56rem]"></div>
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[44rem] 3xl:h-[44rem]"></div>
             </div>
           </div>
         </div>
@@ -57,9 +57,9 @@ export default function HeroSection() {
 
         {/* Main Content */}
         <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide w-full mx-auto relative z-20">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-4 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className={`space-y-6 sm:space-y-8 text-left transition-all duration-1000 ${
+            <div className={`space-y-6 sm:space-y-8 lg:space-y-10 xl:space-y-12 text-left transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               {/* Umwelt-Badge */}
@@ -71,14 +71,14 @@ export default function HeroSection() {
 
               <div className="space-y-4 sm:space-y-6">
                 <h1 className="heading-1">
-                  <span className="block">Baumschutz in &lt;5 Min</span>
-                  <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-900 font-medium mt-2">
-                    60% günstiger über Lebenszyklus
+                  <span className="block" style={{whiteSpace: 'nowrap'}}>Baumschutz in &lt;5&nbsp;Min</span>
+                  <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl text-gray-900 font-medium mt-2" style={{fontSize: 'clamp(1.25rem, 3vw, 2.5rem)'}}>
+                    70% günstiger über Lebenszyklus
                   </span>
                 </h1>
                 
                 <div className="space-y-4">
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 font-normal leading-relaxed">
+                  <p className="text-base text-gray-700 font-normal leading-relaxed">
                     TriCast360 – der werkzeuglose Rundumschutz für Bäume. 
                     <span className="text-gray-900 font-medium">
                       Wiederverwendbar, konform, zukunftssicher.
@@ -91,45 +91,45 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-[#baf742] text-[#0E1C3D] px-8 py-4 lg:px-10 lg:py-5 rounded-2xl font-semibold text-lg lg:text-xl hover:bg-[#0E1C3D] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+                  className="bg-[#baf742] text-[#0E1C3D] px-8 py-4 lg:px-10 lg:py-5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 rounded-2xl font-semibold text-lg lg:text-xl xl:text-lg 2xl:text-xl hover:bg-[#0E1C3D] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
                 >
-                  <i className="ri-phone-line text-xl lg:text-2xl"></i>
+                  <i className="ri-phone-line text-xl lg:text-2xl xl:text-xl 2xl:text-2xl"></i>
                   Projekt anfragen
-                  <i className="ri-arrow-right-line text-lg lg:text-xl"></i>
+                  <i className="ri-arrow-right-line text-lg lg:text-xl xl:text-lg 2xl:text-xl"></i>
                 </button>
                 
                 <Link 
                   href="/system" 
-                  className="btn-secondary flex items-center justify-center gap-3"
+                  className="btn-secondary flex items-center justify-center gap-3 px-8 py-4 lg:px-10 lg:py-5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 text-lg lg:text-xl xl:text-lg 2xl:text-xl"
                 >
-                  <i className="ri-eye-line text-xl lg:text-2xl"></i>
+                  <i className="ri-eye-line text-xl lg:text-2xl xl:text-xl 2xl:text-2xl"></i>
                   System entdecken
-                  <i className="ri-external-link-line text-lg lg:text-xl"></i>
+                  <i className="ri-external-link-line text-lg lg:text-xl xl:text-lg 2xl:text-xl"></i>
                 </Link>
               </div>
 
               {/* Trust Badges */}
-              <div style={{display: 'flex', flexDirection: 'row', gap: '12px', paddingTop: '16px', flexWrap: 'wrap'}}>
-                <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#f9fafb', padding: '8px 12px', borderRadius: '9999px', border: '1px solid #e5e7eb', whiteSpace: 'nowrap'}}>
-                  <i className="ri-tools-line" style={{color: '#6b7280', fontSize: '14px'}}></i>
-                  <span style={{color: '#374151', fontSize: '14px', fontWeight: '500'}}>Werkzeuglos</span>
+              <div className="flex flex-row flex-wrap items-center justify-start gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 pt-6 w-full">
+                <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base xl:text-lg font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
+                  <i className="ri-tools-line text-green-600 text-base lg:text-lg xl:text-xl"></i>
+                  <span>Werkzeuglos</span>
                 </div>
-                <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#f9fafb', padding: '8px 12px', borderRadius: '9999px', border: '1px solid #e5e7eb', whiteSpace: 'nowrap'}}>
-                  <i className="ri-recycle-line" style={{color: '#6b7280', fontSize: '14px'}}></i>
-                  <span style={{color: '#374151', fontSize: '14px', fontWeight: '500'}}>Wiederverwendbar</span>
+                <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base xl:text-lg font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
+                  <i className="ri-recycle-line text-blue-600 text-base lg:text-lg xl:text-xl"></i>
+                  <span>Wiederverwendbar</span>
                 </div>
-                <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#f9fafb', padding: '8px 12px', borderRadius: '9999px', border: '1px solid #e5e7eb', whiteSpace: 'nowrap'}}>
-                  <i className="ri-shield-check-line" style={{color: '#6b7280', fontSize: '14px'}}></i>
-                  <span style={{color: '#374151', fontSize: '14px', fontWeight: '500'}}>Konform</span>
+                <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/80 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-full border border-gray-200/60 shadow-sm text-sm lg:text-base xl:text-lg font-medium text-gray-700 hover:bg-white/90 transition-all duration-200 flex-shrink-0">
+                  <i className="ri-shield-check-line text-emerald-600 text-base lg:text-lg xl:text-xl"></i>
+                  <span>Konform</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Visual Content */}
-            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 mt-5 lg:mt-0 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[40rem] xl:h-[40rem] 2xl:w-[48rem] 2xl:h-[48rem] 3xl:w-[56rem] 3xl:h-[56rem]">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[44rem] 3xl:h-[44rem]">
                 {/* Hero Image */}
                 <div className="relative w-full h-full rounded-3xl overflow-hidden border border-gray-200">
                   <img 
@@ -152,8 +152,8 @@ export default function HeroSection() {
                           <div className="text-gray-600 text-xs">Wiederverwendbar</div>
                         </div>
                         <div className="text-center flex-1">
-                          <div className="font-semibold text-gray-900">60%</div>
-                          <div className="text-gray-600 text-xs">Günstiger</div>
+                          <div className="font-semibold text-gray-900">70%</div>
+                          <div className="text-gray-600 text-xs">Kostenersparnis</div>
                         </div>
                       </div>
                     </div>

@@ -190,7 +190,7 @@ export default function ProductConfigurator() {
 
           <!-- Module am Baumstamm -->
           ${Array.from({length: count}).map((_,i) => {
-            const moduleY = treeY + 150 + i*(moduleHeight + 10); // Module weit unten am Stamm
+            const moduleY = treeY + 100 + i*(moduleHeight + 15); // Module am unteren Stamm, weit weg von der Krone
             return `
               <g class="module module-${i}" transform="translate(0, ${moduleY})" style="opacity: 0; transform: scale(0.8);">
                 <!-- Modul Polster um den Stamm - sollte den Stamm umschließen -->

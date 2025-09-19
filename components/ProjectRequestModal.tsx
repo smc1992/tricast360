@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LoadingButton from './LoadingButton';
 
 interface ProjectRequestModalProps {
@@ -32,6 +32,22 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
     'Landschaftsbau',
     'Sonstiges'
   ];
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore body scroll when modal closes
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -100,8 +116,11 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-[#2b3138] rounded-3xl shadow-2xl border border-[#3c4450] w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
+      <div className="rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" style={{
+        background: 'linear-gradient(135deg, rgba(186, 247, 66, 0.95) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(186, 247, 66, 0.95) 100%)',
+        border: '1px solid rgba(186, 247, 66, 0.3)'
+      }}>
         <div className="p-8">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
@@ -110,13 +129,13 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 <i className="ri-phone-line text-[#baf742] text-xl"></i>
               </div>
               <div>
-                <h2 className="text-2xl font-semibold text-[#ECEFF3]">Projekt anfragen</h2>
-                <p className="text-[#B6BCCA] text-sm">Wir melden uns innerhalb von 24 Stunden bei Ihnen</p>
+                <h2 className="text-2xl font-semibold text-[#0E1C3D]">Projekt anfragen</h2>
+                <p className="text-gray-600 text-sm">Wir melden uns innerhalb von 24 Stunden bei Ihnen</p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="w-10 h-10 flex items-center justify-center text-[#B6BCCA] hover:text-[#baf742] hover:bg-[#baf742]/10 rounded-xl transition-all duration-200 cursor-pointer"
+              className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-[#baf742] hover:bg-[#baf742]/10 rounded-xl transition-all duration-200 cursor-pointer"
             >
               <i className="ri-close-line text-xl"></i>
             </button>
@@ -129,7 +148,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 <i className="ri-check-line text-[#baf742] text-xl"></i>
                 <div>
                   <p className="text-[#baf742] font-medium">Anfrage erfolgreich gesendet!</p>
-                  <p className="text-[#B6BCCA] text-sm">Wir melden uns so schnell wie möglich bei Ihnen.</p>
+                  <p className="text-gray-600 text-sm">Wir melden uns so schnell wie möglich bei Ihnen.</p>
                 </div>
               </div>
             </div>
@@ -142,13 +161,13 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 <div>
                   <p className="text-red-400 font-medium">Fehler beim Senden</p>
                   {errors.length > 0 ? (
-                    <ul className="text-[#B6BCCA] text-sm mt-1">
+                    <ul className="text-gray-600 text-sm mt-1">
                       {errors.map((error, index) => (
                         <li key={index}>• {error}</li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-[#B6BCCA] text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
+                    <p className="text-gray-600 text-sm">Bitte überprüfen Sie Ihre Eingaben und versuchen es erneut.</p>
                   )}
                 </div>
               </div>
@@ -159,7 +178,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
           <form id="project-request-form" onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Unternehmen *</label>
+                <label className="text-[#0E1C3D] font-medium">Unternehmen *</label>
                 <input
                   type="text"
                   name="company"
@@ -171,7 +190,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Ansprechpartner *</label>
+                <label className="text-[#0E1C3D] font-medium">Ansprechpartner *</label>
                 <input
                   type="text"
                   name="name"
@@ -186,26 +205,26 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">E-Mail *</label>
+                <label className="text-[#0E1C3D] font-medium">E-Mail *</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="ihre.email@example.com"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Telefon *</label>
+                <label className="text-[#0E1C3D] font-medium">Telefon *</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="+49 (0) 123 456 789"
                 />
               </div>
@@ -213,13 +232,13 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Art des Projekts</label>
+                <label className="text-[#0E1C3D] font-medium">Art des Projekts</label>
                 <div className="relative">
                   <select
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 pr-8 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 pr-8 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm appearance-none cursor-pointer"
                   >
                     <option value="">Projekt auswählen</option>
                     {projectTypes.map((type) => (
@@ -230,14 +249,14 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Anzahl Bäume</label>
+                <label className="text-[#0E1C3D] font-medium">Anzahl Bäume</label>
                 <input
                   type="number"
                   name="treeCount"
                   value={formData.treeCount}
                   onChange={handleInputChange}
                   min="1"
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Geschätzte Anzahl"
                 />
               </div>
@@ -245,49 +264,49 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Projektstandort</label>
+                <label className="text-[#0E1C3D] font-medium">Projektstandort</label>
                 <input
                   type="text"
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                   placeholder="Stadt, PLZ oder Adresse"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[#ECEFF3] font-medium">Geplanter Starttermin</label>
+                <label className="text-[#0E1C3D] font-medium">Geplanter Starttermin</label>
                 <input
                   type="date"
                   name="startDate"
                   value={formData.startDate}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
+                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-[#ECEFF3] font-medium">Zusätzliche Informationen</label>
+              <label className="text-[#0E1C3D] font-medium">Zusätzliche Informationen</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 maxLength={500}
                 rows={4}
-                className="w-full px-4 py-3 bg-[#323941] border border-[#3c4450] rounded-xl text-[#ECEFF3] placeholder-[#B6BCCA] focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm resize-none"
+                className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-xl text-[#0E1C3D] placeholder-gray-500 focus:border-[#baf742] focus:outline-none transition-colors duration-200 text-sm resize-none"
                 placeholder="Beschreiben Sie Ihr Projekt und besondere Anforderungen..."
               />
-              <div className="text-right text-xs text-[#B6BCCA]">
+              <div className="text-right text-xs text-gray-600">
                 {formData.message.length}/500 Zeichen
               </div>
             </div>
 
-            <div className="bg-[#323941]/60 rounded-xl p-4 border border-[#3c4450]">
+            <div className="bg-white/60 rounded-xl p-4 border border-gray-300">
               <div className="flex items-start gap-3">
                 <i className="ri-information-line text-[#baf742] text-lg mt-0.5"></i>
-                <div className="text-sm text-[#B6BCCA]">
-                  <p className="font-medium text-[#ECEFF3] mb-1">Nächste Schritte:</p>
+                <div className="text-sm text-gray-600">
+                  <p className="font-medium text-[#0E1C3D] mb-1">Nächste Schritte:</p>
                   <ul className="space-y-1">
                     <li>• Kostenlose Beratung innerhalb von 24 Stunden</li>
                     <li>• Individuelles Angebot basierend auf Ihren Anforderungen</li>
@@ -301,7 +320,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
               <button
                 type="button"
                 onClick={onClose}
-                className="px-8 py-4 border border-[#3c4450] text-[#ECEFF3] rounded-xl font-medium hover:border-[#baf742] hover:text-[#baf742] transition-all duration-200 whitespace-nowrap cursor-pointer"
+                className="px-8 py-4 border border-gray-300 text-[#0E1C3D] rounded-xl font-medium hover:border-[#baf742] hover:text-[#baf742] transition-all duration-200 whitespace-nowrap cursor-pointer"
               >
                 Abbrechen
               </button>

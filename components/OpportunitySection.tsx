@@ -25,14 +25,14 @@ export default function OpportunitySection() {
   // 3 Kennzahlen für Vorteile
   const advantages = [
     {
-      value: "60%",
+      value: "70%",
       label: "Kostenersparnis",
       description: "über den gesamten Lebenszyklus",
       icon: "ri-money-euro-circle-line",
       color: "text-[#baf742]"
     },
     {
-      value: "10×",
+      value: "Nachhaltig",
       label: "Wiederverwendbar",
       description: "für maximale Nachhaltigkeit",
       icon: "ri-recycle-line",
@@ -78,7 +78,7 @@ export default function OpportunitySection() {
 
   return (
     <section id="opportunity" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
-      <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto">
+      <div className="max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-12 sm:mb-16" style={{textAlign: 'left', display: 'block'}}>
           <div className="inline-block bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg" style={{textAlign: 'left'}}>
@@ -88,7 +88,7 @@ export default function OpportunitySection() {
           <h2 className="text-4xl lg:text-5xl font-light mb-8 text-[#2b3138] leading-tight" style={{textAlign: 'left', margin: '0 0 2rem 0'}}>
             Einsatz & Vorteile
           </h2>
-          <p className="text-xl text-gray-600 font-light leading-relaxed" style={{textAlign: 'left', marginLeft: '0', marginRight: '0', maxWidth: '48rem', display: 'block'}}>
+          <p className="text-base text-gray-600 font-light leading-relaxed" style={{textAlign: 'left', marginLeft: '0', marginRight: '0', maxWidth: '48rem', display: 'block'}}>
             Intelligente Lösungen für vielfältige Anwendungsbereiche
           </p>
         </div>

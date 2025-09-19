@@ -291,8 +291,8 @@ export default function HowItWorksSection() {
             </p>
             
             <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-[#baf742] text-[#0E1C3D] rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-8 h-8 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 bg-[#baf742] text-[#0E1C3D] rounded-full grid place-items-center font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl leading-none">
                   1
                 </div>
                 <div>
@@ -301,8 +301,8 @@ export default function HowItWorksSection() {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-[#baf742] text-[#0E1C3D] rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-8 h-8 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 bg-[#baf742] text-[#0E1C3D] rounded-full grid place-items-center font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl leading-none">
                   2
                 </div>
                 <div>
@@ -311,8 +311,8 @@ export default function HowItWorksSection() {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-[#baf742] text-[#0E1C3D] rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-8 h-8 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 bg-[#baf742] text-[#0E1C3D] rounded-full grid place-items-center font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl leading-none">
                   3
                 </div>
                 <div>

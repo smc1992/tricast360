@@ -103,7 +103,14 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
               aria-label={`Zu ${section.label} scrollen`}
             >
               {/* Icon */}
-              <i className={`${section.icon} text-lg transition-transform duration-300 group-hover:scale-110`}></i>
+              <i className={`${section.icon} text-lg transition-transform duration-300 group-hover:scale-110`} style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                lineHeight: '1',
+                width: '100%',
+                height: '100%'
+              }}></i>
               
               {/* Tooltip */}
               <div className={`
