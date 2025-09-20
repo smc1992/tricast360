@@ -146,14 +146,14 @@ export default function BrandingSection() {
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 xl:gap-8 justify-items-center">
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">5</div>
-                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Software Standards</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">100%</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Wiederverwendbar</div>
               </div>
             </div>
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">2</div>
-                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Marketing Prinzipien</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">70%</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Kostenersparnis</div>
               </div>
             </div>
             <div className="text-center group">
@@ -165,13 +165,13 @@ export default function BrandingSection() {
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
                 <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">∞</div>
-                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Reichweite</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Lebensdauer</div>
               </div>
             </div>
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">24/7</div>
-                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Verfügbarkeit</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">&lt; 5 Min</div>
+                <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Montagezeit</div>
               </div>
             </div>
           </div>

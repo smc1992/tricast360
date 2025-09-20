@@ -18,43 +18,7 @@ export default function HeroSection() {
   }, []);
 
   if (!mounted) {
-    return (
-      <section className="relative bg-gradient-to-br from-white via-gray-50/30 to-[#baf742]/5 flex items-center justify-center px-4 sm:px-6 py-20 pt-24 sm:pt-32 lg:pt-40 xl:pt-48 2xl:pt-56 overflow-hidden">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
-            <div className="text-left space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12">
-              <div className="space-y-4 lg:space-y-6">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl font-bold text-gray-900 leading-tight">
-                  <span className="block">Baumschutz</span>
-                  <span className="block text-[#baf742]">neu gedacht</span>
-                </h1>
-                <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-gray-600 max-w-2xl">
-                  Revolutionäres Schutzsystem für Bäume - wiederverwendbar, nachhaltig und kostengünstig.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-start">
-                <button 
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-[#baf742] hover:bg-[#a8e63a] text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 transform hover:scale-105 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
-                >
-                  Jetzt anfragen
-                </button>
-                <Link 
-                  href="#vorteile"
-                  className="border-2 border-gray-300 hover:border-[#baf742] text-gray-700 hover:text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 hover:bg-[#baf742]/5 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
-                >
-                  Mehr erfahren
-                </Link>
-              </div>
-            </div>
-            <div className="flex justify-center lg:justify-end opacity-0">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[44rem] 3xl:h-[44rem]"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
+    return null;
   }
 
   return (
@@ -69,7 +33,7 @@ export default function HeroSection() {
 
         {/* Main Content */}
         <div className="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide w-full mx-auto relative z-20">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 2xl:gap-20 3xl:gap-24 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-12 xl:gap-16 2xl:gap-20 3xl:gap-24 items-start">
             {/* Left Column - Text Content */}
             <div className={`space-y-6 sm:space-y-8 lg:space-y-10 xl:space-y-12 2xl:space-y-14 3xl:space-y-16 text-left flex flex-col items-start transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -145,7 +109,7 @@ export default function HeroSection() {
               </div>
 
               {/* Enhanced Trust Indicators */}
-              <div className="flex flex-wrap items-center gap-6 lg:gap-8 pt-4 lg:pt-6">
+              <div className="flex flex-wrap items-center gap-6 lg:gap-8 pt-8 sm:pt-10 lg:pt-6">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 lg:w-4 lg:h-4 xl:w-5 xl:h-5 bg-green-500 rounded-full"></div>
                   <span className="text-sm lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl text-gray-600">Made in Germany</span>
@@ -170,30 +134,28 @@ export default function HeroSection() {
                       alt="TriCast360 Baumschutz System" 
                       className="w-full h-full object-cover"
                     />
-                    
-
                   </div>
 
-                  {/* Additional floating stats */}
-                  <div className="absolute -top-8 right-8 bg-white border border-gray-200 rounded-2xl p-4">
+                  {/* Tree Protection Relevant Stats */}
+                  <div className="absolute -top-8 right-8 bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
                     <div className="text-center">
-                      <div className="text-2xl font-semibold text-gray-900">CO₂</div>
-                      <div className="text-xs text-gray-600">Neutral</div>
+                      <div className="text-lg font-semibold text-[#baf742]">100%</div>
+                      <div className="text-xs text-gray-600">Recyclebar</div>
                     </div>
                   </div>
                   
                   {/* Floating Stats */}
                   <div className="absolute -bottom-6 -left-6 bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
                     <div className="text-center">
-                      <div className="text-2xl font-semibold text-[#baf742]">5+</div>
-                      <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg text-gray-600">Jahre Garantie</div>
+                      <div className="text-lg font-semibold text-[#baf742]">&lt; 5 Min</div>
+                      <div className="text-xs text-gray-600">Montage</div>
                     </div>
                   </div>
                   
                   <div className="absolute top-8 -left-8 bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
                     <div className="text-center">
-                      <div className="text-2xl font-semibold text-[#90CFC4]">24/7</div>
-                      <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg text-gray-600">Verfügbar</div>
+                      <div className="text-lg font-semibold text-[#90CFC4]">Werkzeuglos</div>
+                      <div className="text-xs lg:text-sm xl:text-base 2xl:text-lg text-gray-600">Installation</div>
                     </div>
                   </div>
                 </div>
