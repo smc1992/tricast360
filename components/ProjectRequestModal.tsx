@@ -89,7 +89,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
         setSubmitStatus('error');
         setErrors(result.errors || ['Ein Fehler ist aufgetreten']);
       }
-    } catch (error) {
+    } catch (_error) {
       setSubmitStatus('error');
       setErrors(['Netzwerkfehler. Bitte versuchen Sie es später erneut.']);
     } finally {

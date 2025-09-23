@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import LoadingButton from './LoadingButton';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useCart } from '../contexts/CartContext';
 
 interface Configuration {
@@ -34,7 +33,6 @@ export default function ProductConfigurator() {
   });
 
   const [currentStep, setCurrentStep] = useState(1);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
 
@@ -53,7 +51,7 @@ export default function ProductConfigurator() {
   };
 
   // Preisberechnung basierend auf durchmesser-basiertem Modulsystem
-  const calculatePrice = () => {
+  const calculatePrice = useCallback(() => {
     const pricePerModule = 174.75; // 699€ / 4 Module = 174,75€ pro Modul
     
     // Gesamtanzahl Module berechnen
@@ -75,12 +73,12 @@ export default function ProductConfigurator() {
     
     const subtotal = modulePrice + reinforcementPrice + advertisingBoardPrice;
     return Math.round(subtotal * config.quantity);
-  };
+  }, [config, calculateTotalModules]);
 
   // Preisberechnung aktualisieren
   useEffect(() => {
     setEstimatedPrice(calculatePrice());
-  }, [config]);
+  }, [config, calculatePrice]);
 
   const handleConfigChange = (key: keyof Configuration, value: any) => {
     setConfig(prev => ({ ...prev, [key]: value }));
@@ -122,7 +120,6 @@ export default function ProductConfigurator() {
 
   const addToCart = () => {
     const totalModules = calculateTotalModules();
-    const description = `TriCast360 System - ${config.diameter}cm Durchmesser, flexible Höhe (${totalModules} Module)`;
     
     addItem({
       productModel: 'TriCast360 Baumschutzsystem',

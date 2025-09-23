@@ -10,10 +10,9 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 interface StripeProviderProps {
   children: ReactNode;
   clientSecret?: string;
-  amount?: number;
 }
 
-export default function StripeProvider({ children, clientSecret, amount }: StripeProviderProps) {
+export default function StripeProvider({ children, clientSecret }: StripeProviderProps) {
   const options = {
     clientSecret,
     appearance: {

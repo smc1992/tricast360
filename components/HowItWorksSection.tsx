@@ -2,8 +2,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { SectionGradient } from './GradientBackgrounds';
-import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function HowItWorksSection() {
   const isVisible = true; // Always visible

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 interface SectionNavigationProps {
   className?: string;
@@ -10,7 +10,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
   const [activeSection, setActiveSection] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'hero', label: 'Start', icon: 'ri-home-line' },
     { id: 'problem', label: 'Problem', icon: 'ri-alert-line' },
     { id: 'funktionsweise', label: 'Funktionsweise', icon: 'ri-settings-3-line' },
@@ -19,7 +19,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
     { id: 'branding', label: 'Branding', icon: 'ri-palette-line' },
     { id: 'vision-2025', label: 'Vision 2025', icon: 'ri-eye-line' },
     { id: 'markt', label: 'Markt', icon: 'ri-bar-chart-line' }
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +67,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
     handleScroll(); // Initial check
     
     return () => window.removeEventListener('scroll', throttledScroll);
-  }, []);
+  }, [activeSection, sections]);
 
   const scrollToSection = (sectionId: string, index: number) => {
     const element = document.getElementById(sectionId);
@@ -174,7 +174,7 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
   const [activeSection, setActiveSection] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'hero', label: 'Start', icon: 'ri-home-line' },
     { id: 'problem', label: 'Problem', icon: 'ri-alert-line' },
     { id: 'funktionsweise', label: 'Lösung', icon: 'ri-settings-3-line' },
@@ -183,7 +183,7 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
     { id: 'branding', label: 'Brand', icon: 'ri-palette-line' },
     { id: 'vision-2025', label: 'Vision', icon: 'ri-eye-line' },
     { id: 'markt', label: 'Markt', icon: 'ri-bar-chart-line' }
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -231,7 +231,7 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
     handleScroll();
     
     return () => window.removeEventListener('scroll', throttledScroll);
-  }, []);
+  }, [activeSection, sections]);
 
   const scrollToSection = (sectionId: string, index: number) => {
     const element = document.getElementById(sectionId);

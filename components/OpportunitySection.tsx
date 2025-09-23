@@ -2,8 +2,6 @@
 'use client';
 
 import React from 'react';
-import { SectionGradient } from './GradientBackgrounds';
-import { SectionNaturalBackground } from './NaturalBackground';
 
 export default function OpportunitySection() {
   const isVisible = true; // Always visible

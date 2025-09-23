@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 interface SwipeNavigationProps {
   onSwipeLeft?: () => void;
@@ -82,7 +82,7 @@ export default function SwipeNavigation({
 // Hook for section navigation
 export function useSectionNavigation() {
   const [currentSection, setCurrentSection] = useState(0);
-  const sections = ['hero', 'problem', 'funktionsweise', 'vorteile', 'environmental', 'branding', 'vision-2025', 'markt'];
+  const sections = useMemo(() => ['hero', 'problem', 'funktionsweise', 'vorteile', 'environmental', 'branding', 'vision-2025', 'markt'], []);
 
   const navigateToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -123,7 +123,7 @@ export function useSectionNavigation() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sections]);
 
   return {
     currentSection,
