@@ -101,7 +101,7 @@ export async function POST(request: Request) {
         address: `${body.checkoutData.address}, ${body.checkoutData.postalCode} ${body.checkoutData.city}, ${body.checkoutData.country}`,
         orderNumber,
         items: body.cartItems.map(item => ({
-          name: `${item.productModel} (Ø${item.diameter}cm, ${item.height}cm, ${item.modules} Module)`,
+          name: `${item.productModel} (Ø${item.diameter}cm, ${item.modules} Module)`,
           quantity: item.quantity,
           price: item.totalPrice,
           advertisingBoard: item.advertisingBoard,

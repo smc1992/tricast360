@@ -152,7 +152,7 @@ export function createCustomerOrderConfirmationTemplate(orderData: {
   const itemsHtml = orderData.items.map(item => `
     <div class="order-item">
       <span>${item.name} (${item.quantity}x)</span>
-      <span>${(item.price * item.quantity / 100).toFixed(2)} €</span>
+      <span>${(item.price / 100).toFixed(2)} €</span>
       ${item.advertisingBoard ? `
         <div style="margin-left: 20px; color: #e67e22; font-weight: bold;">
           ⚠️ Werbetafel bestellt (+49€ netto)
@@ -219,7 +219,7 @@ export function createAdminOrderNotificationTemplate(orderData: {
   const itemsHtml = orderData.items.map(item => `
     <div class="order-item">
       <span>${item.name} (${item.quantity}x)</span>
-      <span>${(item.price * item.quantity / 100).toFixed(2)} €</span>
+      <span>${(item.price / 100).toFixed(2)} €</span>
     </div>
   `).join('');
 
