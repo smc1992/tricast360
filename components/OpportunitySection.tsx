@@ -212,7 +212,7 @@ export default function OpportunitySection() {
                 <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mr-3">
                   <i className="ri-rocket-line text-sm text-[#baf742]"></i>
                 </div>
-                <span className="text-[#0E1C3D] font-semibold">Bereit für Innovation?</span>
+                <span className="text-[#4A90A4] font-semibold">Bereit für Innovation?</span>
               </div>
               
               <h3 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6">

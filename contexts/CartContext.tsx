@@ -6,13 +6,14 @@ export interface CartItem {
   id: string;
   productModel: string; // Flexibler für Einstiegspaket und Add-ons
   diameter: number;
-  height: number;
   modules: number;
   color?: string; // Optional für Kompatibilität
   material?: string; // Optional für Kompatibilität
   quantity: number;
   pricePerUnit: number;
   totalPrice: number;
+  advertisingBoardSize?: 'none' | 'small' | 'large'; // Werbetafel-Größe: keine, 20x80cm, 70x70cm
+  logo?: File | null; // Logo-Datei für Werbetafel
 }
 
 export interface CouponCode {

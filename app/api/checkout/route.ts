@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sendOrderConfirmationEmails } from '@/lib/emailService';
 
 interface CheckoutData {
   name: string;
@@ -18,11 +19,13 @@ interface CartItem {
   diameter: number;
   height: number;
   modules: number;
-  color: string;
-  material: string;
+  color?: string;
+  material?: string;
   quantity: number;
   pricePerUnit: number;
   totalPrice: number;
+  advertisingBoard?: boolean;
+  logo?: File | null;
 }
 
 interface CouponCode {
@@ -36,78 +39,94 @@ interface CheckoutRequest {
   couponCode: CouponCode | null;
   totalPrice: number;
   discountedPrice: number;
+  vatAmount: number;
+  totalWithVat: number;
+  paymentIntentId?: string;
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
     const body: CheckoutRequest = await request.json();
-    const { checkoutData, cartItems, couponCode, totalPrice, discountedPrice } = body;
-
-    // Validierung der erforderlichen Felder
-    if (!checkoutData.name || !checkoutData.email || !checkoutData.address || 
-        !checkoutData.city || !checkoutData.postalCode || !checkoutData.country) {
+    
+    // Validierung der Bestelldaten
+    if (!body.checkoutData || !body.cartItems || body.cartItems.length === 0) {
       return NextResponse.json(
-        { error: 'Erforderliche Felder fehlen' },
+        { error: 'Ungültige Bestelldaten' },
         { status: 400 }
       );
     }
 
-    if (!cartItems || cartItems.length === 0) {
-      return NextResponse.json(
-        { error: 'Warenkorb ist leer' },
-        { status: 400 }
-      );
-    }
+    // Generiere eine eindeutige Bestellnummer
+    const orderNumber = `TC-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
 
     // Hier würde normalerweise die Bestellung in einer Datenbank gespeichert werden
-    // und eine E-Mail-Benachrichtigung versendet werden
-    
-    // Bestellnummer generieren
-    const orderNumber = `TC-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
-    
-    // Bestelldaten für Logging/Debugging
-    console.log('Neue Bestellung erhalten:', {
+    console.log('Neue Bestellung:', {
       orderNumber,
-      customer: {
-        name: checkoutData.name,
-        email: checkoutData.email,
-        company: checkoutData.company,
-        phone: checkoutData.phone,
-        address: `${checkoutData.address}, ${checkoutData.postalCode} ${checkoutData.city}, ${checkoutData.country}`
-      },
-      items: cartItems.map(item => ({
-        product: `TriCast360 ${item.productModel === '2-chamber' ? '2-Kammer' : '7-Kammer'} System`,
-        specifications: `${item.diameter}cm × ${item.height}cm, ${item.modules} Module`,
-        style: `${item.color}, ${item.material}`,
-        quantity: item.quantity,
-        unitPrice: item.pricePerUnit,
-        totalPrice: item.totalPrice
-      })),
-      coupon: couponCode ? {
-        code: couponCode.code,
-        discount: couponCode.discount
-      } : null,
+      customer: body.checkoutData,
+      items: body.cartItems,
       pricing: {
-        subtotal: totalPrice,
-        discount: couponCode ? totalPrice - discountedPrice : 0,
-        total: discountedPrice
+        totalPrice: body.totalPrice,
+        discountedPrice: body.discountedPrice,
+        vatAmount: body.vatAmount,
+        totalWithVat: body.totalWithVat,
       },
-      notes: checkoutData.notes,
-      timestamp: new Date().toISOString()
+      coupon: body.couponCode,
+      paymentIntentId: body.paymentIntentId,
+      timestamp: new Date().toISOString(),
     });
 
-    // Hier könnte eine E-Mail-Benachrichtigung implementiert werden
-    // await sendOrderConfirmationEmail(checkoutData.email, orderNumber, cartItems, discountedPrice);
-    // await sendOrderNotificationToAdmin(orderData);
+    // Logo-Datei verarbeiten (falls vorhanden)
+    let logoFile: Buffer | undefined;
+    const logoItem = body.cartItems.find(item => item.advertisingBoard && item.logo);
+    
+    if (logoItem?.logo) {
+      try {
+        // Logo-Datei in Buffer konvertieren (vereinfacht für Demo)
+        // In einer echten Implementierung würde hier die Datei aus dem FormData extrahiert
+        console.log('Logo-Datei gefunden:', logoItem.logo);
+      } catch (error) {
+        console.error('Fehler beim Verarbeiten der Logo-Datei:', error);
+      }
+    }
 
+    // E-Mail-Bestätigungen senden
+    try {
+      const emailData = {
+        customerName: body.checkoutData.name,
+        customerEmail: body.checkoutData.email,
+        customerPhone: body.checkoutData.phone,
+        company: body.checkoutData.company,
+        address: `${body.checkoutData.address}, ${body.checkoutData.postalCode} ${body.checkoutData.city}, ${body.checkoutData.country}`,
+        orderNumber,
+        items: body.cartItems.map(item => ({
+          name: `${item.productModel} (Ø${item.diameter}cm, ${item.height}cm, ${item.modules} Module)`,
+          quantity: item.quantity,
+          price: item.totalPrice,
+          advertisingBoard: item.advertisingBoard,
+          logoName: item.logo ? `logo_${orderNumber}.png` : undefined
+        })),
+        total: body.totalWithVat,
+        paymentIntentId: body.paymentIntentId || 'N/A',
+        logoFile
+      };
+
+      await sendOrderConfirmationEmails(emailData);
+      console.log('✅ E-Mail-Bestätigungen erfolgreich gesendet');
+    } catch (emailError) {
+      console.error('❌ Fehler beim Senden der E-Mail-Bestätigungen:', emailError);
+      // E-Mail-Fehler sollten die Bestellung nicht blockieren
+    }
+
+    // Erfolgreiche Antwort
     return NextResponse.json({
       success: true,
+      message: 'Bestellung erfolgreich aufgegeben',
       orderNumber,
-      message: 'Bestellung erfolgreich aufgegeben'
+      estimatedDelivery: '2-3 Wochen',
     });
 
   } catch (error) {
-    console.error('Checkout error:', error);
+    console.error('Fehler beim Verarbeiten der Bestellung:', error);
     return NextResponse.json(
       { error: 'Interner Serverfehler' },
       { status: 500 }

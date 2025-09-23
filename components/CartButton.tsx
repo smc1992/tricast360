@@ -18,7 +18,7 @@ export default function CartButton({ onClick }: CartButtonProps) {
     >
       <i className="ri-shopping-cart-line text-xl text-gray-700"></i>
       {itemCount > 0 && (
-        <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
+        <span className="absolute -top-1 -right-1 bg-[#baf742] text-[#0E1C3D] text-xs rounded-full min-w-[20px] h-5 flex items-center justify-center font-medium leading-none px-1">
           {itemCount > 99 ? '99+' : itemCount}
         </span>
       )}

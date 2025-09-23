@@ -84,11 +84,25 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                         {item.productModel}
                       </p>
                       <p className="text-sm text-gray-600">
-                        Ø {item.diameter}cm × {item.height}cm
-                      </p>
+                    Ø {item.diameter}cm × flexible Höhe
+                  </p>
                       <p className="text-sm text-gray-600">
                         {item.modules} Module
                       </p>
+                      {item.advertisingBoardSize && item.advertisingBoardSize !== 'none' && (
+                        <div className="mt-2 p-2 bg-blue-50 border border-blue-200 rounded">
+                          <p className="text-sm text-blue-800 font-medium">
+                            <i className="ri-advertisement-line mr-1"></i>
+                            Werbetafel {item.advertisingBoardSize === 'small' ? '20x80cm (+39€ netto)' : '70x70cm (+49€ netto)'}
+                          </p>
+                          {item.logo && (
+                            <p className="text-xs text-blue-600 mt-1">
+                              <i className="ri-image-line mr-1"></i>
+                              Logo hochgeladen
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <button
                       onClick={() => removeItem(item.id)}
@@ -164,7 +178,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                   <button
                     onClick={handleApplyCoupon}
                     disabled={isApplyingCoupon || !couponInput.trim()}
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 bg-[#baf742] text-[#0E1C3D] rounded-lg hover:bg-[#a8e63a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     {isApplyingCoupon ? 'Prüfe...' : 'Anwenden'}
                   </button>

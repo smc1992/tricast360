@@ -9,21 +9,15 @@ interface Configuration {
   basePackage: boolean; // Immer true für Einstiegspaket
   additional2ChamberModules: number; // Zusätzliche 2-Kammer Module
   additional7ChamberModules: number; // Zusätzliche 7-Kammer Module
-  diameter: number;
-  height: number;
+  diameter: number; // Baumdurchmesser - bestimmt vom Kunden
   quantity: number;
   // Add-ons
   reinforcement: boolean; // Verstärkung +199€
-  advertisingBoard: boolean; // Werbetafel +99€
+  advertisingBoardSize: 'none' | 'small' | 'large'; // Werbetafel: keine, 20x80cm (+39€), 70x70cm (+49€)
+  logo?: File | null; // Logo-Datei für Werbetafel
 }
 
-interface CustomerData {
-  name: string;
-  email: string;
-  company: string;
-  phone: string;
-  message: string;
-}
+
 
 export default function ProductConfigurator() {
   const { addItem } = useCart();
@@ -33,37 +27,29 @@ export default function ProductConfigurator() {
     additional2ChamberModules: 0,
     additional7ChamberModules: 0,
     diameter: 50, // Einstiegspaket für 50cm Durchmesser
-    height: 100,
     quantity: 1,
     reinforcement: false,
-    advertisingBoard: false,
-  });
-
-  const [customerData, setCustomerData] = useState<CustomerData>({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: '',
+    advertisingBoardSize: 'none',
+    logo: null,
   });
 
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
+  const [logoPreview, setLogoPreview] = useState<string | null>(null);
+
+  // Flexible Größenbestimmung: Höhe und Breite können frei bestimmt werden
+  // Pro System sind bis zu 50 cm Durchmesser und 2 Meter Höhe möglich
 
   // Hilfsfunktion: Berechne Gesamtanzahl der Module
   const calculateTotalModules = () => {
-    // Basis: 4 Module für 50cm Durchmesser
-    const baseModules = 4;
-    
-    // Zusätzliche Module basierend auf Durchmesser (jeder 50cm-Schritt = 4 Module)
-    const additionalDiameterSteps = Math.max(0, (config.diameter - 50) / 50);
-    const diameterBasedModules = additionalDiameterSteps * 4;
+    // Berechnung basierend auf Durchmesser: Jede 50cm = 4 Module
+    const modulesBasedOnDiameter = (config.diameter / 50) * 4; // 50cm = 4 Module, 100cm = 8 Module, etc.
     
     // Manuell hinzugefügte Module
     const manualModules = config.additional2ChamberModules + config.additional7ChamberModules;
     
-    return baseModules + diameterBasedModules + manualModules;
+    return modulesBasedOnDiameter + manualModules;
   };
 
   // Preisberechnung basierend auf durchmesser-basiertem Modulsystem
@@ -78,7 +64,14 @@ export default function ProductConfigurator() {
     
     // Add-ons
     const reinforcementPrice = config.reinforcement ? 199 : 0;
-    const advertisingBoardPrice = config.advertisingBoard ? 99 : 0;
+    
+    // Werbetafel-Preise basierend auf Größe
+    let advertisingBoardPrice = 0;
+    if (config.advertisingBoardSize === 'small') {
+      advertisingBoardPrice = 39; // 20x80cm
+    } else if (config.advertisingBoardSize === 'large') {
+      advertisingBoardPrice = 49; // 70x70cm
+    }
     
     const subtotal = modulePrice + reinforcementPrice + advertisingBoardPrice;
     return Math.round(subtotal * config.quantity);
@@ -93,79 +86,59 @@ export default function ProductConfigurator() {
     setConfig(prev => ({ ...prev, [key]: value }));
   };
 
-  const handleCustomerDataChange = (key: keyof CustomerData, value: string) => {
-    setCustomerData(prev => ({ ...prev, [key]: value }));
+  const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Validate file type
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml'];
+      if (!allowedTypes.includes(file.type)) {
+        alert('Bitte wählen Sie eine gültige Bilddatei (JPG, PNG, SVG)');
+        return;
+      }
+      
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Die Datei ist zu groß. Maximale Größe: 5MB');
+        return;
+      }
+      
+      setConfig(prev => ({ ...prev, logo: file }));
+      
+      // Create preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setLogoPreview(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   };
+
+  const removeLogo = () => {
+    setConfig(prev => ({ ...prev, logo: null }));
+    setLogoPreview(null);
+  };
+
+
 
   const addToCart = () => {
     const totalModules = calculateTotalModules();
-    const description = `TriCast360 System - ${config.diameter}cm Durchmesser, ${config.height}cm Höhe (${totalModules} Module)`;
+    const description = `TriCast360 System - ${config.diameter}cm Durchmesser, flexible Höhe (${totalModules} Module)`;
     
     addItem({
       productModel: 'TriCast360 Baumschutzsystem',
       diameter: config.diameter,
-      height: config.height,
       modules: totalModules,
       quantity: config.quantity,
       pricePerUnit: calculatePrice(),
-      totalPrice: calculatePrice() * config.quantity
+      totalPrice: calculatePrice() * config.quantity,
+      advertisingBoardSize: config.advertisingBoardSize,
+      logo: config.logo
     });
     
     alert('Produkt wurde zum Warenkorb hinzugefügt!');
   };
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
 
-    try {
-      const totalModules = calculateTotalModules();
-      const productData = {
-        configuration: {
-          ...config,
-          totalModules,
-          price: calculatePrice(),
-        },
-        customerData,
-      };
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(productData),
-      });
-
-      if (response.ok) {
-        alert('Ihre Anfrage wurde erfolgreich gesendet!');
-        setCurrentStep(1);
-        setConfig({
-          basePackage: true,
-          additional2ChamberModules: 0,
-          additional7ChamberModules: 0,
-          diameter: 50,
-          height: 100,
-          quantity: 1,
-          reinforcement: false,
-          advertisingBoard: false,
-        });
-        setCustomerData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          message: '',
-        });
-      } else {
-        alert('Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 lg:py-12">
@@ -174,15 +147,15 @@ export default function ProductConfigurator() {
         {/* Progress Steps */}
         <div className="flex justify-center mb-8 lg:mb-12">
           <div className="flex items-center space-x-4">
-            <div className={`flex items-center justify-center w-10 h-10 rounded-full ${
+            <div className={`w-10 h-10 rounded-full grid place-items-center text-sm font-bold ${
               currentStep >= 1 ? 'bg-[#baf742] text-white' : 'bg-gray-300 text-gray-600'
-            }`}>
+            }`} style={{ lineHeight: '1' }}>
               1
             </div>
             <div className={`w-16 h-1 ${currentStep >= 2 ? 'bg-[#baf742]' : 'bg-gray-300'}`}></div>
-            <div className={`flex items-center justify-center w-10 h-10 rounded-full ${
+            <div className={`w-10 h-10 rounded-full grid place-items-center text-sm font-bold ${
               currentStep >= 2 ? 'bg-[#baf742] text-white' : 'bg-gray-300 text-gray-600'
-            }`}>
+            }`} style={{ lineHeight: '1' }}>
               2
             </div>
           </div>
@@ -253,19 +226,133 @@ export default function ProductConfigurator() {
                     <div className="font-semibold text-green-600">+199€</div>
                   </label>
                   
-                  <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={config.advertisingBoard}
-                      onChange={(e) => handleConfigChange('advertisingBoard', e.target.checked)}
-                      className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300 rounded"
-                    />
-                    <div className="flex-1">
-                      <div className="font-medium">Werbetafel</div>
-                      <div className="text-sm text-gray-500">Individuelle Werbefläche für Ihr Unternehmen</div>
+                  {/* Werbetafel-Größenauswahl */}
+                  <div className="space-y-3">
+                    <h5 className="font-medium text-gray-800">Werbetafel</h5>
+                    
+                    <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="advertisingBoardSize"
+                        value="none"
+                        checked={config.advertisingBoardSize === 'none'}
+                        onChange={(e) => handleConfigChange('advertisingBoardSize', e.target.value)}
+                        className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300"
+                      />
+                      <div className="flex-1">
+                        <div className="font-medium">Keine Werbetafel</div>
+                        <div className="text-sm text-gray-500">Ohne Werbefläche</div>
+                      </div>
+                      <div className="font-semibold text-gray-600">0€</div>
+                    </label>
+                    
+                    <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="advertisingBoardSize"
+                        value="small"
+                        checked={config.advertisingBoardSize === 'small'}
+                        onChange={(e) => handleConfigChange('advertisingBoardSize', e.target.value)}
+                        className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300"
+                      />
+                      <div className="flex-1">
+                        <div className="font-medium">Kleine Werbetafel</div>
+                        <div className="text-sm text-gray-500">20x80 cm - Kompakte Werbefläche</div>
+                      </div>
+                      <div className="font-semibold text-green-600">+39€</div>
+                    </label>
+                    
+                    <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="advertisingBoardSize"
+                        value="large"
+                        checked={config.advertisingBoardSize === 'large'}
+                        onChange={(e) => handleConfigChange('advertisingBoardSize', e.target.value)}
+                        className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300"
+                      />
+                      <div className="flex-1">
+                        <div className="font-medium">Große Werbetafel</div>
+                        <div className="text-sm text-gray-500">70x70 cm - Maximale Sichtbarkeit</div>
+                      </div>
+                      <div className="font-semibold text-green-600">+49€</div>
+                    </label>
+                  </div>
+                  
+                  {/* Logo Upload für Werbetafel */}
+                  {config.advertisingBoardSize !== 'none' && (
+                    <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                      <h5 className="font-medium text-blue-800 mb-3">Logo für Werbetafel hochladen</h5>
+                      
+                      {!config.logo ? (
+                        <div className="space-y-3">
+                          <div className="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center">
+                            <div className="text-blue-600 mb-2">
+                              <i className="ri-upload-cloud-2-line text-3xl"></i>
+                            </div>
+                            <p className="text-sm text-blue-700 mb-2">
+                              Klicken Sie hier oder ziehen Sie Ihr Logo hierher
+                            </p>
+                            <p className="text-xs text-blue-600">
+                              Unterstützte Formate: JPG, PNG, SVG (max. 5MB)
+                            </p>
+                            <input
+                              type="file"
+                              accept="image/jpeg,image/jpg,image/png,image/svg+xml"
+                              onChange={handleLogoUpload}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => (document.querySelector('input[type="file"]') as HTMLInputElement)?.click()}
+                            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                          >
+                            Logo auswählen
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="space-y-3">
+                          <div className="flex items-center space-x-3 p-3 bg-white border border-blue-200 rounded-lg">
+                            {logoPreview && (
+                              <img 
+                                src={logoPreview} 
+                                alt="Logo Vorschau" 
+                                className="w-12 h-12 object-contain rounded"
+                              />
+                            )}
+                            <div className="flex-1">
+                              <div className="font-medium text-blue-800">{config.logo.name}</div>
+                              <div className="text-sm text-blue-600">
+                                {(config.logo.size / 1024 / 1024).toFixed(2)} MB
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={removeLogo}
+                              className="text-red-600 hover:text-red-800 p-1"
+                              title="Logo entfernen"
+                            >
+                              <i className="ri-delete-bin-line"></i>
+                            </button>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => (document.querySelector('input[type="file"]:last-of-type') as HTMLInputElement)?.click()}
+                            className="w-full bg-blue-100 text-blue-700 py-2 px-4 rounded-lg hover:bg-blue-200 transition-colors text-sm"
+                          >
+                            Anderes Logo auswählen
+                          </button>
+                          <input
+                            type="file"
+                            accept="image/jpeg,image/jpg,image/png,image/svg+xml"
+                            onChange={handleLogoUpload}
+                            className="hidden"
+                          />
+                        </div>
+                      )}
                     </div>
-                    <div className="font-semibold text-green-600">+99€</div>
-                  </label>
+                  )}
                 </div>
                 
                 {/* Durchmesser */}
@@ -287,22 +374,22 @@ export default function ProductConfigurator() {
                   </div>
                 </div>
 
-                {/* Höhe */}
+                {/* Flexible Größenbestimmung */}
                 <div>
-                  <label className="block text-sm font-medium mb-2">Höhe (cm)</label>
-                  <input
-                    type="range"
-                    min="100"
-                    max="300"
-                    step="100"
-                    value={config.height}
-                    onChange={(e) => handleConfigChange('height', parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-sm text-gray-500 mt-1">
-                    <span>100 cm</span>
-                    <span className="font-medium">{config.height} cm</span>
-                    <span>300 cm</span>
+                  <label className="block text-sm font-medium mb-2">Flexible Größenbestimmung</label>
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div className="text-center">
+                      <h4 className="text-lg font-semibold text-blue-800 mb-2">Individuelle Anpassung</h4>
+                      <p className="text-sm text-blue-700 mb-2">
+                        <strong>Höhe und Breite können frei bestimmt werden</strong>
+                      </p>
+                      <p className="text-xs text-blue-600">
+                        Pro System: bis zu <strong>50 cm Durchmesser</strong> und <strong>2 Meter Höhe</strong>
+                      </p>
+                      <p className="text-xs text-blue-600 mt-1">
+                        Basierend auf {calculateTotalModules()} Modulen für optimalen Schutz
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -348,61 +435,35 @@ export default function ProductConfigurator() {
 
             {currentStep === 2 && (
               <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8 space-y-6 lg:space-y-8">
-                <h3 className="text-xl lg:text-2xl font-bold">Schritt 2: Ihre Kontaktdaten</h3>
+                <h3 className="text-xl lg:text-2xl font-bold">Schritt 2: Konfiguration abschließen</h3>
                 
                 <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Name *</label>
-                    <input
-                      type="text"
-                      value={customerData.name}
-                      onChange={(e) => handleCustomerDataChange('name', e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#baf742] focus:border-transparent"
-                      required
-                    />
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Ihre Konfiguration:</h4>
+                    <p className="text-sm text-gray-600">
+                      TriCast360 System - {config.diameter}cm Durchmesser, flexible Höhe
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {calculateTotalModules()} Module insgesamt
+                    </p>
+                    {config.reinforcement && (
+                      <p className="text-sm text-gray-600">+ Verstärkung</p>
+                    )}
+                    {config.advertisingBoardSize !== 'none' && (
+                      <div className="flex justify-between">
+                        <span>
+                          Werbetafel ({config.advertisingBoardSize === 'small' ? '20x80cm' : '70x70cm'})
+                        </span>
+                        <span>
+                          +{(config.advertisingBoardSize === 'small' ? 39 : 49) * config.quantity},00 €
+                        </span>
+                      </div>
+                    )}
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium mb-1">E-Mail *</label>
-                    <input
-                      type="email"
-                      value={customerData.email}
-                      onChange={(e) => handleCustomerDataChange('email', e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#baf742] focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Unternehmen</label>
-                    <input
-                      type="text"
-                      value={customerData.company}
-                      onChange={(e) => handleCustomerDataChange('company', e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#baf742] focus:border-transparent"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Telefon</label>
-                    <input
-                      type="tel"
-                      value={customerData.phone}
-                      onChange={(e) => handleCustomerDataChange('phone', e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#baf742] focus:border-transparent"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Nachricht</label>
-                    <textarea
-                      value={customerData.message}
-                      onChange={(e) => handleCustomerDataChange('message', e.target.value)}
-                      rows={4}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#baf742] focus:border-transparent"
-                      placeholder="Zusätzliche Informationen zu Ihrem Projekt..."
-                    />
-                  </div>
+                  <p className="text-sm text-gray-600">
+                    Ihre Kontaktdaten können Sie im nächsten Schritt beim Checkout eingeben.
+                  </p>
                 </div>
 
                 <div className="flex flex-col space-y-2">
@@ -418,7 +479,7 @@ export default function ProductConfigurator() {
                     onClick={() => setCurrentStep(1)}
                     className="w-full bg-gray-300 text-gray-700 py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-gray-400 transition-colors text-sm lg:text-base"
                   >
-                    Zurück
+                    Zurück zur Konfiguration
                   </button>
                 </div>
               </div>
@@ -432,7 +493,8 @@ export default function ProductConfigurator() {
               <div className="text-lg font-semibold">{config.diameter} cm</div>
               
               <div className="text-sm text-gray-500 mb-1 mt-3">Höhe</div>
-              <div className="text-lg font-semibold">{config.height} cm</div>
+              <div className="text-lg font-semibold">Flexibel bestimmbar</div>
+              <div className="text-xs text-gray-400">bis zu 2 Meter</div>
               
               <div className="text-sm text-gray-500 mb-1 mt-3">Module gesamt</div>
               <div className="text-lg font-semibold">{calculateTotalModules()}</div>
@@ -521,10 +583,14 @@ export default function ProductConfigurator() {
                   </div>
                 )}
                 
-                {config.advertisingBoard && (
+                {config.advertisingBoardSize !== 'none' && (
                   <div className="flex justify-between">
-                    <span>Werbetafel</span>
-                    <span>+{99 * config.quantity},00 €</span>
+                    <span>
+                      Werbetafel ({config.advertisingBoardSize === 'small' ? '20x80cm' : '70x70cm'})
+                    </span>
+                    <span>
+                      +{(config.advertisingBoardSize === 'small' ? 39 : 49) * config.quantity},00 €
+                    </span>
                   </div>
                 )}
                 

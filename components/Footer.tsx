@@ -38,21 +38,7 @@ export default function Footer() {
               </p>
             </div>
             
-            {/* Zertifikate */}
-            <div className="flex flex-wrap gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-[#0E1C3D] px-2 py-1 rounded-full text-xs font-semibold border border-[#baf742]/30">
-                <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
-                  <i className="ri-leaf-line text-xs text-[#baf742]"></i>
-                </div>
-                <span>CO₂-neutral</span>
-              </div>
-              <div className="flex items-center gap-1 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-[#0E1C3D] px-2 py-1 rounded-full text-xs font-semibold border border-[#baf742]/30">
-                <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
-                  <i className="ri-recycle-line text-xs text-[#baf742]"></i>
-                </div>
-                <span>10× nutzbar</span>
-              </div>
-            </div>
+
           </div>
 
           {/* Spalte 2: Links */}
