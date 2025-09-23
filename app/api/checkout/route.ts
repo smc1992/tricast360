@@ -56,8 +56,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Generiere eine eindeutige Bestellnummer
-    const orderNumber = `TC-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+    // Generiere eine eindeutige Bestellnummer (kurz aber eindeutig)
+    const timestamp = Date.now().toString().slice(-8); // Letzte 8 Ziffern des Timestamps
+    const randomPart = Math.random().toString(36).substr(2, 4).toUpperCase(); // 4 zufällige Zeichen
+    const orderNumber = `TC${timestamp}${randomPart}`;
 
     // Hier würde normalerweise die Bestellung in einer Datenbank gespeichert werden
     console.log('Neue Bestellung:', {
