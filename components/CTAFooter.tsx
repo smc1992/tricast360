@@ -34,9 +34,13 @@ export default function CTAFooter() {
                 onClick={() => setIsModalOpen(true)}
                 className="bg-white text-[#0a0c14] px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group"
               >
-                <i className="ri-phone-line text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                <div className="w-8 h-8 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 rounded-lg flex items-center justify-center group-hover:from-[#baf742]/30 group-hover:to-[#90CFC4]/30 transition-all duration-300">
+                  <i className="ri-phone-line text-xl text-[#baf742] group-hover:rotate-12 transition-transform duration-300"></i>
+                </div>
                 Projekt jetzt anfragen
-                <i className="ri-arrow-right-line text-xl group-hover:translate-x-1 transition-transform duration-300"></i>
+                <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 rounded-md flex items-center justify-center group-hover:from-[#baf742]/30 group-hover:to-[#90CFC4]/30 transition-all duration-300">
+                  <i className="ri-arrow-right-line text-sm text-[#baf742] group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
               </button>
             </div>
 
@@ -44,17 +48,23 @@ export default function CTAFooter() {
             <div className="pt-8 border-t border-white/20 text-center">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-[#0a0c14]/80">
                 <div className="flex items-center gap-2">
-                  <i className="ri-time-line text-lg"></i>
+                  <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 rounded-md flex items-center justify-center">
+                    <i className="ri-time-line text-sm text-[#baf742]"></i>
+                  </div>
                   <span className="text-sm font-medium">Antwort binnen 2h</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <i className="ri-shield-check-line text-lg"></i>
+                  <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 rounded-md flex items-center justify-center">
+                    <i className="ri-shield-check-line text-sm text-[#baf742]"></i>
+                  </div>
                   <span className="text-sm font-medium">Kostenlose Beratung</span>
                 </div>
                 <div className="flex items-center gap-2">
-                   <i className="ri-award-line text-lg"></i>
-                   <span className="text-sm font-medium">Qualitätsgeprüft</span>
-                 </div>
+                  <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 rounded-md flex items-center justify-center">
+                    <i className="ri-award-line text-sm text-[#baf742]"></i>
+                  </div>
+                  <span className="text-sm font-medium">Qualitätsgeprüft</span>
+                </div>
               </div>
             </div>
           </div>

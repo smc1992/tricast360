@@ -40,12 +40,16 @@ export default function Footer() {
             
             {/* Zertifikate */}
             <div className="flex flex-wrap gap-2">
-              <div className="flex items-center gap-1 bg-[#baf742]/10 text-[#baf742] px-2 py-1 rounded-full text-xs border border-[#baf742]/20">
-                <i className="ri-leaf-line text-xs"></i>
+              <div className="flex items-center gap-1 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-[#0E1C3D] px-2 py-1 rounded-full text-xs font-semibold border border-[#baf742]/30">
+                <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
+                  <i className="ri-leaf-line text-xs text-[#baf742]"></i>
+                </div>
                 <span>CO₂-neutral</span>
               </div>
-              <div className="flex items-center gap-1 bg-[#baf742]/10 text-[#baf742] px-2 py-1 rounded-full text-xs border border-[#baf742]/20">
-                <i className="ri-recycle-line text-xs"></i>
+              <div className="flex items-center gap-1 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-[#0E1C3D] px-2 py-1 rounded-full text-xs font-semibold border border-[#baf742]/30">
+                <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
+                  <i className="ri-recycle-line text-xs text-[#baf742]"></i>
+                </div>
                 <span>10× nutzbar</span>
               </div>
             </div>
@@ -79,7 +83,9 @@ export default function Footer() {
             <div className="space-y-4">
               {/* E-Mail */}
               <div className="flex items-start gap-3">
-                <i className="ri-mail-line text-[#baf742] text-lg mt-0.5"></i>
+                <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mt-0.5">
+                  <i className="ri-mail-line text-[#baf742] text-sm"></i>
+                </div>
                 <div>
                   <p className="text-gray-400 text-xs mb-1">E-Mail</p>
                   <a 
@@ -93,7 +99,9 @@ export default function Footer() {
               
               {/* Telefon */}
               <div className="flex items-start gap-3">
-                <i className="ri-phone-line text-[#baf742] text-lg mt-0.5"></i>
+                <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mt-0.5">
+                  <i className="ri-phone-line text-[#baf742] text-sm"></i>
+                </div>
                 <div>
                   <p className="text-gray-400 text-xs mb-1">Telefon</p>
                   <a 
@@ -107,7 +115,9 @@ export default function Footer() {
               
               {/* Adresse */}
               <div className="flex items-start gap-3">
-                <i className="ri-map-pin-line text-[#baf742] text-lg mt-0.5"></i>
+                <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mt-0.5">
+                  <i className="ri-map-pin-line text-[#baf742] text-sm"></i>
+                </div>
                 <div>
                   <p className="text-gray-400 text-xs mb-1">Adresse</p>
                   <div className="text-gray-300 text-sm leading-relaxed">
@@ -119,7 +129,9 @@ export default function Footer() {
               
               {/* Öffnungszeiten */}
               <div className="flex items-start gap-3">
-                <i className="ri-time-line text-[#baf742] text-lg mt-0.5"></i>
+                <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mt-0.5">
+                  <i className="ri-time-line text-[#baf742] text-sm"></i>
+                </div>
                 <div>
                   <p className="text-gray-400 text-xs mb-1">Öffnungszeiten</p>
                   <p className="text-gray-300 text-sm">Mo-Fr 8:00-18:00 Uhr</p>
@@ -147,15 +159,21 @@ export default function Footer() {
             <div className="pt-4 border-t border-gray-700">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-gray-400 text-xs">
-                  <i className="ri-shield-check-line text-[#baf742]"></i>
+                  <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
+                    <i className="ri-shield-check-line text-[#baf742] text-xs"></i>
+                  </div>
                   <span>DSGVO-konform</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400 text-xs">
-                   <i className="ri-award-line text-[#baf742]"></i>
-                   <span>Qualitätsgeprüft</span>
-                 </div>
+                  <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
+                    <i className="ri-award-line text-[#baf742] text-xs"></i>
+                  </div>
+                  <span>Qualitätsgeprüft</span>
+                </div>
                 <div className="flex items-center gap-2 text-gray-400 text-xs">
-                  <i className="ri-truck-line text-[#baf742]"></i>
+                  <div className="w-4 h-4 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
+                    <i className="ri-truck-line text-[#baf742] text-xs"></i>
+                  </div>
                   <span>Deutschlandweit</span>
                 </div>
               </div>
@@ -171,11 +189,15 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-gray-400 text-sm">
-                <i className="ri-heart-line text-red-400"></i>
+                <div className="w-5 h-5 bg-gradient-to-r from-red-400/30 to-red-500/30 rounded-sm flex items-center justify-center">
+                  <i className="ri-heart-line text-red-400 text-xs"></i>
+                </div>
                 <span>Made in Germany</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
-                <i className="ri-leaf-line text-[#baf742]"></i>
+                <div className="w-5 h-5 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-sm flex items-center justify-center">
+                  <i className="ri-leaf-line text-[#baf742] text-xs"></i>
+                </div>
                 <span>Klimaneutral</span>
               </div>
             </div>

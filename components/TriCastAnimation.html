@@ -16,16 +16,7 @@
         >
             <defs>
                 <!-- Gradients -->
-                <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="var(--color-bark)" />
-                    <stop offset="50%" stop-color="var(--color-brown)" />
-                    <stop offset="100%" stop-color="var(--color-bark)" />
-                </linearGradient>
-                
-                <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="var(--color-leaf)" />
-                    <stop offset="100%" stop-color="var(--color-green-dark)" />
-                </linearGradient>
+
                 
                 <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="var(--color-green)" />
@@ -50,34 +41,9 @@
             <title id="tri-title">TriCast360 Installation in drei Schritten</title>
             <desc id="tri-desc">Animation zeigt die werkzeuglose Installation des Baumschutzmoduls in unter 5 Minuten</desc>
             
-            <!-- Tree Trunk -->
-            <g id="treeTrunk">
-                <rect x="180" y="150" width="40" height="120" rx="20" 
-                      fill="url(#trunkGradient)" 
-                      stroke="var(--color-stroke)" 
-                      stroke-width="2" 
-                      filter="url(#dropShadow)" />
-                <!-- Bark texture lines -->
-                <path d="M185 160 Q195 165 185 170 Q195 175 185 180" 
-                      stroke="var(--color-bark)" 
-                      stroke-width="1" 
-                      fill="none" 
-                      opacity="0.6" />
-                <path d="M210 180 Q200 185 210 190 Q200 195 210 200" 
-                      stroke="var(--color-bark)" 
-                      stroke-width="1" 
-                      fill="none" 
-                      opacity="0.6" />
-            </g>
+
             
-            <!-- Tree Crown -->
-            <g id="treeCrown">
-                <circle cx="200" cy="130" r="45" 
-                        fill="url(#crownGradient)" 
-                        stroke="var(--color-stroke)" 
-                        stroke-width="2" 
-                        filter="url(#dropShadow)" />
-            </g>
+
             
             <!-- Glow Effect (initially hidden) -->
             <g id="glow" style="opacity: 0;">

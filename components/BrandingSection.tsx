@@ -32,13 +32,15 @@ export default function BrandingSection() {
           {/* Enhanced Section Header */}
           <div className="text-center mb-16 lg:mb-20 relative z-10">
             <div className="inline-flex items-center gap-2 bg-[#baf742]/20 backdrop-blur-sm text-[#0E1C3D] px-4 py-2 rounded-full text-sm font-semibold border border-[#baf742]/30 mb-6">
-              <i className="ri-megaphone-line text-[#0E1C3D]"></i>
+              <div className="w-5 h-5 bg-gradient-to-br from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center">
+                <i className="ri-megaphone-line text-[#baf742] text-sm"></i>
+              </div>
               <span>Branding & Marketing</span>
             </div>
             
             <h2 className="heading-2 font-bold mb-6 text-gray-900 leading-tight">
               Ihr Branding im{' '}
-              <span className="bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent">
+              <span className="text-[#baf742] font-bold">
                 Fokus
               </span>
             </h2>
@@ -83,11 +85,11 @@ export default function BrandingSection() {
                 
                 <div className="space-y-6">
                   <div className="group p-6 rounded-2xl bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#baf742] to-[#90CFC4] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <i className="ri-eye-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0 grid place-items-center">
+                        <i className="ri-eye-line text-[#0E1C3D] w-6 h-6 block"></i>
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0E1C3D] transition-colors">Hohe Sichtbarkeit</h4>
                         <p className="text-gray-600 leading-relaxed">Ihr Logo und Branding sind prominent auf jeder Baustelle sichtbar - 24/7 Marketing ohne Zusatzkosten.</p>
                       </div>
@@ -95,11 +97,11 @@ export default function BrandingSection() {
                   </div>
 
                   <div className="group p-6 rounded-2xl bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#baf742] to-[#90CFC4] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <i className="ri-leaf-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0 grid place-items-center">
+                        <i className="ri-leaf-line text-[#0E1C3D] w-6 h-6 block"></i>
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0E1C3D] transition-colors">Nachhaltiges Image</h4>
                         <p className="text-gray-600 leading-relaxed">Demonstrieren Sie Umweltverantwortung und positionieren Sie sich als nachhaltiges Unternehmen.</p>
                       </div>
@@ -107,11 +109,11 @@ export default function BrandingSection() {
                   </div>
 
                   <div className="group p-6 rounded-2xl bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#baf742] to-[#90CFC4] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <i className="ri-trophy-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0 grid place-items-center">
+                        <i className="ri-trophy-line text-[#0E1C3D] w-6 h-6 block"></i>
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0E1C3D] transition-colors">Wettbewerbsvorteil</h4>
                         <p className="text-gray-600 leading-relaxed">Heben Sie sich von der Konkurrenz ab durch innovative und umweltfreundliche Lösungen.</p>
                       </div>
@@ -146,31 +148,31 @@ export default function BrandingSection() {
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 xl:gap-8 justify-items-center">
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">100%</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#baf742] mb-2">100%</div>
                 <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Wiederverwendbar</div>
               </div>
             </div>
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">70%</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#baf742] mb-2">70%</div>
                 <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Kostenersparnis</div>
               </div>
             </div>
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">1</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#baf742] mb-2">1</div>
                 <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Umweltfreundlich</div>
               </div>
             </div>
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">∞</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#baf742] mb-2">∞</div>
                 <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Lebensdauer</div>
               </div>
             </div>
             <div className="text-center group">
               <div className="bg-gradient-to-br from-white/80 to-gray-50/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 w-full h-32 flex flex-col justify-center">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">&lt; 5 Min</div>
+                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#baf742] mb-2">&lt; 5 Min</div>
                 <div className="font-medium text-xs lg:text-sm xl:text-base text-gray-700">Montagezeit</div>
               </div>
             </div>

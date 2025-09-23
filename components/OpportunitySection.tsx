@@ -78,12 +78,14 @@ export default function OpportunitySection() {
         {/* Enhanced Header */}
         <div className="mb-16 lg:mb-20 text-center">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm rounded-full border border-[#baf742]/30 mb-8">
-            <i className="ri-star-line mr-2 text-[#0E1C3D]"></i>
+            <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mr-2">
+              <i className="ri-star-line text-sm text-[#baf742]"></i>
+            </div>
             <span className="text-sm font-semibold text-[#0E1C3D]">Warum Tricast360?</span>
           </div>
           <h2 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-8 leading-tight">
             <span className="text-gray-900">Einsatz & </span>
-            <span className="bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent">Vorteile</span>
+            <span className="text-[#baf742] font-bold">Vorteile</span>
           </h2>
           <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-relaxed text-left">
             Intelligente Lösungen für vielfältige Anwendungsbereiche mit maximaler Effizienz und Nachhaltigkeit
@@ -99,7 +101,7 @@ export default function OpportunitySection() {
           }`}>
             <div className="space-y-8">
               <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900">
-                Unsere <span className="bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent">Vorteile</span>
+                Unsere <span className="text-[#baf742] font-bold">Vorteile</span>
               </h3>
               
               <div className="space-y-8">
@@ -113,11 +115,22 @@ export default function OpportunitySection() {
                     <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#baf742]/10 to-transparent rounded-full transform translate-x-12 -translate-y-12 group-hover:scale-150 transition-transform duration-700"></div>
                     
                     <div className="relative z-10 flex items-center gap-6">
-                      <div className="w-20 h-20 bg-gradient-to-br from-[#baf742] to-[#90CFC4] rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500">
-                        <i className={`${advantage.icon} text-3xl text-white`}></i>
+                      <div className="w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0 grid place-items-center">
+                        <i className={`${advantage.icon} text-[#0E1C3D]`} style={{ 
+                          fontSize: '24px',
+                          width: '24px',
+                          height: '24px',
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center', 
+                          lineHeight: '1',
+                          fontStyle: 'normal',
+                          verticalAlign: 'middle',
+                          textAlign: 'center'
+                        }}></i>
                       </div>
                       <div className="flex-1">
-                        <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-2">
+                        <div className="text-4xl lg:text-5xl font-bold text-[#baf742] mb-2">
                           {advantage.value}
                         </div>
                         <div className="text-xl font-bold text-gray-900 mb-2">
@@ -140,7 +153,7 @@ export default function OpportunitySection() {
           }`}>
             <div className="space-y-8">
               <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900">
-                <span className="bg-gradient-to-r from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">Einsatzfelder</span>
+                <span className="text-[#90CFC4] font-bold">Einsatzfelder</span>
               </h3>
               
               {/* Enhanced Tag-Cloud */}
@@ -170,9 +183,11 @@ export default function OpportunitySection() {
                 
                 {/* Enhanced Info Section */}
                 <div className="relative z-10 text-center mt-8 pt-8 border-t border-[#90CFC4]/20">
-                  <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#90CFC4]/10 to-[#baf742]/10 rounded-full border border-[#90CFC4]/30 backdrop-blur-sm">
-                    <i className="ri-information-line mr-3 text-[#90CFC4]"></i>
-                    <span className="text-gray-700 font-medium">
+                  <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm rounded-full border border-[#baf742]/30">
+                    <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mr-3">
+                      <i className="ri-information-line text-sm text-[#baf742]"></i>
+                    </div>
+                    <span className="text-[#0E1C3D] font-semibold">
                       Flexibel einsetzbar in allen Bereichen des Baumschutzes
                     </span>
                   </div>
@@ -193,13 +208,15 @@ export default function OpportunitySection() {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-[#90CFC4]/5 to-[#baf742]/5 rounded-full blur-3xl"></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#90CFC4]/20 to-[#baf742]/20 rounded-full border border-[#90CFC4]/30 backdrop-blur-sm mb-8">
-                <i className="ri-rocket-line mr-3 text-[#90CFC4]"></i>
-                <span className="text-white/90 font-medium">Bereit für Innovation?</span>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm rounded-full border border-[#baf742]/30 mb-8">
+                <div className="w-6 h-6 bg-gradient-to-r from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center mr-3">
+                  <i className="ri-rocket-line text-sm text-[#baf742]"></i>
+                </div>
+                <span className="text-[#0E1C3D] font-semibold">Bereit für Innovation?</span>
               </div>
               
               <h3 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">
+                <span className="text-[#90CFC4] font-bold">
                   Revolutionieren Sie
                 </span>
                 <br />
@@ -214,12 +231,10 @@ export default function OpportunitySection() {
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-[#0E1C3D] font-bold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300">
-                  <i className="ri-phone-line mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
+                  <div className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center mr-3 group-hover:bg-white/30 transition-all duration-300">
+                    <i className="ri-phone-line text-sm text-[#0E1C3D] group-hover:rotate-12 transition-transform duration-300"></i>
+                  </div>
                   Beratung vereinbaren
-                </button>
-                <button className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold rounded-full hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                  <i className="ri-download-line mr-3 group-hover:translate-y-[-2px] transition-transform duration-300"></i>
-                  Produktbroschüre
                 </button>
               </div>
             </div>

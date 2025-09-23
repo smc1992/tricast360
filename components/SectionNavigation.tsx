@@ -95,24 +95,35 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
               className={`
                 group relative flex items-center justify-center
                 w-12 h-12 rounded-full transition-all duration-300
-                hover:scale-110 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
+                hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#baf742] focus:ring-offset-2
                 ${
                   isActive 
-                    ? 'bg-accent-500 text-white shadow-lg shadow-accent-500/30'
+                    ? 'bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-white shadow-lg shadow-[#baf742]/30'
                 : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-[#baf742]/10 hover:text-[#baf742] shadow-md'
                 }
               `}
               aria-label={`Zu ${section.label} scrollen`}
             >
-              {/* Icon */}
-              <i className={`${section.icon} text-lg transition-transform duration-300 group-hover:scale-110`} style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                lineHeight: '1',
-                width: '100%',
-                height: '100%'
-              }}></i>
+              {/* Icon Container with Background */}
+              <div className={`
+                w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300
+                ${
+                  isActive 
+                    ? 'bg-white/20 backdrop-blur-sm'
+                    : 'bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 group-hover:from-[#baf742]/30 group-hover:to-[#90CFC4]/30'
+                }
+              `}>
+                <i className={`${section.icon} text-lg transition-transform duration-300 group-hover:scale-110 ${
+                  isActive ? 'text-white' : 'text-[#baf742] group-hover:text-[#baf742]'
+                }`} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  lineHeight: '1',
+                  width: '100%',
+                  height: '100%'
+                }}></i>
+              </div>
               
               {/* Tooltip */}
               <div className={`
@@ -128,7 +139,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
               
               {/* Active indicator */}
               {isActive && (
-                <div className="absolute -inset-1 rounded-full border-2 border-emerald-300 animate-pulse"></div>
+                <div className="absolute -inset-1 rounded-full border-2 border-[#baf742]/60 animate-pulse"></div>
               )}
             </button>
           );
@@ -138,7 +149,7 @@ export default function SectionNavigation({ className = '' }: SectionNavigationP
         <div className="mt-4 w-12 flex justify-center">
           <div className="w-1 h-16 bg-gray-200 rounded-full overflow-hidden">
             <div 
-              className="w-full bg-gradient-to-t from-accent-500 to-accent-600 rounded-full transition-all duration-500 ease-out"
+              className="w-full bg-gradient-to-t from-[#baf742] to-[#90CFC4] rounded-full transition-all duration-500 ease-out"
               style={{ 
                 height: `${((activeSection + 1) / sections.length) * 100}%`,
                 transform: 'translateY(0)'
@@ -249,16 +260,27 @@ export function MobileSectionNavigation({ className = '' }: SectionNavigationPro
                 onClick={() => scrollToSection(section.id, index)}
                 className={`
                   flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-300
-                  min-w-[3rem] focus:outline-none focus:ring-2 focus:ring-emerald-500
+                  min-w-[3rem] focus:outline-none focus:ring-2 focus:ring-[#baf742]
                   ${
                     isActive 
-                      ? 'bg-accent-500 text-white'
+                      ? 'bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-white'
                 : 'text-gray-600 hover:bg-[#baf742]/10 hover:text-[#baf742]'
                   }
                 `}
                 aria-label={`Zu ${section.label} scrollen`}
               >
-                <i className={`${section.icon} text-sm mb-1`}></i>
+                <div className={`
+                  w-6 h-6 rounded-md flex items-center justify-center mb-1 transition-all duration-300
+                  ${
+                    isActive 
+                      ? 'bg-white/20 backdrop-blur-sm'
+                      : 'bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 group-hover:from-[#baf742]/30 group-hover:to-[#90CFC4]/30'
+                  }
+                `}>
+                  <i className={`${section.icon} text-sm ${
+                    isActive ? 'text-white' : 'text-[#baf742]'
+                  }`}></i>
+                </div>
                 <span className="text-xs font-medium">{section.label}</span>
               </button>
             );

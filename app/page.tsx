@@ -8,6 +8,7 @@ import HeroSection from '../components/HeroSection';
 import ProblemSolutionSection from '../components/ProblemSolutionSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import BenefitsSection from '../components/BenefitsSection';
+import BenefitsWithGraphic from '../components/BenefitsWithGraphic';
 import EnvironmentalImpactSection from '../components/EnvironmentalImpactSection';
 import BrandingSection from '../components/BrandingSection';
 import Vision2025Section from '../components/Vision2025Section';
@@ -48,7 +49,7 @@ export default function Home() {
           
           <AnimatedCard delay={300} direction="right">
             <section id="vorteile">
-              <BenefitsSection />
+              <BenefitsWithGraphic />
             </section>
           </AnimatedCard>
           

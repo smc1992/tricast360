@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Pacifico, Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "../components/StructuredData";
 import CookieBanner from "../components/CookieBanner";
+import { CartProvider } from "../contexts/CartContext";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -98,7 +99,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <StructuredData />
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
         <CookieBanner />
       </body>
     </html>

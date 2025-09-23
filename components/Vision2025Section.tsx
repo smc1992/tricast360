@@ -6,17 +6,17 @@ export default function Vision2025Section() {
   const isVisible = true; // Always visible
 
   return (
-    <section id="vision-2025" className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-gray-50/30 to-[#90CFC4]/5">
+    <section id="vision-2025" className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-gray-50/30 to-[#baf742]/5">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Top gradient blur */}
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-bl from-[#90CFC4]/15 to-[#baf742]/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-bl from-[#baf742]/15 to-[#90CFC4]/10 rounded-full blur-3xl"></div>
         
         {/* Bottom gradient blur */}
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-[#baf742]/10 to-[#90CFC4]/15 rounded-full blur-3xl"></div>
         
         {/* Center accent */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-[#90CFC4]/3 to-transparent rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-[#baf742]/3 to-transparent rounded-full"></div>
       </div>
       <div className="max-w-6xl xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1800px] container-wide mx-auto px-6 md:px-8 lg:px-12 xl:px-12 2xl:px-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 items-center">
@@ -32,12 +32,12 @@ export default function Vision2025Section() {
                 <div className="absolute inset-8 rounded-full border-2 border-[#90CFC4]/50 shadow-xl group-hover:border-[#90CFC4]/70 transition-all duration-700"></div>
                 
                 {/* Enhanced Inner Circle */}
-                <div className="absolute inset-16 rounded-full bg-gradient-to-br from-[#90CFC4]/20 via-[#90CFC4]/30 to-[#90CFC4]/40 flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/20 group-hover:scale-105 transition-all duration-700">
+                <div className="absolute inset-16 rounded-full bg-gradient-to-br from-[#baf742]/20 via-[#baf742]/30 to-[#baf742]/40 flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/20 group-hover:scale-105 transition-all duration-700">
                   <div className="text-center space-y-4">
-                    <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-br from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">
+                    <div className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#baf742]">
                       Vision
                     </div>
-                    <div className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-gray-800">
+                    <div className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-[#0E1C3D]">
                       Zukunft
                     </div>
                   </div>
@@ -56,12 +56,12 @@ export default function Vision2025Section() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}>
               <div className="space-y-8 lg:space-y-10">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#90CFC4]/20 to-[#baf742]/20 backdrop-blur-sm rounded-full border border-[#90CFC4]/30">
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm rounded-full border border-[#baf742]/30">
                   <span className="text-sm font-semibold text-[#0E1C3D]">Zukunft gestalten</span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold leading-tight">
                   <span className="text-gray-900">Unsere </span>
-                  <span className="bg-gradient-to-r from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">Vision</span>
+                  <span className="text-[#baf742] font-bold">Vision</span>
                 </h2>
                 <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-700 leading-relaxed text-left">
                   Wir gestalten die Zukunft der nachhaltigen Energiegewinnung und setzen neue Maßstäbe in der Holzpellet-Industrie.
@@ -71,7 +71,7 @@ export default function Vision2025Section() {
               {/* Enhanced Goals Section */}
               <div className="space-y-8 lg:space-y-10">
                 <h3 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-900">
-                  Unsere <span className="bg-gradient-to-r from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">Ziele</span>
+                  Unsere <span className="text-[#baf742] font-bold">Ziele</span>
                 </h3>
                 <div className="grid gap-6 lg:gap-8">
                   <div className="group flex items-start space-x-6 p-6 rounded-2xl bg-gradient-to-r from-white/80 to-[#90CFC4]/5 backdrop-blur-sm border border-[#90CFC4]/20 hover:border-[#90CFC4]/40 hover:shadow-xl transition-all duration-500">
@@ -107,28 +107,9 @@ export default function Vision2025Section() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#baf742]/20 to-transparent rounded-full transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-1000"></div>
                 
                 <div className="relative z-10 flex items-start space-x-6 lg:space-x-8">
-                  <div 
-                    className="bg-gradient-to-br from-[#90CFC4] to-[#baf742] rounded-2xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500"
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      minWidth: '40px',
-                      minHeight: '40px',
-                      maxWidth: '40px',
-                      maxHeight: '40px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                  >
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0 grid place-items-center">
                     <svg 
-                      style={{
-                        width: '18px',
-                        height: '18px',
-                        display: 'block',
-                        margin: '0 auto'
-                      }}
-                      className="text-white" 
+                      className="text-[#0E1C3D] w-6 h-6" 
                       fill="currentColor" 
                       viewBox="0 0 24 24"
                     >
@@ -137,7 +118,7 @@ export default function Vision2025Section() {
                   </div>
                   <div className="space-y-4 lg:space-y-6">
                     <h4 className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-gray-900 leading-tight">
-                      <span className="bg-gradient-to-r from-[#90CFC4] to-[#baf742] bg-clip-text text-transparent">Nachhaltigkeit</span> als Kern unserer Mission
+                      <span className="text-[#baf742] font-bold">Nachhaltigkeit</span> als Kern unserer Mission
                     </h4>
                     <p className="text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-700 leading-relaxed max-w-2xl">
                       Jeder Baum, den wir schützen, ist ein Schritt in Richtung einer grüneren Zukunft. Unsere Vision 2025 verbindet wirtschaftlichen Erfolg mit ökologischer Verantwortung.

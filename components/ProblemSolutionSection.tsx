@@ -24,8 +24,10 @@ export default function ProblemSolutionSection() {
           {/* Enhanced Content */}
           <div className="space-y-8 lg:space-y-10">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 bg-red-100/80 backdrop-blur-sm text-red-800 px-4 py-2 rounded-full text-sm font-semibold border border-red-200/50">
-                <i className="ri-error-warning-line text-red-600"></i>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-50/80 to-red-100/80 backdrop-blur-sm text-[#0E1C3D] px-4 py-2 rounded-full text-sm font-semibold border border-red-200/30">
+                <div className="w-5 h-5 bg-gradient-to-br from-red-400/30 to-red-500/30 rounded-md flex items-center justify-center">
+                  <i className="ri-error-warning-line text-red-600 text-sm"></i>
+                </div>
                 <span>Aktuelle Herausforderungen</span>
               </div>
               

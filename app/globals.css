@@ -179,9 +179,29 @@
     box-sizing: border-box;
   }
   
-  /* Prevent horizontal scroll from any element */
-  * {
+  /* Prevent horizontal scroll from any element - but exclude badges */
+  *:not(.badge-fit-content):not([class*="badge"]):not(.custom-badge):not(.custom-badge-wrapper) {
     max-width: 100%;
+  }
+
+  /* Badge specific override - Ultra specific */
+  div.badge-fit-content,
+  .badge-fit-content {
+    width: fit-content !important;
+    max-width: fit-content !important;
+    min-width: auto !important;
+    flex: none !important;
+    display: inline-flex !important;
+  }
+  
+  /* Even more specific for benefits section */
+  .space-y-10 .badge-fit-content,
+  .space-y-8 .badge-fit-content {
+    width: fit-content !important;
+    max-width: fit-content !important;
+    min-width: auto !important;
+    flex: none !important;
+    display: inline-flex !important;
   }
   
   /* Global Typography Standards */

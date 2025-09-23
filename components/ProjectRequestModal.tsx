@@ -117,12 +117,12 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-gray-200">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto border border-gray-200">
         <div className="p-8">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#baf742]/30 to-[#90CFC4]/30 rounded-xl flex items-center justify-center">
                 <i className="ri-phone-line text-[#baf742] text-xl"></i>
               </div>
               <div>

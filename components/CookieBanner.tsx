@@ -128,7 +128,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
               // Kompakte Ansicht
               <div className="p-6 sm:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#baf742]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#baf742]/30 to-[#90CFC4]/30 rounded-xl flex items-center justify-center flex-shrink-0">
                     <i className="ri-shield-check-line text-[#baf742] text-xl"></i>
                   </div>
                   
@@ -186,7 +186,7 @@ export default function CookieBanner({ onConsentChange }: CookieBannerProps) {
               <div className="p-6 sm:p-8 max-h-[80vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#baf742]/10 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#baf742]/30 to-[#90CFC4]/30 rounded-xl flex items-center justify-center">
                       <i className="ri-settings-3-line text-[#baf742] text-lg"></i>
                     </div>
                     <h3 className="text-xl font-semibold text-[#2b3138]">

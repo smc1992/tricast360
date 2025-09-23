@@ -39,7 +39,7 @@ export default function HeroSection() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               {/* Enhanced Umwelt-Badge */}
-              <div className="flex items-center gap-3 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-gray-800 px-5 py-3 rounded-full text-sm font-semibold mb-6 border border-[#baf742]/30 shadow-lg w-fit">
+              <div className="flex items-center gap-3 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-[#0E1C3D] px-5 py-3 rounded-full text-sm font-semibold mb-6 border border-[#baf742]/30 shadow-lg w-fit">
                 <div className="w-2.5 h-2.5 bg-gradient-to-r from-[#baf742] to-[#90CFC4] rounded-full animate-pulse"></div>
                 Umweltfreundlich & Nachhaltig
               </div>
@@ -66,7 +66,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-start items-start">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="group bg-gradient-to-r from-[#baf742] to-[#90CFC4] hover:from-[#a8e63a] hover:to-[#7fb8b3] text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
+                  className="group bg-[#baf742] hover:bg-[#a8e63a] text-gray-900 font-semibold px-8 py-4 lg:px-10 lg:py-5 xl:px-12 xl:py-6 2xl:px-14 2xl:py-7 3xl:px-16 3xl:py-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl"
                 >
                   <span className="flex items-center gap-3">
                     Jetzt anfragen

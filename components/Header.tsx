@@ -4,10 +4,13 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ProjectRequestModal from './ProjectRequestModal';
+import CartButton from './CartButton';
+import Cart from './Cart';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -56,7 +59,7 @@ export default function Header() {
                 Umweltvorteile
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#baf742] group-hover:w-full transition-all duration-300"></span>
               </Link>
-              <Link href="/ueber-uns" className="relative text-gray-600 hover:text-[#baf742] transition-colors duration-200 cursor-pointer group text-sm xl:text-base">
+              <Link href="/ueber-uns" prefetch={false} className="relative text-gray-600 hover:text-[#baf742] transition-colors duration-200 cursor-pointer group text-sm xl:text-base">
                 Unser Team
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#baf742] group-hover:w-full transition-all duration-300"></span>
               </Link>
@@ -72,16 +75,16 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-3 xl:gap-4">
-              <Link href="/system" className="text-gray-600 hover:text-[#baf742] transition-colors duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 text-sm xl:text-base">
+              <Link href="/system" prefetch={false} className="text-gray-600 hover:text-[#baf742] transition-colors duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 text-sm xl:text-base">
                 <i className="ri-eco-line"></i>
                 <span className="hidden xl:inline">System entdecken</span>
                 <span className="xl:hidden">System</span>
               </Link>
+              <CartButton onClick={() => setIsCartOpen(true)} />
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="btn-primary bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-4 xl:px-6 py-2 xl:py-3 rounded-xl xl:rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center gap-2 text-sm xl:text-base relative overflow-hidden group"
+                className="btn-primary bg-[#baf742] hover:bg-[#a3e635] text-[#2b3138] px-4 xl:px-6 py-2 xl:py-3 rounded-xl xl:rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center gap-2 text-sm xl:text-base relative overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <i className="ri-file-text-line relative z-10"></i>
                 <span className="hidden sm:inline relative z-10">Projekt anfragen</span>
               </button>
@@ -149,6 +152,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/system" 
+                  prefetch={false}
                   className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -157,6 +161,7 @@ export default function Header() {
                 </Link>
                 <Link 
                   href="/ueber-uns" 
+                  prefetch={false}
                   className="block text-lg text-gray-800 hover:text-[#baf742] transition-colors duration-200 py-2 border-b border-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -188,7 +193,7 @@ export default function Header() {
                     setIsModalOpen(true);
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-gradient-to-r from-[#baf742] to-[#a3e635] text-[#2b3138] px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full bg-[#baf742] hover:bg-[#a3e635] text-[#2b3138] px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
                     <i className="ri-file-text-line text-accent-500 text-base"></i>
@@ -230,6 +235,11 @@ export default function Header() {
       <ProjectRequestModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+      />
+      
+      <Cart 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)} 
       />
     </>
   );

@@ -268,14 +268,16 @@ export default function HowItWorksSection() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 bg-[#baf742]/20 backdrop-blur-sm text-[#0E1C3D] px-4 py-2 rounded-full text-sm font-semibold border border-[#baf742]/30">
-                <i className="ri-time-line text-[#0E1C3D]"></i>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#baf742]/20 to-[#90CFC4]/20 backdrop-blur-sm text-[#0E1C3D] px-4 py-2 rounded-full text-sm font-semibold border border-[#baf742]/30">
+                <div className="w-5 h-5 bg-gradient-to-br from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center">
+                  <i className="ri-timer-2-line text-[#baf742] text-sm"></i>
+                </div>
                 <span>Schnelle Installation</span>
               </div>
               
               <h2 className="heading-2 font-bold text-gray-900 leading-tight">
                 Drei einfache 
-                <span className="block bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mt-2">Schritte</span>
+                <span className="block text-[#baf742] font-bold mt-2">Schritte</span>
               </h2>
             </div>
             
@@ -287,8 +289,8 @@ export default function HowItWorksSection() {
             <div className="space-y-6">
               <div className="group p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#baf742]/20 shadow-sm hover:shadow-lg hover:border-[#baf742]/40 transition-all duration-300">
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-[#0E1C3D] rounded-2xl grid place-items-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    1
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#baf742] to-[#90CFC4] text-[#0E1C3D] rounded-xl grid place-items-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    3
                   </div>
                   <div className="space-y-2">
                     <h3 className="font-bold text-gray-900 text-lg">Elemente um den Stamm legen</h3>
@@ -324,7 +326,9 @@ export default function HowItWorksSection() {
             
             {/* Time Badge */}
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#baf742]/10 to-[#90CFC4]/10 backdrop-blur-sm px-6 py-3 rounded-2xl border border-[#baf742]/30">
-              <i className="ri-timer-2-line text-[#0E1C3D] text-xl"></i>
+              <div className="w-6 h-6 bg-gradient-to-br from-[#baf742]/30 to-[#90CFC4]/30 rounded-md flex items-center justify-center">
+                <i className="ri-time-line text-[#baf742] text-sm"></i>
+              </div>
               <span className="font-semibold text-[#0E1C3D]">Gesamtzeit: &lt; 5 Minuten</span>
             </div>
 
