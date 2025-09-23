@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve@latest out -p 3000",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -18,7 +18,6 @@
     "nodemailer": "^7.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "serve": "^14.2.3",
     "stripe": "^18.5.0"
   },
   "devDependencies": {
