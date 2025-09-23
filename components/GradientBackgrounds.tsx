@@ -123,20 +123,11 @@ export function OverlayGradient({
 // Radial Gradienten für Spotlight-Effekte
 export function RadialGradient({ 
   children, 
-  className = '',
-  position = 'center'
+  className = ''
 }: { 
   children?: React.ReactNode; 
   className?: string;
-  position?: 'center' | 'top' | 'bottom' | 'left' | 'right';
 }) {
-  const positionClasses = {
-    center: 'bg-radial-gradient from-[#baf742]/30 via-[#90CFC4]/15 to-transparent',
-    top: 'bg-gradient-radial from-[#baf742]/25 at-top via-[#90CFC4]/10 to-transparent',
-    bottom: 'bg-gradient-radial from-[#baf742]/25 at-bottom via-[#90CFC4]/10 to-transparent',
-    left: 'bg-gradient-radial from-[#baf742]/25 at-left via-[#90CFC4]/10 to-transparent',
-    right: 'bg-gradient-radial from-[#baf742]/25 at-right via-[#90CFC4]/10 to-transparent'
-  };
   
   return (
     <div className={`bg-radial-gradient from-[#baf742]/20 via-[#90CFC4]/10 to-transparent ${className}`}>

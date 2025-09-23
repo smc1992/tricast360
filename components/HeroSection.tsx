@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import ProjectRequestModal from './ProjectRequestModal';
 import Link from 'next/link';
 
@@ -129,9 +130,11 @@ export default function HeroSection() {
                 <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem] 3xl:w-[44rem] 3xl:h-[44rem] mx-auto">
                   {/* Hero Image */}
                   <div className="relative w-full h-full rounded-3xl overflow-hidden border border-gray-200">
-                    <img 
+                    <Image 
                       src="/Baum Bild .webp" 
                       alt="TriCast360 Baumschutz System" 
+                      width={700}
+                      height={700}
                       className="w-full h-full object-cover"
                     />
                   </div>

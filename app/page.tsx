@@ -1,13 +1,11 @@
 
 'use client';
 
-import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import ProblemSolutionSection from '../components/ProblemSolutionSection';
 import HowItWorksSection from '../components/HowItWorksSection';
-import BenefitsSection from '../components/BenefitsSection';
 import BenefitsWithGraphic from '../components/BenefitsWithGraphic';
 import EnvironmentalImpactSection from '../components/EnvironmentalImpactSection';
 import BrandingSection from '../components/BrandingSection';

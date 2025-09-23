@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const BenefitsWithGraphic = () => {
   return (
@@ -25,16 +26,17 @@ const BenefitsWithGraphic = () => {
                 {/* Image Container */}
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-4 border border-green-100 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                   <div className="relative overflow-hidden rounded-2xl">
-                    <img 
+                    <Image 
                       src="/images/Tricast360 Baumschutz-Modul.jpeg"
                       alt="TriCast360 Baumschutz-Modul - Innovatives modulares Baumschutzsystem"
+                      width={1152}
+                      height={2048}
                       className="w-full h-auto shadow-lg group-hover:scale-105 transition-transform duration-500 lg:max-h-[650px] xl:max-h-[700px] 2xl:max-h-[750px]"
                       style={{ 
                         aspectRatio: '1152/2048',
                         maxHeight: '600px',
                         objectFit: 'cover'
                       }}
-                      loading="lazy"
                     />
                     
                     {/* Overlay Gradient */}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { useCart } from '../contexts/CartContext';
 
 interface Configuration {
@@ -40,7 +41,7 @@ export default function ProductConfigurator() {
   // Pro System sind bis zu 50 cm Durchmesser und 2 Meter Höhe möglich
 
   // Hilfsfunktion: Berechne Gesamtanzahl der Module
-  const calculateTotalModules = () => {
+  const calculateTotalModules = useCallback(() => {
     // Berechnung basierend auf Durchmesser: Jede 50cm = 4 Module
     const modulesBasedOnDiameter = (config.diameter / 50) * 4; // 50cm = 4 Module, 100cm = 8 Module, etc.
     
@@ -48,7 +49,7 @@ export default function ProductConfigurator() {
     const manualModules = config.additional2ChamberModules + config.additional7ChamberModules;
     
     return modulesBasedOnDiameter + manualModules;
-  };
+  }, [config.diameter, config.additional2ChamberModules, config.additional7ChamberModules]);
 
   // Preisberechnung basierend auf durchmesser-basiertem Modulsystem
   const calculatePrice = useCallback(() => {
@@ -312,9 +313,11 @@ export default function ProductConfigurator() {
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3 p-3 bg-white border border-blue-200 rounded-lg">
                             {logoPreview && (
-                              <img 
+                              <Image 
                                 src={logoPreview} 
                                 alt="Logo Vorschau" 
+                                width={48}
+                                height={48}
                                 className="w-12 h-12 object-contain rounded"
                               />
                             )}

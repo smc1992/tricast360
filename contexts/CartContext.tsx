@@ -172,7 +172,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addItem = (item: Omit<CartItem, 'id'>) => {
     console.log('CartContext addItem called with:', item);
-    const id = `${item.productModel}-${item.diameter}-${item.height}-${item.modules}`;
+    const id = `${item.productModel}-${item.diameter}-${item.modules}`;
     const cartItem: CartItem = { ...item, id };
     dispatch({ type: 'ADD_ITEM', payload: cartItem });
     console.log('Dispatch called for ADD_ITEM');

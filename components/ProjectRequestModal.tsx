@@ -89,7 +89,7 @@ export default function ProjectRequestModal({ isOpen, onClose }: ProjectRequestM
         setSubmitStatus('error');
         setErrors(result.errors || ['Ein Fehler ist aufgetreten']);
       }
-    } catch (_error) {
+    } catch (_error) { // eslint-disable-line @typescript-eslint/no-unused-vars
       setSubmitStatus('error');
       setErrors(['Netzwerkfehler. Bitte versuchen Sie es später erneut.']);
     } finally {

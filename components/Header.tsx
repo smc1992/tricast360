@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ProjectRequestModal from './ProjectRequestModal';
 import CartButton from './CartButton';
 import Cart from './Cart';
@@ -39,9 +40,11 @@ export default function Header() {
         <div className="w-full px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center group">
-              <img 
+              <Image 
                 src="/images/1x/1x/Tricast360 Logo quer transparent.webp" 
                 alt="TriCast360 Logo" 
+                width={200}
+                height={64}
                 className="h-16 sm:h-14 w-auto group-hover:scale-110 transition-all duration-300"
               />
             </Link>

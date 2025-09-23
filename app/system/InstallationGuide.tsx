@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function InstallationGuide() {
   const [activeStep, setActiveStep] = useState(0);
@@ -186,9 +187,11 @@ export default function InstallationGuide() {
               </p>
 
               <div className="mb-8">
-                <img 
+                <Image 
                   src={`https://readdy.ai/api/search-image?query=$%7Bsteps%5BactiveStep%5D.image%7D&width=600&height=400&seq=install-step-${activeStep}&orientation=landscape`}
                   alt={`Installation Schritt ${activeStep + 1}`}
+                  width={600}
+                  height={400}
                   className="w-full h-64 rounded-xl shadow-lg object-top"
                 />
               </div>

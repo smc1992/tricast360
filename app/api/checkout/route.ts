@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { sendOrderConfirmationEmails } from '@/lib/emailService';
 
 interface CheckoutData {

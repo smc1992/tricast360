@@ -217,7 +217,7 @@ export default function Datenschutz() {
                 <p className="text-gray-600 leading-relaxed">
                   Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte 
                   eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass 
-                  die Adresszeile des Browsers von „http://" auf „https://" wechselt.
+                  die Adresszeile des Browsers von &quot;http://&quot; auf &quot;https://&quot; wechselt.
                 </p>
                 
                 <div className="bg-green-50 rounded-xl p-4 border border-green-200">

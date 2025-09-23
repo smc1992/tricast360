@@ -114,11 +114,11 @@ export default function HowItWorksSection() {
         });
 
       const onEnter = () => {
-        tl && tl.pause();
+        if (tl) tl.pause();
         container!.classList.add('is-paused');
       };
       const onLeave = () => {
-        tl && tl.play();
+        if (tl) tl.play();
         container!.classList.remove('is-paused');
       };
 

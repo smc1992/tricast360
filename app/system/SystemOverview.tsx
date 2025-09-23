@@ -1,6 +1,8 @@
 
 'use client';
 
+import Image from 'next/image';
+
 export default function SystemOverview() {
   const features = [
     {
@@ -63,9 +65,11 @@ export default function SystemOverview() {
 
         <div className="flex justify-center">
           <div className="relative w-full max-w-md">
-            <img 
+            <Image 
               src="https://static.readdy.ai/image/5cb98375ce345c7331a1619afba21cba/0623913294cb49f45f91812b9749776a.jfif"
               alt="TriCast360 System"
+              width={400}
+              height={300}
               className="w-full h-auto rounded-2xl shadow-2xl object-top"
             />
             <div className="absolute -bottom-4 -right-4 bg-[#baf742] rounded-2xl p-4 shadow-xl">

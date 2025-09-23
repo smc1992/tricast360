@@ -8,8 +8,7 @@ interface AnimatedCardProps {
 }
 
 export default function AnimatedCard({ 
-  children, 
-  className = ''
+  children
 }: AnimatedCardProps) {
   // Simplified component - just render children without any wrappers
   return (

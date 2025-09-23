@@ -2,6 +2,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { SectionGradient } from './GradientBackgrounds';
 import { SectionNaturalBackground } from './NaturalBackground';
 
@@ -101,11 +102,12 @@ export default function EnvironmentalImpactSection() {
           }`}>
             <div className="relative w-96 h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[36rem] xl:h-[36rem] 2xl:w-[40rem] 2xl:h-[40rem]">
               <div className="w-full h-full bg-gradient-to-br from-[#baf742]/10 to-[#90CFC4]/10 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-[#baf742]/20 overflow-hidden">
-                <img
+                <Image
                   src="/images/Tricast360 Baumschutz Grafik.webp"
                   alt="Tricast360 Baumschutz System - Nachhaltige Lösung für den Baumschutz"
+                  width={640}
+                  height={640}
                   className="w-full h-full object-contain p-2"
-                  loading="lazy"
                 />
               </div>
             </div>

@@ -82,7 +82,7 @@ export default function KontaktPage() {
         setSubmitStatus('error');
         setErrors([result.message || 'Ein Fehler ist aufgetreten']);
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setErrors(['Netzwerkfehler. Bitte versuchen Sie es später erneut.']);
     } finally {

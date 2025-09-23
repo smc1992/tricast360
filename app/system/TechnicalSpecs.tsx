@@ -1,6 +1,8 @@
 
 'use client';
 
+import Image from 'next/image';
+
 export default function TechnicalSpecs() {
   const specifications = [
     {
@@ -251,9 +253,11 @@ export default function TechnicalSpecs() {
 
         <div className="flex justify-center">
           <div className="relative w-full max-w-md">
-            <img 
+            <Image 
               src="https://readdy.ai/api/search-image?query=Sustainable%20green%20tree%20protection%20system%20made%20from%20recycled%20materials%2C%20environmental%20certification%20symbols%2C%20eco-friendly%20industrial%20design%2C%20clean%20modern%20aesthetic%2C%20sustainability%20concept%20with%20natural%20elements%2C%20professional%20product%20photography%20with%20environmental%20focus&width=500&height=600&seq=sustainability&orientation=portrait"
               alt="Nachhaltigkeit Tricast360"
+              width={500}
+              height={600}
               className="w-full h-auto rounded-2xl shadow-xl object-top"
             />
             <div className="absolute -bottom-4 -right-4 bg-[#baf742] rounded-2xl p-4 shadow-xl">

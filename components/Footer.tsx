@@ -2,6 +2,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function Footer() {
@@ -27,9 +28,11 @@ export default function Footer() {
           <div className="space-y-6">
             <div>
               <Link href="/" className="flex items-center group mb-4">
-                <img 
+                <Image 
                   src="/images/1x/1x/1x/Tricast360 Logo hell.webp" 
                   alt="Tricast360 Logo" 
+                  width={200}
+                  height={48}
                   className="h-12 w-auto group-hover:scale-105 transition-all duration-300"
                 />
               </Link>
@@ -58,7 +61,7 @@ export default function Footer() {
                 Umweltvorteile
               </Link>
               <Link href="/#funktionsweise" className="block text-gray-300 hover:text-[#baf742] transition-colors duration-200 text-sm">
-                So funktioniert's
+                So funktioniert&apos;s
               </Link>
             </div>
           </div>

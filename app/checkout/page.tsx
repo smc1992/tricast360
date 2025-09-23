@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
 import Link from 'next/link';
 import Header from '../../components/Header';
@@ -40,7 +40,7 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [clientSecret, setClientSecret] = useState<string>('');
   const [paymentStep, setPaymentStep] = useState<'details' | 'payment' | 'success'>('details');
-  const [orderNumber, setOrderNumber] = useState<string>('');
+  const [orderNumber] = useState<string>('');
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const handleInputChange = (key: keyof CheckoutData, value: string) => {
@@ -79,11 +79,10 @@ export default function CheckoutPage() {
             items: JSON.stringify(state.items.map(item => ({
               productModel: item.productModel,
               diameter: item.diameter,
-              height: item.height,
               modules: item.modules,
               quantity: item.quantity,
               totalPrice: item.totalPrice,
-              advertisingBoard: item.advertisingBoard,
+              advertisingBoard: item.advertisingBoardSize,
               hasLogo: item.logo ? true : false,
               logoName: item.logo?.name || null
             })))
@@ -415,7 +414,7 @@ export default function CheckoutPage() {
                         TriCast360 {item.productModel === '2-chamber' ? '2-Kammer' : '7-Kammer'} System
                       </h3>
                       <p className="text-sm text-gray-600">
-                        {item.diameter}cm × {item.height}cm, {item.modules} Module
+                        {item.diameter}cm Durchmesser, {item.modules} Module
                       </p>
                       <p className="text-sm text-gray-600">
                         {item.color}, {item.material}

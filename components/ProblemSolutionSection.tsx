@@ -2,6 +2,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { SectionGradient } from './GradientBackgrounds';
 import { SectionNaturalBackground } from './NaturalBackground';
 
@@ -66,9 +67,11 @@ export default function ProblemSolutionSection() {
           <div className="relative group flex justify-center lg:justify-end">
             <div className="absolute -inset-4 bg-gradient-to-r from-red-200/20 to-orange-200/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 bg-white/80 backdrop-blur-sm border border-gray-200/50">
-                <img 
+                <Image 
                   src="/images/1x/1x/stump-of-a-tree-on-the-green-grass-in-the-city-2024-12-07-02-11-18-utc (1).webp"
                   alt="Baumstumpf auf grünem Gras - Problem des herkömmlichen Baumschutzes"
+                  width={600}
+                  height={450}
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
             </div>

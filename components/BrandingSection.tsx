@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { SectionGradient } from './GradientBackgrounds';
-import { SectionNaturalBackground } from './NaturalBackground';
 import ProjectRequestModal from './ProjectRequestModal';
 
 export default function BrandingSection() {
