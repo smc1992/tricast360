@@ -8,6 +8,8 @@ export interface CartItem {
   diameter: number;
   height: number;
   modules: number;
+  color?: string; // Optional für Kompatibilität
+  material?: string; // Optional für Kompatibilität
   quantity: number;
   pricePerUnit: number;
   totalPrice: number;
@@ -23,8 +25,10 @@ export interface CouponCode {
 interface CartState {
   items: CartItem[];
   couponCode: CouponCode | null;
-  totalPrice: number;
-  discountedPrice: number;
+  totalPrice: number; // Netto-Preis
+  discountedPrice: number; // Netto-Preis nach Rabatt
+  vatAmount: number; // Umsatzsteuer-Betrag
+  totalWithVat: number; // Brutto-Preis (inkl. Umsatzsteuer)
 }
 
 type CartAction =
@@ -41,6 +45,8 @@ const initialState: CartState = {
   couponCode: null,
   totalPrice: 0,
   discountedPrice: 0,
+  vatAmount: 0,
+  totalWithVat: 0,
 };
 
 // Verfügbare Gutscheincodes
@@ -52,7 +58,7 @@ const AVAILABLE_COUPONS: Record<string, { discount: number; description: string 
 };
 
 function cartReducer(state: CartState, action: CartAction): CartState {
-  console.log('cartReducer called with action:', action.type, action.payload);
+  console.log('cartReducer called with action:', action.type, 'payload' in action ? action.payload : 'no payload');
   console.log('Current state:', state);
   
   switch (action.type) {
@@ -129,7 +135,12 @@ function cartReducer(state: CartState, action: CartAction): CartState {
         discountedPrice = totalPrice - discount;
       }
       
-      return { ...state, totalPrice, discountedPrice };
+      // 19% Umsatzsteuer berechnen
+      const vatRate = 0.19;
+      const vatAmount = discountedPrice * vatRate;
+      const totalWithVat = discountedPrice + vatAmount;
+      
+      return { ...state, totalPrice, discountedPrice, vatAmount, totalWithVat };
     }
     
     default:

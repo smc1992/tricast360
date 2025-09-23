@@ -408,28 +408,18 @@ export default function ProductConfigurator() {
                 <div className="flex flex-col space-y-2">
                   <button
                     onClick={addToCart}
-                    className="w-full bg-blue-600 text-white py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm lg:text-base flex items-center justify-center gap-2"
+                    className="w-full bg-[#baf742] text-white py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-[#a8e63a] transition-colors text-sm lg:text-base flex items-center justify-center gap-2"
                   >
                     <i className="ri-shopping-cart-line"></i>
                     Zum Warenkorb hinzufügen
                   </button>
                   
-                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                    <button
-                      onClick={() => setCurrentStep(1)}
-                      className="flex-1 bg-gray-300 text-gray-700 py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-gray-400 transition-colors text-sm lg:text-base"
-                    >
-                      Zurück
-                    </button>
-                    <LoadingButton
-                      onClick={handleSubmit}
-                      isLoading={isSubmitting}
-                      className="flex-1 bg-[#baf742] text-white py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-[#a8e63a] transition-colors disabled:opacity-50 text-sm lg:text-base"
-                      disabled={!customerData.name || !customerData.email}
-                    >
-                      Anfrage senden
-                    </LoadingButton>
-                  </div>
+                  <button
+                    onClick={() => setCurrentStep(1)}
+                    className="w-full bg-gray-300 text-gray-700 py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-gray-400 transition-colors text-sm lg:text-base"
+                  >
+                    Zurück
+                  </button>
                 </div>
               </div>
             )}

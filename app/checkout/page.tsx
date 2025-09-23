@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
 import Link from 'next/link';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 interface CheckoutData {
   name: string;
@@ -67,7 +69,9 @@ export default function CheckoutPage() {
           cartItems: state.items,
           couponCode: state.couponCode,
           totalPrice: state.totalPrice,
-          discountedPrice: state.discountedPrice
+          discountedPrice: state.discountedPrice,
+          vatAmount: state.vatAmount,
+          totalWithVat: state.totalWithVat
         }),
       });
 
@@ -87,26 +91,32 @@ export default function CheckoutPage() {
 
   if (state.items.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Ihr Warenkorb ist leer</h1>
-            <p className="text-gray-600 mb-8">Fügen Sie Produkte zu Ihrem Warenkorb hinzu, um fortzufahren.</p>
-            <Link 
-              href="/konfigurator"
-              className="inline-flex items-center px-6 py-3 bg-[#baf742] text-white font-semibold rounded-lg hover:bg-[#a8e63a] transition-colors"
-            >
-              Zum Konfigurator
-            </Link>
+      <>
+        <Header />
+        <div className="min-h-screen bg-gray-50 py-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">Ihr Warenkorb ist leer</h1>
+              <p className="text-gray-600 mb-8">Fügen Sie Produkte zu Ihrem Warenkorb hinzu, um fortzufahren.</p>
+              <Link 
+                href="/konfigurator"
+                className="inline-flex items-center px-6 py-3 bg-[#baf742] text-white font-semibold rounded-lg hover:bg-[#a8e63a] transition-colors"
+              >
+                Zum Konfigurator
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gray-50 py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -317,7 +327,7 @@ export default function CheckoutPage() {
             {/* Preisübersicht */}
             <div className="border-t pt-4 space-y-2">
               <div className="flex justify-between">
-                <span>Zwischensumme:</span>
+                <span>Zwischensumme (Netto):</span>
                 <span>{state.totalPrice.toLocaleString('de-DE')} €</span>
               </div>
               {state.couponCode && (
@@ -326,15 +336,21 @@ export default function CheckoutPage() {
                   <span>-{(state.totalPrice - state.discountedPrice).toLocaleString('de-DE')} €</span>
                 </div>
               )}
+              <div className="flex justify-between">
+                <span>zzgl. Umsatzsteuer (19%):</span>
+                <span>{state.vatAmount.toLocaleString('de-DE')} €</span>
+              </div>
               <div className="flex justify-between text-lg font-semibold border-t pt-2">
-                <span>Gesamtsumme:</span>
-                <span>{state.discountedPrice.toLocaleString('de-DE')} €</span>
+                <span>Gesamtsumme (Brutto):</span>
+                <span>{state.totalWithVat.toLocaleString('de-DE')} €</span>
               </div>
               <p className="text-sm text-gray-600">zzgl. Versandkosten</p>
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

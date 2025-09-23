@@ -14,10 +14,10 @@ export default function WhyTriCast360Graphic() {
       title: "90% schneller",
       subtitle: "Installation",
       description: "Werkzeuglos in unter 5 Minuten",
-      gradient: "from-emerald-500 to-emerald-600",
-      bgColor: "bg-emerald-50",
-      borderColor: "border-emerald-200",
-      hoverBg: "hover:bg-emerald-100"
+      gradient: "from-[#baf742] to-[#90CFC4]",
+      bgColor: "bg-[#baf742]/10",
+      borderColor: "border-[#baf742]/30",
+      hoverBg: "hover:bg-[#baf742]/20"
     },
     {
       id: 2,
@@ -29,10 +29,10 @@ export default function WhyTriCast360Graphic() {
       title: "100% nachhaltig",
       subtitle: "Umweltfreundlich", 
       description: "85% recyceltes Material",
-      gradient: "from-green-500 to-green-600",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200",
-      hoverBg: "hover:bg-green-100"
+      gradient: "from-[#baf742] to-[#90CFC4]",
+      bgColor: "bg-[#baf742]/10",
+      borderColor: "border-[#baf742]/30",
+      hoverBg: "hover:bg-[#baf742]/20"
     },
     {
       id: 3,
@@ -86,9 +86,9 @@ export default function WhyTriCast360Graphic() {
     <div className="relative w-full max-w-6xl mx-auto py-16 px-6">
       {/* Header Section */}
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        <h2 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900 mb-6">
           Warum{' '}
-          <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent">
             TriCast360
           </span>
           ?
@@ -104,14 +104,14 @@ export default function WhyTriCast360Graphic() {
           {/* Central Hub */}
           <div className="flex justify-center mb-16">
             <div className="relative">
-              <div className="w-64 h-64 bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-100 rounded-full border-4 border-emerald-200 shadow-2xl flex flex-col items-center justify-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-xl mb-4 transform hover:scale-110 transition-all duration-300">
+              <div className="w-64 h-64 bg-gradient-to-br from-[#baf742]/20 via-[#90CFC4]/20 to-[#baf742]/30 rounded-full border-4 border-[#baf742]/40 shadow-2xl flex flex-col items-center justify-center">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#baf742] to-[#90CFC4] rounded-2xl flex items-center justify-center shadow-xl mb-4 transform hover:scale-110 transition-all duration-300">
                   <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
                   </svg>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-700 bg-clip-text text-transparent mb-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-[#baf742] to-[#90CFC4] bg-clip-text text-transparent mb-1">
                     TriCast360
                   </div>
                   <div className="text-base text-gray-600 font-medium">

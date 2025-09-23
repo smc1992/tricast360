@@ -15,19 +15,19 @@ export default function GradientBackground({
 }: GradientBackgroundProps) {
   const gradientClasses = {
     // Hero-Section: Dramatischer Gradient mit Tricast360-Farben
-    hero: `bg-gradient-${direction} from-emerald-50/80 via-teal-50/60 to-cyan-50/40`,
+    hero: `bg-gradient-${direction} from-[#baf742]/80 via-[#90CFC4]/60 to-[#baf742]/40`,
     
     // Section: Subtiler Gradient für Sektionen
-    section: `bg-gradient-${direction} from-emerald-50/30 via-white to-teal-50/20`,
+    section: `bg-gradient-${direction} from-[#baf742]/30 via-white to-[#90CFC4]/20`,
     
     // Card: Sanfter Gradient für Cards
-    card: `bg-gradient-${direction} from-white via-emerald-50/10 to-white`,
+    card: `bg-gradient-${direction} from-white via-[#baf742]/10 to-white`,
     
     // Subtle: Sehr dezenter Gradient
-    subtle: `bg-gradient-${direction} from-emerald-50/20 to-teal-50/10`,
+    subtle: `bg-gradient-${direction} from-[#baf742]/20 to-[#90CFC4]/10`,
     
     // Warm: Wärmerer Gradient mit mehr Sättigung
-    warm: `bg-gradient-${direction} from-emerald-100/40 via-teal-100/30 to-cyan-100/20`
+    warm: `bg-gradient-${direction} from-[#baf742]/40 via-[#90CFC4]/30 to-[#baf742]/20`
   };
   
   return (
@@ -40,7 +40,7 @@ export default function GradientBackground({
 // Spezialisierte Gradient-Komponenten
 export function HeroGradient({ children, className = '' }: { children?: React.ReactNode; className?: string }) {
   return (
-    <div className={`bg-gradient-to-br from-emerald-50/70 via-teal-50/50 to-cyan-50/30 ${className}`}>
+    <div className={`bg-gradient-to-br from-[#baf742]/70 via-[#90CFC4]/50 to-[#baf742]/30 ${className}`}>
       {children}
     </div>
   );
@@ -56,8 +56,8 @@ export function SectionGradient({
   reverse?: boolean;
 }) {
   const gradientClass = reverse 
-    ? 'bg-gradient-to-l from-emerald-50/25 via-white to-teal-50/15'
-    : 'bg-gradient-to-r from-emerald-50/25 via-white to-teal-50/15';
+    ? 'bg-gradient-to-l from-[#baf742]/25 via-white to-[#90CFC4]/15'
+    : 'bg-gradient-to-r from-[#baf742]/25 via-white to-[#90CFC4]/15';
     
   return (
     <div className={`${gradientClass} ${className}`}>
@@ -68,7 +68,7 @@ export function SectionGradient({
 
 export function CardGradient({ children, className = '' }: { children?: React.ReactNode; className?: string }) {
   return (
-    <div className={`bg-gradient-to-br from-white via-emerald-50/8 to-teal-50/5 ${className}`}>
+    <div className={`bg-gradient-to-br from-white via-[#baf742]/8 to-[#90CFC4]/5 ${className}`}>
       {children}
     </div>
   );
@@ -85,9 +85,9 @@ export function ButtonGradient({
   variant?: 'primary' | 'secondary' | 'accent';
 }) {
   const gradientClasses = {
-    primary: 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700',
-    secondary: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700',
-    accent: 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600'
+    primary: 'bg-gradient-to-r from-[#baf742] to-[#90CFC4] hover:from-[#a8e63a] hover:to-[#7fb8b0]',
+    secondary: 'bg-gradient-to-r from-[#baf742] to-[#baf742] hover:from-[#a8e63a] hover:to-[#a8e63a]',
+    accent: 'bg-gradient-to-r from-[#90CFC4] to-[#baf742] hover:from-[#7fb8b0] hover:to-[#a8e63a]'
   };
   
   return (
@@ -131,15 +131,15 @@ export function RadialGradient({
   position?: 'center' | 'top' | 'bottom' | 'left' | 'right';
 }) {
   const positionClasses = {
-    center: 'bg-radial-gradient from-emerald-50/30 via-teal-50/15 to-transparent',
-    top: 'bg-gradient-radial from-emerald-50/25 at-top via-teal-50/10 to-transparent',
-    bottom: 'bg-gradient-radial from-emerald-50/25 at-bottom via-teal-50/10 to-transparent',
-    left: 'bg-gradient-radial from-emerald-50/25 at-left via-teal-50/10 to-transparent',
-    right: 'bg-gradient-radial from-emerald-50/25 at-right via-teal-50/10 to-transparent'
+    center: 'bg-radial-gradient from-[#baf742]/30 via-[#90CFC4]/15 to-transparent',
+    top: 'bg-gradient-radial from-[#baf742]/25 at-top via-[#90CFC4]/10 to-transparent',
+    bottom: 'bg-gradient-radial from-[#baf742]/25 at-bottom via-[#90CFC4]/10 to-transparent',
+    left: 'bg-gradient-radial from-[#baf742]/25 at-left via-[#90CFC4]/10 to-transparent',
+    right: 'bg-gradient-radial from-[#baf742]/25 at-right via-[#90CFC4]/10 to-transparent'
   };
   
   return (
-    <div className={`bg-radial-gradient from-emerald-50/20 via-teal-50/10 to-transparent ${className}`}>
+    <div className={`bg-radial-gradient from-[#baf742]/20 via-[#90CFC4]/10 to-transparent ${className}`}>
       {children}
     </div>
   );
@@ -149,9 +149,9 @@ export function RadialGradient({
 export function MeshGradient({ children, className = '' }: { children?: React.ReactNode; className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-teal-50/20 to-cyan-50/30"></div>
-      <div className="absolute inset-0 bg-gradient-to-tl from-emerald-100/20 via-transparent to-teal-100/15"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-emerald-50/10 to-teal-50/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#baf742]/40 via-[#90CFC4]/20 to-[#baf742]/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-[#baf742]/20 via-transparent to-[#90CFC4]/15"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#baf742]/10 to-[#90CFC4]/20"></div>
       <div className="relative z-10">
         {children}
       </div>

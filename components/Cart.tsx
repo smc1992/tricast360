@@ -188,7 +188,7 @@ export default function Cart({ isOpen, onClose }: CartProps) {
           <div className="border-t border-gray-200 p-4 bg-gray-50">
             <div className="space-y-2 mb-4">
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Zwischensumme:</span>
+                <span className="text-gray-600">Zwischensumme (Netto):</span>
                 <span className="text-gray-900">{formatPrice(state.totalPrice)}</span>
               </div>
               {state.couponCode && (
@@ -201,9 +201,13 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                   </span>
                 </div>
               )}
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">zzgl. Umsatzsteuer (19%):</span>
+                <span className="text-gray-900">{formatPrice(state.vatAmount)}</span>
+              </div>
               <div className="flex justify-between text-lg font-semibold border-t border-gray-300 pt-2">
-                <span className="text-gray-900">Gesamt:</span>
-                <span className="text-gray-900">{formatPrice(state.discountedPrice)}</span>
+                <span className="text-gray-900">Gesamt (Brutto):</span>
+                <span className="text-gray-900">{formatPrice(state.totalWithVat)}</span>
               </div>
             </div>
             

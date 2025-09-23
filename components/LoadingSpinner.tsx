@@ -20,7 +20,7 @@ export default function LoadingSpinner({
   };
   
   const colorClasses = {
-    primary: 'border-emerald-500',
+    primary: 'border-[#baf742]',
     white: 'border-white',
     gray: 'border-gray-400'
   };
@@ -85,7 +85,7 @@ export function ProgressBar({
     <div className={`w-full ${className}`}>
       <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
         <div 
-          className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full transition-all duration-300 ease-out"
+          className="bg-gradient-to-r from-[#baf742] to-[#90CFC4] h-2 rounded-full transition-all duration-300 ease-out"
           style={{ width: `${Math.min(Math.max(progress, 0), 100)}%` }}
         ></div>
       </div>
