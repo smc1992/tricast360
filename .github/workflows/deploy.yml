@@ -32,5 +32,6 @@ jobs:
       - name: Build completed
         run: |
           echo "✅ Build completed successfully!"
-          echo "📦 Static files generated in 'out' directory"
+          echo "📦 Application built with server-side rendering support"
           echo "🚀 Ready for deployment to Coolify with Nixpacks"
+          echo "⚡ API routes are now enabled"
