@@ -21,48 +21,48 @@ export default function ProductConfigurator() {
   // Produktset-Definitionen basierend auf Prospekt
   const productSets = {
     'S': { 
-      name: 'Set S', 
-      diameter: 50, 
-      diameterText: '50cm',
-      modules: 4, 
-      standardPrice: 699, 
-      reinforcedPrice: 898,
+      name: 'Set S (5er Set)', 
+      diameter: 25, 
+      diameterText: '25cm',
+      modules: 5, 
+      standardPrice: 399, 
+      reinforcedPrice: 449,
       advertisingPrice: 29
     },
     'M': { 
-      name: 'Set M', 
-      diameter: 75, 
-      diameterText: '75cm',
-      modules: 6, 
-      standardPrice: 899, 
-      reinforcedPrice: 1098,
+      name: 'Set M (7er Set)', 
+      diameter: 32, 
+      diameterText: '32cm',
+      modules: 7, 
+      standardPrice: 559, 
+      reinforcedPrice: 629,
       advertisingPrice: 39
     },
     'L': { 
-      name: 'Set L', 
-      diameter: 100, 
-      diameterText: '100cm',
-      modules: 8, 
-      standardPrice: 1099, 
-      reinforcedPrice: 1298,
+      name: 'Set L (9er Set)', 
+      diameter: 40, 
+      diameterText: '40cm',
+      modules: 9, 
+      standardPrice: 699, 
+      reinforcedPrice: 789,
       advertisingPrice: 49
     },
     'XL': { 
-      name: 'Set XL', 
-      diameter: 125, 
-      diameterText: '125cm',
-      modules: 10, 
-      standardPrice: 1299, 
-      reinforcedPrice: 1498,
+      name: 'Set XL (12er Set)', 
+      diameter: 55, 
+      diameterText: '55cm',
+      modules: 12, 
+      standardPrice: 879, 
+      reinforcedPrice: 999,
       advertisingPrice: 59
     },
     '2XL': { 
-      name: 'Set 2XL', 
-      diameter: 150, 
-      diameterText: '150cm',
-      modules: 12, 
-      standardPrice: 1499, 
-      reinforcedPrice: 1698,
+      name: 'Set 2XL (15er Set)', 
+      diameter: 70, 
+      diameterText: '70cm',
+      modules: 15, 
+      standardPrice: 999, 
+      reinforcedPrice: 1149,
       advertisingPrice: 69
     }
   };
@@ -246,7 +246,7 @@ export default function ProductConfigurator() {
                       <div className="font-medium">Verstärkung</div>
                       <div className="text-sm text-gray-500">Zusätzliche Stabilität für extreme Wetterbedingungen</div>
                     </div>
-                    <div className="font-semibold text-green-600">+199€</div>
+                    <div className="font-semibold text-green-600">+{productSets[config.productSet].reinforcedPrice - productSets[config.productSet].standardPrice}€</div>
                   </label>
                   
                   <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
@@ -437,7 +437,7 @@ export default function ProductConfigurator() {
                       {config.reinforcement && (
                         <div className="flex justify-between">
                           <span>Verstärkung:</span>
-                          <span className="font-medium text-green-600">Ja (+199€)</span>
+                          <span className="font-medium text-green-600">Ja (+{productSets[config.productSet].reinforcedPrice - productSets[config.productSet].standardPrice}€)</span>
                         </div>
                       )}
                       {config.colorOption && (
@@ -541,7 +541,7 @@ export default function ProductConfigurator() {
                 {config.reinforcement && (
                   <div className="flex justify-between text-green-600">
                     <span>Verstärkung:</span>
-                    <span>+199€</span>
+                    <span>+{productSets[config.productSet].reinforcedPrice - productSets[config.productSet].standardPrice}€</span>
                   </div>
                 )}
                 
