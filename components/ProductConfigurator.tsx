@@ -459,12 +459,12 @@ export default function ProductConfigurator() {
                         <span className="font-medium">{config.quantity}</span>
                       </div>
                       <div className="border-t pt-2 flex justify-between font-bold">
-                        <span>Gesamtpreis pro Einheit:</span>
-                        <span className="text-green-600">{calculatePrice()}€</span>
+                        <span>Preis pro Einheit:</span>
+                        <span className="text-green-600">{Math.round(calculatePrice() / config.quantity)}€</span>
                       </div>
                       <div className="flex justify-between font-bold text-lg">
                         <span>Gesamtpreis:</span>
-                        <span className="text-green-600">{(calculatePrice() * config.quantity).toFixed(2)}€</span>
+                        <span className="text-green-600">{calculatePrice()}€</span>
                       </div>
                     </div>
                   </div>
