@@ -7,8 +7,6 @@ import { useCart } from '../contexts/CartContext';
 interface Configuration {
   // Einstiegspaket: 2x 2-Kammer + 2x 7-Kammer Module (50cm Durchmesser)
   basePackage: boolean; // Immer true für Einstiegspaket
-  additional2ChamberModules: number; // Zusätzliche 2-Kammer Module
-  additional7ChamberModules: number; // Zusätzliche 7-Kammer Module
   diameter: number; // Baumdurchmesser - bestimmt vom Kunden
   quantity: number;
   // Add-ons
@@ -24,8 +22,6 @@ export default function ProductConfigurator() {
   
   const [config, setConfig] = useState<Configuration>({
     basePackage: true,
-    additional2ChamberModules: 0,
-    additional7ChamberModules: 0,
     diameter: 50, // Einstiegspaket für 50cm Durchmesser
     quantity: 1,
     reinforcement: false,
@@ -45,11 +41,8 @@ export default function ProductConfigurator() {
     // Berechnung basierend auf Durchmesser: Jede 50cm = 4 Module
     const modulesBasedOnDiameter = (config.diameter / 50) * 4; // 50cm = 4 Module, 100cm = 8 Module, etc.
     
-    // Manuell hinzugefügte Module
-    const manualModules = config.additional2ChamberModules + config.additional7ChamberModules;
-    
-    return modulesBasedOnDiameter + manualModules;
-  }, [config.diameter, config.additional2ChamberModules, config.additional7ChamberModules]);
+    return modulesBasedOnDiameter;
+  }, [config.diameter]);
 
   // Preisberechnung basierend auf durchmesser-basiertem Modulsystem
   const calculatePrice = useCallback(() => {
@@ -177,34 +170,7 @@ export default function ProductConfigurator() {
                   </div>
                 </div>
 
-                {/* Zusätzliche Module */}
-                <div className="space-y-4">
-                  <h4 className="font-semibold">Zusätzliche Module (optional)</h4>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Zusätzliche 2-Kammer Module</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="10"
-                      value={config.additional2ChamberModules}
-                      onChange={(e) => handleConfigChange('additional2ChamberModules', parseInt(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#baf742]"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Zusätzliche 7-Kammer Module</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="10"
-                      value={config.additional7ChamberModules}
-                      onChange={(e) => handleConfigChange('additional7ChamberModules', parseInt(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#baf742]"
-                    />
-                  </div>
-                </div>
+
 
                 {/* Add-ons */}
                 <div className="space-y-4">
@@ -532,11 +498,7 @@ export default function ProductConfigurator() {
                       +{Math.max(0, (config.diameter - 50) / 50) * 4} Module für {config.diameter}cm
                     </div>
                   )}
-                  {(config.additional2ChamberModules > 0 || config.additional7ChamberModules > 0) && (
-                    <div className="text-purple-600">
-                      +{config.additional2ChamberModules + config.additional7ChamberModules} zusätzliche Module
-                    </div>
-                  )}
+
                 </div>
               </div>
             </div>
@@ -569,12 +531,7 @@ export default function ProductConfigurator() {
                   </>
                 )}
                 
-                {(config.additional2ChamberModules > 0 || config.additional7ChamberModules > 0) && (
-                  <div className="flex justify-between text-purple-600">
-                    <span>Zusätzliche Module</span>
-                    <span>+{config.additional2ChamberModules + config.additional7ChamberModules} Module</span>
-                  </div>
-                )}
+
                 
                 {config.reinforcement && (
                   <div className="flex justify-between">
