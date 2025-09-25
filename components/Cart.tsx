@@ -9,6 +9,18 @@ interface CartProps {
   onClose: () => void;
 }
 
+// Helper function to get advertising board price
+const getAdvertisingPrice = (size: string): number => {
+  const prices: { [key: string]: number } = {
+    'S': 29,
+    'M': 39,
+    'L': 49,
+    'XL': 59,
+    '2XL': 69
+  };
+  return prices[size] || 0;
+};
+
 export default function Cart({ isOpen, onClose }: CartProps) {
   const { state, removeItem, updateQuantity, clearCart, applyCoupon, removeCoupon } = useCart();
   const [couponInput, setCouponInput] = useState('');
@@ -84,16 +96,22 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                         {item.productModel}
                       </p>
                       <p className="text-sm text-gray-600">
-                    Ø {item.diameter}cm × flexible Höhe
-                  </p>
+                        Ø {item.diameter}cm × flexible Höhe
+                      </p>
                       <p className="text-sm text-gray-600">
                         {item.modules} Module
                       </p>
+                      {item.colorOption && (
+                        <p className="text-sm text-blue-600">
+                          <i className="ri-palette-line mr-1"></i>
+                          Farboption (+49€ netto)
+                        </p>
+                      )}
                       {item.advertisingBoardSize && item.advertisingBoardSize !== 'none' && (
                         <div className="mt-2 p-2 bg-blue-50 border border-blue-200 rounded">
                           <p className="text-sm text-blue-800 font-medium">
                             <i className="ri-advertisement-line mr-1"></i>
-                            Werbetafel {item.advertisingBoardSize === 'small' ? '20x80cm (+39€ netto)' : '70x70cm (+49€ netto)'}
+                            Werbetafel {item.advertisingBoardSize} (+{getAdvertisingPrice(item.advertisingBoardSize)}€ netto)
                           </p>
                           {item.logo && (
                             <p className="text-xs text-blue-600 mt-1">

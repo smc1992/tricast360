@@ -5,14 +5,12 @@ import Image from 'next/image';
 import { useCart } from '../contexts/CartContext';
 
 interface Configuration {
-  // Einstiegspaket: 2x 2-Kammer + 2x 7-Kammer Module (50cm Durchmesser)
-  basePackage: boolean; // Immer true für Einstiegspaket
-  diameter: number; // Baumdurchmesser - bestimmt vom Kunden
+  productSet: 'S' | 'M' | 'L' | 'XL' | '2XL';
   quantity: number;
-  // Add-ons
-  reinforcement: boolean; // Verstärkung +199€
-  advertisingBoardSize: 'none' | 'small' | 'large'; // Werbetafel: keine, 20x80cm (+39€), 70x70cm (+49€)
-  logo?: File | null; // Logo-Datei für Werbetafel
+  reinforcement: boolean;
+  colorOption: boolean;
+  advertisingBoardSize: 'none' | 'S' | 'M' | 'L' | 'XL' | '2XL';
+  logo: string | null;
 }
 
 
@@ -20,11 +18,60 @@ interface Configuration {
 export default function ProductConfigurator() {
   const { addItem } = useCart();
   
+  // Produktset-Definitionen basierend auf Prospekt
+  const productSets = {
+    'S': { 
+      name: 'Set S', 
+      diameter: 50, 
+      diameterText: '50cm',
+      modules: 4, 
+      standardPrice: 699, 
+      reinforcedPrice: 898,
+      advertisingPrice: 29
+    },
+    'M': { 
+      name: 'Set M', 
+      diameter: 75, 
+      diameterText: '75cm',
+      modules: 6, 
+      standardPrice: 899, 
+      reinforcedPrice: 1098,
+      advertisingPrice: 39
+    },
+    'L': { 
+      name: 'Set L', 
+      diameter: 100, 
+      diameterText: '100cm',
+      modules: 8, 
+      standardPrice: 1099, 
+      reinforcedPrice: 1298,
+      advertisingPrice: 49
+    },
+    'XL': { 
+      name: 'Set XL', 
+      diameter: 125, 
+      diameterText: '125cm',
+      modules: 10, 
+      standardPrice: 1299, 
+      reinforcedPrice: 1498,
+      advertisingPrice: 59
+    },
+    '2XL': { 
+      name: 'Set 2XL', 
+      diameter: 150, 
+      diameterText: '150cm',
+      modules: 12, 
+      standardPrice: 1499, 
+      reinforcedPrice: 1698,
+      advertisingPrice: 69
+    }
+  };
+  
   const [config, setConfig] = useState<Configuration>({
-    basePackage: true,
-    diameter: 50, // Einstiegspaket für 50cm Durchmesser
+    productSet: 'S', // Startet mit Set S
     quantity: 1,
     reinforcement: false,
+    colorOption: false,
     advertisingBoardSize: 'none',
     logo: null,
   });
@@ -38,36 +85,28 @@ export default function ProductConfigurator() {
 
   // Hilfsfunktion: Berechne Gesamtanzahl der Module
   const calculateTotalModules = useCallback(() => {
-    // Berechnung basierend auf Durchmesser: Jede 50cm = 4 Module
-    const modulesBasedOnDiameter = (config.diameter / 50) * 4; // 50cm = 4 Module, 100cm = 8 Module, etc.
-    
-    return modulesBasedOnDiameter;
-  }, [config.diameter]);
+    return productSets[config.productSet].modules;
+  }, [config.productSet]);
 
-  // Preisberechnung basierend auf durchmesser-basiertem Modulsystem
+  // Preisberechnung basierend auf festen Produktsets
   const calculatePrice = useCallback(() => {
-    const pricePerModule = 174.75; // 699€ / 4 Module = 174,75€ pro Modul
+    const currentSet = productSets[config.productSet];
     
-    // Gesamtanzahl Module berechnen
-    const totalModules = calculateTotalModules();
-    
-    // Grundpreis basierend auf Modulanzahl
-    const modulePrice = totalModules * pricePerModule;
+    // Grundpreis basierend auf Set und Verstärkung
+    const basePrice = config.reinforcement ? currentSet.reinforcedPrice : currentSet.standardPrice;
     
     // Add-ons
-    const reinforcementPrice = config.reinforcement ? 199 : 0;
+    const colorPrice = config.colorOption ? 49 : 0;
     
-    // Werbetafel-Preise basierend auf Größe
+    // Werbetafel-Preise basierend auf Set-Größe
     let advertisingBoardPrice = 0;
-    if (config.advertisingBoardSize === 'small') {
-      advertisingBoardPrice = 39; // 20x80cm
-    } else if (config.advertisingBoardSize === 'large') {
-      advertisingBoardPrice = 49; // 70x70cm
+    if (config.advertisingBoardSize !== 'none') {
+      advertisingBoardPrice = productSets[config.advertisingBoardSize].advertisingPrice;
     }
     
-    const subtotal = modulePrice + reinforcementPrice + advertisingBoardPrice;
+    const subtotal = basePrice + colorPrice + advertisingBoardPrice;
     return Math.round(subtotal * config.quantity);
-  }, [config, calculateTotalModules]);
+  }, [config, productSets]);
 
   // Preisberechnung aktualisieren
   useEffect(() => {
@@ -78,50 +117,52 @@ export default function ProductConfigurator() {
     setConfig(prev => ({ ...prev, [key]: value }));
   };
 
-  const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
-      // Validate file type
-      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml'];
-      if (!allowedTypes.includes(file.type)) {
-        alert('Bitte wählen Sie eine gültige Bilddatei (JPG, PNG, SVG)');
-        return;
-      }
-      
-      // Validate file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
         alert('Die Datei ist zu groß. Maximale Größe: 5MB');
         return;
       }
       
-      setConfig(prev => ({ ...prev, logo: file }));
-      
-      // Create preview
       const reader = new FileReader();
       reader.onload = (e) => {
-        setLogoPreview(e.target?.result as string);
+        const result = e.target?.result as string;
+        handleConfigChange('logo', result);
       };
       reader.readAsDataURL(file);
     }
   };
 
   const removeLogo = () => {
-    setConfig(prev => ({ ...prev, logo: null }));
-    setLogoPreview(null);
+    handleConfigChange('logo', null);
   };
 
 
 
   const addToCart = () => {
+    const currentSet = productSets[config.productSet];
     const totalModules = calculateTotalModules();
+    const quantity = Number(config.quantity);
+    
+    // Berechne Preis pro Einheit (ohne Stückzahl-Multiplikation)
+    const basePrice = config.reinforcement ? currentSet.reinforcedPrice : currentSet.standardPrice;
+    const colorPrice = config.colorOption ? 49 : 0;
+    let advertisingBoardPrice = 0;
+    if (config.advertisingBoardSize !== 'none') {
+      advertisingBoardPrice = productSets[config.advertisingBoardSize].advertisingPrice;
+    }
+    const pricePerUnit = basePrice + colorPrice + advertisingBoardPrice;
     
     addItem({
-      productModel: 'TriCast360 Baumschutzsystem',
-      diameter: config.diameter,
+      productModel: `TriCast360 ${currentSet.name}`,
+      productSet: config.productSet,
+      diameter: currentSet.diameter,
       modules: totalModules,
-      quantity: config.quantity,
-      pricePerUnit: calculatePrice(),
-      totalPrice: calculatePrice() * config.quantity,
+      colorOption: config.colorOption,
+      quantity: quantity,
+      pricePerUnit: pricePerUnit,
+      totalPrice: pricePerUnit * quantity,
       advertisingBoardSize: config.advertisingBoardSize,
       logo: config.logo
     });
@@ -159,18 +200,36 @@ export default function ProductConfigurator() {
               <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8 space-y-6 lg:space-y-8">
                 <h3 className="text-xl lg:text-2xl font-bold">Schritt 1: Konfiguration</h3>
                 
-                {/* Basispaket Info */}
+                {/* Produktset-Auswahl */}
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">Modulbasierte Preisberechnung</h4>
-                  <div className="text-sm text-green-700">
-                    Preis pro Modul: 174,75€ netto. Das Grundsystem enthält 4 Module für 50 cm Durchmesser. 
-                    Jeder weitere 50cm-Schritt = +4 Module automatisch.
+                  <h4 className="font-semibold text-green-800 mb-2">Produktset-Auswahl</h4>
+                  <div className="text-sm text-green-700 mb-4">
+                    Wählen Sie Ihr gewünschtes TriCast360-Set basierend auf dem Stammdurchmesser.
                     <br />
-                    <strong>Aktuelle Konfiguration: {calculateTotalModules()} Module für {config.diameter}cm Durchmesser</strong>
+                    <strong>Aktuell gewählt: {productSets[config.productSet].name} - {productSets[config.productSet].diameterText} - {calculateTotalModules()} Module</strong>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {Object.entries(productSets).map(([setKey, setData]) => (
+                      <label key={setKey} className="flex flex-col p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="productSet"
+                          value={setKey}
+                          checked={config.productSet === setKey}
+                          onChange={(e) => handleConfigChange('productSet', e.target.value)}
+                          className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300 mb-2"
+                        />
+                        <div className="font-medium">{setData.name}</div>
+                        <div className="text-sm text-gray-500">{setData.diameterText} Durchmesser</div>
+                        <div className="text-sm text-gray-500">{setData.modules} Module</div>
+                        <div className="font-semibold text-green-600 mt-1">
+                          {config.reinforcement ? setData.reinforcedPrice : setData.standardPrice}€
+                        </div>
+                      </label>
+                    ))}
                   </div>
                 </div>
-
-
 
                 {/* Add-ons */}
                 <div className="space-y-4">
@@ -188,6 +247,20 @@ export default function ProductConfigurator() {
                       <div className="text-sm text-gray-500">Zusätzliche Stabilität für extreme Wetterbedingungen</div>
                     </div>
                     <div className="font-semibold text-green-600">+199€</div>
+                  </label>
+                  
+                  <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={config.colorOption}
+                      onChange={(e) => handleConfigChange('colorOption', e.target.checked)}
+                      className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300 rounded"
+                    />
+                    <div className="flex-1">
+                      <div className="font-medium">Farboption</div>
+                      <div className="text-sm text-gray-500">Individuelle Farbgestaltung des Systems</div>
+                    </div>
+                    <div className="font-semibold text-green-600">+49€</div>
                   </label>
                   
                   {/* Werbetafel-Größenauswahl */}
@@ -210,242 +283,205 @@ export default function ProductConfigurator() {
                       <div className="font-semibold text-gray-600">0€</div>
                     </label>
                     
-                    <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="advertisingBoardSize"
-                        value="small"
-                        checked={config.advertisingBoardSize === 'small'}
-                        onChange={(e) => handleConfigChange('advertisingBoardSize', e.target.value)}
-                        className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300"
-                      />
-                      <div className="flex-1">
-                        <div className="font-medium">Kleine Werbetafel</div>
-                        <div className="text-sm text-gray-500">20x80 cm - Kompakte Werbefläche</div>
-                      </div>
-                      <div className="font-semibold text-green-600">+39€</div>
-                    </label>
-                    
-                    <label className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="advertisingBoardSize"
-                        value="large"
-                        checked={config.advertisingBoardSize === 'large'}
-                        onChange={(e) => handleConfigChange('advertisingBoardSize', e.target.value)}
-                        className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300"
-                      />
-                      <div className="flex-1">
-                        <div className="font-medium">Große Werbetafel</div>
-                        <div className="text-sm text-gray-500">70x70 cm - Maximale Sichtbarkeit</div>
-                      </div>
-                      <div className="font-semibold text-green-600">+49€</div>
-                    </label>
+                    {Object.entries(productSets).map(([setKey, setData]) => (
+                      <label key={setKey} className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="advertisingBoardSize"
+                          value={setKey}
+                          checked={config.advertisingBoardSize === setKey}
+                          onChange={(e) => handleConfigChange('advertisingBoardSize', e.target.value)}
+                          className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300"
+                        />
+                        <div className="flex-1">
+                          <div className="font-medium">Werbetafel {setData.name}</div>
+                          <div className="text-sm text-gray-500">Passend für {setData.diameterText} System</div>
+                        </div>
+                        <div className="font-semibold text-green-600">+{setData.advertisingPrice}€</div>
+                      </label>
+                    ))}
                   </div>
                   
                   {/* Logo Upload für Werbetafel */}
                   {config.advertisingBoardSize !== 'none' && (
-                    <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <h5 className="font-medium text-blue-800 mb-3">Logo für Werbetafel hochladen</h5>
+                    <div className="space-y-4">
+                      <h5 className="font-medium text-gray-800">Logo für Werbetafel</h5>
                       
                       {!config.logo ? (
-                        <div className="space-y-3">
-                          <div className="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center">
-                            <div className="text-blue-600 mb-2">
-                              <i className="ri-upload-cloud-2-line text-3xl"></i>
-                            </div>
-                            <p className="text-sm text-blue-700 mb-2">
-                              Klicken Sie hier oder ziehen Sie Ihr Logo hierher
-                            </p>
-                            <p className="text-xs text-blue-600">
-                              Unterstützte Formate: JPG, PNG, SVG (max. 5MB)
-                            </p>
-                            <input
-                              type="file"
-                              accept="image/jpeg,image/jpg,image/png,image/svg+xml"
-                              onChange={handleLogoUpload}
-                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                            />
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => (document.querySelector('input[type="file"]') as HTMLInputElement)?.click()}
-                            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                          >
-                            Logo auswählen
-                          </button>
-                        </div>
-                      ) : (
-                        <div className="space-y-3">
-                          <div className="flex items-center space-x-3 p-3 bg-white border border-blue-200 rounded-lg">
-                            {logoPreview && (
-                              <Image 
-                                src={logoPreview} 
-                                alt="Logo Vorschau" 
-                                width={48}
-                                height={48}
-                                className="w-12 h-12 object-contain rounded"
-                              />
-                            )}
-                            <div className="flex-1">
-                              <div className="font-medium text-blue-800">{config.logo.name}</div>
-                              <div className="text-sm text-blue-600">
-                                {(config.logo.size / 1024 / 1024).toFixed(2)} MB
-                              </div>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={removeLogo}
-                              className="text-red-600 hover:text-red-800 p-1"
-                              title="Logo entfernen"
-                            >
-                              <i className="ri-delete-bin-line"></i>
-                            </button>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => (document.querySelector('input[type="file"]:last-of-type') as HTMLInputElement)?.click()}
-                            className="w-full bg-blue-100 text-blue-700 py-2 px-4 rounded-lg hover:bg-blue-200 transition-colors text-sm"
-                          >
-                            Anderes Logo auswählen
-                          </button>
+                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
                           <input
                             type="file"
-                            accept="image/jpeg,image/jpg,image/png,image/svg+xml"
+                            accept="image/*"
                             onChange={handleLogoUpload}
                             className="hidden"
+                            id="logo-upload"
                           />
+                          <label htmlFor="logo-upload" className="cursor-pointer">
+                            <div className="text-gray-500 mb-2">
+                              <svg className="mx-auto h-12 w-12" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              <span className="font-medium text-[#baf742] hover:text-green-500">Datei auswählen</span> oder hier ablegen
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1">
+                              PNG, JPG, GIF bis 5MB
+                            </div>
+                          </label>
+                        </div>
+                      ) : (
+                        <div className="relative">
+                          <img 
+                            src={config.logo} 
+                            alt="Logo Vorschau" 
+                            className="w-full h-32 object-contain bg-gray-100 rounded-lg"
+                          />
+                          <button
+                            onClick={removeLogo}
+                            className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-600"
+                          >
+                            ×
+                          </button>
                         </div>
                       )}
                     </div>
                   )}
                 </div>
-                
-                {/* Durchmesser */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">Durchmesser (cm)</label>
-                  <input
-                    type="range"
-                    min="50"
-                    max="300"
-                    step="50"
-                    value={config.diameter}
-                    onChange={(e) => handleConfigChange('diameter', parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-sm text-gray-500 mt-1">
-                    <span>50 cm</span>
-                    <span className="font-medium">{config.diameter} cm</span>
-                    <span>300 cm</span>
-                  </div>
-                </div>
-
-                {/* Flexible Größenbestimmung */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">Flexible Größenbestimmung</label>
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <div className="text-center">
-                      <h4 className="text-lg font-semibold text-blue-800 mb-2">Individuelle Anpassung</h4>
-                      <p className="text-sm text-blue-700 mb-2">
-                        <strong>Höhe und Breite können frei bestimmt werden</strong>
-                      </p>
-                      <p className="text-xs text-blue-600">
-                        Pro System: bis zu <strong>50 cm Durchmesser</strong> und <strong>2 Meter Höhe</strong>
-                      </p>
-                      <p className="text-xs text-blue-600 mt-1">
-                        Basierend auf {calculateTotalModules()} Modulen für optimalen Schutz
-                      </p>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Stückzahl */}
-                <div>
-                  <label className="block text-sm font-medium mb-2">Anzahl TriCast360-Systeme</label>
-                  <div className="grid grid-cols-4 gap-2">
-                    {[1, 2, 3, 5].map((num) => (
-                      <button
-                        key={num}
-                        onClick={() => handleConfigChange('quantity', num)}
-                        className={`p-3 rounded-lg border-2 font-medium transition-all ${
-                          config.quantity === num
-                            ? 'border-[#baf742] bg-[#baf742] text-white'
-                            : 'border-gray-300 hover:border-[#baf742]'
-                        }`}
-                      >
-                        {num}x
-                      </button>
+                <div className="space-y-4">
+                  <h4 className="font-semibold">Stückzahl</h4>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {[1, 2, 3, 5].map((qty) => (
+                      <label key={qty} className="flex items-center justify-center p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="quantity"
+                          value={qty}
+                          checked={config.quantity === qty}
+                          onChange={(e) => handleConfigChange('quantity', parseInt(e.target.value))}
+                          className="sr-only"
+                        />
+                        <span className={`font-medium ${config.quantity === qty ? 'text-[#baf742]' : 'text-gray-700'}`}>
+                          {qty} Stück
+                        </span>
+                      </label>
                     ))}
                   </div>
-                  <div className="mt-2">
+                  
+                  <div className="flex items-center space-x-3">
+                    <label className="flex items-center">
+                      <input
+                        type="radio"
+                        name="quantity"
+                        value="custom"
+                        checked={![1, 2, 3, 5].includes(config.quantity)}
+                        onChange={() => {
+                          // Wenn "Andere Anzahl" ausgewählt wird, behalte die aktuelle Menge bei
+                          // oder setze sie auf 6, falls sie eine der Standardoptionen war
+                          if ([1, 2, 3, 5].includes(config.quantity)) {
+                            handleConfigChange('quantity', 6);
+                          }
+                        }}
+                        className="w-4 h-4 text-[#baf742] focus:ring-[#baf742] border-gray-300 mr-2"
+                      />
+                      <span className="font-medium">Andere Anzahl:</span>
+                    </label>
                     <input
                       type="number"
                       min="1"
-                      max="50"
+                      max="100"
                       value={config.quantity}
                       onChange={(e) => handleConfigChange('quantity', parseInt(e.target.value) || 1)}
-                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#baf742] focus:border-transparent text-sm"
-                      placeholder="Oder eigene Anzahl eingeben..."
+                      onFocus={() => {
+                        // Wenn das Eingabefeld fokussiert wird, aktiviere automatisch "Andere Anzahl"
+                        if ([1, 2, 3, 5].includes(config.quantity)) {
+                          handleConfigChange('quantity', config.quantity);
+                        }
+                      }}
+                      className="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#baf742] focus:border-transparent"
                     />
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setCurrentStep(2)}
-                  className="w-full bg-[#baf742] text-white py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-[#a8e63a] transition-colors text-sm lg:text-base"
-                >
-                  Weiter zu Schritt 2
-                </button>
+                {/* Weiter Button */}
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => setCurrentStep(2)}
+                    className="bg-[#baf742] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-500 transition-colors"
+                  >
+                    Weiter zu Schritt 2
+                  </button>
+                </div>
               </div>
             )}
 
             {currentStep === 2 && (
-              <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8 space-y-6 lg:space-y-8">
-                <h3 className="text-xl lg:text-2xl font-bold">Schritt 2: Konfiguration abschließen</h3>
+              <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8 space-y-6">
+                <h3 className="text-xl lg:text-2xl font-bold">Schritt 2: Zusammenfassung</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Ihre Konfiguration:</h4>
-                    <p className="text-sm text-gray-600">
-                      TriCast360 System - {config.diameter}cm Durchmesser, flexible Höhe
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {calculateTotalModules()} Module insgesamt
-                    </p>
-                    {config.reinforcement && (
-                      <p className="text-sm text-gray-600">+ Verstärkung</p>
-                    )}
-                    {config.advertisingBoardSize !== 'none' && (
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h4 className="font-semibold mb-3">Ihre Konfiguration:</h4>
+                    <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span>
-                          Werbetafel ({config.advertisingBoardSize === 'small' ? '20x80cm' : '70x70cm'})
-                        </span>
-                        <span>
-                          +{(config.advertisingBoardSize === 'small' ? 39 : 49) * config.quantity},00 €
-                        </span>
+                        <span>Produktset:</span>
+                        <span className="font-medium">{productSets[config.productSet].name} ({productSets[config.productSet].diameterText})</span>
                       </div>
-                    )}
+                      <div className="flex justify-between">
+                        <span>Module:</span>
+                        <span className="font-medium">{calculateTotalModules()} Module</span>
+                      </div>
+                      {config.reinforcement && (
+                        <div className="flex justify-between">
+                          <span>Verstärkung:</span>
+                          <span className="font-medium text-green-600">Ja (+199€)</span>
+                        </div>
+                      )}
+                      {config.colorOption && (
+                        <div className="flex justify-between">
+                          <span>Farboption:</span>
+                          <span className="font-medium text-green-600">Ja (+49€)</span>
+                        </div>
+                      )}
+                      {config.advertisingBoardSize !== 'none' && (
+                        <div className="flex justify-between">
+                          <span>Werbetafel:</span>
+                          <span className="font-medium text-green-600">
+                            {productSets[config.advertisingBoardSize as keyof typeof productSets].name} (+{productSets[config.advertisingBoardSize as keyof typeof productSets].advertisingPrice}€)
+                          </span>
+                        </div>
+                      )}
+                      <div className="flex justify-between">
+                        <span>Stückzahl:</span>
+                        <span className="font-medium">{config.quantity}</span>
+                      </div>
+                      <div className="border-t pt-2 flex justify-between font-bold">
+                        <span>Gesamtpreis pro Einheit:</span>
+                        <span className="text-green-600">{calculatePrice()}€</span>
+                      </div>
+                      <div className="flex justify-between font-bold text-lg">
+                        <span>Gesamtpreis:</span>
+                        <span className="text-green-600">{(calculatePrice() * config.quantity).toFixed(2)}€</span>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <p className="text-sm text-gray-600">
-                    Ihre Kontaktdaten können Sie im nächsten Schritt beim Checkout eingeben.
-                  </p>
                 </div>
 
-                <div className="flex flex-col space-y-2">
-                  <button
-                    onClick={addToCart}
-                    className="w-full bg-[#baf742] text-white py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-[#a8e63a] transition-colors text-sm lg:text-base flex items-center justify-center gap-2"
-                  >
-                    <i className="ri-shopping-cart-line"></i>
-                    Zum Warenkorb hinzufügen
-                  </button>
-                  
+                <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={() => setCurrentStep(1)}
-                    className="w-full bg-gray-300 text-gray-700 py-3 px-4 lg:px-6 rounded-lg font-semibold hover:bg-gray-400 transition-colors text-sm lg:text-base"
+                    className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
                   >
-                    Zurück zur Konfiguration
+                    Zurück zu Schritt 1
+                  </button>
+                  <button
+                    onClick={addToCart}
+                    className="flex-1 bg-[#baf742] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-500 transition-colors"
+                  >
+                    In den Warenkorb
                   </button>
                 </div>
               </div>
@@ -453,113 +489,88 @@ export default function ProductConfigurator() {
           </div>
 
           {/* Summary Panel */}
-          <div className="space-y-6">
-            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-lg">
-              <div className="text-sm text-gray-500 mb-1">Durchmesser</div>
-              <div className="text-lg font-semibold">{config.diameter} cm</div>
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
+              <h4 className="text-lg font-bold mb-4">Zusammenfassung</h4>
               
-              <div className="text-sm text-gray-500 mb-1 mt-3">Höhe</div>
-              <div className="text-lg font-semibold">Flexibel bestimmbar</div>
-              <div className="text-xs text-gray-400">bis zu 2 Meter</div>
-              
-              <div className="text-sm text-gray-500 mb-1 mt-3">Module gesamt</div>
-              <div className="text-lg font-semibold">{calculateTotalModules()}</div>
-              
-              <div 
-                className="w-full h-8 rounded mt-4 bg-[#baf742]"
-              />
-            </div>
-
-            {/* Live-Vorschau */}
-            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                <span className="text-sm font-medium text-green-600">Live-Vorschau aktiv</span>
-              </div>
-              
-              <div className="text-center">
-                <div className="relative mx-auto mb-4" style={{ width: '120px', height: '120px' }}>
-                  <svg viewBox="0 0 120 120" className="w-full h-full">
-                    <rect x="10" y="10" width="20" height="100" fill="#baf742" stroke="#333" strokeWidth="1"/>
-                    <rect x="90" y="10" width="20" height="100" fill="#baf742" stroke="#333" strokeWidth="1"/>
-                    <rect x="30" y="20" width="60" height="15" fill="#e5e7eb" stroke="#333" strokeWidth="1"/>
-                    <rect x="30" y="40" width="60" height="15" fill="#e5e7eb" stroke="#333" strokeWidth="1"/>
-                    <rect x="30" y="60" width="60" height="15" fill="#e5e7eb" stroke="#333" strokeWidth="1"/>
-                    <rect x="30" y="80" width="60" height="15" fill="#e5e7eb" stroke="#333" strokeWidth="1"/>
-                    <text x="60" y="105" textAnchor="middle" fontSize="8" fill="#666">Werbung</text>
-                  </svg>
-                </div>
-                
-                <div className="space-y-1 text-sm">
-                  <div>2x 2-Kammer Module</div>
-                  <div>2x 7-Kammer Module</div>
-                  {config.diameter > 50 && (
-                    <div className="text-blue-600">
-                      +{Math.max(0, (config.diameter - 50) / 50) * 4} Module für {config.diameter}cm
-                    </div>
-                  )}
-
-                </div>
-              </div>
-            </div>
-
-            {/* Preisaufschlüsselung */}
-            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-lg">
-              <h4 className="font-semibold mb-4">Preisaufschlüsselung</h4>
-              
-              <div className="space-y-2 text-sm">
+              <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span>TriCast360 System</span>
-                  <span>699,00 €</span>
+                  <span>Produktset:</span>
+                  <span className="font-medium">{productSets[config.productSet].name}</span>
                 </div>
                 
-                <div className="text-xs text-gray-500 ml-2">
-                  • {calculateTotalModules()} Module pro System
-                  • {config.quantity}x System{config.quantity > 1 ? 'e' : ''}
+                <div className="flex justify-between">
+                  <span>Durchmesser:</span>
+                  <span className="font-medium">{productSets[config.productSet].diameterText}</span>
                 </div>
                 
-                {config.diameter > 50 && (
-                  <>
-                    <div className="flex justify-between text-blue-600">
-                      <span>Basismodule (50cm)</span>
-                      <span>4 Module</span>
-                    </div>
-                    <div className="flex justify-between text-blue-600">
-                      <span>Zusätzliche Module ({config.diameter}cm)</span>
-                      <span>+{Math.max(0, (config.diameter - 50) / 50) * 4} Module</span>
-                    </div>
-                  </>
-                )}
+                <div className="flex justify-between">
+                  <span>Module gesamt:</span>
+                  <span className="font-medium">{calculateTotalModules()}</span>
+                </div>
                 
+                <div className="flex justify-between">
+                  <span>Stückzahl:</span>
+                  <span className="font-medium">{config.quantity}</span>
+                </div>
+              </div>
 
+              {/* Live Preview */}
+              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                <h5 className="font-medium mb-3">Live-Vorschau</h5>
+                <div className="bg-white rounded border-2 border-dashed border-gray-300 p-4 text-center">
+                  <div className="text-gray-500 text-sm">
+                    TriCast360 {productSets[config.productSet].name}
+                    <br />
+                    {productSets[config.productSet].diameterText} Durchmesser
+                    <br />
+                    {calculateTotalModules()} Module
+                  </div>
+                </div>
+              </div>
+
+              {/* Price Breakdown */}
+              <div className="mt-6 space-y-2 text-sm">
+                <h5 className="font-medium">Preisaufschlüsselung</h5>
+                
+                <div className="flex justify-between">
+                  <span>TriCast360 {productSets[config.productSet].name}:</span>
+                  <span>{config.reinforcement ? productSets[config.productSet].reinforcedPrice : productSets[config.productSet].standardPrice}€</span>
+                </div>
                 
                 {config.reinforcement && (
-                  <div className="flex justify-between">
-                    <span>Verstärkung</span>
-                    <span>+{199 * config.quantity},00 €</span>
+                  <div className="flex justify-between text-green-600">
+                    <span>Verstärkung:</span>
+                    <span>+199€</span>
+                  </div>
+                )}
+                
+                {config.colorOption && (
+                  <div className="flex justify-between text-green-600">
+                    <span>Farboption:</span>
+                    <span>+49€</span>
                   </div>
                 )}
                 
                 {config.advertisingBoardSize !== 'none' && (
-                  <div className="flex justify-between">
-                    <span>
-                      Werbetafel ({config.advertisingBoardSize === 'small' ? '20x80cm' : '70x70cm'})
-                    </span>
-                    <span>
-                      +{(config.advertisingBoardSize === 'small' ? 39 : 49) * config.quantity},00 €
-                    </span>
+                  <div className="flex justify-between text-green-600">
+                    <span>Werbetafel {productSets[config.advertisingBoardSize as keyof typeof productSets].name}:</span>
+                    <span>+{productSets[config.advertisingBoardSize as keyof typeof productSets].advertisingPrice}€</span>
                   </div>
                 )}
                 
-                <hr className="my-2" />
+                <div className="border-t pt-2 flex justify-between font-bold">
+                  <span>Preis pro Einheit:</span>
+                  <span>{Math.round(calculatePrice() / config.quantity)}€</span>
+                </div>
                 
-                <div className="flex justify-between font-semibold text-lg">
-                  <span>Gesamtpreis</span>
-                  <span>{estimatedPrice.toLocaleString('de-DE')},00 €</span>
+                <div className="flex justify-between font-bold text-lg text-green-600">
+                  <span>Gesamtpreis ({config.quantity}x):</span>
+                  <span>{calculatePrice()}€</span>
                 </div>
                 
                 <div className="text-xs text-gray-500 mt-2">
-                  * Alle Preise zzgl. MwSt. und Versand
+                  *Alle Preise zzgl. MwSt. und Versand
                 </div>
               </div>
             </div>

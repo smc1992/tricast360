@@ -4,16 +4,16 @@ import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 export interface CartItem {
   id: string;
-  productModel: string; // Flexibler für Einstiegspaket und Add-ons
-  diameter: number;
-  modules: number;
-  color?: string; // Optional für Kompatibilität
-  material?: string; // Optional für Kompatibilität
+  productModel: string; // z.B. "TriCast360 S", "TriCast360 M", etc.
+  productSet: 'S' | 'M' | 'L' | 'XL' | '2XL'; // Produktset-Größe
+  diameter: number; // Durchmesser des Sets
+  modules: number; // Anzahl Module
+  colorOption: boolean; // Farboption (+49€)
   quantity: number;
   pricePerUnit: number;
   totalPrice: number;
-  advertisingBoardSize?: 'none' | 'small' | 'large'; // Werbetafel-Größe: keine, 20x80cm, 70x70cm
-  logo?: File | null; // Logo-Datei für Werbetafel
+  advertisingBoardSize: 'none' | 'S' | 'M' | 'L' | 'XL' | '2XL'; // Werbetafel-Größe entsprechend dem Set
+  logo?: string | null; // Logo-Datei für Werbetafel (als string gespeichert)
 }
 
 export interface CouponCode {
@@ -172,7 +172,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addItem = (item: Omit<CartItem, 'id'>) => {
     console.log('CartContext addItem called with:', item);
-    const id = `${item.productModel}-${item.diameter}-${item.modules}`;
+    const id = `${item.productSet}-${item.colorOption ? 'color' : 'standard'}-${item.advertisingBoardSize}-${item.quantity}`;
     const cartItem: CartItem = { ...item, id };
     dispatch({ type: 'ADD_ITEM', payload: cartItem });
     console.log('Dispatch called for ADD_ITEM');

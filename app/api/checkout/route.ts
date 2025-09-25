@@ -15,17 +15,16 @@ interface CheckoutData {
 
 interface CartItem {
   id: string;
-  productModel: string; // Flexibler für Einstiegspaket und Add-ons
-  diameter: number;
-  height: number;
-  modules: number;
-  color?: string;
-  material?: string;
+  productModel: string; // z.B. "TriCast360 S", "TriCast360 M", etc.
+  productSet: 'S' | 'M' | 'L' | 'XL' | '2XL'; // Produktset-Größe
+  diameter: number; // Durchmesser des Sets
+  modules: number; // Anzahl Module
+  colorOption: boolean; // Farboption (+49€)
   quantity: number;
   pricePerUnit: number;
   totalPrice: number;
-  advertisingBoard?: boolean;
-  logo?: File | null;
+  advertisingBoardSize: 'none' | 'S' | 'M' | 'L' | 'XL' | '2XL'; // Werbetafel-Größe entsprechend dem Set
+  logo?: string | null; // Logo-Datei für Werbetafel (als string gespeichert)
 }
 
 interface CouponCode {
@@ -79,7 +78,7 @@ export async function POST(request: Request) {
 
     // Logo-Datei verarbeiten (falls vorhanden)
     let logoFile: Buffer | undefined;
-    const logoItem = body.cartItems.find(item => item.advertisingBoard && item.logo);
+    const logoItem = body.cartItems.find(item => item.advertisingBoardSize !== 'none' && item.logo);
     
     if (logoItem?.logo) {
       try {
@@ -104,7 +103,7 @@ export async function POST(request: Request) {
           name: `${item.productModel} (Ø${item.diameter}cm, ${item.modules} Module)`,
           quantity: item.quantity,
           price: item.totalPrice,
-          advertisingBoard: item.advertisingBoard,
+          advertisingBoard: item.advertisingBoardSize !== 'none',
           logoName: item.logo ? `logo_${orderNumber}.png` : undefined
         })),
         total: body.totalWithVat,

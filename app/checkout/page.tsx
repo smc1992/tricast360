@@ -78,13 +78,15 @@ export default function CheckoutPage() {
             vatId: checkoutData.vatId,
             items: JSON.stringify(state.items.map(item => ({
               productModel: item.productModel,
+              productSet: item.productSet,
               diameter: item.diameter,
               modules: item.modules,
               quantity: item.quantity,
               totalPrice: item.totalPrice,
-              advertisingBoard: item.advertisingBoardSize,
+              colorOption: item.colorOption,
+              advertisingBoardSize: item.advertisingBoardSize,
               hasLogo: item.logo ? true : false,
-              logoName: item.logo?.name || null
+              logoName: typeof item.logo === 'string' ? item.logo : null
             })))
           }
         })
@@ -417,8 +419,14 @@ export default function CheckoutPage() {
                         {item.diameter}cm Durchmesser, {item.modules} Module
                       </p>
                       <p className="text-sm text-gray-600">
-                        {item.color}, {item.material}
+                        Produktset: {item.productSet}
+                        {item.colorOption && ', Farboption (+49€)'}
                       </p>
+                      {item.advertisingBoardSize && item.advertisingBoardSize !== 'none' && (
+                        <p className="text-sm text-blue-600">
+                          Werbetafel {item.advertisingBoardSize}
+                        </p>
+                      )}
                       <p className="text-sm text-gray-600">Menge: {item.quantity}</p>
                     </div>
                     <div className="text-right">
